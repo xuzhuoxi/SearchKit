@@ -42,18 +42,18 @@ public struct CacheInfo {
     /**
      * 缓存实例的Class对象
      */
-    private let cacheClass : AnyClass
+    private let cacheClass : String
     
     /**
      * 哈希表初始容量
      */
     private let initialCapacity : UInt
     
-    public init(cacheName : String, myClass : AnyClass, resourcePath : String?, charsetName : String?, valueType : ValueCodingTypes?, singleton : Bool, initialCapacity : UInt) {
+    public init(cacheName : String, myClass : String, resourcePath : String?, charsetName : String?, valueType : ValueCodingTypes?, singleton : Bool, initialCapacity : UInt) {
         self.init(cacheName: cacheName, myClass: myClass, resourcePath: resourcePath, charsetName: charsetName, valueType: valueType, singleton: singleton, initialCapacity: initialCapacity)
     }
 
-    public init(cacheName : String, myClass : AnyClass, resourcePath : String?, valueType : ValueCodingTypes?, singleton : Bool) {
+    public init(cacheName : String, myClass : String, resourcePath : String?, valueType : ValueCodingTypes?, singleton : Bool) {
         self.init(cacheName: cacheName, myClass: myClass, resourcePath: resourcePath, charsetName: "UTF-8", valueType: valueType, singleton: singleton, initialCapacity: 16)
     }
     
@@ -99,7 +99,7 @@ public struct CacheInfo {
     /**
      * @return 缓存实例的Class对象
      */
-    public func getCacheClass() ->AnyClass {
+    public func getCacheClass() ->String {
         return cacheClass
     }
     

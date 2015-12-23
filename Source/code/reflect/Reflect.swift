@@ -11,7 +11,7 @@ import Foundation
 public class Reflect {
     private init(){}
     
-    public static func toObject(anyClass: AnyClass) ->AnyObject {
-        return []
+    public static func toObject(anyClass: String) ->AnyObject? {
+        return Reflector.createInstance(anyClass)
     }
 }

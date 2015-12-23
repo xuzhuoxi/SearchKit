@@ -26,19 +26,19 @@ public class CacheConfig {
      * 计算方法：缓存数的下一个2的n次幂<br>
      */
     private init(){
-        addConfig(CacheNames.PINYIN_WORD, ChineseCacheImpl.self, "./resource/word_pinyin.properites", "UTF-8", ValueCodingTypes.PINYIN_WORD, true, 32768);
-        addConfig(CacheNames.WUBI_WORD, ChineseCacheImpl.self, "./resource/word_wubi.properites", "UTF-8", ValueCodingTypes.WUBI_WORDS, true, 8192);
-        addConfig(CacheNames.PINYIN_WORDS, ChineseCacheImpl.self, "./resource/words_pinyin.properites", "UTF-8", ValueCodingTypes.PINYIN_WORDS, true, 131072);
-        addConfig(CacheNames.WUBI_WORDS, ChineseCacheImpl.self, "./resource/words_wubi.properites", "UTF-8", ValueCodingTypes.WUBI_WORDS, true, 131072);
-        addConfig(CacheNames.WEIGHT, WeightCacheImpl.self, "./resource/words_weight.properites", "UTF-8", nil, true, 16);
+        addConfig(CacheNames.PINYIN_WORD, "ChineseCacheImpl", "./resource/word_pinyin.properites", "UTF-8", ValueCodingTypes.PINYIN_WORD, true, 32768);
+        addConfig(CacheNames.WUBI_WORD, "ChineseCacheImpl", "./resource/word_wubi.properites", "UTF-8", ValueCodingTypes.WUBI_WORDS, true, 8192);
+        addConfig(CacheNames.PINYIN_WORDS, "ChineseCacheImpl", "./resource/words_pinyin.properites", "UTF-8", ValueCodingTypes.PINYIN_WORDS, true, 131072);
+        addConfig(CacheNames.WUBI_WORDS, "ChineseCacheImpl", "./resource/words_wubi.properites", "UTF-8", ValueCodingTypes.WUBI_WORDS, true, 131072);
+        addConfig(CacheNames.WEIGHT, "WeightCacheImpl", "./resource/words_weight.properites", "UTF-8", nil, true, 16);
     }
     
-    private func addConfig(cacheName : String, _ cacheClass : AnyClass, _ resourcePath : String?, _ charsetName : String?, _ valueType : ValueCodingTypes?, _ singleton : Bool, _ initialCapacity : UInt) {
+    private func addConfig(cacheName : String, _ cacheClass : String, _ resourcePath : String?, _ charsetName : String?, _ valueType : ValueCodingTypes?, _ singleton : Bool, _ initialCapacity : UInt) {
         map[cacheName] = CacheInfo(cacheName: cacheName, myClass: cacheClass, resourcePath: resourcePath, charsetName: charsetName, valueType: valueType, singleton: singleton, initialCapacity: initialCapacity)
     }
     
     
-    public func supplyConfig(cacheName: String, cacheClass: AnyClass, resourcePath: String?, charsetName: String?, valueType: ValueCodingTypes?, singleton: Bool, initialCapacity: UInt) {
+    public func supplyConfig(cacheName: String, cacheClass: String, resourcePath: String?, charsetName: String?, valueType: ValueCodingTypes?, singleton: Bool, initialCapacity: UInt) {
         addConfig(cacheName, cacheClass, resourcePath, charsetName, valueType, singleton, initialCapacity);
     }
     
