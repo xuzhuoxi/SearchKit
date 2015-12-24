@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA50C8271C0ED15200F2D917"
-               BuildableName = "Test"
-               BlueprintName = "Test"
+               BlueprintIdentifier = "AAB45B9E1C2C1FCD006051B6"
+               BuildableName = "ChineseSearch tvOS.framework"
+               BlueprintName = "ChineseSearch tvOS"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,13 +28,23 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AAB45BA71C2C1FCD006051B6"
+               BuildableName = "ChineseSearch tvOSTests.xctest"
+               BlueprintName = "ChineseSearch tvOSTests"
+               ReferencedContainer = "container:ChineseSearch.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA50C8271C0ED15200F2D917"
-            BuildableName = "Test"
-            BlueprintName = "Test"
+            BlueprintIdentifier = "AAB45B9E1C2C1FCD006051B6"
+            BuildableName = "ChineseSearch tvOS.framework"
+            BlueprintName = "ChineseSearch tvOS"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA50C8271C0ED15200F2D917"
-            BuildableName = "Test"
-            BlueprintName = "Test"
+            BlueprintIdentifier = "AAB45B9E1C2C1FCD006051B6"
+            BuildableName = "ChineseSearch tvOS.framework"
+            BlueprintName = "ChineseSearch tvOS"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA50C8271C0ED15200F2D917"
-            BuildableName = "Test"
-            BlueprintName = "Test"
+            BlueprintIdentifier = "AAB45B9E1C2C1FCD006051B6"
+            BuildableName = "ChineseSearch tvOS.framework"
+            BlueprintName = "ChineseSearch tvOS"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

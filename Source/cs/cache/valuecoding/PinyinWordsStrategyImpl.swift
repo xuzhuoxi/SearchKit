@@ -43,7 +43,7 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
         for c in value.characters {
             if c != space {
                 if add || first || danshengmu.contains(c) {
-                    sb.append(char)
+                    sb.append(c)
                     add = false
                 }
             }else{

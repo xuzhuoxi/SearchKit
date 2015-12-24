@@ -1,15 +1,15 @@
 //
-//  ChineseSearch_frameworkTests.swift
-//  ChineseSearch.frameworkTests
+//  ChineseSearch_iOSTests.swift
+//  ChineseSearch iOSTests
 //
-//  Created by 许灼溪 on 15/12/14.
+//  Created by 许灼溪 on 15/12/24.
 //
 //
 
 import XCTest
-@testable import ChineseSearch_framework
+@testable import ChineseSearch_iOS
 
-class ChineseSearch_frameworkTests: XCTestCase {
+class ChineseSearch_iOSTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

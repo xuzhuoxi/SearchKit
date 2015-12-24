@@ -10,6 +10,13 @@ import Foundation
 
 public class Regex {
     public static func match(source: String, _ regex: String) ->Bool {
-        return false
+        do {
+            if let _ = try source.matches(regex) {
+                return true
+            }
+        }catch{
+            return false;
+        }
+        return false;
     }
 }

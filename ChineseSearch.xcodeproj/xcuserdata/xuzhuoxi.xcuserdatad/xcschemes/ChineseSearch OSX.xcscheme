@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAEFF40F1C1EA79C00DD4DB5"
-               BuildableName = "ChineseSearch.framework.framework"
-               BlueprintName = "ChineseSearch.framework"
+               BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
+               BuildableName = "ChineseSearch OSX.framework"
+               BlueprintName = "ChineseSearch OSX"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAEFF4181C1EA79D00DD4DB5"
-               BuildableName = "ChineseSearch.frameworkTests.xctest"
-               BlueprintName = "ChineseSearch.frameworkTests"
+               BlueprintIdentifier = "AAB45B8B1C2C1FB1006051B6"
+               BuildableName = "ChineseSearch OSXTests.xctest"
+               BlueprintName = "ChineseSearch OSXTests"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAEFF40F1C1EA79C00DD4DB5"
-            BuildableName = "ChineseSearch.framework.framework"
-            BlueprintName = "ChineseSearch.framework"
+            BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
+            BuildableName = "ChineseSearch OSX.framework"
+            BlueprintName = "ChineseSearch OSX"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAEFF40F1C1EA79C00DD4DB5"
-            BuildableName = "ChineseSearch.framework.framework"
-            BlueprintName = "ChineseSearch.framework"
+            BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
+            BuildableName = "ChineseSearch OSX.framework"
+            BlueprintName = "ChineseSearch OSX"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAEFF40F1C1EA79C00DD4DB5"
-            BuildableName = "ChineseSearch.framework.framework"
-            BlueprintName = "ChineseSearch.framework"
+            BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
+            BuildableName = "ChineseSearch OSX.framework"
+            BlueprintName = "ChineseSearch OSX"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
