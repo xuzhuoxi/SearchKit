@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double ChineseSearchVersionNumber;
 FOUNDATION_EXPORT const unsigned char ChineseSearchVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ChineseSearch_tvOS/PublicHeader.h>
-
-#import "SRClassBuilder.h"
