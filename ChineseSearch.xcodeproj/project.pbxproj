@@ -419,6 +419,7 @@
 		AA590F691C3543DC00B39270 /* PinyinCodingImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinyinCodingImplTest.swift; sourceTree = "<group>"; };
 		AA590F6D1C35479600B39270 /* WubiCodingImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WubiCodingImplTest.swift; sourceTree = "<group>"; };
 		AA5ACC041C2A9E3900DD012A /* SimplePattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePattern.swift; sourceTree = "<group>"; };
+		AA6819381C3554EB00B3DE71 /* Readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
 		AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB45B691C2C1F7C006051B6 /* ChineseSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseSearch.h; sourceTree = "<group>"; };
 		AAB45B6B1C2C1F7C006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -589,6 +590,7 @@
 		AA0A7C0A1C328C5300485B60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA6819381C3554EB00B3DE71 /* Readme */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
