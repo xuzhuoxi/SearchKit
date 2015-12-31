@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ChineseSearch_OSX
+@testable import ChineseSearch
 
 class ChineseSearch_OSXTests: XCTestCase {
     

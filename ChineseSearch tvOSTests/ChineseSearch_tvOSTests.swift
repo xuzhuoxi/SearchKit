@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ChineseSearch_tvOS
+@testable import ChineseSearch
 
 class ChineseSearch_tvOSTests: XCTestCase {
     

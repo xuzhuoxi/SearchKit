@@ -15,7 +15,6 @@ import Foundation
  *
  */
 public protocol CacheProtocol : class {
-    
     /**
      * 取得当前实例在实例化期间被赋予的名字
      *
@@ -38,5 +37,12 @@ public protocol CacheProtocol : class {
      * @return 缓存Key数
      */
     func getKeysSize() ->Int
+    
+    /**
+     * 创建新实例
+     *
+     * @return 新实例
+     */
+    static func newInstance() ->CacheProtocol?
 }
 

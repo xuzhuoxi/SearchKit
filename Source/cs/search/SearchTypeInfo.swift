@@ -26,9 +26,9 @@ public class SearchTypeInfo {
     /**
      * 输入处理类型
      */
-    private var valueType:ValueCodingTypes
+    private var valueType:ValueCodingType
     
-    public init (_ searchType:SearchTypes, _ cacheName:String, _ valueType:ValueCodingTypes){
+    public init (_ searchType:SearchTypes, _ cacheName:String, _ valueType:ValueCodingType){
         self.searchType=searchType;
         self.cacheName=cacheName;
         self.valueType=valueType;
@@ -51,7 +51,7 @@ public class SearchTypeInfo {
     /**
      * @return 输入处理类型
      */
-    public final func getValueType() ->ValueCodingTypes {
+    public final func getValueType() ->ValueCodingType {
         return valueType
     }
 }

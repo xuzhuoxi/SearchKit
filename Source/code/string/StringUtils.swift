@@ -9,6 +9,7 @@
 import Foundation
 
 public class StringUtils {
+    private init(){}
     /**
     * 如果源字符串中有相同的字符，则去掉后面的<br>
     *
@@ -99,7 +100,7 @@ public class StringUtils {
         if factorialLevel <= 0 {
             return nil
         }
-        let newSource = source.explode(Character(""))
+        let newSource = source.explode()
         return StringCombination.getDimensionCombinationArray(newSource, dimensionValue: factorialLevel);
     }
 }

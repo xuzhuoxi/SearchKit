@@ -19,10 +19,10 @@ public class SearchConfig {
     
     private static func initConfig() ->Dictionary<SearchTypes,SearchTypeInfo> {
         var rs: Dictionary<SearchTypes,SearchTypeInfo> = Dictionary<SearchTypes,SearchTypeInfo>()
-        addConfig(&rs,SearchTypes.PINYIN_WORD, CacheNames.PINYIN_WORD, ValueCodingTypes.PINYIN_WORD);
-        addConfig(&rs,SearchTypes.PINYIN_WORDS, CacheNames.PINYIN_WORDS, ValueCodingTypes.PINYIN_WORDS);
-        addConfig(&rs,SearchTypes.WUBI_WORD, CacheNames.WUBI_WORD, ValueCodingTypes.WUBI_WORDS);
-        addConfig(&rs,SearchTypes.WUBI_WORDS, CacheNames.WUBI_WORDS, ValueCodingTypes.WUBI_WORDS);
+        addConfig(&rs,SearchTypes.PINYIN_WORD, CacheNames.PINYIN_WORD, ValueCodingType.PINYIN_WORD);
+        addConfig(&rs,SearchTypes.PINYIN_WORDS, CacheNames.PINYIN_WORDS, ValueCodingType.PINYIN_WORDS);
+        addConfig(&rs,SearchTypes.WUBI_WORD, CacheNames.WUBI_WORD, ValueCodingType.WUBI_WORDS);
+        addConfig(&rs,SearchTypes.WUBI_WORDS, CacheNames.WUBI_WORDS, ValueCodingType.WUBI_WORDS);
         return rs
     }
     
@@ -37,7 +37,7 @@ public class SearchConfig {
     * @param maxResultCount
     *            最大返回量
     */
-    private static func addConfig(inout map: Dictionary<SearchTypes,SearchTypeInfo>, _ searchType:SearchTypes, _ cacheName:String, _ valueType:ValueCodingTypes) {
+    private static func addConfig(inout map: Dictionary<SearchTypes,SearchTypeInfo>, _ searchType:SearchTypes, _ cacheName:String, _ valueType:ValueCodingType) {
         if map.has(searchType) {
             return
         }

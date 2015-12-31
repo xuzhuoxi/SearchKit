@@ -21,7 +21,7 @@ public class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
     
     init(){}
     
-    public func initCache(cacheName: String, _ valueCodingType: ValueCodingTypes?, _ initialCapacity: UInt) {
+    public func initCache(cacheName: String, _ valueCodingType: ValueCodingType?, _ initialCapacity: UInt) {
         self.cacheName = cacheName
         self.key2values = Dictionary<String, KeyValues>(minimumCapacity: Int(initialCapacity))
         self.strategy = nil == valueCodingType ? nil : ValueCodingStrategyFactory.getValueCodingStrategy(valueCodingType!)
@@ -113,7 +113,11 @@ public class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
         return cacheName + "\n" + String(chineseMap);
     }
     
-    public static func createChineseCache(cacheName: String, resource: Resource, valueCodingType: ValueCodingTypes) ->ChineseCacheProtocol {
+    public class func newInstance() -> CacheProtocol? {
+        return nil
+    }
+    
+    public static func createChineseCache(cacheName: String, resource: Resource, valueCodingType: ValueCodingType) ->ChineseCacheProtocol {
         let rs = ChineseCacheImpl()
         rs.initCache(cacheName, valueCodingType, UInt(resource.size()))
         rs.supplyResource(resource)

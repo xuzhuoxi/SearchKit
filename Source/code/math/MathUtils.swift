@@ -26,13 +26,13 @@ public class MathUtils {
      *            选择个数
      * @return 组合个数
      */
-    public static func getCombinationCount(m:Int,n:Int) ->Int{
-        var getLen = 0
-        var fenzi = m
-        var fenmu = 1
+    public static func getCombinationCount(m:Int, _ n:Int) ->Int{
+        var getLen: Int = 0
+        var fenzi: Int = m
+        var fenmu: Int = 1
         for i in 1..<n {
             let temp = m
-            fenzi = fenmu * (temp - i)
+            fenzi = fenzi * (temp - i)
             let demp = 1
             fenmu = fenmu * (demp + i)
         }
@@ -49,7 +49,7 @@ public class MathUtils {
      *            不确定进制数组
      * @return 由十进制数据组成的数组
      */
-    public static func tenToCustomSystem(value:Int,system:[Int]) ->[Int] {
+    public static func tenToCustomSystem(value:Int, _ system:[Int]) ->[Int] {
         var rs = Array<Int>(count : system.count, repeatedValue : 0)
         var temp = value
         for i in 0..<system.count {
@@ -107,17 +107,17 @@ public class MathUtils {
      * @param y
      * @return x < y
      */
-    public static func compareNumber(x:Double, y:Double) ->Bool {
-        return x > y
+    public static func compareNumber(x:Double, _ y:Double) ->Bool {
+        return x < y
     }
     
     private static func intArrayComparable(o1:Array<Int>, o2:Array<Int>) ->Bool {
         if o1.count != o2.count {
-            return compareNumber(Double(o1.count), y: Double(o2.count))
+            return compareNumber(Double(o1.count), Double(o2.count))
         }else{
             for i in 0..<o1.count {
                 if o1[i] != o2[i] {
-                    return compareNumber(Double(o1[i]), y: Double(o2[i]))
+                    return compareNumber(Double(o1[i]), Double(o2[i]))
                 }
             }
             return false

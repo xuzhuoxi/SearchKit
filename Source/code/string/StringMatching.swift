@@ -9,6 +9,8 @@
 import Foundation
 
 public class StringMatching {
+    private init(){}
+    
     /**
     * 把expression按字母分布到source中，返回分布后命中的索引 当source用完时expression还有剩余则返回null<br>
     * 如：<br>

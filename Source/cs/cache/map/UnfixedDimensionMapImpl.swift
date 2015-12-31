@@ -28,19 +28,22 @@ public class UnfixedDimensionMapImpl : DimensionMapBase, DimensionMapProtocol{
         let dKey = dimensionKey!
         let dKeyLen = dKey.characters.count
         let dValue = dKeyLen - valueList.count;
-        if dValue>0 {
+        if dValue > 0 {
             for _ in 0..<dValue {
                 valueList.append(Dictionary<String,Set<String>>())
             }
         }
-        var map = valueList[dKeyLen-1]
-        if nil == map[dKey]{
-            map[dKey] = []
+        if !valueList[dKeyLen-1].has(dKey) {
+            valueList[dKeyLen-1][dKey] = []
         }
-        map[dKey]?.insert(dimensionValue)
+        valueList[dKeyLen-1][dKey]!.insert(dimensionValue)
     }
 
     public func get(dimensionKey: String) -> Set<String>? {
         return getKeyList(dimensionKey)
+    }
+    
+    public func getDimensionInfo() -> (Int, Int, Int) {
+        return computeDimensionInfo()
     }
 }

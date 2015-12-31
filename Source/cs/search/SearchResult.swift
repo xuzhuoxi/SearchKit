@@ -54,8 +54,9 @@ public class SearchResult {
     */
     public final func chineseRegexpMatchingClear(regexp:String) {
         var remove: [String] = []
+        let sPattern: SimplePattern = SimplePattern(regexp)
         for key in keyResultMap.keys {
-            if !Regex.match(key, regexp) {
+            if !sPattern.isMatch(key) {
                 remove.append(key)
             }
         }

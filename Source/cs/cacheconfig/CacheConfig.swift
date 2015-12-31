@@ -16,7 +16,7 @@ import Foundation
 public class CacheConfig {
     public static let instance: CacheConfig = CacheConfig()
     
-    private var map : Dictionary<String, CacheInfo> = Dictionary<String, CacheInfo>()
+    private var map = Dictionary<String, CacheInfo>()
     
     
     /**
@@ -26,20 +26,19 @@ public class CacheConfig {
      * 计算方法：缓存数的下一个2的n次幂<br>
      */
     private init(){
-        addConfig(CacheNames.PINYIN_WORD, "ChineseCacheImpl", "./resource/word_pinyin.properites", "UTF-8", ValueCodingTypes.PINYIN_WORD, true, 32768);
-        addConfig(CacheNames.WUBI_WORD, "ChineseCacheImpl", "./resource/word_wubi.properites", "UTF-8", ValueCodingTypes.WUBI_WORDS, true, 8192);
-        addConfig(CacheNames.PINYIN_WORDS, "ChineseCacheImpl", "./resource/words_pinyin.properites", "UTF-8", ValueCodingTypes.PINYIN_WORDS, true, 131072);
-        addConfig(CacheNames.WUBI_WORDS, "ChineseCacheImpl", "./resource/words_wubi.properites", "UTF-8", ValueCodingTypes.WUBI_WORDS, true, 131072);
-        addConfig(CacheNames.WEIGHT, "WeightCacheImpl", "./resource/words_weight.properites", "UTF-8", nil, true, 16);
+        addConfig(CacheNames.PINYIN_WORD, "ChineseSearch.ChineseCacheImpl", true, 32768, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/word_pinyin.properites", "UTF-8", ValueCodingType.PINYIN_WORD)
+        addConfig(CacheNames.WUBI_WORD, "ChineseSearch.ChineseCacheImpl", true, 8192, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/word_wubi.properites", "UTF-8", ValueCodingType.WUBI_WORDS)
+        addConfig(CacheNames.PINYIN_WORDS, "ChineseSearch.ChineseCacheImpl", true, 131072, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/words_pinyin.properites", "UTF-8", ValueCodingType.PINYIN_WORDS)
+        addConfig(CacheNames.WUBI_WORDS, "ChineseSearch.ChineseCacheImpl", true, 131072, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/words_wubi.properites", "UTF-8", ValueCodingType.WUBI_WORDS)
+        addConfig(CacheNames.WEIGHT, "ChineseSearch.WeightCacheImpl", true, 16, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/words_weight.properites", "UTF-8", nil)
     }
     
-    private func addConfig(cacheName : String, _ cacheClass : String, _ resourcePath : String?, _ charsetName : String?, _ valueType : ValueCodingTypes?, _ singleton : Bool, _ initialCapacity : UInt) {
-        map[cacheName] = CacheInfo(cacheName: cacheName, myClass: cacheClass, resourcePath: resourcePath, charsetName: charsetName, valueType: valueType, singleton: singleton, initialCapacity: initialCapacity)
+    private func addConfig(cacheName: String, _ reflectClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourcePath: String?, _ charsetName: String?, _ valueType: ValueCodingType?) {
+        map[cacheName] = CacheInfo(cacheName, reflectClassName, isSingleton, initialCapacity, resourcePath, charsetName, valueType)
     }
     
-    
-    public func supplyConfig(cacheName: String, cacheClass: String, resourcePath: String?, charsetName: String?, valueType: ValueCodingTypes?, singleton: Bool, initialCapacity: UInt) {
-        addConfig(cacheName, cacheClass, resourcePath, charsetName, valueType, singleton, initialCapacity);
+    public func supplyConfig(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourcePath: String?, charsetName: String?, valueType: ValueCodingType?) {
+        addConfig(cacheName, reflectClassName, isSingleton, initialCapacity, resourcePath, charsetName, valueType)
     }
     
     public func getCacheInfo(cacheName : String) ->CacheInfo? {
@@ -47,6 +46,6 @@ public class CacheConfig {
     }
     
     public func getCacheInfos() ->[CacheInfo] {
-        return Array<CacheInfo>(map.values)
+        return [CacheInfo](map.values)
     }
 }

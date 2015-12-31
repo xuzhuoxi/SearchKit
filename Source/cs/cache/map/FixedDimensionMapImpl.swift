@@ -28,12 +28,11 @@ public class FixedDimensionMapImpl : DimensionMapBase , DimensionMapProtocol {
     
     private func initData() {
         var dimensionKeylist : Array<String>?;
-        for _ in 0 ..< dimension {
+        for index in 0 ..< dimension {
             dimensionKeylist = addDimmension(dimensionKeylist)
-            var map : Dictionary<String,Set<String>> = Dictionary<String,Set<String>>(minimumCapacity: 8192)
-            valueList.append(map)
+            valueList.append(Dictionary<String,Set<String>>(minimumCapacity: 8192))
             for dk in dimensionKeylist! {
-                map.updateValue([], forKey: dk)
+                valueList[index][dk] = []
             }
         }
     }
@@ -43,16 +42,18 @@ public class FixedDimensionMapImpl : DimensionMapBase , DimensionMapProtocol {
     }
     
     public func add(dimensionKey: String?, dimensionValue: String) {
-        if let dsKey = dimensionKey {
-            if let list = getKeyList(dsKey) {
-                var aList = list
-                aList.insert(dimensionValue)
-            }
+        if nil == dimensionKey || dimensionKey!.isEmpty || dimensionKey!.length > valueList.count {
+            return
         }
+        valueList[dimensionKey!.length-1][dimensionKey!]?.insert(dimensionValue)
     }
     
     public func get(dimensionKey: String) -> Set<String>? {
         return getKeyList(dimensionKey)
+    }
+    
+    public func getDimensionInfo() -> (Int, Int, Int) {
+        return computeDimensionInfo()
     }
     
     private func addDimmension(dimesionKeylist : Array<String>?) -> Array<String> {

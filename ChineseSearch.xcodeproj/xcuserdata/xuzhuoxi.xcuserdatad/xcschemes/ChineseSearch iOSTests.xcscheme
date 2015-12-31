@@ -8,15 +8,15 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAB45AEC1C2C0D8C006051B6"
-               BuildableName = "iOS.framework"
-               BlueprintName = "iOS"
+               BlueprintIdentifier = "AAB45B6F1C2C1F7C006051B6"
+               BuildableName = "ChineseSearch iOSTests.xctest"
+               BlueprintName = "ChineseSearch iOSTests"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAB45AF51C2C0D8C006051B6"
-               BuildableName = "iOSTests.xctest"
-               BlueprintName = "iOSTests"
+               BlueprintIdentifier = "AAB45B6F1C2C1F7C006051B6"
+               BuildableName = "ChineseSearch iOSTests.xctest"
+               BlueprintName = "ChineseSearch iOSTests"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAB45AEC1C2C0D8C006051B6"
-            BuildableName = "iOS.framework"
-            BlueprintName = "iOS"
+            BlueprintIdentifier = "AAB45B6F1C2C1F7C006051B6"
+            BuildableName = "ChineseSearch iOSTests.xctest"
+            BlueprintName = "ChineseSearch iOSTests"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +61,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAB45AEC1C2C0D8C006051B6"
-            BuildableName = "iOS.framework"
-            BlueprintName = "iOS"
-            ReferencedContainer = "container:ChineseSearch.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +70,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAB45AEC1C2C0D8C006051B6"
-            BuildableName = "iOS.framework"
-            BlueprintName = "iOS"
-            ReferencedContainer = "container:ChineseSearch.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

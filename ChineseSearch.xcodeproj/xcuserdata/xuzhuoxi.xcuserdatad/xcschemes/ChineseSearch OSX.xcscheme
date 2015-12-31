@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
-               BuildableName = "ChineseSearch OSX.framework"
+               BuildableName = "ChineseSearch.framework"
                BlueprintName = "ChineseSearch OSX"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
-            BuildableName = "ChineseSearch OSX.framework"
+            BuildableName = "ChineseSearch.framework"
             BlueprintName = "ChineseSearch OSX"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
-            BuildableName = "ChineseSearch OSX.framework"
+            BuildableName = "ChineseSearch.framework"
             BlueprintName = "ChineseSearch OSX"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AAB45B821C2C1FB1006051B6"
-            BuildableName = "ChineseSearch OSX.framework"
+            BuildableName = "ChineseSearch.framework"
             BlueprintName = "ChineseSearch OSX"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>

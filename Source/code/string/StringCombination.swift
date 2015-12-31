@@ -9,6 +9,8 @@
 import Foundation
 
 public class StringCombination {
+    private init(){}
+    
     /**
     * 使用字符串数组进行组合<br>
     * 组合过程是按顺序的，即不会出现source[1]+source[0]这重情况<br>
@@ -77,7 +79,7 @@ public class StringCombination {
     * @return 二维数组，第一个数组为只有1个source元素的字符串数组，第二个为2个source元素，如止类推<br>
     */
     private static func dimension(source : [String], _ dimensionValue : Int, _ isRepeat : Bool = false) ->[[String]]? {
-        let newDimension = max(source.count, dimensionValue)
+        let newDimension = min(source.count, dimensionValue)
         if newDimension < 1 {
             return nil
         }

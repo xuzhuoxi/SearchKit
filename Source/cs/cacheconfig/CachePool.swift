@@ -24,8 +24,8 @@ public class CachePool {
     public final func initSingletonCaches() {
         let c = CacheConfig.instance.getCacheInfos()
         for ci in c {
-            if ci.isSingleton() {
-                getCache(ci.getCacheName())
+            if ci.isSingleton {
+                getCache(ci.cacheName)
             }
         }
     }
@@ -39,7 +39,7 @@ public class CachePool {
     */
     public final func getCache(cacheName: String) ->CacheProtocol? {
         if let ci = CacheConfig.instance.getCacheInfo(cacheName) {
-            if ci.isSingleton() {
+            if ci.isSingleton {
                 let rs: CacheProtocol
                 if cachePool.has(cacheName) {
                     rs = cachePool[cacheName]!
@@ -57,11 +57,11 @@ public class CachePool {
     }
     
     private final func createInstance(ci: CacheInfo) ->CacheProtocol {
-        let rs : CacheProtocol = Reflect.toObject(ci.getCacheClass()) as! CacheProtocol
+        let rs: CacheProtocol = ci.reflectClass!.newInstance()!
         if ci.isNeedResource && rs is CacheInitProtocol {
             let initProtocol = rs as! CacheInitProtocol
-            initProtocol.initCache(ci.getCacheName(), ci.getValueType()! ,ci.getInitialCapacity())
-            let pathsInfo = ci.getResourcePath()!
+            initProtocol.initCache(ci.cacheName, ci.valueCodingType, ci.initialCapacity)
+            let pathsInfo = ci.resourcePath!
             let paths: [String]
             let char = Character(";")
             if pathsInfo.characters.contains(char) {

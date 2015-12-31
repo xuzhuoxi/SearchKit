@@ -97,7 +97,7 @@ public class Resource {
         if data.isEmpty {
             return nil
         }
-        let rs = Resource(path : toNativePath(data))
+        let rs = Resource(path : toFullPath(data))
         saveData(rs, dataString: data)
         return rs
     }
@@ -115,8 +115,8 @@ public class Resource {
     }
     
     private static func loadFile(filePath:String) ->Resource? {
+        let nPath = toFullPath(filePath)
         let fileManager = NSFileManager.defaultManager()
-        let nPath = toNativePath(filePath)
         if fileManager.fileExistsAtPath(nPath) {
             do {
                 let content = try NSString(contentsOfFile: nPath, encoding: NSUTF8StringEncoding)
@@ -129,28 +129,41 @@ public class Resource {
         }else{
             return nil
         }
+//        let rs = Resource(path: nPath)
+//        let tfr = TextFileReader(path: filePath)
+//        while var line = tfr.nextLine() {
+//            saveLine(rs, lineString: &line)
+//        }
+//        return rs
     }
     
     private static func saveData(rs:Resource, dataString:String) {
         let dataArray =  dataString.componentsSeparatedByString("\n")
-        for str in dataArray {
-            if str.trimmed().isEmpty {
-                continue
-            }
-            if let index = str.characters.indexOf("=") {
-                let key = str.substringToIndex(index).trimmed()
-                if  key.isEmpty {
-                    continue
-                }
-                let  value = str.substringFromIndex(index.advancedBy(1)).trimmed()
-                rs.keyList.append(key)
-                rs.valueList.append(value)
-            }
+        for var str in dataArray {
+            saveLine(rs, lineString: &str)
         }
     }
     
-    private static func toNativePath(path :String)->String {
-        return  NSHomeDirectory()+path;
+    private static func saveLine(rs: Resource, inout lineString: String) {
+        if lineString.isEmpty || lineString.trimmed().isEmpty {
+            return
+        }
+        if let index = lineString.characters.indexOf("=") {
+            let key = lineString.substringToIndex(index).trimmed()
+            if  key.isEmpty {
+                return
+            }
+            let value = lineString.substringFromIndex(index.advancedBy(1)).trimmed()
+            if value.isEmpty {
+                return
+            }
+            rs.keyList.append(key)
+            rs.valueList.append(value)
+        }
+
     }
     
+    private static func toFullPath(path :String)->String {
+        return path;
+    }
 }

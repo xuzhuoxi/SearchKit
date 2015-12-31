@@ -24,7 +24,7 @@ public protocol CacheInitProtocol : class {
      * @param initialCapacity
      *            初始化容器{@link CacheInfo#getInitialCapacity()}
      */
-    func initCache(cacheName:String, _ valueCodingType : ValueCodingTypes?, _ initialCapacity : UInt)
+    func initCache(cacheName:String, _ valueCodingType : ValueCodingType?, _ initialCapacity : UInt)
     
     /**
      * 缓存数据<br>

@@ -104,7 +104,7 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
             for i in 0 ..< maxValue {
                 sb.removeAll(keepCapacity: true)
                 sb.appendContentsOf(filteredInput)
-                let temp = MathUtils.tenToCustomSystem(i, system: system)
+                let temp = MathUtils.tenToCustomSystem(i, system)
                 for var j = indexs.count - 1; j>=0; --j {
                     let sourceIndex = indexs[j]
                     let valueIndex = temp[j]
@@ -142,12 +142,13 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
             return [simplifyValue]
         }
         let maxDimension = 2
-        let source = simplifyValue.explode(Character(""))
+
+        let source = simplifyValue.explode()
         let subSource : [String] = source[1..<source.count]
-        let subRs = StringCombination.getDimensionCombinationArray(subSource, dimensionValue: maxDimension - 1)!
-        var rs : [String] = [String](count: subRs.count, repeatedValue: "")
+        let subRs = StringCombination.getDimensionCombinationArray(subSource, dimensionValue: maxDimension - 1, isRepeat: false)!
+        var rs : [String] = [String](count: subRs.count+1, repeatedValue: "")
         rs[0] = source[0]
-        for i in 1..<rs.count {
+        for i in 1 ..< rs.count {
             rs[i] = rs[0] + subRs[i-1]
         }
         return rs

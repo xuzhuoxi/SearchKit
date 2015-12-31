@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+extension String {
+    public func explode() -> [String] {
+        var rs:[String] = []
+        for str in self.characters {
+            rs.append(String(str))
+        }
+        return rs
+    }
+}

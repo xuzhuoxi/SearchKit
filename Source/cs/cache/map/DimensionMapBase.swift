@@ -39,6 +39,18 @@ public class DimensionMapBase {
         return valueList[dKeyLen-1][dimensionKey]
     }
     
+    final func computeDimensionInfo() ->(Int, Int, Int) {
+        var kc = 0
+        var vc = 0
+        for d in valueList {
+            kc += d.count
+            for v in d.values {
+                vc += v.count
+            }
+        }
+        return (valueList.count, kc,vc)
+    }
+    
     public static func createDimensionMap(charSet : [Character], dimension : Int) -> DimensionMapProtocol? {
         return FixedDimensionMapImpl(charList : charSet, dimension: dimension)
     }

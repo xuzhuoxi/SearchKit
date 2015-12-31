@@ -13,25 +13,28 @@ public struct SimplePattern {
     
     public init(_ pattern : String) {
         do{
-            regex = try NSRegularExpression(pattern: pattern, options: .AnchorsMatchLines)
+            let rawValue = NSRegularExpressionOptions.AnchorsMatchLines.rawValue | NSRegularExpressionOptions.DotMatchesLineSeparators.rawValue
+            regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions(rawValue: rawValue))
         }catch{
             regex = nil
         }
     }
     
-    func match(input: String) -> Bool {
+    public func isMatch(input: String) -> Bool {
+        return match(input).count > 0
+    }
+    
+    public func getMatchCount(input: String) ->Int {
+        return match(input).count
+    }
+    
+    public func match(input: String) ->[NSTextCheckingResult] {
         if nil == regex {
-            return false
+            return []
         }else{
-            let range = NSMakeRange(0, input.length)
-            print("a")
-            regex!.firstMatchInString(input, options: .ReportCompletion, range: range)
-            print("b")
-            if let _ = regex!.firstMatchInString(input, options: .ReportCompletion, range: NSMakeRange(0, input.length)){
-                return true
-            }
-            return false
-//            return regex!.numberOfMatchesInString(input, options: .ReportCompletion, range: NSMakeRange(0, input.length)) > 0
+            let range = NSMakeRange(0, input.characters.count)
+            let rs: [NSTextCheckingResult] = regex!.matchesInString(input, options: .ReportProgress, range: range)
+            return rs
         }
     }
 }

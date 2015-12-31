@@ -23,7 +23,7 @@ public class WeightCache : WeightCacheProtocol, CacheInitProtocol {
     var cacheName: String!
     var key2weight: Dictionary<String, KeyWeight>!
     
-    public func initCache(cacheName: String, _ valueCodingType: ValueCodingTypes?, _ initialCapacity: UInt) {
+    public func initCache(cacheName: String, _ valueCodingType: ValueCodingType?, _ initialCapacity: UInt) {
         self.cacheName = cacheName
         self.key2weight = Dictionary<String, KeyWeight>(minimumCapacity: Int(initialCapacity))
     }
@@ -74,7 +74,7 @@ public class WeightCache : WeightCacheProtocol, CacheInitProtocol {
     }
     
     public final func getKeysSize() ->Int {
-        return key2weight!.count
+        return nil == key2weight ? 0 : key2weight!.count
     }
     
     public final func getValues(key: String) ->Double {
@@ -86,6 +86,10 @@ public class WeightCache : WeightCacheProtocol, CacheInitProtocol {
     
     public func toString() ->String {
         return cacheName! + "\n" + String(key2weight)
+    }
+    
+    public class func newInstance() -> CacheProtocol? {
+        return nil
     }
     
     public static func createWeightCache(cacheName: String, resource: Resource) ->WeightCacheProtocol {

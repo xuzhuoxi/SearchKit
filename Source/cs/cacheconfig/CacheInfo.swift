@@ -14,106 +14,67 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public struct CacheInfo {
+public class CacheInfo {
     /**
      * cache名称
      */
-    private let cacheName : String
+    public let cacheName : String
     
     /**
-     * 缓存初始化时使用资源的路径 多个资源可使用""相隔
+     * 缓存实例的Class对象
      */
-    private let resourcePath : String?
-    /**
-     * 字符文件编码类型，如UTF-8等
-     */
-    private let charsetName : String?
-    /**
-     * 资源的值处理类型
-     */
-    private let valueType : ValueCodingTypes?
+    public let reflectClassName : String
+    
     /**
      * 是否为单例<br>
      * 是：实例化后加入到缓存池中。{@link CachePool}<br>
      * 否：实例化后不加入到缓存池中。<br>
      */
-    private let singleton : Bool
-    
-    /**
-     * 缓存实例的Class对象
-     */
-    private let cacheClass : String
+    public let isSingleton : Bool
     
     /**
      * 哈希表初始容量
      */
-    private let initialCapacity : UInt
-    
-    public init(cacheName : String, myClass : String, resourcePath : String?, charsetName : String?, valueType : ValueCodingTypes?, singleton : Bool, initialCapacity : UInt) {
-        self.init(cacheName: cacheName, myClass: myClass, resourcePath: resourcePath, charsetName: charsetName, valueType: valueType, singleton: singleton, initialCapacity: initialCapacity)
-    }
-
-    public init(cacheName : String, myClass : String, resourcePath : String?, valueType : ValueCodingTypes?, singleton : Bool) {
-        self.init(cacheName: cacheName, myClass: myClass, resourcePath: resourcePath, charsetName: "UTF-8", valueType: valueType, singleton: singleton, initialCapacity: 16)
-    }
+    public let initialCapacity : UInt
     
     /**
-     * @return cache名称
+     * 缓存初始化时使用资源的路径 多个资源可使用""相隔
      */
-    public func getCacheName() ->String{
-        return cacheName
-    }
-    
+    public let resourcePath : String?
     /**
-     * @return 缓存初始化时使用资源的路径<br>
-     *         多个资源可使用""相隔
+     * 字符文件编码类型，如UTF-8等
      */
-    public func getResourcePath() ->String? {
-        return resourcePath
-    }
-    
+    public let charsetName : String?
     /**
-     * @return 字符文件编码类型，如UTF-8等<br>
-     *         默认为UTF-8<br>
+     * 资源的值处理类型
      */
-    public func getCharsetName() ->String? {
-        return charsetName
-    }
-    
-    /**
-     * @return 资源的值处理类型
-     */
-    public func getValueType() ->ValueCodingTypes? {
-        return valueType
-    }
-    
-    /**
-     * @return 是否为单例<br>
-     *         是：实例化后加入到缓存池中。{@link CachePool}<br>
-     *         否：实例化后不加入到缓存池中。<br>
-     */
-    public func isSingleton() ->Bool {
-        return singleton
-    }
-    
-    /**
-     * @return 缓存实例的Class对象
-     */
-    public func getCacheClass() ->String {
-        return cacheClass
-    }
-    
-    /**
-     * @return 哈希表初始容量
-     */
-    public func getInitialCapacity() ->UInt {
-        return initialCapacity
-    }
+    public let valueCodingType : ValueCodingType?
     
     /**
      * @return 是否需要资源作为初始化，当resourcePath{@link #resourcePath}无效时返回false。
      */
-    public var isNeedResource : Bool {
-        return nil != resourcePath && !resourcePath!.isEmpty
+    public let isNeedResource : Bool
+    
+    /**
+     * 反射出来的类类型
+     */
+//    public lazy var reflectClass: CacheProtocol.Type? = {return NSClassFromString(self.reflectClassName) as? CacheProtocol.Type}()
+    public let reflectClass: CacheProtocol.Type?
+    
+    public init(_ cacheName: String, _ reflectClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourcePath: String?, _ charsetName: String?, _ valueCodingType: ValueCodingType?) {
+        self.cacheName = cacheName
+        self.reflectClassName = reflectClassName
+        self.isSingleton = isSingleton
+        self.initialCapacity = initialCapacity
+        self.resourcePath = resourcePath
+        self.charsetName = charsetName
+        self.valueCodingType = valueCodingType
+        
+        self.isNeedResource = nil != resourcePath && !resourcePath!.isEmpty
+        self.reflectClass = NSClassFromString(reflectClassName) as? CacheProtocol.Type
+    }
+
+    convenience public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourcePath: String?, valueCodingType: ValueCodingType?) {
+        self.init(cacheName, reflectClassName, isSingleton, initialCapacity, resourcePath, "UTF-8", valueCodingType)
     }
 }

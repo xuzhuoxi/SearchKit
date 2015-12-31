@@ -17,7 +17,8 @@ public class WeightCacheImpl : WeightCache {
     /**
     * ^[1-9]d*.d*$ //大于等于1浮点数
     */
-    static let REGEX_FLOAT_1MORE: String = "^+?([1-9]\\d*.\\d*|[1-9]\\d*)$"
+    static let REGEX_FLOAT_1MORE: String = "^\\+?([1-9]\\d*\\.\\d*|[1-9]\\d*)$"
+    lazy var pattern: SimplePattern = SimplePattern(REGEX_FLOAT_1MORE)
     
     /**
     * 已有缓存、格式不对、小于等于默认权值的忽略，不加入缓存
@@ -26,12 +27,16 @@ public class WeightCacheImpl : WeightCache {
         if key2weight.has(resourceKey) {
             return
         }
-        if Regex.match(resourceValue, WeightCacheImpl.REGEX_FLOAT_1MORE) {
+        if pattern.isMatch(resourceValue) {
             if let value = resourceValue.toDouble() {
                 if value > WeightCacheImpl.DEFAULT_VALUE {
                     key2weight[resourceKey] = KeyWeight(key: resourceKey, weight: value)
                 }
             }
         }
+    }
+
+    public override class func newInstance() -> CacheProtocol? {
+        return WeightCacheImpl()
     }
 }

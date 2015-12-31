@@ -35,4 +35,8 @@ public class ChineseCacheImpl : ChineseCache {
         }
         return true
     }
+    
+    public override class func newInstance() -> CacheProtocol? {
+        return ChineseCacheImpl()
+    }
 }

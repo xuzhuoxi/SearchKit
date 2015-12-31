@@ -11,9 +11,9 @@ import Foundation
 public class ValueCodingStrategyFactory {
     private init(){}
     
-    private static var map : Dictionary<ValueCodingTypes,ValueCodingStrategyProtocol> = Dictionary<ValueCodingTypes,ValueCodingStrategyProtocol>()
+    private static var map : Dictionary<ValueCodingType,ValueCodingStrategyProtocol> = Dictionary<ValueCodingType,ValueCodingStrategyProtocol>()
     
-    public static func getValueCodingStrategy(type:ValueCodingTypes) ->ValueCodingStrategyProtocol{
+    public static func getValueCodingStrategy(type:ValueCodingType) ->ValueCodingStrategyProtocol{
         if let _ = map.indexForKey(type) {
             return map[type]!
         }else{
@@ -23,7 +23,7 @@ public class ValueCodingStrategyFactory {
         }
     }
     
-    public static func createValueCodingStrategy(type:ValueCodingTypes) ->ValueCodingStrategyProtocol{
+    public static func createValueCodingStrategy(type:ValueCodingType) ->ValueCodingStrategyProtocol{
         switch type {
         case .PINYIN_WORD:
             return PinyinWordStrategyImpl()

@@ -40,4 +40,11 @@ public protocol DimensionMapProtocol: class{
     * @return 返回的是原始列表，若要修改请注意。
     */
     func get(dimensionKey : String) -> Set<String>?
+    
+    /**
+     * 计算数量(dimension, dimensionKey数量, dimensionValue数量)
+     *
+     * @return (Int, Int, Int)。
+     */
+    func getDimensionInfo() ->(Int, Int, Int)
 }
