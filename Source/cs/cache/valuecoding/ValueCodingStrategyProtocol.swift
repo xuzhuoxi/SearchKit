@@ -25,7 +25,7 @@ public protocol ValueCodingStrategyProtocol: class {
      *            值数据字符串
      * @return 简化值
      */
-    func getSimplifyValue(value:String) ->String;
+    func getSimplifyValue(value:String) ->String
     
     /**
      * 获取缓存key
@@ -34,7 +34,7 @@ public protocol ValueCodingStrategyProtocol: class {
      *            简化值
      * @return dimensionKey列表
      */
-    func getDimensionKeys(simplifyValue:String) ->Array<String>;
+    func getDimensionKeys(simplifyValue:String) ->[String]
     
     /**
      * 过滤输入的字符串
@@ -43,7 +43,7 @@ public protocol ValueCodingStrategyProtocol: class {
      *            输入字符串
      * @return 过滤后的字符串
      */
-    func filter(input:String) ->String;
+    func filter(input:String) ->String
     
     /**
      * 翻译
@@ -52,5 +52,5 @@ public protocol ValueCodingStrategyProtocol: class {
      *            过滤后的字符串
      * @return 把要翻译的字符进行翻译后得到的字符串数组。
      */
-    func translate(filteredInput:String) ->Array<String>;
+    func translate(filteredInput:String) ->[String]
 }

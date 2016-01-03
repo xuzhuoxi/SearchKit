@@ -13,20 +13,18 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class AbstractValueCoding {
+class AbstractValueCoding {
     var sb : String = ""
-    var simplifyValueKeysMap :Dictionary<String,Array<String>> = Dictionary<String,Array<String>>()
-    
-    init(){}
+    var simplifyValueKeysMap = Dictionary<String, [String]>()
     
     /**
-    * 如果缓存中没有，则调用子类的{@link #computeDimensionKeys(String)}方法进行计算
-    *
-    * @param simplifyValue
-    *            简化输入
-    * @return 计算得到的dimensionKey列表
-    */
-    final func abstractGetDimensionKeys(simplifyValue:String) ->Array<String> {
+     * 如果缓存中没有，则调用子类的{@link #computeDimensionKeys(String)}方法进行计算
+     *
+     * @param simplifyValue
+     *            简化输入
+     * @return 计算得到的dimensionKey列表
+     */
+    final func abstractGetDimensionKeys(simplifyValue: String) ->[String] {
         if simplifyValueKeysMap.has(simplifyValue) {
             return simplifyValueKeysMap[simplifyValue]!
         }else{
@@ -43,7 +41,7 @@ public class AbstractValueCoding {
      *            简化输入
      * @return 计算得到的dimensionKey列表
      */
-    func computeDimensionKeys(simplifyValue:String) ->[String]? {
+    func computeDimensionKeys(simplifyValue: String) ->[String]? {
         return nil
     }
 }

@@ -33,15 +33,13 @@ class WeightCacheTest: XCTestCase {
 //        }
 //    }
     
-    func test() {
-        let path:String=ResourcePath.PATH_WEIGHT_WORDS
+    func test() {//3.179s
+        let path:String=ResourcePaths.PATH_WEIGHT_WORDS
         let resource = Resource.getResource(path)!
         let wc = WeightCache.createWeightCache("wordsWeight", resource: resource)
         print(wc.getKeysSize())
         let weight = wc.getValues("一个巴掌拍不响")
-        print(weight)
-        
-        
+        XCTAssertEqual(weight, 1.1)
     }
     
     func testInit() {

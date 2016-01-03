@@ -14,33 +14,21 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class SearchKeyResult: Comparable {
-    private var key:String
-    private var weight:Double
-    private lazy var resultMap: Dictionary<SearchTypes, SearchTypeResult> = Dictionary<SearchTypes, SearchTypeResult>()
+public struct SearchKeyResult: Comparable {
+    private var resultMap = Dictionary<SearchType, SearchTypeResult>()
     
-    public init(_ key: String){
-        self.key = key
-        let iwc = CachePool.instance.getCache(CacheNames.WEIGHT) as! WeightCacheProtocol
-        self.weight = iwc.getValues(key)
-    }
+    public let key: String
     
-    public final func getKey() ->String {
-        return key
-    }
-    
-    public func getWeight() ->Double {
-        return weight
-    }
+    public let weight: Double
     
     /**
      * 计算是否有完整匹配情况<br>
      *
      * @return 有完整匹配true否false
      */
-    public final func hasFullMatching() ->Bool {
+    public var hasFullMatching: Bool {
         for str in resultMap.values {
-            if str.isFullMatching() {
+            if str.isFullMatching {
                 return true
             }
         }
@@ -53,12 +41,36 @@ public class SearchKeyResult: Comparable {
      *
      * @return 匹配度
      */
-    public final func getTotalValue() ->Double {
+    public var totalValue : Double {
         var value:Double=0
         for str in resultMap.values {
-            value+=str.getValue()
+            value+=str.value
         }
         return value * weight
+    }
+    
+    
+    /**
+     * 取得全部的检索类别 {@link SearchType}<br>
+     *
+     * @return 全部的检索类别
+     */
+    public var searchTypes: [SearchType] {
+        return [SearchType](resultMap.keys)
+    }
+    
+    /**
+     * 取得全部的检索结果 {@link SearchTypeResult}<br>
+     *
+     * @return 全部的检索结果
+     */
+    public var searchTypeResults: [SearchTypeResult] {
+        return [SearchTypeResult](resultMap.values)
+    }
+    
+    public init(_ key: String, _ weightCache : WeightCacheProtocol?){
+        self.key = key
+        self.weight = nil == weightCache ? 1.0 : weightCache!.getValues(key)
     }
     
     /**
@@ -69,11 +81,11 @@ public class SearchKeyResult: Comparable {
      * @param value
      *            匹配值
      */
-    public func updateBiggerValue(searchType:SearchTypes, _ value:Double) {
+    mutating public func updateBiggerValue(searchType: SearchType, _ value:Double) {
         if resultMap.has(searchType) {
             resultMap[searchType]!.updateBiggerValue(value)
         }else{
-            let str = SearchTypeResult(searchType)
+            var str = SearchTypeResult(searchType)
             str.updateBiggerValue(value)
             resultMap[searchType] = str
         }
@@ -85,11 +97,11 @@ public class SearchKeyResult: Comparable {
      * @param str
      *            单个字(词)的单个检索类型结果
      */
-    public func updateTypeValue(str:SearchTypeResult) {
-        if resultMap.has(str.getSearchType()) {
-            resultMap[str.getSearchType()]!.updateBiggerValue(str.getValue())
+    mutating public func updateTypeValue(str:SearchTypeResult) {
+        if resultMap.has(str.searchType) {
+            resultMap[str.searchType]!.updateBiggerValue(str.value)
         }else{
-            resultMap[str.getSearchType()] = str
+            resultMap[str.searchType] = str
         }
     }
     
@@ -100,71 +112,37 @@ public class SearchKeyResult: Comparable {
      *            检索类别
      * @return 匹配度
      */
-    public final func getValue(searchType: SearchTypes) ->Double {
+    public func getValue(searchType: SearchType) ->Double {
         if resultMap.has(searchType) {
-            return resultMap[searchType]!.getValue()
+            return resultMap[searchType]!.value
         }else{
             return 0
         }
     }
     
     /**
-     * 取得全部的检索类别 {@link SearchTypes}<br>
-     *
-     * @return 全部的检索类别
-     */
-    public final func getSearchTypes() ->[SearchTypes] {
-        return [SearchTypes](resultMap.keys)
-    }
-    
-    /**
-     * 取得全部的检索结果 {@link SearchTypeResult}<br>
-     *
-     * @return 全部的检索结果
-     */
-    public final func getSearchTypeResults() ->[SearchTypeResult] {
-        return [SearchTypeResult](resultMap.values)
-    }
-    
-    /**
      * 当相加的SearchKeyResult实例的key{@link #key}与当前相同时，<br>
-     * 遍历全部的检索类别和值，进行更新{@link #updateBiggerValue(SearchTypes, double)}<br>
+     * 遍历全部的检索类别和值，进行更新{@link #updateBiggerValue(SearchType, double)}<br>
      *
      * @param skr
      *            单个字(词)的检索结果
      * @return 键相同true否false
      */
-    public final func addSearchKeyResult(skr:SearchKeyResult) {
-        for result in skr.getSearchTypeResults() {
+    mutating public func addSearchKeyResult(skr:SearchKeyResult) {
+        for result in skr.searchTypeResults {
             updateTypeValue(result)
         }
     }
 }
 
 public func ==(lhs: SearchKeyResult, rhs: SearchKeyResult) -> Bool {
-    return  (lhs.hasFullMatching() == rhs.hasFullMatching()) && (lhs.getTotalValue() == rhs.getTotalValue())
+    return  (lhs.hasFullMatching == rhs.hasFullMatching) && (lhs.totalValue == rhs.totalValue)
 }
 
 public func <(lhs: SearchKeyResult, rhs: SearchKeyResult) -> Bool {
-    if lhs.hasFullMatching() != rhs.hasFullMatching() {
-        return lhs.hasFullMatching() ? false : true
+    if lhs.hasFullMatching != rhs.hasFullMatching {
+        return lhs.hasFullMatching ? false : true
     } else {
-        return lhs.getTotalValue() < rhs.getTotalValue()
+        return lhs.totalValue < rhs.totalValue
     }
 }
-//
-//public func >(lhs: SearchKeyResult, rhs: SearchKeyResult) -> Bool {
-//    if lhs.hasFullMatching() != rhs.hasFullMatching() {
-//        return lhs.hasFullMatching() ? true : false
-//    } else {
-//        return lhs.getTotalValue() > rhs.getTotalValue()
-//    }
-//}
-//
-//public func <=(lhs: SearchKeyResult, rhs: SearchKeyResult) -> Bool {
-//    return (lhs < rhs) || (lhs == rhs)
-//}
-//
-//public func >=(lhs: SearchKeyResult, rhs: SearchKeyResult) -> Bool {
-//    return (lhs > rhs) || (lhs == rhs)
-//}

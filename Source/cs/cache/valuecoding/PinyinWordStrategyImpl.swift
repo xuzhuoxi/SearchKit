@@ -13,21 +13,20 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class PinyinWordStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtocol {
-    override init(){}
+class PinyinWordStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtocol, ReflectionProtocol {
     
-    public func getSimplifyValue(value: String) -> String {
+    final func getSimplifyValue(value: String) -> String {
         return value
     }
     
-    public func getDimensionKeys(simplifyValue: String) -> Array<String> {
+    final func getDimensionKeys(simplifyValue: String) -> [String] {
         return abstractGetDimensionKeys(simplifyValue)
     }
     
     /**
      * 过滤输入字符串，保留中文字符和拼音字符<br>
      */
-    public func filter(input: String) -> String {
+    final func filter(input: String) -> String {
         sb.removeAll(keepCapacity: true)
         for c in input.characters {
             if ChineseUtils.isChinese(c) || ChineseUtils.isPinyinChar(c) {
@@ -41,7 +40,7 @@ public class PinyinWordStrategyImpl : AbstractValueCoding , ValueCodingStrategyP
      * 如果输入中包含已编码的中文，返回对应第一个中文的全部编码<br>
      * 否则返回源字符串
      */
-    public func translate(filteredInput: String) -> Array<String> {
+    final func translate(filteredInput: String) ->[String] {
         if ChineseUtils.hasChinese(filteredInput) {
             let wordPinyinMap = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! ChineseCacheProtocol
             for key in filteredInput.characters {
@@ -61,11 +60,15 @@ public class PinyinWordStrategyImpl : AbstractValueCoding , ValueCodingStrategyP
      * 简化编码的计算过程：<br>
      * 分别截取从前[1-length]位作为dimensionKeys
      */
-    override func computeDimensionKeys(simplifyValue: String) -> Array<String> {
+    override final func computeDimensionKeys(simplifyValue: String) ->[String] {
         var rs = [String]()
         for i in 0 ..< simplifyValue.length {
             rs.append(simplifyValue.substringToIndex(simplifyValue.startIndex.advancedBy(i+1)))
         }
         return rs
+    }
+    
+    static func newInstance() -> ReflectionProtocol {
+        return PinyinWordStrategyImpl()
     }
 }

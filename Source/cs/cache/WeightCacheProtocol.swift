@@ -9,22 +9,22 @@
 import Foundation
 
 /**
-*
-* @author xuzhuoxi
-*
-*/
-public protocol WeightCacheProtocol : CacheProtocol {
+ *
+ * @author xuzhuoxi
+ *
+ */
+public protocol WeightCacheProtocol: CacheProtocol {
     /**
-    * 默认权重
-    */
+     * 默认权重
+     */
     static var DEFAULT_VALUE:Double{get}
     
     /**
-    * 取权重，若key没有记录，则返回默认权重<br>
-    *
-    * @param key
-    *            键
-    * @return 权重值
-    */
+     * 取权重，若key没有记录，则返回默认权重<br>
+     *
+     * @param key
+     *            键
+     * @return 权重值
+     */
     func getValues(key:String) ->Double
 }

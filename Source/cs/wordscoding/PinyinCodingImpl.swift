@@ -13,13 +13,13 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class PinyinCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
+class PinyinCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
     /**
-    * 编码过程：<br>
-    * 1.验证可编码性。<br>
-    * 2.取每个汉字的拼音编码数组分别作自由组合，中间补充空间。<br>
-    */
-    public func coding(wordCache: ChineseCacheProtocol, words: String) -> [String]? {
+     * 编码过程：<br>
+     * 1.验证可编码性。<br>
+     * 2.取每个汉字的拼音编码数组分别作自由组合，中间补充空间。<br>
+     */
+    final func coding(wordCache: ChineseCacheProtocol, words: String) -> [String]? {
         if words.isEmpty || !canCoding(wordCache, words) {
             return nil
         }

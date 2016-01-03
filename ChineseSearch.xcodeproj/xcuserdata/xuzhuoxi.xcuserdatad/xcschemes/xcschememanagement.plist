@@ -30,6 +30,20 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>ChineseSearchTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>ChineseSearchUITest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>TestProduct.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -116,6 +130,26 @@
 			<true/>
 		</dict>
 		<key>AAB45BA71C2C1FCD006051B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAE68CBD1C37A91A006E680D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAE68CD31C37A91A006E680D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAE68CDE1C37A91A006E680D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAE68CF31C37B48F006E680D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

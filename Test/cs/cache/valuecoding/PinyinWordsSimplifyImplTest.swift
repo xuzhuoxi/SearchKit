@@ -10,7 +10,6 @@ import XCTest
 @testable import ChineseSearch
 
 class PinyinWordsSimplifyImplTest: XCTestCase {
-    private static let sstrategy: ValueCodingStrategyProtocol  = PinyinWordsStrategyImpl()
     private let strategy : ValueCodingStrategyProtocol = PinyinWordsStrategyImpl()
     
 //    override func setUp() {
@@ -61,18 +60,19 @@ class PinyinWordsSimplifyImplTest: XCTestCase {
     }
     
     func testPerformance() {
-        let path = ResourcePath.PATH_PINYIN_WORDS
+        let path = ResourcePaths.PATH_PINYIN_WORDS
         let resource = Resource.getResource(path)!
+//        self.timeGetDimensionKeys(resource, count: Int.max)
         self.measureBlock{
-//            self.timeGetDimensionKeys(resource, count: 500) //4.879s, 4.852s, 4.803s, 5.009s
-//            self.timeGetDimensionKeys(resource, count: 1000) //6.066s, 5.795s, 5.846s, 5.782s
-            self.timeGetDimensionKeys(resource, count: 10000) //13.703s, 13.713s, 13.986s, 13.601s
+//            self.timeGetDimensionKeys(resource, count: 500) //4.879s, 4.852s, 4.803s, 5.009s (优化全开0.022s)
+//            self.timeGetDimensionKeys(resource, count: 1000) //6.066s, 5.795s, 5.846s, 5.782s (优化全开0.043s)
+//            self.timeGetDimensionKeys(resource, count: 10000) //13.703s, 13.713s, 13.986s, 13.601s (优化全开0.457s)
+            self.timeGetDimensionKeys(resource, count: Int.max) //编译优化全开后7.5s左右(现在4.204s, 4.197s)
         }
-//        XCTAssertTrue(false)
     }
     
     func timeGetDimensionKeys(resource: Resource, count: Int) {
-        let size = min(resource.size(), count)
+        let size = min(resource.size, count)
         for index in 0 ..< size {
             self.strategy.getDimensionKeys(self.strategy.getSimplifyValue(resource.getValue(index)))
         }

@@ -17,28 +17,49 @@ public class CacheConfig {
     public static let instance: CacheConfig = CacheConfig()
     
     private var map = Dictionary<String, CacheInfo>()
-    
+    private let currentBundle = NSBundle(forClass: CacheConfig.self)
     
     /**
      * 缓存配置<br>
-     * resourcePath路径在实际使用时前置补充了运行时根目录，如要取消这种做法，请修改CachePool类<br>
+     * resourcePath路径在实际使用时补充绝对路径，如要取消这种做法，请修改CachePool类<br>
      * initialCapacity的配置应该根据实际情况进行配置<br>
      * 计算方法：缓存数的下一个2的n次幂<br>
      */
     private init(){
-        addConfig(CacheNames.PINYIN_WORD, "ChineseSearch.ChineseCacheImpl", true, 32768, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/word_pinyin.properites", "UTF-8", ValueCodingType.PINYIN_WORD)
-        addConfig(CacheNames.WUBI_WORD, "ChineseSearch.ChineseCacheImpl", true, 8192, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/word_wubi.properites", "UTF-8", ValueCodingType.WUBI_WORDS)
-        addConfig(CacheNames.PINYIN_WORDS, "ChineseSearch.ChineseCacheImpl", true, 131072, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/words_pinyin.properites", "UTF-8", ValueCodingType.PINYIN_WORDS)
-        addConfig(CacheNames.WUBI_WORDS, "ChineseSearch.ChineseCacheImpl", true, 131072, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/words_wubi.properites", "UTF-8", ValueCodingType.WUBI_WORDS)
-        addConfig(CacheNames.WEIGHT, "ChineseSearch.WeightCacheImpl", true, 16, "/Users/xuzhuoxi/All/sourcestore/xcworkspace/ChineseSearch/Resource/words_weight.properites", "UTF-8", nil)
+        addConfig(CacheNames.PINYIN_WORD, "ChineseSearch.ChineseCacheImpl", true, 32768, "word_pinyin", "UTF-8", ValueCodingType.PINYIN_WORD)
+        addConfig(CacheNames.WUBI_WORD, "ChineseSearch.ChineseCacheImpl", true, 8192, "word_wubi", "UTF-8", ValueCodingType.WUBI_WORD)
     }
     
-    private func addConfig(cacheName: String, _ reflectClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourcePath: String?, _ charsetName: String?, _ valueType: ValueCodingType?) {
-        map[cacheName] = CacheInfo(cacheName, reflectClassName, isSingleton, initialCapacity, resourcePath, charsetName, valueType)
+    private func toMultiPath(path: String?) ->[String]? {
+        if nil == path || path!.isEmpty {
+            return nil
+        }
+        return path!.componentsSeparatedByString(";")
     }
     
-    public func supplyConfig(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourcePath: String?, charsetName: String?, valueType: ValueCodingType?) {
-        addConfig(cacheName, reflectClassName, isSingleton, initialCapacity, resourcePath, charsetName, valueType)
+    private func addConfig(cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourcePaths: String?, _ charsetName: String?, _ valueCodingType: ValueCodingType?) {
+        if map.has(cacheName) {
+            return
+        }
+        var urls : [NSURL]? = nil
+        if let paths = toMultiPath(resourcePaths) {
+            urls = []
+            for path in paths {
+                urls!.append(currentBundle.URLForResource(path, withExtension: "properites")!)
+            }
+        }
+        map[cacheName] = CacheInfo(cacheName, cacheClassName, isSingleton, initialCapacity, urls, charsetName, valueCodingType: valueCodingType)
+    }
+    
+    private func addConfig(cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [NSURL]?, _ charsetName: String?,  valueCodingClassName: String?) {
+        if map.has(cacheName) {
+            return
+        }
+        map[cacheName] = CacheInfo(cacheName, cacheClassName, isSingleton, initialCapacity, resourceURLs, charsetName, valueCodingClassName:valueCodingClassName)
+    }
+    
+    public func supplyConfig(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [NSURL]?, charsetName: String?, valueCodingClassName: String?) {
+        addConfig(cacheName, reflectClassName, isSingleton, initialCapacity, resourceURLs, charsetName, valueCodingClassName: valueCodingClassName)
     }
     
     public func getCacheInfo(cacheName : String) ->CacheInfo? {

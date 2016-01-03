@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StringCombination {
+public struct StringCombination {
     private init(){}
     
     /**

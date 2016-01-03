@@ -29,7 +29,7 @@ public protocol CacheProtocol : class {
      *            键
      * @return 有true无false
      */
-    func isKey(key:String)->Bool
+    func isKey(key:String) ->Bool
     
     /**
      * 缓存Key数
@@ -37,12 +37,5 @@ public protocol CacheProtocol : class {
      * @return 缓存Key数
      */
     func getKeysSize() ->Int
-    
-    /**
-     * 创建新实例
-     *
-     * @return 新实例
-     */
-    static func newInstance() ->CacheProtocol?
 }
 

@@ -14,7 +14,7 @@
 * @author xuzhuoxi
 *
 */
-public class MathUtils {
+public struct MathUtils {
     private init(){}
     /**
      * 计算从个数为m的有序数组中取得n个元素所构成的组合的个数<br>

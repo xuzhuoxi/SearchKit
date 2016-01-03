@@ -33,7 +33,7 @@ class CachePoolTest: XCTestCase {
 //        }
 //    }
     
-    func testInitSingletonCaches() {//283.472s
+    func testInitSingletonCaches() {//283.472s, 267.734s 307.606s
         CachePool.instance.initSingletonCaches()
         let cacheNames = [CacheNames.PINYIN_WORD, CacheNames.PINYIN_WORDS, CacheNames.WUBI_WORD, CacheNames.WUBI_WORDS]
         let dkArr = ["sg", "sg", "sg", "sg"]
@@ -45,8 +45,8 @@ class CachePoolTest: XCTestCase {
     }
     
     func printInfo(cc: ChineseCacheProtocol, dimensionKey: String) {
+        printCache(cc)
         printSomeFromCache(cc, dimensionKey)
-        printCache(cc);
     }
     
     func printCache(cc: ChineseCacheProtocol) {
@@ -57,22 +57,20 @@ class CachePoolTest: XCTestCase {
         let keyList = cc.getKeys(dimensionKey)
         var sb = ""
         sb.appendContentsOf("\(cc.getCacheName()): \(keyList.count)\n")
-        for key in keyList {
-            sb.appendContentsOf(" \(key)")
-        }
-        sb.appendContentsOf("\n")
+        sb.appendContentsOf("\(keyList)\n")
         print(sb)
     }
     
-    func testWordsWeight() {
+    func testWordsWeight() {//3.892s
         // 一一=1
         // 一丁点=0.1
         // 一丁点儿=1.06
         // 一万=5
         // 一丈=9
         // 一下=1.0
+        CacheConfig.instance.supplyConfig(CacheNames.WEIGHT, reflectClassName: "ChineseSearch.WeightCacheImpl", isSingleton: true, initialCapacity: 16, resourceURLs: [ResourcePaths.URL_WEIGHT_WORDS], charsetName: "UTF-8", valueCodingClassName: nil)
         let test = ["一一", "一丁点", "一丁点儿", "一万", "一丈", "一下"]
-        let result = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+        let result = [1.0, 1.0, 1.06, 5, 9, 1.0]
         let wc = CachePool.instance.getCache(CacheNames.WEIGHT) as? WeightCacheProtocol
         XCTAssertNotNil(wc)
         for (index, key) in test.enumerate() {

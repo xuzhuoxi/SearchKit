@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StringUtils {
+public struct StringUtils {
     private init(){}
     /**
     * 如果源字符串中有相同的字符，则去掉后面的<br>

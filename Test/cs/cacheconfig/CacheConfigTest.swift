@@ -33,11 +33,19 @@ class CacheConfigTest: XCTestCase {
 //        }
 //    }
 
-    func testSingleton() {
-        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.PINYIN_WORD)?.reflectClass)
-        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.PINYIN_WORDS)?.reflectClass)
-        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.WUBI_WORD)?.reflectClass)
-        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.WUBI_WORDS)?.reflectClass)
-        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.WEIGHT)?.reflectClass)
+    func testFrameworkSingleton() {
+        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.PINYIN_WORD)?.cacheReflectionInfo.classType())
+        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.WUBI_WORD)?.cacheReflectionInfo.classType())
+    }
+    
+    func testUnitTestSingleton() {
+        CacheConfig.instance.supplyPinyinWordsConfig()
+        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.PINYIN_WORDS)?.cacheReflectionInfo.classType())
+        
+        CacheConfig.instance.supplyWubiWordsConfig()
+        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.WUBI_WORDS)?.cacheReflectionInfo.classType())
+        
+        CacheConfig.instance.supplyWeightWordsConfig()
+        XCTAssertNotNil(CacheConfig.instance.getCacheInfo(CacheNames.WEIGHT)?.cacheReflectionInfo.classType())
     }
 }

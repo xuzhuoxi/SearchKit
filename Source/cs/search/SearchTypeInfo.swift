@@ -14,44 +14,28 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class SearchTypeInfo {
+public struct SearchTypeInfo {
     /**
      * 检索类型
      */
-    private var searchType:SearchTypes
+    public let searchType: SearchType
     /**
-     * 检索使用的Cache名称
+     * 检索使用的Cache
      */
-    private var cacheName:String
+    public let chineseCache: ChineseCacheProtocol
     /**
-     * 输入处理类型
+     * 输入处理策略
      */
-    private var valueType:ValueCodingType
+    public let valueCodingStrategy: ValueCodingStrategyProtocol
+    /**
+     * 排序使用的权值Cache
+     */
+    public let weightCache: WeightCacheProtocol?
     
-    public init (_ searchType:SearchTypes, _ cacheName:String, _ valueType:ValueCodingType){
-        self.searchType=searchType;
-        self.cacheName=cacheName;
-        self.valueType=valueType;
-    }
-    
-    /**
-     * @return 检索类型
-     */
-    public final func getSearchType() ->SearchTypes {
-        return searchType
-    }
-    
-    /**
-     * @return 检索使用的Cache名称
-     */
-    public final func getCacheName() ->String {
-        return cacheName
-    }
-    
-    /**
-     * @return 输入处理类型
-     */
-    public final func getValueType() ->ValueCodingType {
-        return valueType
+    public init (_ searchType: SearchType, _ chineseCache: ChineseCacheProtocol, _ valueCodingStrategy: ValueCodingStrategyProtocol, _ weightCache: WeightCacheProtocol?){
+        self.searchType = searchType
+        self.chineseCache = chineseCache
+        self.valueCodingStrategy = valueCodingStrategy
+        self.weightCache = weightCache
     }
 }

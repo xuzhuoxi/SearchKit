@@ -13,7 +13,7 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class ArrayUtils {
+public struct ArrayUtils {
     private init(){}
     
     /**

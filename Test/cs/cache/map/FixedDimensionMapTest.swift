@@ -44,7 +44,7 @@ class FixedDimensionMapTest: XCTestCase {
         let dimension = [1, 2]
         let result = [(1,26,0), (2,702,0)]
         for (index, d) in dimension.enumerate() {
-            assertTuplesEqual(FixedDimensionMapImpl(charList: keyCode, dimension: d)!.getDimensionInfo(), result[index])
+            assertTuplesEqual(FixedDimensionMapImpl(charList: keyCode, dimension: d)!.dimensionInfo, result[index])
         }
     }
     
@@ -59,9 +59,9 @@ class FixedDimensionMapTest: XCTestCase {
                 }
             }
         }
-        assertTuplesEqual(result, mdMap.getDimensionInfo())
+        assertTuplesEqual(result, mdMap.dimensionInfo)
         mdMap.add("a", dimensionValue: "a")
-        assertTuplesEqual(result, mdMap.getDimensionInfo())
+        assertTuplesEqual(result, mdMap.dimensionInfo)
     }
     
     func testGet() {

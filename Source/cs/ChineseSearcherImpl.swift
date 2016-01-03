@@ -13,26 +13,26 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class ChineseSearcherImpl : ChineseSearcherProtocol {
+class ChineseSearcherImpl : ChineseSearcherProtocol {
     init(){
         CachePool.instance.initSingletonCaches()
     }
+//    
+//    final func searchWord(input: String, _ max: Int) -> [SearchKeyResult]? {
+//        let searchTypes = [SearchType.PINYIN_WORD, SearchType.WUBI_WORD]
+//        return trySearch(input, searchTypes, max)
+//    }
+//    
+//    final func searchWords(input: String, _ max: Int) -> [SearchKeyResult]? {
+//        let searchTypes = [SearchType.PINYIN_WORDS, SearchType.WUBI_WORDS]
+//        return trySearch(input, searchTypes, max)
+//    }
     
-    public func searchWord(input: String, _ max: Int) -> [SearchKeyResult]? {
-        let searchTypes = [SearchTypes.PINYIN_WORD, SearchTypes.WUBI_WORD]
-        return trySearch(input, searchTypes, max)
-    }
-    
-    public func searchWords(input: String, _ max: Int) -> [SearchKeyResult]? {
-        let searchTypes = [SearchTypes.PINYIN_WORDS, SearchTypes.WUBI_WORDS]
-        return trySearch(input, searchTypes, max)
-    }
-    
-    public func search(input: String, searchTypes: [SearchTypes]) -> SearchResult? {
+    final func search(input: String, searchTypes: [SearchType]) -> SearchResult? {
         return tryAdvancedSearch(input, searchTypes, Int.max)
     }
     
-    private func trySearch(input:String, _ searchTypes:[SearchTypes], _ max:Int) ->[SearchKeyResult]? {
+    private func trySearch(input:String, _ searchTypes:[SearchType], _ max:Int) ->[SearchKeyResult]? {
         if let newInput = validityInput(input,searchTypes, max) {
             return doSearch(SearchInfo(newInput, searchTypes, max))
         }else{
@@ -40,7 +40,7 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
         }
     }
     
-    private func tryAdvancedSearch(input:String, _ searchTypes:[SearchTypes], _ max:Int) ->SearchResult? {
+    private func tryAdvancedSearch(input:String, _ searchTypes:[SearchType], _ max:Int) ->SearchResult? {
         if let newInput = validityInput(input,searchTypes, max) {
             return searchMutliType(SearchInfo(newInput, searchTypes, max))
         }else{
@@ -48,7 +48,7 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
         }
     }
     
-    private func validityInput(input: String, _ searchTypes:[SearchTypes], _ max:Int) ->String? {
+    private func validityInput(input: String, _ searchTypes:[SearchType], _ max:Int) ->String? {
         if input.isEmpty || searchTypes.isEmpty || max <= 0 {
             return nil
         }
@@ -61,11 +61,11 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
     
     private func doSearch(si:SearchInfo) ->[SearchKeyResult] {
         let sr:SearchResult = searchMutliType(si)
-        let rs:[SearchKeyResult]=sr.getSortedResults()
-        if (rs.count < si.getMaxResultCount()) {
+        let rs:[SearchKeyResult]=sr.sortedResults
+        if (rs.count < si.maxResultCount) {
             return rs
         } else {
-            return rs[0 ..< si.getMaxResultCount()]
+            return rs[0 ..< si.maxResultCount]
         }
     }
     
@@ -77,31 +77,29 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
     * @return
     */
     private func searchMutliType(searchInfo:SearchInfo!) ->SearchResult {
-        let types = searchInfo.getSearchType()
-        let sr: SearchResult = SearchResult()
+        let types = searchInfo.searchType
+        var sr: SearchResult = SearchResult()
         var sti: SearchTypeInfo
-        var vcs: ValueCodingStrategyProtocol
         var filteredInput:String
-        if (searchInfo.isChineseInput()) {
+        if (searchInfo.isChineseInput) {
             for type in types {
                 sti = SearchConfig.getSearchTypeInfo(type)!
-                vcs = ValueCodingStrategyFactory.getValueCodingStrategy(sti.getValueType())
-                filteredInput = vcs.filter(searchInfo.getInputStr())
+                sti.valueCodingStrategy
+                filteredInput = sti.valueCodingStrategy.filter(searchInfo.inputStr)
                 if filteredInput.isEmpty {
                     continue
                 }
-                let codedInputStrs = vcs.translate(filteredInput)
+                let codedInputStrs = sti.valueCodingStrategy.translate(filteredInput)
                 let newSR:SearchResult = searchOneSearchType(type, codedInputStrs)
                 sr.addResult(newSR)
             }
-            if (searchInfo.isChineseInput()) {
-                sr.chineseRegexpMatchingClear(searchInfo.getChineseWordsRegexp()!)
+            if (searchInfo.isChineseInput) {
+                sr.chineseRegexpMatchingClear(searchInfo.chineseWordsRegexp!)
             }
         } else {
             for type in types {
                 sti = SearchConfig.getSearchTypeInfo(type)!
-                vcs = ValueCodingStrategyFactory.getValueCodingStrategy(sti.getValueType())
-                filteredInput = vcs.filter(searchInfo.getInputStr())
+                filteredInput = sti.valueCodingStrategy.filter(searchInfo.inputStr)
                 if filteredInput.isEmpty {
                     continue
                 }
@@ -123,8 +121,8 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
     *            经过编码的输入信息数组
     * @return
     */
-    private func searchOneSearchType(st:SearchTypes, _ codedInputStrs:[String]) ->SearchResult {
-        let sr:SearchResult = SearchResult()
+    private func searchOneSearchType(st:SearchType, _ codedInputStrs:[String]) ->SearchResult {
+        var sr:SearchResult = SearchResult()
         for codedInputStr in codedInputStrs {
             if codedInputStr.isEmpty {
                 continue
@@ -146,11 +144,10 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
     *            经过编码的输入信息
     * @return
     */
-    private func searchOneCoded(st:SearchTypes, _ codedInputStr:String) ->[SearchKeyResult] {
+    private func searchOneCoded(st:SearchType, _ codedInputStr:String) ->[SearchKeyResult] {
         let sti = SearchConfig.getSearchTypeInfo(st)!
-        let cacheName = sti.getCacheName()
-        let cc:ChineseCacheProtocol = CachePool.instance.getCache(cacheName) as! ChineseCacheProtocol //默认已初奴化完成
-        let strategy = ValueCodingStrategyFactory.getValueCodingStrategy(sti.getValueType())
+        let cc:ChineseCacheProtocol = sti.chineseCache
+        let strategy = sti.valueCodingStrategy
         let str:String = strategy.getSimplifyValue(strategy.filter(codedInputStr))
         let dimensionKeys:[String] = handleSimplifyValue(str) // 低精度检索，快速
 //        		 var dimensionKeys:[String] = advancedHandleSimplifyValue(strategy,
@@ -164,7 +161,7 @@ public class ChineseSearcherImpl : ChineseSearcherProtocol {
                     let v = StringMatching.computeMatchintResult(StringMatching.matching(value, codedInputStr)!)
                     if (v > 0 && v <= 2) {
                         if !rsMap.has(chineseKey) {
-                            rsMap[chineseKey] = SearchKeyResult(chineseKey)
+                            rsMap[chineseKey] = SearchKeyResult(chineseKey, sti.weightCache)
                         }
                         rsMap[chineseKey]!.updateBiggerValue(st, v)
                     }

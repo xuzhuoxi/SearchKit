@@ -34,29 +34,29 @@ class ChineseCacheTest: XCTestCase {
 //        }
 //    }
 
-    func testWordWubi() {//4.470s
-        let path:String=ResourcePath.PATH_WUBI_WORD
+    func testWordWubi() {//4.470s, 1.440s, 1.455s
+        let path:String=ResourcePaths.PATH_WUBI_WORD
         let resource = Resource.getResource(path)!
         let cc = ChineseCache.createChineseCache(CacheNames.WUBI_WORD, resource: resource, valueCodingType: ValueCodingType.WUBI_WORD)
         traceInfo(cc, key: "sg", desc: "ChineseCacheTest.testWordWubi()")
     }
     
-    func testWordsWubi() {//245.866s
-        let path:String=ResourcePath.PATH_WUBI_WORDS
+    func testWordsWubi() {//245.866s, 33.214s, 36.857s
+        let path:String=ResourcePaths.PATH_WUBI_WORDS
         let resource = Resource.getResource(path)!
         let cc = ChineseCache.createChineseCache(CacheNames.WUBI_WORDS, resource: resource, valueCodingType: ValueCodingType.WUBI_WORDS)
         traceInfo(cc, key: "sg", desc: "ChineseCacheTest.testWordsWubi()")
     }
     
-    func testWordPinyin() {//39.519s
-        let path:String=ResourcePath.PATH_PINYIN_WORD
+    func testWordPinyin() {//39.519s, 6.001s, 6.402s
+        let path:String=ResourcePaths.PATH_PINYIN_WORD
         let resource = Resource.getResource(path)!
         let cc = ChineseCache.createChineseCache(CacheNames.PINYIN_WORD, resource: resource, valueCodingType: ValueCodingType.PINYIN_WORD)
         traceInfo(cc, key: "sg", desc: "ChineseCacheTest.testWordPinyin()")
     }
     
-    func testWordsPinyin() {//1864.972s
-        let path:String=ResourcePath.PATH_PINYIN_WORDS
+    func testWordsPinyin() {//1864.972s, 230.804s, 255.562s
+        let path:String=ResourcePaths.PATH_PINYIN_WORDS
         let resource = Resource.getResource(path)!
         let cc = ChineseCache.createChineseCache(CacheNames.PINYIN_WORDS, resource: resource, valueCodingType: ValueCodingType.PINYIN_WORDS)
         traceInfo(cc, key: "sg", desc: "ChineseCacheTest.testWordsPinyin()")

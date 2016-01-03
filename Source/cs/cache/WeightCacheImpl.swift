@@ -13,17 +13,17 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class WeightCacheImpl : WeightCache {
+class WeightCacheImpl : WeightCache, ReflectionProtocol {
     /**
     * ^[1-9]d*.d*$ //大于等于1浮点数
     */
     static let REGEX_FLOAT_1MORE: String = "^\\+?([1-9]\\d*\\.\\d*|[1-9]\\d*)$"
-    lazy var pattern: SimplePattern = SimplePattern(REGEX_FLOAT_1MORE)
+    private(set) lazy var pattern: SimplePattern = SimplePattern(REGEX_FLOAT_1MORE)
     
     /**
     * 已有缓存、格式不对、小于等于默认权值的忽略，不加入缓存
     */
-    override func tryCacheKeyValue(resourceKey: String, _ resourceValue: String) {
+    override final func tryCacheKeyValue(resourceKey: String, _ resourceValue: String) {
         if key2weight.has(resourceKey) {
             return
         }
@@ -36,7 +36,7 @@ public class WeightCacheImpl : WeightCache {
         }
     }
 
-    public override class func newInstance() -> CacheProtocol? {
+    static func newInstance() -> ReflectionProtocol {
         return WeightCacheImpl()
     }
 }

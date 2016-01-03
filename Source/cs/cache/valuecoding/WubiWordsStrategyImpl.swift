@@ -13,34 +13,33 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class WubiWordsStrategyImpl : AbstractWubiStrategy , ValueCodingStrategyProtocol {
-    override init() {}
+class WubiWordsStrategyImpl : AbstractWubiStrategy, ValueCodingStrategyProtocol, ReflectionProtocol {
     
-    public func getSimplifyValue(value: String) -> String {
+    final func getSimplifyValue(value: String) -> String {
         return value;
     }
     
-    public func getDimensionKeys(simplifyValue: String) -> Array<String> {
+    final func getDimensionKeys(simplifyValue: String) ->[String] {
         return abstractGetDimensionKeys(simplifyValue);
     }
     
-    public func filter(input: String) -> String {
+    final func filter(input: String) -> String {
         return wubiFilter(input);
     }
     
     /**
-    * 翻译<br>
-    * <br>
-    * 从开始遍历input，如果是以下情况：<br>
-    * 是中文字符，取最长编码的第一个字符<br>
-    * 是五笔字符，直接取出<br>
-    * 如果长度到达4或input遍历结束，返回以上字符的顺序字符串<br>
-    *
-    * @param filteredInput
-    *            过滤后的字符串
-    * @return 把要翻译的字符进行翻译后得到的字符串数组。
-    */
-    public func translate(filteredInput: String) -> Array<String> {
+     * 翻译<br>
+     * <br>
+     * 从开始遍历input，如果是以下情况：<br>
+     * 是中文字符，取最长编码的第一个字符<br>
+     * 是五笔字符，直接取出<br>
+     * 如果长度到达4或input遍历结束，返回以上字符的顺序字符串<br>
+     *
+     * @param filteredInput
+     *            过滤后的字符串
+     * @return 把要翻译的字符进行翻译后得到的字符串数组。
+     */
+    final func translate(filteredInput: String) ->[String] {
         sb.removeAll(keepCapacity: true)
         let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! ChineseCacheProtocol
         var len = 0
@@ -60,20 +59,24 @@ public class WubiWordsStrategyImpl : AbstractWubiStrategy , ValueCodingStrategyP
     }
     
     /**
-    * 计算简化编码<br>
-    * <br>
-    * 简化编码的计算过程：<br>
-    * 分别截取从前[1-length]位作为dimensionKeys<br>
-    *
-    * @param simplifyValue
-    *            简化输入
-    * @return 计算得到的dimensionKey列表
-    */
-    override func computeDimensionKeys(simplifyValue: String) -> Array<String> {
+     * 计算简化编码<br>
+     * <br>
+     * 简化编码的计算过程：<br>
+     * 分别截取从前[1-length]位作为dimensionKeys<br>
+     *
+     * @param simplifyValue
+     *            简化输入
+     * @return 计算得到的dimensionKey列表
+     */
+    override final func computeDimensionKeys(simplifyValue: String) ->[String] {
         var rs = [String]()
         for i in 0 ..< simplifyValue.length {
             rs.append(simplifyValue.substringToIndex(simplifyValue.startIndex.advancedBy(i+1)))
         }
         return rs
+    }
+    
+    static func newInstance() -> ReflectionProtocol {
+        return WubiWordsStrategyImpl()
     }
 }

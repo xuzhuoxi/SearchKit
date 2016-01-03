@@ -13,15 +13,15 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
+class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
     /**
-    * 编码过程：<br>
-    * 1.一个字的，返回对应字的编码。<br>
-    * 2.两个字的，返回前两个字的最长编码前两个字符的合并字符串。<br>
-    * 3.三个字的，返回前三个字的最长编码第一个字符加上第三个字的最长编码第二个字符的合并字符串。<br>
-    * 4.四个字或以上的，返回前三个字的的最长编码的第一个字符加最后一个字的最长编码的第一个字符。<br>
-    */
-    public func coding(wordCache: ChineseCacheProtocol, words: String) -> [String]? {
+     * 编码过程：<br>
+     * 1.一个字的，返回对应字的编码。<br>
+     * 2.两个字的，返回前两个字的最长编码前两个字符的合并字符串。<br>
+     * 3.三个字的，返回前三个字的最长编码第一个字符加上第三个字的最长编码第二个字符的合并字符串。<br>
+     * 4.四个字或以上的，返回前三个字的的最长编码的第一个字符加最后一个字的最长编码的第一个字符。<br>
+     */
+    final func coding(wordCache: ChineseCacheProtocol, words: String) -> [String]? {
         if words.isEmpty || !canCoding(wordCache, words) {
             return nil
         }
@@ -47,16 +47,16 @@ public class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
             rs.appendContentsOf(maxCode.substringToIndex(maxCode.startIndex.advancedBy(len)))
         }
         return rs
-
+        
     }
     
     /**
-    * 取汉字的最长五笔编码<br>
-    *
-    * @param wordCache
-    * @param word
-    * @return
-    */
+     * 取汉字的最长五笔编码<br>
+     *
+     * @param wordCache
+     * @param word
+     * @return
+     */
     private func getMaxValue(wordCache:ChineseCacheProtocol, _ word:String) ->String {
         let values = wordCache.getValues(word)
         if values.isEmpty {

@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ * 简单的正则表达式工具类
+ *
+ * @author xuzhuoxi
+ *
+ */
 public struct SimplePattern {
     let regex: NSRegularExpression?
     

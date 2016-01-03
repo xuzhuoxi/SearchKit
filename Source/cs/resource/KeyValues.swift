@@ -12,23 +12,19 @@
 * @author xuzhuoxi
 *
 */
-public class KeyValues {
+public struct KeyValues {
     /**
      * 汉字(词)
      */
-    private let key : String;
+    public let key : String
     /**
-     * 编码
+     * 全部编码信息
      */
-    private var values : Set<String>;
+    private(set) public var values : Set<String>
     
     public init(_ key : String) {
         self.key = key
         self.values = []
-    }
-    
-    public final func getKey() ->String {
-        return key;
     }
     
     /**
@@ -38,22 +34,12 @@ public class KeyValues {
      *            编码
      * @return 缓存成功true，否则返回false
      */
-    public final func addValue(value : String) ->Bool{
+    mutating public func addValue(value : String) ->Bool{
         if values.contains(value) {
             return false
         } else {
             values.insert(value)
             return true
         }
-    }
-    
-    /**
-     * 取得全部编码信息
-     *
-     * @return 全部编码组成的数组
-     */
-    public final func getValues() ->Set<String> {
-        let rs = values
-        return rs
     }
 }

@@ -57,20 +57,14 @@ public class CachePool {
     }
     
     private final func createInstance(ci: CacheInfo) ->CacheProtocol {
-        let rs: CacheProtocol = ci.reflectClass!.newInstance()!
+        let rs: CacheProtocol = ci.cacheReflectionInfo.newInstance() as! CacheProtocol
         if ci.isNeedResource && rs is CacheInitProtocol {
             let initProtocol = rs as! CacheInitProtocol
-            initProtocol.initCache(ci.cacheName, ci.valueCodingType, ci.initialCapacity)
-            let pathsInfo = ci.resourcePath!
-            let paths: [String]
-            let char = Character(";")
-            if pathsInfo.characters.contains(char) {
-                paths = pathsInfo.explode(char)
-            }else{
-                paths = [pathsInfo]
-            }
-            for path in paths {
-                initProtocol.supplyResource(path)
+            initProtocol.initCache(ci.cacheName, ci.valueCodingReflectionInfo?.newInstance() as? ValueCodingStrategyProtocol, ci.initialCapacity)
+            if let urls = ci.resourceURLs {
+                for url in urls {
+                    initProtocol.supplyResource(url)
+                }
             }
         }
         return rs

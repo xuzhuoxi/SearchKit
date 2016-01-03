@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class ValueCodingStrategyFactory {
+public struct ValueCodingStrategyFactory {
     private init(){}
     
-    private static var map : Dictionary<ValueCodingType,ValueCodingStrategyProtocol> = Dictionary<ValueCodingType,ValueCodingStrategyProtocol>()
+    private static var map = Dictionary<ValueCodingType, ValueCodingStrategyProtocol>()
     
     public static func getValueCodingStrategy(type:ValueCodingType) ->ValueCodingStrategyProtocol{
         if let _ = map.indexForKey(type) {

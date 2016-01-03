@@ -13,26 +13,25 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class WubiWordStrategyImpl : AbstractWubiStrategy , ValueCodingStrategyProtocol {
-    override init() {}
+class WubiWordStrategyImpl: AbstractWubiStrategy, ValueCodingStrategyProtocol, ReflectionProtocol {
     
-    public func getSimplifyValue(value: String) -> String {
+    final func getSimplifyValue(value: String) ->String {
         return value
     }
     
-    public func getDimensionKeys(simplifyValue: String) -> Array<String> {
+    final func getDimensionKeys(simplifyValue: String) ->[String] {
         return abstractGetDimensionKeys(simplifyValue);
     }
     
-    public func filter(input: String) -> String {
+    final func filter(input: String) -> String {
         return wubiFilter(input);
     }
     
     /**
-    * 如果输入中包含已编码的中文，返回对应第一个中文的编码<br>
-    * 否则截取前4位拼音字符作为返回
-    */
-    public func translate(filteredInput: String) -> Array<String> {
+     * 如果输入中包含已编码的中文，返回对应第一个中文的编码<br>
+     * 否则截取前4位拼音字符作为返回
+     */
+    final func translate(filteredInput: String) ->[String] {
         if ChineseUtils.hasChinese(filteredInput) {
             let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! ChineseCacheProtocol
             for key in filteredInput.characters {
@@ -48,14 +47,18 @@ public class WubiWordStrategyImpl : AbstractWubiStrategy , ValueCodingStrategyPr
     }
     
     /**
-    * 简化编码的计算过程：<br>
-    * 分别截取从前[1-length]位作为dimensionKeys<br>
-    */
-    override func computeDimensionKeys(simplifyValue: String) -> Array<String> {
+     * 简化编码的计算过程：<br>
+     * 分别截取从前[1-length]位作为dimensionKeys<br>
+     */
+    override final func computeDimensionKeys(simplifyValue: String) ->[String] {
         var rs = [String]()
         for i in 0 ..< simplifyValue.length {
             rs.append(simplifyValue.substringToIndex(simplifyValue.startIndex.advancedBy(i+1)))
         }
         return rs
+    }
+    
+    static func newInstance() -> ReflectionProtocol {
+        return WubiWordStrategyImpl()
     }
 }

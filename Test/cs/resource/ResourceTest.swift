@@ -33,42 +33,25 @@ class ResourceTest: XCTestCase {
     //        }
     //    }
     
-    func printURL(pre: String, url: String ){
-        let fileManager = NSFileManager.defaultManager()
-        print("\(pre)\(url)")
-        //        if fileManager
-        do{
-            let urls = try fileManager.contentsOfDirectoryAtPath(url)
-            var nextPre = pre
-            nextPre.appendContentsOf("\t")
-            for u in urls {
-                printURL(nextPre, url: u)
-            }
-        }catch{
-        }
-    }
-    
     func testPerformance() {
         self.measureBlock{
-            self.testGetResource()
+            self.testGetResourceByAbsolutePath()
         }
     }
     
-    func testGetResource() {//平均：11.336s默认 8.419s-O-whole (Java平均时间：0.16s)
+    func testGetResourceByAbsolutePath() {//平均：11.336s默认 8.419s-O-whole (Java平均时间：0.16s)
         var paths: [String] = []
-        paths.append(ResourcePath.PATH_PINYIN_WORD)//绝对路径
-        paths.append(ResourcePath.PATH_PINYIN_WORDS)//绝对路径
-        paths.append(ResourcePath.PATH_WUBI_WORD)//绝对路径
-        paths.append(ResourcePath.PATH_WUBI_WORDS)//绝对路径
-        paths.append(ResourcePath.PATH_WEIGHT_WORDS)//绝对路径
+        paths.append(ResourcePaths.PATH_PINYIN_WORD)//绝对路径
+        paths.append(ResourcePaths.PATH_PINYIN_WORDS)//绝对路径
+        paths.append(ResourcePaths.PATH_WUBI_WORD)//绝对路径
+        paths.append(ResourcePaths.PATH_WUBI_WORDS)//绝对路径
+        paths.append(ResourcePaths.PATH_WEIGHT_WORDS)//绝对路径
         let result = [20808, 90679, 6791, 90674, 90680]
         for (index, path) in paths.enumerate() {
             let resource = Resource.getResource(path)
             XCTAssertNotNil(resource)
-            let rs = resource!
-            XCTAssertEqual(rs.size(), result[index])
+            XCTAssertEqual(resource?.size, result[index])
         }
-//        XCTAssertTrue(false)
     }
     
     func testGetResourceByData() {
@@ -77,8 +60,8 @@ class ResourceTest: XCTestCase {
         let keys = ["一一", "一丁点"]
         let values = ["yiy#yiyi#yy#yyi", "ydd#yddian#ydingd#ydingdian#yidd#yiddian#yidingd#yidingdian"]
         let rs:Resource=Resource.getResourceByData(data)!
-        XCTAssertEqual(rs.size(), count)
-        for i in 0 ..< rs.size() {
+        XCTAssertEqual(rs.size, count)
+        for i in 0 ..< rs.size {
             XCTAssertEqual(keys[i], rs.getKey(i))
             XCTAssertEqual(values[i], rs.getValue(i))
         }

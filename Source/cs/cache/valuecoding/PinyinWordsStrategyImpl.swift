@@ -13,27 +13,25 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtocol {
+class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtocol, ReflectionProtocol {
     /**
-    * 单声母
-    */
-    private let danshengmu:[Character]  = ["b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "r", "z", "c", "s", "w", "y" ];
+     * 单声母
+     */
+    private let danshengmu:[Character]  = ["b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "r", "z", "c", "s", "w", "y" ]
     /**
-    * 空格
-    */
-    private let space : Character = " ";
+     * 空格
+     */
+    private let space : Character = " "
     
-    override init() {}
-
     /**
-    * 从头开始遍历<br>
-    * 遇到以下情况则加入到返回字符串中：<br>
-    * 1.第一个字符<br>
-    * 2.空格后的第一个字符<br>
-    * 3.声母字符<br>
-    * 把以上得到的字符按遍历顺序组成字符串返回<br>
-    */
-    public func getSimplifyValue(value: String) -> String {
+     * 从头开始遍历<br>
+     * 遇到以下情况则加入到返回字符串中：<br>
+     * 1.第一个字符<br>
+     * 2.空格后的第一个字符<br>
+     * 3.声母字符<br>
+     * 把以上得到的字符按遍历顺序组成字符串返回<br>
+     */
+    final func getSimplifyValue(value: String) -> String {
         if value.isEmpty {
             return ""
         }
@@ -54,14 +52,14 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
         return sb
     }
     
-    public func getDimensionKeys(simplifyValue: String) -> Array<String> {
+    final func getDimensionKeys(simplifyValue: String) ->[String] {
         return abstractGetDimensionKeys(simplifyValue)
     }
-
+    
     /**
-    * 过滤输入字符串，保留中文字符、拼音字符及空格<br>
-    */
-    public func filter(input: String) -> String {
+     * 过滤输入字符串，保留中文字符、拼音字符及空格<br>
+     */
+    final func filter(input: String) -> String {
         if input.isEmpty {
             return input
         }
@@ -73,16 +71,16 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
         }
         return sb
     }
-
+    
     /**
-    * 翻译过程：<br>
-    * 1.对字符串的中文进行翻译，前后以空格相隔，对于多音字，则进行自由组合<br>
-    * 2.对上面的每一个字符串进行简化{@link #getSimplifyValue(String)}<br>
-    * 3.返回上一步字符串组成的非重复数组<br>
-    *
-    * @see #getSimplifyValue(String)
-    */
-    public func translate(filteredInput : String) ->[String] {
+     * 翻译过程：<br>
+     * 1.对字符串的中文进行翻译，前后以空格相隔，对于多音字，则进行自由组合<br>
+     * 2.对上面的每一个字符串进行简化{@link #getSimplifyValue(String)}<br>
+     * 3.返回上一步字符串组成的非重复数组<br>
+     *
+     * @see #getSimplifyValue(String)
+     */
+    final func translate(filteredInput : String) ->[String] {
         var rs : [String]
         if ChineseUtils.hasChinese(filteredInput) {
             let wordPinyinMap: ChineseCacheProtocol = CachePool.instance.getCache(CacheNames.PINYIN_WORD)! as! ChineseCacheProtocol
@@ -127,14 +125,14 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
     }
     
     /**
-    * 简化编码的计算过程：<br>
-    * 1.截取第二位开始的字符中进行无重复基于顺序的自由组合，详细请看{@link StringCombination}<br>
-    * 2.第一位分别拼接上面得的到字符串数组<br>
-    * 3.返回第一位字符以及上面的字符串数组组成的数组<br>
-    * 
-    * @see StringCombination
-    */
-    override func computeDimensionKeys(simplifyValue : String) ->[String] {
+     * 简化编码的计算过程：<br>
+     * 1.截取第二位开始的字符中进行无重复基于顺序的自由组合，详细请看{@link StringCombination}<br>
+     * 2.第一位分别拼接上面得的到字符串数组<br>
+     * 3.返回第一位字符以及上面的字符串数组组成的数组<br>
+     *
+     * @see StringCombination
+     */
+    override final func computeDimensionKeys(simplifyValue : String) ->[String] {
         if simplifyValue.isEmpty {
             return []
         }
@@ -142,7 +140,7 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
             return [simplifyValue]
         }
         let maxDimension = 2
-
+        
         let source = simplifyValue.explode()
         let subSource : [String] = source[1..<source.count]
         let subRs = StringCombination.getDimensionCombinationArray(subSource, dimensionValue: maxDimension - 1, isRepeat: false)!
@@ -152,5 +150,9 @@ public class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategy
             rs[i] = rs[0] + subRs[i-1]
         }
         return rs
+    }
+    
+    static func newInstance() -> ReflectionProtocol {
+        return PinyinWordsStrategyImpl()
     }
 }

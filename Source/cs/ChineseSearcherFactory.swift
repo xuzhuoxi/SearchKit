@@ -13,7 +13,9 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class ChineseSearcherFactory {
+public struct ChineseSearcherFactory {
+    private init(){}
+    
     private static let instance:ChineseSearcherProtocol = ChineseSearcherImpl()
     
     /**
@@ -30,6 +32,4 @@ public class ChineseSearcherFactory {
         }
         return instance
     }
-    
-    private init(){}
 }

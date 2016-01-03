@@ -50,9 +50,9 @@ class UnfixedDimensionMapTest: XCTestCase {
                 }
             }
         }
-        assertTuplesEqual(result, mdMap.getDimensionInfo())
+        assertTuplesEqual(result, mdMap.dimensionInfo)
         mdMap.add("a", dimensionValue: "a")
-        assertTuplesEqual(result, mdMap.getDimensionInfo())
+        assertTuplesEqual(result, mdMap.dimensionInfo)
     }
     
     func testGet() {

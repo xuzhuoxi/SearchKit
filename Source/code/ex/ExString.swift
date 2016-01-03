@@ -9,6 +9,11 @@
 import Foundation
 
 extension String {
+    /**
+     * 分裂字符串
+     *
+     * @return 以全部字符对应字符串组成的数组
+     */
     public func explode() -> [String] {
         var rs:[String] = []
         for str in self.characters {

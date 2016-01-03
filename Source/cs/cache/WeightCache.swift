@@ -9,92 +9,86 @@
 import Foundation
 
 /**
-*
-* @author xuzhuoxi
-*
-*/
-public class WeightCache : WeightCacheProtocol, CacheInitProtocol {
-    public static var DEFAULT_VALUE: Double {
+ *
+ * @author xuzhuoxi
+ *
+ */
+class WeightCache : WeightCacheProtocol, CacheInitProtocol {
+    static var DEFAULT_VALUE: Double {
         return 1.0
     }
     
-    init(){}
-    
-    var cacheName: String!
+    private(set) var cacheName: String!
     var key2weight: Dictionary<String, KeyWeight>!
     
-    public func initCache(cacheName: String, _ valueCodingType: ValueCodingType?, _ initialCapacity: UInt) {
+    final func initCache(cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
         self.cacheName = cacheName
         self.key2weight = Dictionary<String, KeyWeight>(minimumCapacity: Int(initialCapacity))
     }
     
-    public func supplyData(data: String) {
+    final func supplyData(data: String) {
         if let resource = Resource.getResourceByData(data) {
             supplyResource(resource)
         }
     }
     
-    public func supplyResource(path: String) {
-        if let resource = Resource.getResource(path) {
+    final func supplyResource(url: NSURL) {
+        if let resource = Resource.getResource(url.path!) {
             supplyResource(resource)
         }
     }
     
-    public func supplyResource(resource: Resource) {
-        let size = resource.size()
+    final func supplyResource(resource: Resource) {
+        let size = resource.size
         for i in 0 ..< size {
             tryCacheKeyValue(resource.getKey(i), resource.getValue(i))
         }
     }
     
-    public func supplyData(key: String, value: String) {
+    final func supplyData(key: String, value: String) {
         tryCacheKeyValue(key, value)
     }
     
-    /**
-    * 尝试缓存一对键值对<br>
-    * 先检查有效性，不通过则忽略<br>
-    *
-    * @param resourceKey
-    *            键
-    * @param resourceValue
-    *            值
-    * @return 缓存成功true，否则false.
-    */
-    func tryCacheKeyValue(key: String, _ value: String){
-        //子类实现
-    }
-    
-    public final func getCacheName() ->String {
+    final func getCacheName() ->String {
         return cacheName;
     }
     
-    public final func isKey(key: String) ->Bool {
+    final func isKey(key: String) ->Bool {
         return key2weight!.has(key)
     }
     
-    public final func getKeysSize() ->Int {
+    final func getKeysSize() ->Int {
         return nil == key2weight ? 0 : key2weight!.count
     }
     
-    public final func getValues(key: String) ->Double {
+    final func getValues(key: String) ->Double {
         if (isKey(key)) {
-            return key2weight![key]!.getWeight()
+            return key2weight![key]!.weight
         }
         return WeightCache.DEFAULT_VALUE;
     }
     
-    public func toString() ->String {
+    final func toString() ->String {
         return cacheName! + "\n" + String(key2weight)
     }
     
-    public class func newInstance() -> CacheProtocol? {
-        return nil
+    /**
+     * 尝试缓存一对键值对<br>
+     * 先检查有效性，不通过则忽略<br>
+     *
+     * @param resourceKey
+     *            键
+     * @param resourceValue
+     *            值
+     * @return 缓存成功true，否则false.
+     */
+    func tryCacheKeyValue(key: String, _ value: String){
+        //子类实现
     }
     
-    public static func createWeightCache(cacheName: String, resource: Resource) ->WeightCacheProtocol {
+    static func createWeightCache(cacheName: String, resource: Resource) ->WeightCacheProtocol {
         let rs = WeightCacheImpl()
-        rs.initCache(cacheName, nil, UInt(resource.size()))
+        rs.initCache(cacheName, nil, UInt(resource.size))
         rs.supplyResource(resource)
         return rs;
     }

@@ -15,13 +15,22 @@ import Foundation
  */
 public class Resource {
     private let path : String
-    private var keyList : Array<String>
-    private var valueList : Array<String>
+    private var keyList : [String]
+    private var valueList : [String]
     
-    private init(path:String){
+    /**
+     * 键值对数量
+     *
+     * @return 键值对数量
+     */
+    public var size: Int {
+        return keyList.count
+    }
+    
+    private init(path: String) {
         self.path = path;
-        keyList=[]
-        valueList=[]
+        self.keyList=[]
+        self.valueList=[]
     }
     
     /**
@@ -33,15 +42,6 @@ public class Resource {
      */
     public final func isKey(key : String) ->Bool {
         return keyList.contains(key)
-    }
-    
-    /**
-     * 键值对数量
-     *
-     * @return 键值对数量
-     */
-    public final func size() ->Int {
-        return keyList.count
     }
     
     /**
@@ -97,7 +97,7 @@ public class Resource {
         if data.isEmpty {
             return nil
         }
-        let rs = Resource(path : toFullPath(data))
+        let rs = Resource(path : "\(data.hashValue)")
         saveData(rs, dataString: data)
         return rs
     }
@@ -105,17 +105,17 @@ public class Resource {
     /**
      * 通过资源的路径创建实例，默认资源编码格式为UTF-8。<br>
      *
-     * @param filePath
+     * @param absoluteFilePath
      *            文件路径
      * @param succCall
      *            下载成功后回调，格式:function(rs:Resource):void;
      */
-    public static func getResource(filePath:String) ->Resource? {
-        return loadFile(filePath);
+    public static func getResource(absoluteFilePath: String) ->Resource? {
+        return loadFile(absoluteFilePath)
     }
     
-    private static func loadFile(filePath:String) ->Resource? {
-        let nPath = toFullPath(filePath)
+    private static func loadFile(absoluteFilePath: String) ->Resource? {
+        let nPath = absoluteFilePath
         let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(nPath) {
             do {
@@ -129,12 +129,6 @@ public class Resource {
         }else{
             return nil
         }
-//        let rs = Resource(path: nPath)
-//        let tfr = TextFileReader(path: filePath)
-//        while var line = tfr.nextLine() {
-//            saveLine(rs, lineString: &line)
-//        }
-//        return rs
     }
     
     private static func saveData(rs:Resource, dataString:String) {
@@ -160,10 +154,5 @@ public class Resource {
             rs.keyList.append(key)
             rs.valueList.append(value)
         }
-
-    }
-    
-    private static func toFullPath(path :String)->String {
-        return path;
     }
 }

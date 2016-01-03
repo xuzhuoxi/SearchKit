@@ -14,16 +14,16 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class CacheInfo {
+public struct CacheInfo {
     /**
      * cache名称
      */
     public let cacheName : String
     
     /**
-     * 缓存实例的Class对象
+     * 缓存实例的反射信息
      */
-    public let reflectClassName : String
+    public let cacheReflectionInfo: ReflectionInfo
     
     /**
      * 是否为单例<br>
@@ -40,41 +40,50 @@ public class CacheInfo {
     /**
      * 缓存初始化时使用资源的路径 多个资源可使用""相隔
      */
-    public let resourcePath : String?
+    public let resourceURLs : [NSURL]?
     /**
      * 字符文件编码类型，如UTF-8等
      */
     public let charsetName : String?
     /**
-     * 资源的值处理类型
+     * 资源的值实例的反射信息
      */
-    public let valueCodingType : ValueCodingType?
+    public let valueCodingReflectionInfo: ReflectionInfo?
     
     /**
      * @return 是否需要资源作为初始化，当resourcePath{@link #resourcePath}无效时返回false。
      */
     public let isNeedResource : Bool
     
-    /**
-     * 反射出来的类类型
-     */
-//    public lazy var reflectClass: CacheProtocol.Type? = {return NSClassFromString(self.reflectClassName) as? CacheProtocol.Type}()
-    public let reflectClass: CacheProtocol.Type?
-    
-    public init(_ cacheName: String, _ reflectClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourcePath: String?, _ charsetName: String?, _ valueCodingType: ValueCodingType?) {
+    public init(_ cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [NSURL]?, _ charsetName: String?,  valueCodingType: ValueCodingType?) {
         self.cacheName = cacheName
-        self.reflectClassName = reflectClassName
+        self.cacheReflectionInfo = ReflectionInfo(className: cacheClassName)
         self.isSingleton = isSingleton
         self.initialCapacity = initialCapacity
-        self.resourcePath = resourcePath
+        self.resourceURLs = resourceURLs
         self.charsetName = charsetName
-        self.valueCodingType = valueCodingType
+        self.valueCodingReflectionInfo = nil == valueCodingType ? nil : ReflectionInfo(className: valueCodingType!.associatedClassName)
         
-        self.isNeedResource = nil != resourcePath && !resourcePath!.isEmpty
-        self.reflectClass = NSClassFromString(reflectClassName) as? CacheProtocol.Type
+        self.isNeedResource = nil != resourceURLs && !resourceURLs!.isEmpty
+    }
+    
+    public init(_ cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [NSURL]?, _ charsetName: String?,  valueCodingClassName: String?) {
+        self.cacheName = cacheName
+        self.cacheReflectionInfo = ReflectionInfo(className: cacheClassName)
+        self.isSingleton = isSingleton
+        self.initialCapacity = initialCapacity
+        self.resourceURLs = resourceURLs
+        self.charsetName = charsetName
+        self.valueCodingReflectionInfo = nil == valueCodingClassName ? nil : ReflectionInfo(className: valueCodingClassName!)
+        
+        self.isNeedResource = nil != resourceURLs && !resourceURLs!.isEmpty
     }
 
-    convenience public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourcePath: String?, valueCodingType: ValueCodingType?) {
-        self.init(cacheName, reflectClassName, isSingleton, initialCapacity, resourcePath, "UTF-8", valueCodingType)
+    public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [NSURL]?, valueCodingType: ValueCodingType?) {
+        self.init(cacheName, reflectClassName, isSingleton, initialCapacity, resourceURLs, "UTF-8", valueCodingType: valueCodingType)
+    }
+    
+    public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [NSURL]?, valueCodingClassName: String?) {
+        self.init(cacheName, reflectClassName, isSingleton, initialCapacity, resourceURLs, "UTF-8", valueCodingClassName: valueCodingClassName)
     }
 }

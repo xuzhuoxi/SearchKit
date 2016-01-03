@@ -14,31 +14,15 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class CacheNames {
+public struct CacheNames {
     private init(){}
     
     /**
-    * 拼音 字库
-    */
-    public static let PINYIN_WORD = "WORD:PINYIN";
+     * 拼音 字库
+     */
+    public static let PINYIN_WORD = "WORD:PINYIN"
     /**
-    * 五笔 字库
-    */
-    public static let WUBI_WORD = "WORD:WUBI";
-    
-    /**
-    * 拼音 词库
-    */
-    public static let PINYIN_WORDS = "WORDS:PINYIN";
-    
-    /**
-    * 五笔 词库
-    */
-    public static let WUBI_WORDS = "WORDS:WUBI";
-    
-    /**
-    * 权重(权值)
-    */
-    public static let WEIGHT = "WORDS:WEIGHT";
-    
+     * 五笔 字库
+     */
+    public static let WUBI_WORD = "WORD:WUBI"
 }

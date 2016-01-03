@@ -14,7 +14,7 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class ChineseUtils {
+public struct ChineseUtils {
     private static let chineseStartChar : Character = "\u{4e00}"
     private static let chineseEndChar : Character = "\u{9fa5}"
     private static let chineseStartUnicode : UInt32 = 0x4e00
@@ -22,8 +22,8 @@ public class ChineseUtils {
     
     private static var sb:String = ""
     
-    private static let someChinese = "[\u{4e00}-\u{9fa5}]*";
-    private static let endStr = "$";
+    private static let someChinese = "[\u{4e00}-\u{9fa5}]*"
+    private static let endStr = "$"
     
     private init(){}
     

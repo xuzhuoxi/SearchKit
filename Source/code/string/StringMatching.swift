@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StringMatching {
+public struct StringMatching {
     private init(){}
     
     /**

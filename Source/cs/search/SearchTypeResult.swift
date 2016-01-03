@@ -14,84 +14,61 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class SearchTypeResult: Comparable {
+public struct SearchTypeResult: Comparable {
     private static let fullMatchingValue: Double = 2.0
     
-    private let searchType: SearchTypes
-    private var value: Double = 0;
+    /**
+     * 检索类型
+     *
+     * @return 检索类型
+     */
+    public let searchType: SearchType
     
-    public init(_ searchType: SearchTypes) {
+    /**
+     * 检索结果
+     *
+     * @return 检索结果(匹配度)
+     */
+    private(set) public var value: Double = 0
+    
+    /**
+     * 是否为全匹配
+     *
+     * @return 是true否false
+     * @see #fullMatchingValue
+     */
+    public var isFullMatching: Bool {
+        return value >= SearchTypeResult.fullMatchingValue
+    }
+    
+    public init(_ searchType: SearchType) {
         self.searchType = searchType
     }
     
-    
     /**
-    * 检索类型
-    *
-    * @return 检索类型
-    */
-    public final func getSearchType() ->SearchTypes{
-        return searchType
-    }
-    
-    /**
-    * 检索结果
-    *
-    * @return 检索结果(匹配度)
-    */
-    public final func getValue() ->Double {
-        return value
-    }
-    
-    /**
-    * 更新检索结果
-    *
-    * @param value
-    *            检索结果(匹配度)
-    *
-    * @see #fullMatchingValue
-    */
-    public final func updateBiggerValue(value: Double) {
+     * 更新检索结果
+     *
+     * @param value
+     *            检索结果(匹配度)
+     *
+     * @see #fullMatchingValue
+     */
+    mutating public func updateBiggerValue(value: Double) {
         if (value <= SearchTypeResult.fullMatchingValue && self.value < value) {
             self.value = value
         }
     }
-    
-    /**
-    * 是否为全匹配
-    *
-    * @return 是true否false
-    * @see #fullMatchingValue
-    */
-    public final func isFullMatching() ->Bool {
-        return value >= SearchTypeResult.fullMatchingValue
-    }
+
 }
 
 public func ==(lhs: SearchTypeResult, rhs: SearchTypeResult) -> Bool {
-    return (lhs.isFullMatching() == rhs.isFullMatching()) && (lhs.getValue() == rhs.getValue())
+    return (lhs.isFullMatching == rhs.isFullMatching) && (lhs.value == rhs.value)
 }
 
 public func <(lhs: SearchTypeResult, rhs: SearchTypeResult) -> Bool {
-    if lhs.isFullMatching() != rhs.isFullMatching() {
-        return lhs.isFullMatching() ? false : true
+    if lhs.isFullMatching != rhs.isFullMatching {
+        return lhs.isFullMatching ? false : true
     } else {
-        return lhs.getValue() < rhs.getValue()
+        return lhs.value < rhs.value
     }
 }
-//
-//public func >(lhs: SearchTypeResult, rhs: SearchTypeResult) -> Bool {
-//    if lhs.isFullMatching() != rhs.isFullMatching() {
-//        return lhs.isFullMatching() ? true : false
-//    } else {
-//        return lhs.getValue() > rhs.getValue()
-//    }
-//}
-//
-//public func <=(lhs: SearchTypeResult, rhs: SearchTypeResult) -> Bool {
-//    return (lhs < rhs) || (lhs == rhs)
-//}
-//
-//public func >=(lhs: SearchTypeResult, rhs: SearchTypeResult) -> Bool {
-//    return (lhs > rhs) || (lhs == rhs)
-//}
