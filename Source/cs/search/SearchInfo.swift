@@ -21,11 +21,11 @@ public struct SearchInfo {
      */
     public let inputStr: String
     /**
-     * 需要执行的检索类别<br>
+     * 需要执行的检索配置<br>
      *
-     * @return 需要执行的检索类别<br>
+     * @return 需要执行的检索配置<br>
      */
-    public let searchType: [SearchType]
+    public let searchConfig: SearchConfig
     /**
      * 最大返回量
      *
@@ -55,9 +55,9 @@ public struct SearchInfo {
      * @param maxResultCount
      *            最大返回量<br>
      */
-    public init(_ inputStr:String, _ searchType:[SearchType], _ maxResultCount:Int) {
+    public init(_ inputStr:String, _ searchConfig:SearchConfig, _ maxResultCount:Int) {
         self.inputStr = inputStr.trimmed().lowercaseString
-        self.searchType = searchType
+        self.searchConfig = searchConfig
         self.maxResultCount = maxResultCount
         self.isChineseInput = ChineseUtils.hasChinese(self.inputStr)
         self.chineseWordsRegexp = isChineseInput ? ChineseUtils.toChineseWordsRegexp(self.inputStr) : nil

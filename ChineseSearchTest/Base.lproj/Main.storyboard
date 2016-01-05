@@ -18,28 +18,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="07c-at-puZ">
-                                <rect key="frame" x="20" y="20" width="560" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="游戏1拼音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMJ-sg-pKU">
+                                <rect key="frame" x="77" y="77" width="76" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="游戏1五笔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqZ-Bs-odK">
+                                <rect key="frame" x="218" y="77" width="76" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dota拼音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuH-ET-vo0">
+                                <rect key="frame" x="359" y="77" width="71" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的世界拼音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-c4-CGF">
+                                <rect key="frame" x="495" y="77" width="102" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LY-GP-5b7">
+                                <rect key="frame" x="20" y="72" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Ub-fA-RL8"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-Oa-geP">
+                                <rect key="frame" x="161" y="72" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="ler-QS-4A4"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oI-Nx-q3b">
+                                <rect key="frame" x="302" y="72" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="iTW-QI-kNb"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QLL-Cd-0bn">
+                                <rect key="frame" x="438" y="72" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="O6g-4F-DOp"/>
+                                </connections>
+                            </switch>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="b8x-Tf-qMA">
+                                <rect key="frame" x="20" y="20" width="560" height="44"/>
+                                <animations/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DeH-7F-dUa"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="07c-at-puZ" secondAttribute="leading" id="feK-gE-Orc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="07c-at-puZ" secondAttribute="trailing" id="tBs-aI-hEN"/>
-                            <constraint firstItem="07c-at-puZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wWo-eV-El9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b8x-Tf-qMA" secondAttribute="trailing" id="AC4-WM-VdK"/>
+                            <constraint firstItem="b8x-Tf-qMA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jfL-3i-yIG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="b8x-Tf-qMA" secondAttribute="leading" id="wkS-s8-hOF"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="txtInput" destination="07c-at-puZ" id="nFp-Qg-c27"/>
+                        <outlet property="searchBar" destination="b8x-Tf-qMA" id="diZ-oK-OOm"/>
+                        <outlet property="searchDisplayController" destination="pPO-mm-zP9" id="yJP-hN-3XA"/>
+                        <outlet property="switch0" destination="8LY-GP-5b7" id="5Rd-Mf-qz5"/>
+                        <outlet property="switch1" destination="0hY-Oa-geP" id="NW1-j8-PPk"/>
+                        <outlet property="switch2" destination="8oI-Nx-q3b" id="CVo-Nc-tbH"/>
+                        <outlet property="switch3" destination="QLL-Cd-0bn" id="oZX-iv-eVf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="pPO-mm-zP9">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Ybx-ql-UWK"/>
+                        <outlet property="searchBar" destination="b8x-Tf-qMA" id="L7k-Qb-ee6"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="9mQ-e3-5J2"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="drF-UM-gza"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="1Uq-6b-0V8"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="496" y="444"/>
+            <point key="canvasLocation" x="-216" y="55"/>
         </scene>
     </scenes>
 </document>

@@ -56,7 +56,7 @@ class CachePoolTest: XCTestCase {
     func printSomeFromCache(cc: ChineseCacheProtocol, _ dimensionKey: String) {
         let keyList = cc.getKeys(dimensionKey)
         var sb = ""
-        sb.appendContentsOf("\(cc.getCacheName()): \(keyList.count)\n")
+        sb.appendContentsOf("\(cc.cacheName): \(keyList.count)\n")
         sb.appendContentsOf("\(keyList)\n")
         print(sb)
     }
@@ -85,7 +85,7 @@ class CachePoolTest: XCTestCase {
         let ccArr = [cc0, cc1]
         for cc in ccArr {
             var i = 0
-            sb.appendContentsOf("\t\(cc.getCacheName())中无编码总数:")
+            sb.appendContentsOf("\t\(cc.cacheName)中无编码总数:")
             var newSB = ""
             let cString = ""
             for c in 0x4e00 ... 0x9fa5 {

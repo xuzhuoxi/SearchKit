@@ -14,7 +14,7 @@ public struct ResourcePaths {
     /**
      * 拼音字库资源 URL
      */
-    public static let URL_PINYIN_WORD = ResourcePaths.getURL(Resource.self, name: "word_pinyin")!
+    public static let URL_PINYIN_WORD = ResourcePaths.getProperitesURL(Resource.self, name: "word_pinyin")!
     
     /**
      * 拼音字库资源 路径
@@ -24,14 +24,14 @@ public struct ResourcePaths {
     /**
      * 五笔字库资源 URL
      */
-    public static let URL_WUBI_WORD = ResourcePaths.getURL(Resource.self, name: "word_wubi")!
+    public static let URL_WUBI_WORD = ResourcePaths.getProperitesURL(Resource.self, name: "word_wubi")!
     
     /**
      * 五笔字库资源 路径
      */
     public static let PATH_WUBI_WORD = ResourcePaths.URL_WUBI_WORD.path!
     
-    static func getURL(anyClass: AnyClass, name: String) ->NSURL?{
+    public static func getProperitesURL(anyClass: AnyClass, name: String) ->NSURL?{
         return NSBundle(forClass: anyClass).URLForResource(name, withExtension: "properites")
     }
 }

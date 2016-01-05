@@ -27,7 +27,6 @@
 		AA6AD23B1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
 		AA6AD23C1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
 		AA6AD23D1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
-		AA6AD23E1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
 		AAB45B711C2C1F7C006051B6 /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */; };
 		AAB45B8D1C2C1FB1006051B6 /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* ChineseSearch.framework */; };
 		AAB45BA91C2C1FCD006051B6 /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B9F1C2C1FCD006051B6 /* ChineseSearch.framework */; };
@@ -243,12 +242,10 @@
 		AAB7B3AB1C390E09007EB735 /* ExSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3AA1C390E09007EB735 /* ExSearchType.swift */; };
 		AAB7B3AC1C390E09007EB735 /* ExSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3AA1C390E09007EB735 /* ExSearchType.swift */; };
 		AAB7B3AD1C390E09007EB735 /* ExSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3AA1C390E09007EB735 /* ExSearchType.swift */; };
-		AAB7B3AE1C390E09007EB735 /* ExSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3AA1C390E09007EB735 /* ExSearchType.swift */; };
 		AAB7B3AF1C391804007EB735 /* word_wubi.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAB7B3881C390159007EB735 /* word_wubi.properites */; };
 		AAB7B3B01C391912007EB735 /* ExCacheNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3A41C390497007EB735 /* ExCacheNames.swift */; };
 		AAB7B3B11C391912007EB735 /* ExCacheNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3A41C390497007EB735 /* ExCacheNames.swift */; };
 		AAB7B3B21C391913007EB735 /* ExCacheNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3A41C390497007EB735 /* ExCacheNames.swift */; };
-		AAB7B3B31C391917007EB735 /* ExCacheNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3A41C390497007EB735 /* ExCacheNames.swift */; };
 		AAB7B3B91C392193007EB735 /* ResourcePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3B41C3920EA007EB735 /* ResourcePaths.swift */; };
 		AAB7B3BA1C392194007EB735 /* ResourcePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3B41C3920EA007EB735 /* ResourcePaths.swift */; };
 		AAB7B3BB1C392196007EB735 /* ResourcePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7B3B41C3920EA007EB735 /* ResourcePaths.swift */; };
@@ -273,6 +270,15 @@
 		AABB63D31C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */; };
 		AABB63D41C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */; };
 		AABB63D51C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */; };
+		AACDEB7C1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */; };
+		AACDEB7D1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */; };
+		AACDEB7E1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */; };
+		AACDEB801C3A45A600C640A3 /* IDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7F1C3A45A600C640A3 /* IDCache.swift */; };
+		AACDEB811C3A45A600C640A3 /* IDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7F1C3A45A600C640A3 /* IDCache.swift */; };
+		AACDEB821C3A45A600C640A3 /* IDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7F1C3A45A600C640A3 /* IDCache.swift */; };
+		AACDEB841C3A4C2800C640A3 /* IDCacheImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB831C3A4C2800C640A3 /* IDCacheImpl.swift */; };
+		AACDEB851C3A4C2800C640A3 /* IDCacheImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB831C3A4C2800C640A3 /* IDCacheImpl.swift */; };
+		AACDEB861C3A4C2800C640A3 /* IDCacheImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB831C3A4C2800C640A3 /* IDCacheImpl.swift */; };
 		AAE310BD1C2FAB750016F7C7 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE310BC1C2FAB750016F7C7 /* ResourceTest.swift */; };
 		AAE310BE1C2FAB750016F7C7 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE310BC1C2FAB750016F7C7 /* ResourceTest.swift */; };
 		AAE310BF1C2FAB750016F7C7 /* ResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE310BC1C2FAB750016F7C7 /* ResourceTest.swift */; };
@@ -317,6 +323,19 @@
 		AAE68CFE1C37B48F006E680D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFD1C37B48F006E680D /* Assets.xcassets */; };
 		AAE68D011C37B48F006E680D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFF1C37B48F006E680D /* LaunchScreen.storyboard */; };
 		AAE68D091C37B948006E680D /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */; };
+		AAF8133D1C3B87EB00AECEDE /* Aola_ID.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF8132F1C3B87EB00AECEDE /* Aola_ID.properites */; };
+		AAF8133E1C3B87EB00AECEDE /* Aola_wubi.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813301C3B87EB00AECEDE /* Aola_wubi.properites */; };
+		AAF8133F1C3B87EB00AECEDE /* Aola_pinyin.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813311C3B87EB00AECEDE /* Aola_pinyin.properites */; };
+		AAF813401C3B87EB00AECEDE /* Aola_weight.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813321C3B87EB00AECEDE /* Aola_weight.properites */; };
+		AAF813411C3B87EB00AECEDE /* Dota_ID.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813341C3B87EB00AECEDE /* Dota_ID.properites */; };
+		AAF813421C3B87EB00AECEDE /* Dota_wubi.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813351C3B87EB00AECEDE /* Dota_wubi.properites */; };
+		AAF813431C3B87EB00AECEDE /* Dota_pinyin.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813361C3B87EB00AECEDE /* Dota_pinyin.properites */; };
+		AAF813441C3B87EB00AECEDE /* Dota_weight.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813371C3B87EB00AECEDE /* Dota_weight.properites */; };
+		AAF813451C3B87EB00AECEDE /* Minecraft_ID.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813391C3B87EB00AECEDE /* Minecraft_ID.properites */; };
+		AAF813461C3B87EB00AECEDE /* Minecraft_wubi.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF8133A1C3B87EB00AECEDE /* Minecraft_wubi.properites */; };
+		AAF813471C3B87EB00AECEDE /* Minecraft_pinyin.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF8133B1C3B87EB00AECEDE /* Minecraft_pinyin.properites */; };
+		AAF813481C3B87EB00AECEDE /* Minecraft_weight.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF8133C1C3B87EB00AECEDE /* Minecraft_weight.properites */; };
+		AAF8134E1C3B8B0F00AECEDE /* ExConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF8134D1C3B8B0F00AECEDE /* ExConfig.swift */; };
 		AAFED5BB1C293C3600454BCA /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
 		AAFED5BC1C293C3600454BCA /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5671C293C3600454BCA /* ArrayUtils.swift */; };
 		AAFED5BD1C293C3600454BCA /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5691C293C3600454BCA /* ExString.swift */; };
@@ -465,6 +484,9 @@
 		AABB63C51C2D42CF007CF14B /* ExStringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExStringTest.swift; path = ex/ExStringTest.swift; sourceTree = "<group>"; };
 		AABB63CE1C2D597E007CF14B /* StringMatchingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMatchingTest.swift; sourceTree = "<group>"; };
 		AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtilsTest.swift; sourceTree = "<group>"; };
+		AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCacheProtocol.swift; sourceTree = "<group>"; };
+		AACDEB7F1C3A45A600C640A3 /* IDCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCache.swift; sourceTree = "<group>"; };
+		AACDEB831C3A4C2800C640A3 /* IDCacheImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCacheImpl.swift; sourceTree = "<group>"; };
 		AAE310BC1C2FAB750016F7C7 /* ResourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceTest.swift; sourceTree = "<group>"; };
 		AAE310FC1C2FD4090016F7C7 /* FixedDimensionMapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedDimensionMapTest.swift; sourceTree = "<group>"; };
 		AAE311001C2FE6CE0016F7C7 /* UnfixedDimensionMapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnfixedDimensionMapTest.swift; sourceTree = "<group>"; };
@@ -485,6 +507,19 @@
 		AAE68CFD1C37B48F006E680D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAE68D001C37B48F006E680D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAE68D021C37B48F006E680D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAF8132F1C3B87EB00AECEDE /* Aola_ID.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_ID.properites; sourceTree = "<group>"; };
+		AAF813301C3B87EB00AECEDE /* Aola_wubi.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_wubi.properites; sourceTree = "<group>"; };
+		AAF813311C3B87EB00AECEDE /* Aola_pinyin.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_pinyin.properites; sourceTree = "<group>"; };
+		AAF813321C3B87EB00AECEDE /* Aola_weight.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_weight.properites; sourceTree = "<group>"; };
+		AAF813341C3B87EB00AECEDE /* Dota_ID.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dota_ID.properites; sourceTree = "<group>"; };
+		AAF813351C3B87EB00AECEDE /* Dota_wubi.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dota_wubi.properites; sourceTree = "<group>"; };
+		AAF813361C3B87EB00AECEDE /* Dota_pinyin.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dota_pinyin.properites; sourceTree = "<group>"; };
+		AAF813371C3B87EB00AECEDE /* Dota_weight.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dota_weight.properites; sourceTree = "<group>"; };
+		AAF813391C3B87EB00AECEDE /* Minecraft_ID.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Minecraft_ID.properites; sourceTree = "<group>"; };
+		AAF8133A1C3B87EB00AECEDE /* Minecraft_wubi.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Minecraft_wubi.properites; sourceTree = "<group>"; };
+		AAF8133B1C3B87EB00AECEDE /* Minecraft_pinyin.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Minecraft_pinyin.properites; sourceTree = "<group>"; };
+		AAF8133C1C3B87EB00AECEDE /* Minecraft_weight.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Minecraft_weight.properites; sourceTree = "<group>"; };
+		AAF8134D1C3B8B0F00AECEDE /* ExConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExConfig.swift; sourceTree = "<group>"; };
 		AAFED5651C293C3600454BCA /* ChineseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseUtils.swift; sourceTree = "<group>"; };
 		AAFED5671C293C3600454BCA /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		AAFED5691C293C3600454BCA /* ExString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExString.swift; sourceTree = "<group>"; };
@@ -922,6 +957,7 @@
 			children = (
 				AAE68CF61C37B48F006E680D /* AppDelegate.swift */,
 				AAE68CF81C37B48F006E680D /* ViewController.swift */,
+				AAF8134D1C3B8B0F00AECEDE /* ExConfig.swift */,
 				AAE68D061C37B4A5006E680D /* Supporting Files */,
 			);
 			path = ChineseSearchTest;
@@ -930,6 +966,9 @@
 		AAE68D061C37B4A5006E680D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAF8132E1C3B87EB00AECEDE /* aola */,
+				AAF813331C3B87EB00AECEDE /* dota */,
+				AAF813381C3B87EB00AECEDE /* minecraft */,
 				AAE68CFA1C37B48F006E680D /* Main.storyboard */,
 				AAE68CFD1C37B48F006E680D /* Assets.xcassets */,
 				AAE68CFF1C37B48F006E680D /* LaunchScreen.storyboard */,
@@ -952,6 +991,39 @@
 				AABB636D1C2D082A007CF14B /* cs */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		AAF8132E1C3B87EB00AECEDE /* aola */ = {
+			isa = PBXGroup;
+			children = (
+				AAF8132F1C3B87EB00AECEDE /* Aola_ID.properites */,
+				AAF813301C3B87EB00AECEDE /* Aola_wubi.properites */,
+				AAF813311C3B87EB00AECEDE /* Aola_pinyin.properites */,
+				AAF813321C3B87EB00AECEDE /* Aola_weight.properites */,
+			);
+			path = aola;
+			sourceTree = "<group>";
+		};
+		AAF813331C3B87EB00AECEDE /* dota */ = {
+			isa = PBXGroup;
+			children = (
+				AAF813341C3B87EB00AECEDE /* Dota_ID.properites */,
+				AAF813351C3B87EB00AECEDE /* Dota_wubi.properites */,
+				AAF813361C3B87EB00AECEDE /* Dota_pinyin.properites */,
+				AAF813371C3B87EB00AECEDE /* Dota_weight.properites */,
+			);
+			path = dota;
+			sourceTree = "<group>";
+		};
+		AAF813381C3B87EB00AECEDE /* minecraft */ = {
+			isa = PBXGroup;
+			children = (
+				AAF813391C3B87EB00AECEDE /* Minecraft_ID.properites */,
+				AAF8133A1C3B87EB00AECEDE /* Minecraft_wubi.properites */,
+				AAF8133B1C3B87EB00AECEDE /* Minecraft_pinyin.properites */,
+				AAF8133C1C3B87EB00AECEDE /* Minecraft_weight.properites */,
+			);
+			path = minecraft;
 			sourceTree = "<group>";
 		};
 		AAFED5631C293C3600454BCA /* code */ = {
@@ -1041,14 +1113,17 @@
 			children = (
 				AAFED57D1C293C3600454BCA /* map */,
 				AAFED5831C293C3600454BCA /* valuecoding */,
-				AAFED5781C293C3600454BCA /* CacheInitProtocol.swift */,
 				AAFED5791C293C3600454BCA /* CacheProtocol.swift */,
+				AAFED5781C293C3600454BCA /* CacheInitProtocol.swift */,
+				AAFED57C1C293C3600454BCA /* ChineseCacheProtocol.swift */,
 				AAFED57A1C293C3600454BCA /* ChineseCache.swift */,
 				AAFED57B1C293C3600454BCA /* ChineseCacheImpl.swift */,
-				AAFED57C1C293C3600454BCA /* ChineseCacheProtocol.swift */,
+				AAFED58F1C293C3600454BCA /* WeightCacheProtocol.swift */,
 				AAFED58D1C293C3600454BCA /* WeightCache.swift */,
 				AAFED58E1C293C3600454BCA /* WeightCacheImpl.swift */,
-				AAFED58F1C293C3600454BCA /* WeightCacheProtocol.swift */,
+				AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */,
+				AACDEB7F1C3A45A600C640A3 /* IDCache.swift */,
+				AACDEB831C3A4C2800C640A3 /* IDCacheImpl.swift */,
 			);
 			path = cache;
 			sourceTree = "<group>";
@@ -1107,13 +1182,13 @@
 		AAFED59D1C293C3600454BCA /* search */ = {
 			isa = PBXGroup;
 			children = (
-				AAFED59F1C293C3600454BCA /* SearchInfo.swift */,
 				AAFED5A31C293C3600454BCA /* SearchTypeResult.swift */,
 				AAFED5A01C293C3600454BCA /* SearchKeyResult.swift */,
 				AAFED5A11C293C3600454BCA /* SearchResult.swift */,
-				AAFED59E1C293C3600454BCA /* SearchConfig.swift */,
 				AAFED5A21C293C3600454BCA /* SearchTypeInfo.swift */,
 				AAFED5A41C293C3600454BCA /* SearchType.swift */,
+				AAFED59E1C293C3600454BCA /* SearchConfig.swift */,
+				AAFED59F1C293C3600454BCA /* SearchInfo.swift */,
 			);
 			path = search;
 			sourceTree = "<group>";
@@ -1443,7 +1518,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF813411C3B87EB00AECEDE /* Dota_ID.properites in Resources */,
+				AAF813471C3B87EB00AECEDE /* Minecraft_pinyin.properites in Resources */,
+				AAF8133E1C3B87EB00AECEDE /* Aola_wubi.properites in Resources */,
+				AAF813401C3B87EB00AECEDE /* Aola_weight.properites in Resources */,
+				AAF813421C3B87EB00AECEDE /* Dota_wubi.properites in Resources */,
+				AAF813431C3B87EB00AECEDE /* Dota_pinyin.properites in Resources */,
+				AAF813481C3B87EB00AECEDE /* Minecraft_weight.properites in Resources */,
 				AAE68D011C37B48F006E680D /* LaunchScreen.storyboard in Resources */,
+				AAF8133D1C3B87EB00AECEDE /* Aola_ID.properites in Resources */,
+				AAF813451C3B87EB00AECEDE /* Minecraft_ID.properites in Resources */,
+				AAF813441C3B87EB00AECEDE /* Dota_weight.properites in Resources */,
+				AAF813461C3B87EB00AECEDE /* Minecraft_wubi.properites in Resources */,
+				AAF8133F1C3B87EB00AECEDE /* Aola_pinyin.properites in Resources */,
 				AAE68CFE1C37B48F006E680D /* Assets.xcassets in Resources */,
 				AAE68CFC1C37B48F006E680D /* Main.storyboard in Resources */,
 			);
@@ -1550,10 +1637,12 @@
 				AAB45C251C2C2042006051B6 /* CacheConfig.swift in Sources */,
 				AA0A7C151C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AAB45C761C2C2072006051B6 /* Range.swift in Sources */,
+				AACDEB801C3A45A600C640A3 /* IDCache.swift in Sources */,
 				AAB45C621C2C206B006051B6 /* ChineseSearcherImpl.swift in Sources */,
 				AAB45C6B1C2C2072006051B6 /* Bool.swift in Sources */,
 				AAB45C531C2C2056006051B6 /* ChineseWordsCodingProtocol.swift in Sources */,
 				AAB45BF51C2C2034006051B6 /* PinyinWordStrategyImpl.swift in Sources */,
+				AACDEB7C1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */,
 				AAB45BC51C2C1FFE006051B6 /* ChineseUtils.swift in Sources */,
 				AAB45C701C2C2072006051B6 /* ExSwift.swift in Sources */,
 				AAB45BCE1C2C200F006051B6 /* MathUtils.swift in Sources */,
@@ -1584,6 +1673,7 @@
 				AAB45BE61C2C202E006051B6 /* FixedDimensionMapImpl.swift in Sources */,
 				AAB45C101C2C203B006051B6 /* ChineseCacheImpl.swift in Sources */,
 				AAB45BDB1C2C2023006051B6 /* StringMatching.swift in Sources */,
+				AACDEB841C3A4C2800C640A3 /* IDCacheImpl.swift in Sources */,
 				AAB45C131C2C203B006051B6 /* WeightCacheImpl.swift in Sources */,
 				AAB45C331C2C2048006051B6 /* Resource.swift in Sources */,
 				AAB45C111C2C203B006051B6 /* ChineseCacheProtocol.swift in Sources */,
@@ -1657,10 +1747,12 @@
 				AAB45C291C2C2042006051B6 /* CacheConfig.swift in Sources */,
 				AA0A7C161C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AAB45C851C2C2073006051B6 /* Range.swift in Sources */,
+				AACDEB811C3A45A600C640A3 /* IDCache.swift in Sources */,
 				AAB45C651C2C206C006051B6 /* ChineseSearcherImpl.swift in Sources */,
 				AAB45C7A1C2C2073006051B6 /* Bool.swift in Sources */,
 				AAB45C581C2C2057006051B6 /* ChineseWordsCodingProtocol.swift in Sources */,
 				AAB45BFE1C2C2035006051B6 /* PinyinWordStrategyImpl.swift in Sources */,
+				AACDEB7D1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */,
 				AAB45BC61C2C1FFF006051B6 /* ChineseUtils.swift in Sources */,
 				AAB45C7F1C2C2073006051B6 /* ExSwift.swift in Sources */,
 				AAB45BCF1C2C2010006051B6 /* MathUtils.swift in Sources */,
@@ -1691,6 +1783,7 @@
 				AAB45BEB1C2C202E006051B6 /* FixedDimensionMapImpl.swift in Sources */,
 				AAB45C181C2C203B006051B6 /* ChineseCacheImpl.swift in Sources */,
 				AAB45BDE1C2C2023006051B6 /* StringMatching.swift in Sources */,
+				AACDEB851C3A4C2800C640A3 /* IDCacheImpl.swift in Sources */,
 				AAB45C1B1C2C203B006051B6 /* WeightCacheImpl.swift in Sources */,
 				AAB45C371C2C2049006051B6 /* Resource.swift in Sources */,
 				AAB45C191C2C203B006051B6 /* ChineseCacheProtocol.swift in Sources */,
@@ -1764,10 +1857,12 @@
 				AAB45C2D1C2C2043006051B6 /* CacheConfig.swift in Sources */,
 				AA0A7C171C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AAB45C941C2C2074006051B6 /* Range.swift in Sources */,
+				AACDEB821C3A45A600C640A3 /* IDCache.swift in Sources */,
 				AAB45C681C2C206D006051B6 /* ChineseSearcherImpl.swift in Sources */,
 				AAB45C891C2C2074006051B6 /* Bool.swift in Sources */,
 				AAB45C5D1C2C2058006051B6 /* ChineseWordsCodingProtocol.swift in Sources */,
 				AAB45C071C2C2035006051B6 /* PinyinWordStrategyImpl.swift in Sources */,
+				AACDEB7E1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */,
 				AAB45BC71C2C1FFF006051B6 /* ChineseUtils.swift in Sources */,
 				AAB45C8E1C2C2074006051B6 /* ExSwift.swift in Sources */,
 				AAB45BD01C2C2011006051B6 /* MathUtils.swift in Sources */,
@@ -1798,6 +1893,7 @@
 				AAB45BF01C2C202F006051B6 /* FixedDimensionMapImpl.swift in Sources */,
 				AAB45C201C2C203C006051B6 /* ChineseCacheImpl.swift in Sources */,
 				AAB45BE11C2C2024006051B6 /* StringMatching.swift in Sources */,
+				AACDEB861C3A4C2800C640A3 /* IDCacheImpl.swift in Sources */,
 				AAB45C231C2C203C006051B6 /* WeightCacheImpl.swift in Sources */,
 				AAB45C3B1C2C204A006051B6 /* Resource.swift in Sources */,
 				AAB45C211C2C203C006051B6 /* ChineseCacheProtocol.swift in Sources */,
@@ -1853,10 +1949,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE68CF91C37B48F006E680D /* ViewController.swift in Sources */,
-				AAB7B3AE1C390E09007EB735 /* ExSearchType.swift in Sources */,
-				AAB7B3B31C391917007EB735 /* ExCacheNames.swift in Sources */,
+				AAF8134E1C3B8B0F00AECEDE /* ExConfig.swift in Sources */,
 				AAE68CF71C37B48F006E680D /* AppDelegate.swift in Sources */,
-				AA6AD23E1C393E6500DED132 /* ExCacheConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

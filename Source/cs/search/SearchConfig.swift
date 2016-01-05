@@ -15,37 +15,49 @@ import Foundation
  *
  */
 public struct SearchConfig {
-    private static let config = SearchConfig.initConfig()
+    private(set) public var searchTypeInfos: [SearchTypeInfo]
     
-    private static func initConfig() ->Dictionary<SearchType,SearchTypeInfo> {
-        var rs: Dictionary<SearchType,SearchTypeInfo> = Dictionary<SearchType,SearchTypeInfo>()
-        addConfig(&rs,SearchType.PINYIN_WORD, CacheNames.PINYIN_WORD, ValueCodingType.PINYIN_WORD, nil)
-        addConfig(&rs,SearchType.WUBI_WORD, CacheNames.WUBI_WORD, ValueCodingType.WUBI_WORDS, nil)
-        
-//        addConfig(&rs,SearchType.PINYIN_WORDS, CacheNames.PINYIN_WORDS, ValueCodingType.PINYIN_WORDS)
-//        addConfig(&rs,SearchType.WUBI_WORDS, CacheNames.WUBI_WORDS, ValueCodingType.WUBI_WORDS)
-        return rs
+    public init() {
+        self.searchTypeInfos = []
     }
     
-    /**
-     *
-     * @param searchType
-     *            检索类型
-     * @param cacheName
-     *            检索用到的Cache名称
-     * @param valueType
-     *            输入处理类型
-     * @param maxResultCount
-     *            最大返回量
-     */
-    private static func addConfig(inout map: Dictionary<SearchType,SearchTypeInfo>, _ searchType:SearchType, _ cacheName:String, _ valueType:ValueCodingType, _ weightCache: WeightCacheProtocol?) {
-        if map.has(searchType) {
+    public init(_ searchTypeInfos: [SearchTypeInfo]) {
+        self.searchTypeInfos = searchTypeInfos
+    }
+    
+    mutating public func addSearchType(searchTypeInfo: SearchTypeInfo){
+        guard let _ = getIndex(searchTypeInfo) else {
+            searchTypeInfos.append(searchTypeInfo)
             return
         }
-        map[searchType] = SearchTypeInfo(searchType, CachePool.instance.getCache(cacheName) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(valueType),weightCache)
     }
     
-    public static func getSearchTypeInfo(searchType:SearchType) ->SearchTypeInfo? {
-        return config[searchType]
+    mutating public func removeSearchType(searchType: SearchType){
+        if let index = getIndex(searchType) {
+            searchTypeInfos.removeAtIndex(index)
+        }
+    }
+    
+    mutating public func removeSearchType(searchTypeInfo: SearchTypeInfo){
+        if let index = getIndex(searchTypeInfo) {
+            searchTypeInfos.removeAtIndex(index)
+        }
+    }
+    
+    mutating public func removeAll() {
+        searchTypeInfos.removeAll()
+    }
+    
+    private func getIndex(searchTypeInfo: SearchTypeInfo) ->Int? {
+        return searchTypeInfos.indexOf(searchTypeInfo)
+    }
+    
+    private func getIndex(searchType: SearchType) ->Int? {
+        for (index, ele) in searchTypeInfos.enumerate() {
+            if ele.searchType == searchType {
+                return index
+            }
+        }
+        return nil
     }
 }

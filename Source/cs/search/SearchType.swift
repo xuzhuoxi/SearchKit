@@ -15,18 +15,18 @@ import Foundation
  */
 public struct SearchType : Hashable {
     private static var index: Int = 1000
-    private let value: Int!
+    public let rawValue: Int
     
     public init(){
-        self.value = SearchType.index++
+        self.rawValue = SearchType.index++
     }
     
-    init(_ value: Int) {
-        self.value = value
+    init(_ rawValue: Int) {
+        self.rawValue = rawValue
     }
     
     public var hashValue: Int {
-        return value
+        return rawValue
     }
     
     /**

@@ -14,13 +14,21 @@ import Foundation
  *
  */
 class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
-    private(set) var cacheName: String!
+    private(set) var _cacheName: String!
     var key2values: Dictionary<String, KeyValues>!
     private(set) var chineseMap: DimensionMapProtocol!
     private(set) var strategy: ValueCodingStrategyProtocol?
     
+    var cacheName: String {
+        return _cacheName
+    }
+    
+    var keysSize: Int {
+        return nil == key2values ? 0 : key2values!.count
+    }
+    
     final func initCache(cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
-        self.cacheName = cacheName
+        self._cacheName = cacheName
         self.key2values = Dictionary<String, KeyValues>(minimumCapacity: Int(initialCapacity))
         self.strategy = valueCodingInstance
         self.chineseMap = DimensionMapBase.createDimensionMap()
@@ -66,10 +74,6 @@ class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
         }
     }
     
-    final func getCacheName() ->String {
-        return cacheName
-    }
-    
     final func isKey(key: String) ->Bool{
         return key2values.has(key)
     }
@@ -88,12 +92,8 @@ class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
         return []
     }
     
-    final func getKeysSize() ->Int{
-        return key2values.count
-    }
-    
     final func toString() ->String {
-        return cacheName + "\n" + String(chineseMap)
+        return "\(_cacheName)\n\(chineseMap)"
     }
     
     /**

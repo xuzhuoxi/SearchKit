@@ -9,12 +9,14 @@
 import Foundation
 @testable import ChineseSearch
 
+private class RC {}
+
 extension ResourcePaths {
     
     /**
      * 测试输入法 拼音词库 URL
      */
-    public static let URL_PINYIN_WORDS = ResourcePaths.getURL(ResourceTest.self, name: "words_pinyin")!
+    public static let URL_PINYIN_WORDS = ResourcePaths.getProperitesURL(RC.self, name: "words_pinyin")!
     /**
      * 测试输入法 拼音词库 路径
      */
@@ -23,7 +25,7 @@ extension ResourcePaths {
     /**
      * 测试输入法 五笔词库 URL
      */
-    public static let URL_WUBI_WORDS = ResourcePaths.getURL(ResourceTest.self, name: "words_wubi")!
+    public static let URL_WUBI_WORDS = ResourcePaths.getProperitesURL(RC.self, name: "words_wubi")!
     /**
      * 测试输入法 五笔词库 路径
      */
@@ -32,7 +34,7 @@ extension ResourcePaths {
     /**
      * 测试输入法 词库权值 URL
      */
-    public static let URL_WEIGHT_WORDS = ResourcePaths.getURL(ResourceTest.self, name: "words_weight")!
+    public static let URL_WEIGHT_WORDS = ResourcePaths.getProperitesURL(RC.self, name: "words_weight")!
     /**
      * 测试输入法 词库权值 路径
      */

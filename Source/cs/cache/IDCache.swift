@@ -1,8 +1,8 @@
 //
-//  WeightCache.swift
+//  IDCache.swift
 //  ChineseSearch
 //
-//  Created by 许灼溪 on 15/12/20.
+//  Created by 许灼溪 on 16/1/4.
 //
 //
 
@@ -13,25 +13,21 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-class WeightCache : WeightCacheProtocol, CacheInitProtocol {
-    static var DEFAULT_VALUE: Double {
-        return 1.0
-    }
-    
+class IDCache: IDCacheProtocol, CacheInitProtocol {
     private(set) var _cacheName: String!
-    var key2weight: Dictionary<String, KeyWeight>!
+    var key2IDs: Dictionary<String, [String]>!
     
     var cacheName: String {
         return _cacheName
     }
     
     var keysSize: Int {
-        return nil == key2weight ? 0 : key2weight!.count
+        return nil == key2IDs ? 0 : key2IDs!.count
     }
     
     final func initCache(cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
         self._cacheName = cacheName
-        self.key2weight = Dictionary<String, KeyWeight>(minimumCapacity: Int(initialCapacity))
+        self.key2IDs = Dictionary<String, [String]>(minimumCapacity: Int(initialCapacity))
     }
     
     final func supplyData(data: String) {
@@ -40,10 +36,8 @@ class WeightCache : WeightCacheProtocol, CacheInitProtocol {
         }
     }
     
-    final func supplyResource(url: NSURL) {
-        if let resource = Resource.getResource(url.path!) {
-            supplyResource(resource)
-        }
+    final func supplyData(key: String, value: String) {
+        tryCacheKeyValue(key, value)
     }
     
     final func supplyResource(resource: Resource) {
@@ -53,23 +47,22 @@ class WeightCache : WeightCacheProtocol, CacheInitProtocol {
         }
     }
     
-    final func supplyData(key: String, value: String) {
-        tryCacheKeyValue(key, value)
-    }
-    
-    final func isKey(key: String) ->Bool {
-        return key2weight.has(key)
-    }
-    
-    final func getValues(key: String) ->Double {
-        if (isKey(key)) {
-            return key2weight![key]!.weight
+    final func supplyResource(url: NSURL) {
+        if let resource = Resource.getResource(url.path!) {
+            supplyResource(resource)
         }
-        return WeightCache.DEFAULT_VALUE;
+    }
+    
+    final func isKey(key: String) -> Bool {
+        return key2IDs.has(key)
+    }
+    
+    final func getIDs(key: String) -> [String]? {
+        return key2IDs[key]
     }
     
     final func toString() ->String {
-        return "\(_cacheName)\n\(key2weight)"
+        return "\(_cacheName)\n\(key2IDs)"
     }
     
     /**
@@ -85,9 +78,8 @@ class WeightCache : WeightCacheProtocol, CacheInitProtocol {
     func tryCacheKeyValue(key: String, _ value: String){
         //子类实现
     }
-    
-    static func createWeightCache(cacheName: String, resource: Resource) ->WeightCacheProtocol {
-        let rs = WeightCacheImpl()
+    static func createWeightCache(cacheName: String, resource: Resource) ->IDCacheProtocol {
+        let rs = IDCacheImpl()
         rs.initCache(cacheName, nil, UInt(resource.size))
         rs.supplyResource(resource)
         return rs;

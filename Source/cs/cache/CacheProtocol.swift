@@ -20,7 +20,14 @@ public protocol CacheProtocol : class {
      *
      * @return 取得当前实例在实例化期间被赋予的名字
      */
-    func getCacheName() ->String
+    var cacheName: String {get}
+    
+    /**
+     * 缓存Key数
+     *
+     * @return 缓存Key数
+     */
+    var keysSize: Int {get}
     
     /**
      * 检测key是否被缓存起来
@@ -30,12 +37,5 @@ public protocol CacheProtocol : class {
      * @return 有true无false
      */
     func isKey(key:String) ->Bool
-    
-    /**
-     * 缓存Key数
-     *
-     * @return 缓存Key数
-     */
-    func getKeysSize() ->Int
 }
 
