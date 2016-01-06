@@ -70,14 +70,14 @@ public struct StringMatching {
     *            布尔数组
     * @return 返回一个整数值，范围为[0,2]
     */
-    public static func computeMatchintResult(matchResult : [Bool]) ->Double {
-        if matchResult.isEmpty {
+    public static func computeMatchintResult(matchResult : [Bool]?) ->Double {
+        if nil == matchResult || matchResult!.isEmpty {
             return 0
         }
         var rs : Double = 0
         var isFullMatching = true
         var index = -1
-        rs = matchResult.reduce(rs) { (rs : Double, value : Bool) -> Double in
+        rs = matchResult!.reduce(rs) { (rs : Double, value : Bool) -> Double in
             ++index
             if value {
                 return rs + (1.0 / Double(1 << index))

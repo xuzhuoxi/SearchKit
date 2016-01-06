@@ -1,16 +1,16 @@
 //
-//  WeightCacheTest.swift
+//  ChineseSearchTest.swift
 //  ChineseSearch
 //
-//  Created by 许灼溪 on 15/12/28.
+//  Created by 许灼溪 on 16/1/6.
 //
 //
 
 import XCTest
-@testable import ChineseSearch
+import ChineseSearch
 
-class WeightCacheTest: XCTestCase {
-//
+class ChineseSearchTest: XCTestCase {
+
 //    override func setUp() {
 //        super.setUp()
 //        // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -33,18 +33,10 @@ class WeightCacheTest: XCTestCase {
 //        }
 //    }
     
-    func test() {//3.179s
-        let path:String=ResourcePaths.PATH_WEIGHT_WORDS
-        let resource = Resource.getResource(path)!
-        let wc = WeightCache.createWeightCache("wordsWeight", resource: resource)
-        print(wc.keysSize)
-        let weight = wc.getValues("一个巴掌拍不响")
-        XCTAssertEqual(weight, 1.1)
-    }
-    
-    func testInit() {
-        let wc = WeightCacheImpl()
-        let initProtocol = wc as CacheInitProtocol
-        initProtocol.initCache(CacheNames.WEIGHT, nil, 16)
+    func testSearch() {
+        var searchConfig = SearchConfig()
+        searchConfig.addSearchType(SearchTypeInfo.WORD_PINYIN_SEARCH)
+        let searcher = ChineseSearcherFactory.getChineseSearcher()
+        XCTAssertNil(searcher.search("Q", searchConfig: searchConfig))
     }
 }

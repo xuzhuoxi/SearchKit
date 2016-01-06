@@ -64,7 +64,7 @@ class ChineseCacheTest: XCTestCase {
     
     private func traceInfo(cc : ChineseCacheProtocol, key : String, desc : String) {
         let result = cc.getKeys(key)
-        print(desc + ":[keysSize:\(cc.getKeysSize()),resultCount:\(result.count)]")
+        print(desc + ":[keysSize:\(cc.keysSize),resultCount:\(result.count)]")
         print("\(result)\n")
     }
 }

@@ -145,7 +145,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
             for chineseKey in keyList {
                 let values = sti.chineseCache.getValues(chineseKey)
                 for value in values {
-                    let v = StringMatching.computeMatchintResult(StringMatching.matching(value, codedInputStr)!)
+                    let v = StringMatching.computeMatchintResult(StringMatching.matching(value, codedInputStr))
                     if (v > 0 && v <= 2) {
                         if !rsMap.has(chineseKey) {
                             rsMap[chineseKey] = SearchKeyResult(chineseKey, sti.weightCache)
