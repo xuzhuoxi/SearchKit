@@ -46,13 +46,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LY-GP-5b7">
-                                <rect key="frame" x="20" y="72" width="51" height="31"/>
-                                <animations/>
-                                <connections>
-                                    <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Ub-fA-RL8"/>
-                                </connections>
-                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-Oa-geP">
                                 <rect key="frame" x="161" y="72" width="51" height="31"/>
                                 <animations/>
@@ -74,42 +67,52 @@
                                     <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="O6g-4F-DOp"/>
                                 </connections>
                             </switch>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="b8x-Tf-qMA">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="drs-ex-BBR">
                                 <rect key="frame" x="20" y="20" width="560" height="44"/>
                                 <animations/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DeH-7F-dUa"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GkU-ch-W2Y"/>
                                 </connections>
                             </searchBar>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LY-GP-5b7">
+                                <rect key="frame" x="20" y="72" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="0Ub-fA-RL8"/>
+                                </connections>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kzb-Up-UrO">
+                                <rect key="frame" x="20" y="111" width="560" height="469"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="b8x-Tf-qMA" secondAttribute="trailing" id="AC4-WM-VdK"/>
-                            <constraint firstItem="b8x-Tf-qMA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jfL-3i-yIG"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="b8x-Tf-qMA" secondAttribute="leading" id="wkS-s8-hOF"/>
+                            <constraint firstItem="drs-ex-BBR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="G0Y-xo-Nmd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="drs-ex-BBR" secondAttribute="leading" id="L4G-2C-e2n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="drs-ex-BBR" secondAttribute="trailing" id="UfT-Mu-EAq"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="b8x-Tf-qMA" id="diZ-oK-OOm"/>
-                        <outlet property="searchDisplayController" destination="pPO-mm-zP9" id="yJP-hN-3XA"/>
+                        <outlet property="searchBar" destination="drs-ex-BBR" id="FI0-LD-9sD"/>
                         <outlet property="switch0" destination="8LY-GP-5b7" id="5Rd-Mf-qz5"/>
                         <outlet property="switch1" destination="0hY-Oa-geP" id="NW1-j8-PPk"/>
                         <outlet property="switch2" destination="8oI-Nx-q3b" id="CVo-Nc-tbH"/>
                         <outlet property="switch3" destination="QLL-Cd-0bn" id="oZX-iv-eVf"/>
+                        <outlet property="txtOutput" destination="kzb-Up-UrO" id="w4a-NH-F4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="pPO-mm-zP9">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="Ybx-ql-UWK"/>
-                        <outlet property="searchBar" destination="b8x-Tf-qMA" id="L7k-Qb-ee6"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="9mQ-e3-5J2"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="drF-UM-gza"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="1Uq-6b-0V8"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-216" y="55"/>
         </scene>

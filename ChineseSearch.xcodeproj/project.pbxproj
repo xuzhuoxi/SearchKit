@@ -11,6 +11,9 @@
 		AA0A7C151C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
 		AA0A7C161C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
 		AA0A7C171C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
+		AA1196DD1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1196DC1C3CD821003A6BC0 /* ChineseSearchTest.swift */; };
+		AA1196DE1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1196DC1C3CD821003A6BC0 /* ChineseSearchTest.swift */; };
+		AA1196DF1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1196DC1C3CD821003A6BC0 /* ChineseSearchTest.swift */; };
 		AA29AFEA1C2EAA27003F362F /* SimplePatternTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */; };
 		AA29AFEB1C2EAA27003F362F /* SimplePatternTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */; };
 		AA29AFEC1C2EAA27003F362F /* SimplePatternTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */; };
@@ -440,6 +443,7 @@
 
 /* Begin PBXFileReference section */
 		AA0A7C131C329D5300485B60 /* TextFileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFileReader.swift; sourceTree = "<group>"; };
+		AA1196DC1C3CD821003A6BC0 /* ChineseSearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseSearchTest.swift; sourceTree = "<group>"; };
 		AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePatternTest.swift; path = regexp/SimplePatternTest.swift; sourceTree = "<group>"; };
 		AA50C8331C0ED29900F2D917 /* TestProduct */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestProduct; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA590F611C34FDCA00B39270 /* CacheConfigTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheConfigTest.swift; sourceTree = "<group>"; };
@@ -820,6 +824,7 @@
 				AABB63791C2D082A007CF14B /* resource */,
 				AAB7B3A91C390DDA007EB735 /* search */,
 				AABB637B1C2D082A007CF14B /* wordscoding */,
+				AA1196DC1C3CD821003A6BC0 /* ChineseSearchTest.swift */,
 			);
 			name = cs;
 			path = Test/cs;
@@ -1708,6 +1713,7 @@
 				AABB63CA1C2D5914007CF14B /* ChineseUtilsTest.swift in Sources */,
 				AA590F6A1C3543DC00B39270 /* PinyinCodingImplTest.swift in Sources */,
 				AA590F6E1C35479600B39270 /* WubiCodingImplTest.swift in Sources */,
+				AA1196DD1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */,
 				AAE311091C3016350016F7C7 /* ValueCodingStrategyFactoryTest.swift in Sources */,
 				AAE68C901C3653C8006E680D /* LoadFileTest.swift in Sources */,
 				AA6AD23B1C393E6500DED132 /* ExCacheConfig.swift in Sources */,
@@ -1818,6 +1824,7 @@
 				AABB63B61C2D0878007CF14B /* ChineseUtilsTest.swift in Sources */,
 				AA590F6B1C3543DC00B39270 /* PinyinCodingImplTest.swift in Sources */,
 				AA590F6F1C35479600B39270 /* WubiCodingImplTest.swift in Sources */,
+				AA1196DE1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */,
 				AAE3110A1C3016350016F7C7 /* ValueCodingStrategyFactoryTest.swift in Sources */,
 				AAE68C911C3653C8006E680D /* LoadFileTest.swift in Sources */,
 				AA6AD23C1C393E6500DED132 /* ExCacheConfig.swift in Sources */,
@@ -1928,6 +1935,7 @@
 				AABB63B71C2D0878007CF14B /* ChineseUtilsTest.swift in Sources */,
 				AA590F6C1C3543DC00B39270 /* PinyinCodingImplTest.swift in Sources */,
 				AA590F701C35479600B39270 /* WubiCodingImplTest.swift in Sources */,
+				AA1196DF1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */,
 				AAE3110B1C3016350016F7C7 /* ValueCodingStrategyFactoryTest.swift in Sources */,
 				AAE68C921C3653C8006E680D /* LoadFileTest.swift in Sources */,
 				AA6AD23D1C393E6500DED132 /* ExCacheConfig.swift in Sources */,

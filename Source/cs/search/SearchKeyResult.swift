@@ -15,7 +15,8 @@ import Foundation
  *
  */
 public struct SearchKeyResult: Comparable {
-    private var resultMap = Dictionary<SearchType, SearchTypeResult>()
+//    private var resultMap = Dictionary<SearchType, SearchTypeResult>()
+    private var resultArr = [SearchTypeResult]()
     
     public let key: String
     
@@ -27,7 +28,7 @@ public struct SearchKeyResult: Comparable {
      * @return 有完整匹配true否false
      */
     public var hasFullMatching: Bool {
-        for str in resultMap.values {
+        for str in resultArr {
             if str.isFullMatching {
                 return true
             }
@@ -43,7 +44,7 @@ public struct SearchKeyResult: Comparable {
      */
     public var totalValue : Double {
         var value:Double=0
-        for str in resultMap.values {
+        for str in resultArr {
             value+=str.value
         }
         return value * weight
@@ -56,7 +57,27 @@ public struct SearchKeyResult: Comparable {
      * @return 全部的检索类别
      */
     public var searchTypes: [SearchType] {
-        return [SearchType](resultMap.keys)
+        var rs = [SearchType]()
+        resultArr.each { (str :SearchTypeResult) -> () in
+            rs.append(str.searchType)
+        }
+        return rs
+    }
+    
+    /**
+     * 取得全部的检索可用关联信息 {@link SearchType}<br>
+     *
+     * @return 全部的可用关联信息
+     */
+    public var associatedNames: [String] {
+        var rs = [String]()
+        resultArr.each { (str :SearchTypeResult) -> () in
+            if let name = str.searchType.associatedName {
+                rs.append(name)
+            }
+        }
+        ArrayUtils.cleanRepeat(&rs)
+        return rs
     }
     
     /**
@@ -65,7 +86,7 @@ public struct SearchKeyResult: Comparable {
      * @return 全部的检索结果
      */
     public var searchTypeResults: [SearchTypeResult] {
-        return [SearchTypeResult](resultMap.values)
+        return resultArr
     }
     
     public init(_ key: String, _ weightCache : WeightCacheProtocol?){
@@ -82,13 +103,14 @@ public struct SearchKeyResult: Comparable {
      *            匹配值
      */
     mutating public func updateBiggerValue(searchType: SearchType, _ value:Double) {
-        if resultMap.has(searchType) {
-            resultMap[searchType]!.updateBiggerValue(value)
+        if let index = getIndex(searchType) {
+            resultArr[index].updateBiggerValue(value)
         }else{
             var str = SearchTypeResult(searchType)
             str.updateBiggerValue(value)
-            resultMap[searchType] = str
+            resultArr.append(str)
         }
+        sort()
     }
     
     /**
@@ -98,11 +120,14 @@ public struct SearchKeyResult: Comparable {
      *            单个字(词)的单个检索类型结果
      */
     mutating public func updateTypeValue(str:SearchTypeResult) {
-        if resultMap.has(str.searchType) {
-            resultMap[str.searchType]!.updateBiggerValue(str.value)
+        if let index = resultArr.indexOf(str) {
+            if str > resultArr[index] {
+                resultArr[index] = str
+            }
         }else{
-            resultMap[str.searchType] = str
+            resultArr.append(str)
         }
+        sort()
     }
     
     /**
@@ -113,8 +138,8 @@ public struct SearchKeyResult: Comparable {
      * @return 匹配度
      */
     public func getValue(searchType: SearchType) ->Double {
-        if resultMap.has(searchType) {
-            return resultMap[searchType]!.value
+        if let index = getIndex(searchType) {
+            return resultArr[index].value
         }else{
             return 0
         }
@@ -132,6 +157,20 @@ public struct SearchKeyResult: Comparable {
         for result in skr.searchTypeResults {
             updateTypeValue(result)
         }
+        sort()
+    }
+    
+    private func getIndex(searchType: SearchType) ->Int? {
+        for (index, st) in resultArr.enumerate() {
+            if st.searchType == searchType {
+                return index
+            }
+        }
+        return nil
+    }
+    
+    mutating private func sort() {
+        resultArr.sortInPlace(>)
     }
 }
 

@@ -100,19 +100,19 @@ extension SearchType {
     /**
      * 某个游戏物品 拼音
      */
-    public static let AOLA_PINYIN = SearchType()
+    public static let AOLA_PINYIN = SearchType(associatedName: CacheNames.AOLA_ID)
     /**
      * 某个游戏物品 五笔
      */
-    public static let AOLA_WUBI = SearchType()
+    public static let AOLA_WUBI = SearchType(associatedName: CacheNames.AOLA_ID)
     /**
      * Dota 拼音
      */
-    public static let DOTA_PINYIN = SearchType()
+    public static let DOTA_PINYIN = SearchType(associatedName: CacheNames.DOTA_ID)
     /**
      * 我的世界 拼音
      */
-    public static let MINECRAFT_PINYIN = SearchType()
+    public static let MINECRAFT_PINYIN = SearchType(associatedName: CacheNames.MINECRAFT_ID)
 }
 
 extension SearchTypeInfo {

@@ -9,16 +9,18 @@
 import UIKit
 import ChineseSearch
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
     var searchConfig = SearchConfig()
     var switch2SearchTypes = [SearchType.AOLA_PINYIN,SearchType.AOLA_WUBI,SearchType.DOTA_PINYIN,SearchType.MINECRAFT_PINYIN]
     var switchs: [UISwitch] = []
+    var searcher: ChineseSearcherProtocol!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var switch0: UISwitch!
     @IBOutlet weak var switch1: UISwitch!
     @IBOutlet weak var switch2: UISwitch!
     @IBOutlet weak var switch3: UISwitch!
+    @IBOutlet weak var txtOutput: UITextView!
     
     @IBAction func onSwitch(sender: UISwitch) {
         let index = switchs.indexOf(sender)!
@@ -27,7 +29,43 @@ class ViewController: UIViewController {
         }else{
             searchConfig.removeSearchType(switch2SearchTypes[index])
         }
+        doSearch()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        doSearch()
+    }
+    
+    final func doSearch(){
+        if let input = searchBar.text {
+            if input.isEmpty{
+                txtOutput.text = ""
+                return
+            }
+            if let result = searcher.search(input, searchConfig: searchConfig, max: Int.max) {
+                var sb = ""
+                var idCache: IDCacheProtocol
+                for r in result {
+                    sb.appendContentsOf("\(r.key)\t\t{匹配值:\(r.totalValue),关联名称:\(r.associatedNames),关联信息:")
+                    for name in r.associatedNames {
+                        idCache = CachePool.instance.getCache(name) as! IDCacheProtocol
+                        if let ids = idCache.getIDs(r.key) {
+                            sb.appendContentsOf("\(ids)")
+                        }else{
+                            sb.appendContentsOf("nil")
+                        }
+                    }
+                    sb.appendContentsOf("}\n")
+                }
+                txtOutput.text = sb
+            }else{
+                txtOutput.text = ""
+            }
+        }else{
+            txtOutput.text = ""
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
@@ -47,7 +85,7 @@ class ViewController: UIViewController {
                 searchConfig.addSearchType(getSearchTypeInfo(switch2SearchTypes[index])!)
             }
         }
-        
+        searcher = ChineseSearcherFactory.getChineseSearcher()
     }
     
     final func getSearchTypeInfo(searchType: SearchType) ->SearchTypeInfo? {
