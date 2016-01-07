@@ -43,20 +43,20 @@ class AbstractWubiStrategy : AbstractValueCoding {
      *            字(词)
      * @return 最长的编码
      */
-    final func getWubiMaxlenValue(wordMap : ChineseCacheProtocol, word: String) ->String {
-        let values = wordMap.getValues(word)
-        if values.isEmpty {
-            return ""
-        }else if values.count == 1 {
-            return values[0]
-        }else {
-            var rs = ""
-            for value in values {
-                if value.length > rs.length {
-                    rs = value
+    final func getWubiMaxlenValue(wordMap : CharacterLibraryProtocol, word: String) ->String {
+        if let values = wordMap.getValues(word.characters.first!) {
+            if values.count == 1 {
+                return values[0]
+            }else {
+                var rs = ""
+                for value in values {
+                    if value.length > rs.length {
+                        rs = value
+                    }
                 }
+                return rs
             }
-            return rs
         }
+        return ""
     }
 }

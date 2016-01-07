@@ -9,51 +9,61 @@
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>ChineseSearch iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>ChineseSearch iOSTests.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>ChineseSearch tvOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>ChineseSearch tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>ChineseSearchMemoryTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>ChineseSearchTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>20</integer>
-		</dict>
-		<key>ChineseSearchUITest.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>18</integer>
 		</dict>
 		<key>TestProduct.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>AA46D42C1C3D34FB0097511C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA46D4381C3D36550097511C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AA50C8271C0ED15200F2D917</key>
 		<dict>
 			<key>primary</key>
@@ -90,6 +100,11 @@
 			<true/>
 		</dict>
 		<key>AA5ACC511C2BD97800DD012A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AAA945C21C3D1CB4008323C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

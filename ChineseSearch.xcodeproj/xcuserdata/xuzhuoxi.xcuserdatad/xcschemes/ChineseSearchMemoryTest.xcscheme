@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAE68CBD1C37A91A006E680D"
-               BuildableName = "ChineseSearchUITest.app"
-               BlueprintName = "ChineseSearchUITest"
+               BlueprintIdentifier = "AA46D4381C3D36550097511C"
+               BuildableName = "ChineseSearchMemoryTest.app"
+               BlueprintName = "ChineseSearchMemoryTest"
                ReferencedContainer = "container:ChineseSearch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,33 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAE68CD31C37A91A006E680D"
-               BuildableName = "ChineseSearchUITestTests.xctest"
-               BlueprintName = "ChineseSearchUITestTests"
-               ReferencedContainer = "container:ChineseSearch.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAE68CDE1C37A91A006E680D"
-               BuildableName = "ChineseSearchUITestUITests.xctest"
-               BlueprintName = "ChineseSearchUITestUITests"
-               ReferencedContainer = "container:ChineseSearch.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAE68CBD1C37A91A006E680D"
-            BuildableName = "ChineseSearchUITest.app"
-            BlueprintName = "ChineseSearchUITest"
+            BlueprintIdentifier = "AA46D4381C3D36550097511C"
+            BuildableName = "ChineseSearchMemoryTest.app"
+            BlueprintName = "ChineseSearchMemoryTest"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAE68CBD1C37A91A006E680D"
-            BuildableName = "ChineseSearchUITest.app"
-            BlueprintName = "ChineseSearchUITest"
+            BlueprintIdentifier = "AA46D4381C3D36550097511C"
+            BuildableName = "ChineseSearchMemoryTest.app"
+            BlueprintName = "ChineseSearchMemoryTest"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -94,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AAE68CBD1C37A91A006E680D"
-            BuildableName = "ChineseSearchUITest.app"
-            BlueprintName = "ChineseSearchUITest"
+            BlueprintIdentifier = "AA46D4381C3D36550097511C"
+            BuildableName = "ChineseSearchMemoryTest.app"
+            BlueprintName = "ChineseSearchMemoryTest"
             ReferencedContainer = "container:ChineseSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

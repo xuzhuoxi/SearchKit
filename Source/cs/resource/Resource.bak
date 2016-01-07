@@ -1,0 +1,161 @@
+//
+//  Resource.swift
+//  ChineseSearch
+//
+//  Created by 许灼溪 on 15/12/15.
+//
+//
+
+import Foundation
+
+/**
+ *
+ * @author xuzhuoxi
+ *
+ */
+public struct Resource {
+    public let path : String
+    
+    /**
+     * 取全部键
+     *
+     * @return 键组成的数组
+     */
+    public let keyList : [String]
+    
+    /**
+     * 取全部值
+     *
+     * @return 值
+     */
+    public let valueList : [String]
+    
+    /**
+     * 键值对数量
+     *
+     * @return 键值对数量
+     */
+    public var size: Int {
+        return keyList.count
+    }
+    
+    private init(path: String, dataString: NSString){
+        let kv = Resource.toList(dataString)
+        self.init(path: path, keyList: kv.0, valueList: kv.1)
+    }
+    
+    private init(path: String, keyList: [String], valueList: [String]) {
+        self.path = path
+        self.keyList = keyList
+        self.valueList = valueList
+    }
+    
+    /**
+     * 判断是否为键
+     *
+     * @param key
+     *            待判断的键
+     * @return 是true否false
+     */
+    public func isKey(key : String) ->Bool {
+        return keyList.contains(key)
+    }
+    
+    /**
+     * 取键
+     *
+     * @param index
+     *            索引
+     * @return 键
+     */
+    public func getKey(index : Int) ->String {
+        return keyList[index]
+    }
+    
+    /**
+     * 取值
+     *
+     * @param index
+     *            索引
+     * @return 值
+     */
+    public func getValue(index : Int) ->String {
+        return valueList[index]
+    }
+    
+    /**
+     * 通过字符串数据创建实例<br>
+     *
+     * @param data
+     *            字符串数据
+     * @return Resource实例
+     */
+    public static func getResourceByData(data: String) -> Resource? {
+        if data.isEmpty {
+            return nil
+        }
+        return Resource(path: "\(data.hashValue)", dataString: data)
+    }
+    
+    /**
+     * 通过资源的路径创建实例，默认资源编码格式为UTF-8。<br>
+     *
+     * @param filePath
+     *            文件路径
+     * @param succCall
+     *            下载成功后回调，格式:function(rs:Resource):void;
+     */
+    public static func getResource(filePath:String) ->Resource? {
+        return loadFile(filePath)
+    }
+    
+    private static func loadFile(filePath:String) ->Resource? {
+        let nPath = toFullPath(filePath)
+        let fileManager = NSFileManager.defaultManager()
+        if fileManager.fileExistsAtPath(nPath) {
+            do {
+                let content = try NSString(contentsOfFile: nPath, encoding: NSUTF8StringEncoding)
+                return Resource(path: nPath, dataString: content)
+            } catch {
+                return nil
+            }
+        }else{
+            return nil
+        }
+    }
+    
+    private static func toList(dataString: NSString) ->([String],[String]) {
+        let dataArray =  dataString.componentsSeparatedByString("\n")
+        var rs = ([String](),[String]())
+        for str in dataArray {
+            if let keyValue = Resource.toKeyValue(str) {
+                rs.0.append(keyValue.0)
+                rs.1.append(keyValue.1)
+            }
+        }
+        return rs
+    }
+    
+    private static func toKeyValue(lineString: String) ->(String, String)? {
+        if lineString.isEmpty || lineString.trimmed().isEmpty {
+            return nil
+        }
+        if let index = lineString.characters.indexOf("=") {
+            let key = lineString.substringToIndex(index).trimmed()
+            if  key.isEmpty {
+                return nil
+            }
+            let value = lineString.substringFromIndex(index.advancedBy(1)).trimmed()
+            if value.isEmpty {
+                return nil
+            }
+            return (key, value)
+        }else{
+            return nil
+        }
+    }
+    
+    private static func toFullPath(path :String) ->String {
+        return path;
+    }
+}

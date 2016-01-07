@@ -33,12 +33,11 @@ class WubiWordStrategyImpl: AbstractWubiStrategy, ValueCodingStrategyProtocol, R
      */
     final func translate(filteredInput: String) ->[String] {
         if ChineseUtils.hasChinese(filteredInput) {
-            let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! ChineseCacheProtocol
+            let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
             for key in filteredInput.characters {
                 if ChineseUtils.isChinese(key) { // 是字典中的汉字，返回编码
-                    let keyStr = String(key)
-                    if wordWubiMap.isKey(keyStr) {
-                        return wordWubiMap.getValues(keyStr)
+                    if wordWubiMap.isKey(key) {
+                        return wordWubiMap.getValues(key)!
                     }
                 }
             }

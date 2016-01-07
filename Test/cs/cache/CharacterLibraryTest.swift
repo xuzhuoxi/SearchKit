@@ -1,15 +1,15 @@
 //
-//  WubiCodingImplTest.swift
+//  CharacterLibraryTest.swift
 //  ChineseSearch
 //
-//  Created by 许灼溪 on 15/12/31.
+//  Created by 许灼溪 on 16/1/7.
 //
 //
 
 import XCTest
 @testable import ChineseSearch
 
-class WubiCodingImplTest: XCTestCase {
+class CharacterLibraryTest: XCTestCase {
 //
 //    override func setUp() {
 //        super.setUp()
@@ -33,15 +33,12 @@ class WubiCodingImplTest: XCTestCase {
 //        }
 //    }
     
-    func testCoding() {
-        let impl = WubiCodingImpl()
-        let testAry = ["一", "丁", "点", "一丁点"]
-        let result = [["ggll"],["sgh"],["hkou"],["gshk"]]
-        let cc = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
-        for (index, str) in testAry.enumerate() {
-            let coded = impl.coding(cc, words: str)
-            XCTAssertNotNil(coded)
-            XCTAssertEqual(result[index], coded!)
-        }
+    func testCharacterLibrary(){
+        let wo = Character("我")
+        let no = Character("丗")
+        let cachePinyin = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! CharacterLibraryProtocol
+        XCTAssertTrue(cachePinyin.isKey(wo))
+        let cacheWubi = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
+        XCTAssertFalse(cacheWubi.isKey(no))
     }
 }

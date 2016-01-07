@@ -13,9 +13,9 @@ extension SearchType {
     /**
      * 拼音，词库
      */
-    public static let PINYIN_WORDS = SearchType(3)
+    public static let PINYIN_WORDS = SearchType(3, nil)
     /**
      * 五笔，词库
      */
-    public static let WUBI_WORDS = SearchType(4)
+    public static let WUBI_WORDS = SearchType(4, nil)
 }

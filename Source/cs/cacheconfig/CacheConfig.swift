@@ -26,8 +26,8 @@ public class CacheConfig {
      * 计算方法：缓存数的下一个2的n次幂<br>
      */
     private init(){
-        addConfig(CacheNames.PINYIN_WORD, "ChineseSearch.ChineseCacheImpl", true, 32768, "word_pinyin", "UTF-8", ValueCodingType.PINYIN_WORD)
-        addConfig(CacheNames.WUBI_WORD, "ChineseSearch.ChineseCacheImpl", true, 8192, "word_wubi", "UTF-8", ValueCodingType.WUBI_WORD)
+        addConfig(CacheNames.PINYIN_WORD, "ChineseSearch.CharacterLibraryImpl", true, 32768, "word_pinyin", "UTF-8", ValueCodingType.PINYIN_WORD)
+        addConfig(CacheNames.WUBI_WORD, "ChineseSearch.CharacterLibraryImpl", true, 8192, "word_wubi", "UTF-8", ValueCodingType.WUBI_WORD)
     }
     
     private func toMultiPath(path: String?) ->[String]? {

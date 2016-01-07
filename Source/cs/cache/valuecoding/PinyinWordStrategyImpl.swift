@@ -42,14 +42,13 @@ class PinyinWordStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtocol
      */
     final func translate(filteredInput: String) ->[String] {
         if ChineseUtils.hasChinese(filteredInput) {
-            let wordPinyinMap = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! ChineseCacheProtocol
+            let wordPinyinMap = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! CharacterLibraryProtocol
             for key in filteredInput.characters {
                 if !ChineseUtils.isChinese(key) {
                     continue
                 }
-                let keyStr = String(key)
-                if wordPinyinMap.isKey(keyStr) {
-                    return wordPinyinMap.getValues(keyStr)
+                if wordPinyinMap.isKey(key) {
+                    return wordPinyinMap.getValues(key)!
                 }
             }
         }

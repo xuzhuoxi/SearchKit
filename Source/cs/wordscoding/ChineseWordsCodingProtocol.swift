@@ -24,5 +24,5 @@ public protocol ChineseWordsCodingProtocol {
      *            词
      * @return 编码数组
      */
-    func coding(wordCache: ChineseCacheProtocol, words: String) ->[String]?
+    func coding(wordCache: CharacterLibraryProtocol, words: String) ->[String]?
 }

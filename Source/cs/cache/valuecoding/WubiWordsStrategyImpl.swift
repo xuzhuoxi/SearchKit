@@ -41,7 +41,7 @@ class WubiWordsStrategyImpl : AbstractWubiStrategy, ValueCodingStrategyProtocol,
      */
     final func translate(filteredInput: String) ->[String] {
         sb.removeAll(keepCapacity: true)
-        let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! ChineseCacheProtocol
+        let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
         var len = 0
         for var i=0; i < filteredInput.length && len < 4; ++i {
             let keyStr : String = filteredInput[i]!

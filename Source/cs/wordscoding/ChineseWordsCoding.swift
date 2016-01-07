@@ -36,9 +36,9 @@ class ChineseWordsCoding {
      *            词
      * @return 输入中有一个字符不符合则返回false
      */
-    final func canCoding(wordCache: ChineseCacheProtocol, _ words:String) ->Bool {
+    final func canCoding(wordCache: CharacterLibraryProtocol, _ words:String) ->Bool {
         for word in words.characters {
-            if ChineseUtils.isChinese(word) && !wordCache.isKey(String(word)) {
+            if ChineseUtils.isChinese(word) && !wordCache.isKey(word) {
                 return false
             }
         }

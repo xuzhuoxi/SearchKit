@@ -31,11 +31,22 @@ public class CachePool {
     }
     
     /**
+     * 通过cacheName取得一个字库实例
+     *
+     * @param cacheName
+     *            Cache名称{@link CacheNames}
+     * @return CharacterLibraryProtocol实例
+     */
+    public final func getCharacterLibrary(cacheName: String) ->CharacterLibraryProtocol? {
+        return getCache(cacheName) as? CharacterLibraryProtocol
+    }
+    
+    /**
     * 通过cacheName取得一个实例
     *
     * @param cacheName
     *            Cache名称{@link CacheNames}
-    * @return ICache实例
+    * @return CacheProtocol实例
     */
     public final func getCache(cacheName: String) ->CacheProtocol? {
         if let ci = CacheConfig.instance.getCacheInfo(cacheName) {

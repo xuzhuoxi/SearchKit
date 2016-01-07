@@ -15,10 +15,10 @@ import Foundation
  *
  */
 public struct ChineseUtils {
-    private static let chineseStartChar : Character = "\u{4e00}"
-    private static let chineseEndChar : Character = "\u{9fa5}"
-    private static let chineseStartUnicode : UInt32 = 0x4e00
-    private static let chineseEndUnicode : UInt32 = 0x9fa5
+    public static let chineseStartChar : Character = "\u{4e00}"
+    public static let chineseEndChar : Character = "\u{9fa5}"
+    public static let chineseStartUnicode : UInt32 = 0x4e00
+    public static let chineseEndUnicode : UInt32 = 0x9fa5
     
     private static var sb:String = ""
     
@@ -26,6 +26,8 @@ public struct ChineseUtils {
     private static let endStr = "$"
     
     private init(){}
+    
+    public static let chineseSize: Int = Int(ChineseUtils.chineseEndUnicode - ChineseUtils.chineseStartUnicode + 1)
     
     /**
      * 检测是否为中文字符<br>
@@ -60,7 +62,7 @@ public struct ChineseUtils {
      * @return 字符串包含中文字符返回true,否则返回false。
      */
     public static func hasChinese(words : String) ->Bool {
-        var b = false;
+        var b = false
         for char in words.unicodeScalars {
             b = inChineseUnicodeArea(char.value)
             if b {

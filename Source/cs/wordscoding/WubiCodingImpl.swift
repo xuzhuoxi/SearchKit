@@ -21,7 +21,7 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
      * 3.三个字的，返回前三个字的最长编码第一个字符加上第三个字的最长编码第二个字符的合并字符串。<br>
      * 4.四个字或以上的，返回前三个字的的最长编码的第一个字符加最后一个字的最长编码的第一个字符。<br>
      */
-    final func coding(wordCache: ChineseCacheProtocol, words: String) -> [String]? {
+    final func coding(wordCache: CharacterLibraryProtocol, words: String) -> [String]? {
         if words.isEmpty || !canCoding(wordCache, words) {
             return nil
         }
@@ -40,7 +40,7 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
         return codingResult
     }
     
-    private func getCode(wordCache: ChineseCacheProtocol, _ words: String, _ needs: [(Int, Int)]) ->String{
+    private func getCode(wordCache: CharacterLibraryProtocol, _ words: String, _ needs: [(Int, Int)]) ->String{
         var rs = ""
         for (index, len) in needs {
             let maxCode = getMaxValue(wordCache, words[index]!)
@@ -57,20 +57,21 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
      * @param word
      * @return
      */
-    private func getMaxValue(wordCache:ChineseCacheProtocol, _ word:String) ->String {
-        let values = wordCache.getValues(word)
-        if values.isEmpty {
-            return ""
-        }else if values.count == 1 {
-            return values[0]
-        }else {
-            var rs = ""
-            for value in values {
-                if value.length > rs.length {
-                    rs = value
+    private func getMaxValue(wordCache: CharacterLibraryProtocol, _ word:String) ->String {
+        if let values = wordCache.getValues(word.characters.first!) {
+            if values.count == 1 {
+                return values[0]
+            }else {
+                var rs = ""
+                for value in values {
+                    if value.length > rs.length {
+                        rs = value
+                    }
                 }
+                return rs
             }
-            return rs
+        }else{
+            return ""
         }
     }
 }
