@@ -25,7 +25,7 @@
 		AA46D4411C3D36550097511C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA46D43F1C3D36550097511C /* Main.storyboard */; };
 		AA46D4431C3D36550097511C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA46D4421C3D36550097511C /* Assets.xcassets */; };
 		AA46D4461C3D36550097511C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA46D4441C3D36550097511C /* LaunchScreen.storyboard */; };
-		AA46D44C1C3D3E860097511C /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* ChineseSearch.framework */; };
+		AA46D44C1C3D3E860097511C /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* SearchKit.framework */; };
 		AA46D44E1C3D42810097511C /* CharacterLibraryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D44D1C3D42810097511C /* CharacterLibraryProtocol.swift */; };
 		AA46D44F1C3D42810097511C /* CharacterLibraryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D44D1C3D42810097511C /* CharacterLibraryProtocol.swift */; };
 		AA46D4501C3D42810097511C /* CharacterLibraryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D44D1C3D42810097511C /* CharacterLibraryProtocol.swift */; };
@@ -49,9 +49,9 @@
 		AA86E19D1C3D7406008C8B07 /* CharacterLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */; };
 		AA86E19E1C3D7406008C8B07 /* CharacterLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */; };
 		AA86E19F1C3D7406008C8B07 /* CharacterLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */; };
-		AAB45B711C2C1F7C006051B6 /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */; };
-		AAB45B8D1C2C1FB1006051B6 /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* ChineseSearch.framework */; };
-		AAB45BA91C2C1FCD006051B6 /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B9F1C2C1FCD006051B6 /* ChineseSearch.framework */; };
+		AAB45B711C2C1F7C006051B6 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* SearchKit.framework */; };
+		AAB45B8D1C2C1FB1006051B6 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* SearchKit.framework */; };
+		AAB45BA91C2C1FCD006051B6 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B9F1C2C1FCD006051B6 /* SearchKit.framework */; };
 		AAB45BC51C2C1FFE006051B6 /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
 		AAB45BC61C2C1FFF006051B6 /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
 		AAB45BC71C2C1FFF006051B6 /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
@@ -328,9 +328,6 @@
 		AAE311191C312D4B0016F7C7 /* CachePoolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE311181C312D4B0016F7C7 /* CachePoolTest.swift */; };
 		AAE3111A1C312D4B0016F7C7 /* CachePoolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE311181C312D4B0016F7C7 /* CachePoolTest.swift */; };
 		AAE3111B1C312D4B0016F7C7 /* CachePoolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE311181C312D4B0016F7C7 /* CachePoolTest.swift */; };
-		AAE68C901C3653C8006E680D /* LoadFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE68C8F1C3653C8006E680D /* LoadFileTest.swift */; };
-		AAE68C911C3653C8006E680D /* LoadFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE68C8F1C3653C8006E680D /* LoadFileTest.swift */; };
-		AAE68C921C3653C8006E680D /* LoadFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE68C8F1C3653C8006E680D /* LoadFileTest.swift */; };
 		AAE68C9C1C36AD69006E680D /* ReflectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE68C9B1C36AD69006E680D /* ReflectionProtocol.swift */; };
 		AAE68C9D1C36AD69006E680D /* ReflectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE68C9B1C36AD69006E680D /* ReflectionProtocol.swift */; };
 		AAE68C9E1C36AD69006E680D /* ReflectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE68C9B1C36AD69006E680D /* ReflectionProtocol.swift */; };
@@ -344,7 +341,7 @@
 		AAE68CFC1C37B48F006E680D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFA1C37B48F006E680D /* Main.storyboard */; };
 		AAE68CFE1C37B48F006E680D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFD1C37B48F006E680D /* Assets.xcassets */; };
 		AAE68D011C37B48F006E680D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFF1C37B48F006E680D /* LaunchScreen.storyboard */; };
-		AAE68D091C37B948006E680D /* ChineseSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */; };
+		AAE68D091C37B948006E680D /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* SearchKit.framework */; };
 		AAF8133D1C3B87EB00AECEDE /* Aola_ID.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF8132F1C3B87EB00AECEDE /* Aola_ID.properites */; };
 		AAF8133E1C3B87EB00AECEDE /* Aola_wubi.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813301C3B87EB00AECEDE /* Aola_wubi.properites */; };
 		AAF8133F1C3B87EB00AECEDE /* Aola_pinyin.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813311C3B87EB00AECEDE /* Aola_pinyin.properites */; };
@@ -464,7 +461,7 @@
 		AA0AF8271C3E3545007E27F7 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Test/main.swift; sourceTree = "<group>"; };
 		AA1196DC1C3CD821003A6BC0 /* ChineseSearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseSearchTest.swift; sourceTree = "<group>"; };
 		AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimplePatternTest.swift; path = regexp/SimplePatternTest.swift; sourceTree = "<group>"; };
-		AA46D4391C3D36550097511C /* ChineseSearchMemoryTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseSearchMemoryTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA46D4391C3D36550097511C /* SearchKitMemoryTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchKitMemoryTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA46D43B1C3D36550097511C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA46D43D1C3D36550097511C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AA46D4401C3D36550097511C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -480,23 +477,23 @@
 		AA5ACC041C2A9E3900DD012A /* SimplePattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePattern.swift; sourceTree = "<group>"; };
 		AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExCacheConfig.swift; sourceTree = "<group>"; };
 		AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterLibraryTest.swift; sourceTree = "<group>"; };
-		AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB45B691C2C1F7C006051B6 /* ChineseSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseSearch.h; sourceTree = "<group>"; };
+		AAB45B671C2C1F7B006051B6 /* SearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB45B691C2C1F7C006051B6 /* SearchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKit.h; sourceTree = "<group>"; };
 		AAB45B6B1C2C1F7C006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB45B701C2C1F7C006051B6 /* ChineseSearch iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChineseSearch iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB45B751C2C1F7C006051B6 /* ChineseSearch_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseSearch_iOSTests.swift; sourceTree = "<group>"; };
+		AAB45B701C2C1F7C006051B6 /* SearchKit iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchKit iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB45B751C2C1F7C006051B6 /* SearchKit_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKit_iOSTests.swift; sourceTree = "<group>"; };
 		AAB45B771C2C1F7C006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB45B831C2C1FB1006051B6 /* ChineseSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB45B851C2C1FB1006051B6 /* ChineseSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseSearch.h; sourceTree = "<group>"; };
+		AAB45B831C2C1FB1006051B6 /* SearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB45B851C2C1FB1006051B6 /* SearchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKit.h; sourceTree = "<group>"; };
 		AAB45B871C2C1FB1006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB45B8C1C2C1FB1006051B6 /* ChineseSearch OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChineseSearch OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB45B911C2C1FB1006051B6 /* ChineseSearch_OSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseSearch_OSXTests.swift; sourceTree = "<group>"; };
+		AAB45B8C1C2C1FB1006051B6 /* SearchKit OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchKit OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB45B911C2C1FB1006051B6 /* SearchKit_OSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKit_OSXTests.swift; sourceTree = "<group>"; };
 		AAB45B931C2C1FB1006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB45B9F1C2C1FCD006051B6 /* ChineseSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB45BA11C2C1FCD006051B6 /* ChineseSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseSearch.h; sourceTree = "<group>"; };
+		AAB45B9F1C2C1FCD006051B6 /* SearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB45BA11C2C1FCD006051B6 /* SearchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchKit.h; sourceTree = "<group>"; };
 		AAB45BA31C2C1FCD006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB45BA81C2C1FCD006051B6 /* ChineseSearch tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ChineseSearch tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAB45BAD1C2C1FCD006051B6 /* ChineseSearch_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseSearch_tvOSTests.swift; sourceTree = "<group>"; };
+		AAB45BA81C2C1FCD006051B6 /* SearchKit tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SearchKit tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB45BAD1C2C1FCD006051B6 /* SearchKit_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKit_tvOSTests.swift; sourceTree = "<group>"; };
 		AAB45BAF1C2C1FCD006051B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB7B3811C390159007EB735 /* Readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
 		AAB7B3841C390159007EB735 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
@@ -529,11 +526,10 @@
 		AAE311101C310B450016F7C7 /* ExResourcePaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExResourcePaths.swift; sourceTree = "<group>"; };
 		AAE311141C3115FB0016F7C7 /* ChineseCacheTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseCacheTest.swift; sourceTree = "<group>"; };
 		AAE311181C312D4B0016F7C7 /* CachePoolTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachePoolTest.swift; sourceTree = "<group>"; };
-		AAE68C8F1C3653C8006E680D /* LoadFileTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadFileTest.swift; sourceTree = "<group>"; };
 		AAE68C931C36640B006E680D /* Resource.bak */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resource.bak; sourceTree = "<group>"; };
 		AAE68C9B1C36AD69006E680D /* ReflectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReflectionProtocol.swift; path = reflect/ReflectionProtocol.swift; sourceTree = "<group>"; };
 		AAE68CA01C36B6BD006E680D /* ReflectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReflectionInfo.swift; path = reflect/ReflectionInfo.swift; sourceTree = "<group>"; };
-		AAE68CF41C37B48F006E680D /* ChineseSearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseSearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE68CF41C37B48F006E680D /* SearchKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE68CF61C37B48F006E680D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE68CF81C37B48F006E680D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AAE68CFB1C37B48F006E680D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -626,7 +622,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA46D44C1C3D3E860097511C /* ChineseSearch.framework in Frameworks */,
+				AA46D44C1C3D3E860097511C /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +644,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB45B711C2C1F7C006051B6 /* ChineseSearch.framework in Frameworks */,
+				AAB45B711C2C1F7C006051B6 /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,7 +659,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB45B8D1C2C1FB1006051B6 /* ChineseSearch.framework in Frameworks */,
+				AAB45B8D1C2C1FB1006051B6 /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,7 +674,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB45BA91C2C1FCD006051B6 /* ChineseSearch.framework in Frameworks */,
+				AAB45BA91C2C1FCD006051B6 /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +682,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAE68D091C37B948006E680D /* ChineseSearch.framework in Frameworks */,
+				AAE68D091C37B948006E680D /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,14 +697,14 @@
 			path = file;
 			sourceTree = "<group>";
 		};
-		AA46D43A1C3D36550097511C /* ChineseSearchMemoryTest */ = {
+		AA46D43A1C3D36550097511C /* SearchKitMemoryTest */ = {
 			isa = PBXGroup;
 			children = (
 				AA46D43B1C3D36550097511C /* AppDelegate.swift */,
 				AA46D43D1C3D36550097511C /* ViewController.swift */,
 				AA46D44B1C3D36E60097511C /* Supporting Files */,
 			);
-			path = ChineseSearchMemoryTest;
+			path = SearchKitMemoryTest;
 			sourceTree = "<group>";
 		};
 		AA46D44B1C3D36E60097511C /* Supporting Files */ = {
@@ -722,58 +718,58 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AAB45B681C2C1F7C006051B6 /* ChineseSearch iOS */ = {
+		AAB45B681C2C1F7C006051B6 /* SearchKit iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AAB45B691C2C1F7C006051B6 /* ChineseSearch.h */,
+				AAB45B691C2C1F7C006051B6 /* SearchKit.h */,
 				AAB45B6B1C2C1F7C006051B6 /* Info.plist */,
 			);
-			path = "ChineseSearch iOS";
+			path = "SearchKit iOS";
 			sourceTree = "<group>";
 		};
-		AAB45B741C2C1F7C006051B6 /* ChineseSearch iOSTests */ = {
+		AAB45B741C2C1F7C006051B6 /* SearchKit iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAB45B751C2C1F7C006051B6 /* ChineseSearch_iOSTests.swift */,
+				AAB45B751C2C1F7C006051B6 /* SearchKit_iOSTests.swift */,
 				AAB45B771C2C1F7C006051B6 /* Info.plist */,
 			);
-			path = "ChineseSearch iOSTests";
+			path = "SearchKit iOSTests";
 			sourceTree = "<group>";
 		};
-		AAB45B841C2C1FB1006051B6 /* ChineseSearch OSX */ = {
+		AAB45B841C2C1FB1006051B6 /* SearchKit OSX */ = {
 			isa = PBXGroup;
 			children = (
-				AAB45B851C2C1FB1006051B6 /* ChineseSearch.h */,
+				AAB45B851C2C1FB1006051B6 /* SearchKit.h */,
 				AAB45B871C2C1FB1006051B6 /* Info.plist */,
 			);
-			path = "ChineseSearch OSX";
+			path = "SearchKit OSX";
 			sourceTree = "<group>";
 		};
-		AAB45B901C2C1FB1006051B6 /* ChineseSearch OSXTests */ = {
+		AAB45B901C2C1FB1006051B6 /* SearchKit OSXTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAB45B911C2C1FB1006051B6 /* ChineseSearch_OSXTests.swift */,
+				AAB45B911C2C1FB1006051B6 /* SearchKit_OSXTests.swift */,
 				AAB45B931C2C1FB1006051B6 /* Info.plist */,
 			);
-			path = "ChineseSearch OSXTests";
+			path = "SearchKit OSXTests";
 			sourceTree = "<group>";
 		};
-		AAB45BA01C2C1FCD006051B6 /* ChineseSearch tvOS */ = {
+		AAB45BA01C2C1FCD006051B6 /* SearchKit tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				AAB45BA11C2C1FCD006051B6 /* ChineseSearch.h */,
+				AAB45BA11C2C1FCD006051B6 /* SearchKit.h */,
 				AAB45BA31C2C1FCD006051B6 /* Info.plist */,
 			);
-			path = "ChineseSearch tvOS";
+			path = "SearchKit tvOS";
 			sourceTree = "<group>";
 		};
-		AAB45BAC1C2C1FCD006051B6 /* ChineseSearch tvOSTests */ = {
+		AAB45BAC1C2C1FCD006051B6 /* SearchKit tvOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				AAB45BAD1C2C1FCD006051B6 /* ChineseSearch_tvOSTests.swift */,
+				AAB45BAD1C2C1FCD006051B6 /* SearchKit_tvOSTests.swift */,
 				AAB45BAF1C2C1FCD006051B6 /* Info.plist */,
 			);
-			path = "ChineseSearch tvOSTests";
+			path = "SearchKit tvOSTests";
 			sourceTree = "<group>";
 		};
 		AAB7B37F1C390107007EB735 /* Supporting Files */ = {
@@ -934,7 +930,6 @@
 			children = (
 				AAE311101C310B450016F7C7 /* ExResourcePaths.swift */,
 				AAE310BC1C2FAB750016F7C7 /* ResourceTest.swift */,
-				AAE68C8F1C3653C8006E680D /* LoadFileTest.swift */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -970,14 +965,14 @@
 				AAE4F7511C0C143300716182 /* Source */,
 				AAEFF4271C1EA7E700DD4DB5 /* Tests */,
 				AAB7B37F1C390107007EB735 /* Supporting Files */,
-				AAB45B681C2C1F7C006051B6 /* ChineseSearch iOS */,
-				AAB45B741C2C1F7C006051B6 /* ChineseSearch iOSTests */,
-				AAB45B841C2C1FB1006051B6 /* ChineseSearch OSX */,
-				AAB45B901C2C1FB1006051B6 /* ChineseSearch OSXTests */,
-				AAB45BA01C2C1FCD006051B6 /* ChineseSearch tvOS */,
-				AAB45BAC1C2C1FCD006051B6 /* ChineseSearch tvOSTests */,
-				AAE68CF51C37B48F006E680D /* ChineseSearchTest */,
-				AA46D43A1C3D36550097511C /* ChineseSearchMemoryTest */,
+				AAB45B681C2C1F7C006051B6 /* SearchKit iOS */,
+				AAB45B741C2C1F7C006051B6 /* SearchKit iOSTests */,
+				AAB45B841C2C1FB1006051B6 /* SearchKit OSX */,
+				AAB45B901C2C1FB1006051B6 /* SearchKit OSXTests */,
+				AAB45BA01C2C1FCD006051B6 /* SearchKit tvOS */,
+				AAB45BAC1C2C1FCD006051B6 /* SearchKit tvOSTests */,
+				AA46D43A1C3D36550097511C /* SearchKitMemoryTest */,
+				AAE68CF51C37B48F006E680D /* SearchKitTest */,
 				AAE4F7541C0C147F00716182 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -997,14 +992,14 @@
 			isa = PBXGroup;
 			children = (
 				AA50C8331C0ED29900F2D917 /* TestProduct */,
-				AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */,
-				AAB45B701C2C1F7C006051B6 /* ChineseSearch iOSTests.xctest */,
-				AAB45B831C2C1FB1006051B6 /* ChineseSearch.framework */,
-				AAB45B8C1C2C1FB1006051B6 /* ChineseSearch OSXTests.xctest */,
-				AAB45B9F1C2C1FCD006051B6 /* ChineseSearch.framework */,
-				AAB45BA81C2C1FCD006051B6 /* ChineseSearch tvOSTests.xctest */,
-				AAE68CF41C37B48F006E680D /* ChineseSearchTest.app */,
-				AA46D4391C3D36550097511C /* ChineseSearchMemoryTest.app */,
+				AAB45B671C2C1F7B006051B6 /* SearchKit.framework */,
+				AAB45B701C2C1F7C006051B6 /* SearchKit iOSTests.xctest */,
+				AAB45B831C2C1FB1006051B6 /* SearchKit.framework */,
+				AAB45B8C1C2C1FB1006051B6 /* SearchKit OSXTests.xctest */,
+				AAB45B9F1C2C1FCD006051B6 /* SearchKit.framework */,
+				AAB45BA81C2C1FCD006051B6 /* SearchKit tvOSTests.xctest */,
+				AAE68CF41C37B48F006E680D /* SearchKitTest.app */,
+				AA46D4391C3D36550097511C /* SearchKitMemoryTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1018,7 +1013,7 @@
 			name = reflect;
 			sourceTree = "<group>";
 		};
-		AAE68CF51C37B48F006E680D /* ChineseSearchTest */ = {
+		AAE68CF51C37B48F006E680D /* SearchKitTest */ = {
 			isa = PBXGroup;
 			children = (
 				AAE68CF61C37B48F006E680D /* AppDelegate.swift */,
@@ -1026,7 +1021,7 @@
 				AAF8134D1C3B8B0F00AECEDE /* ExConfig.swift */,
 				AAE68D061C37B4A5006E680D /* Supporting Files */,
 			);
-			path = ChineseSearchTest;
+			path = SearchKitTest;
 			sourceTree = "<group>";
 		};
 		AAE68D061C37B4A5006E680D /* Supporting Files */ = {
@@ -1053,9 +1048,9 @@
 		AAEFF4271C1EA7E700DD4DB5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AA0AF8271C3E3545007E27F7 /* main.swift */,
 				AABB63601C2D082A007CF14B /* code */,
 				AABB636D1C2D082A007CF14B /* cs */,
+				AA0AF8271C3E3545007E27F7 /* main.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1324,9 +1319,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		AA46D4381C3D36550097511C /* ChineseSearchMemoryTest */ = {
+		AA46D4381C3D36550097511C /* SearchKitMemoryTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA46D4481C3D36550097511C /* Build configuration list for PBXNativeTarget "ChineseSearchMemoryTest" */;
+			buildConfigurationList = AA46D4481C3D36550097511C /* Build configuration list for PBXNativeTarget "SearchKitMemoryTest" */;
 			buildPhases = (
 				AA46D4351C3D36550097511C /* Sources */,
 				AA46D4361C3D36550097511C /* Frameworks */,
@@ -1336,9 +1331,9 @@
 			);
 			dependencies = (
 			);
-			name = ChineseSearchMemoryTest;
+			name = SearchKitMemoryTest;
 			productName = ChineseSearchMemoryTest;
-			productReference = AA46D4391C3D36550097511C /* ChineseSearchMemoryTest.app */;
+			productReference = AA46D4391C3D36550097511C /* SearchKitMemoryTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AA50C8321C0ED29900F2D917 /* TestProduct */ = {
@@ -1358,9 +1353,9 @@
 			productReference = AA50C8331C0ED29900F2D917 /* TestProduct */;
 			productType = "com.apple.product-type.tool";
 		};
-		AAB45B661C2C1F7B006051B6 /* ChineseSearch iOS */ = {
+		AAB45B661C2C1F7B006051B6 /* SearchKit iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB45B781C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch iOS" */;
+			buildConfigurationList = AAB45B781C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "SearchKit iOS" */;
 			buildPhases = (
 				AAB45B621C2C1F7B006051B6 /* Sources */,
 				AAB45B631C2C1F7B006051B6 /* Frameworks */,
@@ -1371,14 +1366,14 @@
 			);
 			dependencies = (
 			);
-			name = "ChineseSearch iOS";
+			name = "SearchKit iOS";
 			productName = "ChineseSearch iOS";
-			productReference = AAB45B671C2C1F7B006051B6 /* ChineseSearch.framework */;
+			productReference = AAB45B671C2C1F7B006051B6 /* SearchKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AAB45B6F1C2C1F7C006051B6 /* ChineseSearch iOSTests */ = {
+		AAB45B6F1C2C1F7C006051B6 /* SearchKit iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB45B7B1C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch iOSTests" */;
+			buildConfigurationList = AAB45B7B1C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "SearchKit iOSTests" */;
 			buildPhases = (
 				AAB45B6C1C2C1F7C006051B6 /* Sources */,
 				AAB45B6D1C2C1F7C006051B6 /* Frameworks */,
@@ -1389,14 +1384,14 @@
 			dependencies = (
 				AAB45B731C2C1F7C006051B6 /* PBXTargetDependency */,
 			);
-			name = "ChineseSearch iOSTests";
+			name = "SearchKit iOSTests";
 			productName = "ChineseSearch iOSTests";
-			productReference = AAB45B701C2C1F7C006051B6 /* ChineseSearch iOSTests.xctest */;
+			productReference = AAB45B701C2C1F7C006051B6 /* SearchKit iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AAB45B821C2C1FB1006051B6 /* ChineseSearch OSX */ = {
+		AAB45B821C2C1FB1006051B6 /* SearchKit OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB45B941C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch OSX" */;
+			buildConfigurationList = AAB45B941C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "SearchKit OSX" */;
 			buildPhases = (
 				AAB45B7E1C2C1FB1006051B6 /* Sources */,
 				AAB45B7F1C2C1FB1006051B6 /* Frameworks */,
@@ -1407,14 +1402,14 @@
 			);
 			dependencies = (
 			);
-			name = "ChineseSearch OSX";
+			name = "SearchKit OSX";
 			productName = "ChineseSearch OSX";
-			productReference = AAB45B831C2C1FB1006051B6 /* ChineseSearch.framework */;
+			productReference = AAB45B831C2C1FB1006051B6 /* SearchKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AAB45B8B1C2C1FB1006051B6 /* ChineseSearch OSXTests */ = {
+		AAB45B8B1C2C1FB1006051B6 /* SearchKit OSXTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB45B971C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch OSXTests" */;
+			buildConfigurationList = AAB45B971C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "SearchKit OSXTests" */;
 			buildPhases = (
 				AAB45B881C2C1FB1006051B6 /* Sources */,
 				AAB45B891C2C1FB1006051B6 /* Frameworks */,
@@ -1425,14 +1420,14 @@
 			dependencies = (
 				AAB45B8F1C2C1FB1006051B6 /* PBXTargetDependency */,
 			);
-			name = "ChineseSearch OSXTests";
+			name = "SearchKit OSXTests";
 			productName = "ChineseSearch OSXTests";
-			productReference = AAB45B8C1C2C1FB1006051B6 /* ChineseSearch OSXTests.xctest */;
+			productReference = AAB45B8C1C2C1FB1006051B6 /* SearchKit OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AAB45B9E1C2C1FCD006051B6 /* ChineseSearch tvOS */ = {
+		AAB45B9E1C2C1FCD006051B6 /* SearchKit tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB45BB01C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch tvOS" */;
+			buildConfigurationList = AAB45BB01C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "SearchKit tvOS" */;
 			buildPhases = (
 				AAB45B9A1C2C1FCD006051B6 /* Sources */,
 				AAB45B9B1C2C1FCD006051B6 /* Frameworks */,
@@ -1443,14 +1438,14 @@
 			);
 			dependencies = (
 			);
-			name = "ChineseSearch tvOS";
+			name = "SearchKit tvOS";
 			productName = "ChineseSearch tvOS";
-			productReference = AAB45B9F1C2C1FCD006051B6 /* ChineseSearch.framework */;
+			productReference = AAB45B9F1C2C1FCD006051B6 /* SearchKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AAB45BA71C2C1FCD006051B6 /* ChineseSearch tvOSTests */ = {
+		AAB45BA71C2C1FCD006051B6 /* SearchKit tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAB45BB31C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch tvOSTests" */;
+			buildConfigurationList = AAB45BB31C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "SearchKit tvOSTests" */;
 			buildPhases = (
 				AAB45BA41C2C1FCD006051B6 /* Sources */,
 				AAB45BA51C2C1FCD006051B6 /* Frameworks */,
@@ -1461,14 +1456,14 @@
 			dependencies = (
 				AAB45BAB1C2C1FCD006051B6 /* PBXTargetDependency */,
 			);
-			name = "ChineseSearch tvOSTests";
+			name = "SearchKit tvOSTests";
 			productName = "ChineseSearch tvOSTests";
-			productReference = AAB45BA81C2C1FCD006051B6 /* ChineseSearch tvOSTests.xctest */;
+			productReference = AAB45BA81C2C1FCD006051B6 /* SearchKit tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AAE68CF31C37B48F006E680D /* ChineseSearchTest */ = {
+		AAE68CF31C37B48F006E680D /* SearchKitTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAE68D031C37B48F006E680D /* Build configuration list for PBXNativeTarget "ChineseSearchTest" */;
+			buildConfigurationList = AAE68D031C37B48F006E680D /* Build configuration list for PBXNativeTarget "SearchKitTest" */;
 			buildPhases = (
 				AAE68CF01C37B48F006E680D /* Sources */,
 				AAE68CF11C37B48F006E680D /* Frameworks */,
@@ -1478,9 +1473,9 @@
 			);
 			dependencies = (
 			);
-			name = ChineseSearchTest;
+			name = SearchKitTest;
 			productName = ChineseSearchTest;
-			productReference = AAE68CF41C37B48F006E680D /* ChineseSearchTest.app */;
+			productReference = AAE68CF41C37B48F006E680D /* SearchKitTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1521,7 +1516,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AAE4F74E1C0C13EA00716182 /* Build configuration list for PBXProject "ChineseSearch" */;
+			buildConfigurationList = AAE4F74E1C0C13EA00716182 /* Build configuration list for PBXProject "SearchKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1534,14 +1529,14 @@
 			projectRoot = "";
 			targets = (
 				AA50C8321C0ED29900F2D917 /* TestProduct */,
-				AAB45B661C2C1F7B006051B6 /* ChineseSearch iOS */,
-				AAB45B6F1C2C1F7C006051B6 /* ChineseSearch iOSTests */,
-				AAB45B821C2C1FB1006051B6 /* ChineseSearch OSX */,
-				AAB45B8B1C2C1FB1006051B6 /* ChineseSearch OSXTests */,
-				AAB45B9E1C2C1FCD006051B6 /* ChineseSearch tvOS */,
-				AAB45BA71C2C1FCD006051B6 /* ChineseSearch tvOSTests */,
-				AAE68CF31C37B48F006E680D /* ChineseSearchTest */,
-				AA46D4381C3D36550097511C /* ChineseSearchMemoryTest */,
+				AAB45B661C2C1F7B006051B6 /* SearchKit iOS */,
+				AAB45B6F1C2C1F7C006051B6 /* SearchKit iOSTests */,
+				AAB45B821C2C1FB1006051B6 /* SearchKit OSX */,
+				AAB45B8B1C2C1FB1006051B6 /* SearchKit OSXTests */,
+				AAB45B9E1C2C1FCD006051B6 /* SearchKit tvOS */,
+				AAB45BA71C2C1FCD006051B6 /* SearchKit tvOSTests */,
+				AAE68CF31C37B48F006E680D /* SearchKitTest */,
+				AA46D4381C3D36550097511C /* SearchKitMemoryTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1824,7 +1819,6 @@
 				AA590F6E1C35479600B39270 /* WubiCodingImplTest.swift in Sources */,
 				AA1196DD1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */,
 				AAE311091C3016350016F7C7 /* ValueCodingStrategyFactoryTest.swift in Sources */,
-				AAE68C901C3653C8006E680D /* LoadFileTest.swift in Sources */,
 				AA6AD23B1C393E6500DED132 /* ExCacheConfig.swift in Sources */,
 				AABB63CC1C2D5914007CF14B /* ExStringTest.swift in Sources */,
 				AAE311191C312D4B0016F7C7 /* CachePoolTest.swift in Sources */,
@@ -1938,7 +1932,6 @@
 				AA590F6F1C35479600B39270 /* WubiCodingImplTest.swift in Sources */,
 				AA1196DE1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */,
 				AAE3110A1C3016350016F7C7 /* ValueCodingStrategyFactoryTest.swift in Sources */,
-				AAE68C911C3653C8006E680D /* LoadFileTest.swift in Sources */,
 				AA6AD23C1C393E6500DED132 /* ExCacheConfig.swift in Sources */,
 				AABB63C71C2D42CF007CF14B /* ExStringTest.swift in Sources */,
 				AAE3111A1C312D4B0016F7C7 /* CachePoolTest.swift in Sources */,
@@ -2052,7 +2045,6 @@
 				AA590F701C35479600B39270 /* WubiCodingImplTest.swift in Sources */,
 				AA1196DF1C3CD821003A6BC0 /* ChineseSearchTest.swift in Sources */,
 				AAE3110B1C3016350016F7C7 /* ValueCodingStrategyFactoryTest.swift in Sources */,
-				AAE68C921C3653C8006E680D /* LoadFileTest.swift in Sources */,
 				AA6AD23D1C393E6500DED132 /* ExCacheConfig.swift in Sources */,
 				AABB63C81C2D42CF007CF14B /* ExStringTest.swift in Sources */,
 				AAE3111B1C312D4B0016F7C7 /* CachePoolTest.swift in Sources */,
@@ -2083,17 +2075,17 @@
 /* Begin PBXTargetDependency section */
 		AAB45B731C2C1F7C006051B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAB45B661C2C1F7B006051B6 /* ChineseSearch iOS */;
+			target = AAB45B661C2C1F7B006051B6 /* SearchKit iOS */;
 			targetProxy = AAB45B721C2C1F7C006051B6 /* PBXContainerItemProxy */;
 		};
 		AAB45B8F1C2C1FB1006051B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAB45B821C2C1FB1006051B6 /* ChineseSearch OSX */;
+			target = AAB45B821C2C1FB1006051B6 /* SearchKit OSX */;
 			targetProxy = AAB45B8E1C2C1FB1006051B6 /* PBXContainerItemProxy */;
 		};
 		AAB45BAB1C2C1FCD006051B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAB45B9E1C2C1FCD006051B6 /* ChineseSearch tvOS */;
+			target = AAB45B9E1C2C1FCD006051B6 /* SearchKit tvOS */;
 			targetProxy = AAB45BAA1C2C1FCD006051B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2170,11 +2162,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ChineseSearchMemoryTest/Info.plist;
+				INFOPLIST_FILE = SearchKitMemoryTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearchMemoryTest;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKitMemoryTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2213,11 +2205,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ChineseSearchMemoryTest/Info.plist;
+				INFOPLIST_FILE = SearchKitMemoryTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearchMemoryTest;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKitMemoryTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2358,13 +2350,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch iOS/Info.plist";
+				INFOPLIST_FILE = "SearchKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearch;
-				PRODUCT_NAME = ChineseSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
+				PRODUCT_NAME = SearchKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2409,13 +2401,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch iOS/Info.plist";
+				INFOPLIST_FILE = "SearchKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearch;
-				PRODUCT_NAME = ChineseSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
+				PRODUCT_NAME = SearchKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2461,11 +2453,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch iOSTests/Info.plist";
+				INFOPLIST_FILE = "SearchKit iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.ChineseSearch-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2502,11 +2494,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch iOSTests/Info.plist";
+				INFOPLIST_FILE = "SearchKit iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.ChineseSearch-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2556,13 +2548,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch OSX/Info.plist";
+				INFOPLIST_FILE = "SearchKit OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearch;
-				PRODUCT_NAME = ChineseSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
+				PRODUCT_NAME = SearchKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2608,13 +2600,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch OSX/Info.plist";
+				INFOPLIST_FILE = "SearchKit OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearch;
-				PRODUCT_NAME = ChineseSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
+				PRODUCT_NAME = SearchKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2659,11 +2651,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch OSXTests/Info.plist";
+				INFOPLIST_FILE = "SearchKit OSXTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.ChineseSearch-OSXTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-OSXTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2701,11 +2693,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch OSXTests/Info.plist";
+				INFOPLIST_FILE = "SearchKit OSXTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.ChineseSearch-OSXTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-OSXTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2751,12 +2743,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch tvOS/Info.plist";
+				INFOPLIST_FILE = "SearchKit tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearch;
-				PRODUCT_NAME = ChineseSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
+				PRODUCT_NAME = SearchKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2801,12 +2793,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch tvOS/Info.plist";
+				INFOPLIST_FILE = "SearchKit tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearch;
-				PRODUCT_NAME = ChineseSearch;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
+				PRODUCT_NAME = SearchKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2852,10 +2844,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch tvOSTests/Info.plist";
+				INFOPLIST_FILE = "SearchKit tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.ChineseSearch-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2892,10 +2884,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "ChineseSearch tvOSTests/Info.plist";
+				INFOPLIST_FILE = "SearchKit tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.ChineseSearch-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2958,11 +2950,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ChineseSearchTest/Info.plist;
+				INFOPLIST_FILE = SearchKitTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearchTest;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3001,11 +2993,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ChineseSearchTest/Info.plist;
+				INFOPLIST_FILE = SearchKitTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.ChineseSearchTest;
+				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3017,7 +3009,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA46D4481C3D36550097511C /* Build configuration list for PBXNativeTarget "ChineseSearchMemoryTest" */ = {
+		AA46D4481C3D36550097511C /* Build configuration list for PBXNativeTarget "SearchKitMemoryTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA46D4491C3D36550097511C /* Debug */,
@@ -3035,7 +3027,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB45B781C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch iOS" */ = {
+		AAB45B781C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "SearchKit iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAB45B791C2C1F7C006051B6 /* Debug */,
@@ -3044,7 +3036,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB45B7B1C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch iOSTests" */ = {
+		AAB45B7B1C2C1F7C006051B6 /* Build configuration list for PBXNativeTarget "SearchKit iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAB45B7C1C2C1F7C006051B6 /* Debug */,
@@ -3053,7 +3045,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB45B941C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch OSX" */ = {
+		AAB45B941C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "SearchKit OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAB45B951C2C1FB1006051B6 /* Debug */,
@@ -3062,7 +3054,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB45B971C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch OSXTests" */ = {
+		AAB45B971C2C1FB1006051B6 /* Build configuration list for PBXNativeTarget "SearchKit OSXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAB45B981C2C1FB1006051B6 /* Debug */,
@@ -3071,7 +3063,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB45BB01C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch tvOS" */ = {
+		AAB45BB01C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "SearchKit tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAB45BB11C2C1FCD006051B6 /* Debug */,
@@ -3080,7 +3072,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAB45BB31C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "ChineseSearch tvOSTests" */ = {
+		AAB45BB31C2C1FCD006051B6 /* Build configuration list for PBXNativeTarget "SearchKit tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAB45BB41C2C1FCD006051B6 /* Debug */,
@@ -3089,7 +3081,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAE4F74E1C0C13EA00716182 /* Build configuration list for PBXProject "ChineseSearch" */ = {
+		AAE4F74E1C0C13EA00716182 /* Build configuration list for PBXProject "SearchKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAE4F74F1C0C13EA00716182 /* Debug */,
@@ -3098,7 +3090,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAE68D031C37B48F006E680D /* Build configuration list for PBXNativeTarget "ChineseSearchTest" */ = {
+		AAE68D031C37B48F006E680D /* Build configuration list for PBXNativeTarget "SearchKitTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAE68D041C37B48F006E680D /* Debug */,

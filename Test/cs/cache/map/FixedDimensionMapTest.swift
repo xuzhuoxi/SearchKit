@@ -1,13 +1,13 @@
 //
 //  FixedDimensionMapTest.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/27.
 //
 //
 
 import XCTest
-@testable import ChineseSearch
+@testable import SearchKit
 
 class FixedDimensionMapTest: XCTestCase {
     let keyCode : [Character] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]

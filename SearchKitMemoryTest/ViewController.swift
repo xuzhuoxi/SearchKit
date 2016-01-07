@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  ChineseSearchMemoryTest
+//  SearchKitMemoryTest
 //
 //  Created by 许灼溪 on 16/1/6.
 //
 //
 
 import UIKit
-import ChineseSearch
+import SearchKit
 
 class ViewController: UIViewController {
 

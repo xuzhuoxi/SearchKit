@@ -1,6 +1,6 @@
 //
 //  SearchResult.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/21.
 //

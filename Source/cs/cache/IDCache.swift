@@ -1,6 +1,6 @@
 //
 //  IDCache.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 16/1/4.
 //

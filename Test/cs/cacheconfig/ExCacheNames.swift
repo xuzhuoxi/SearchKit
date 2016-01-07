@@ -1,13 +1,13 @@
 //
 //  ExCacheNames.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 16/1/3.
 //
 //
 
 import Foundation
-@testable import ChineseSearch
+@testable import SearchKit
 
 extension CacheNames {
     /**

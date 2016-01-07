@@ -1,13 +1,13 @@
 //
 //  ExResourcePaths.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/28.
 //
 //
 
 import Foundation
-@testable import ChineseSearch
+@testable import SearchKit
 
 private class RC {}
 

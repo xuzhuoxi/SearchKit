@@ -1,13 +1,13 @@
 //
 //  CachePoolTest.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/28.
 //
 //
 
 import XCTest
-@testable import ChineseSearch
+@testable import SearchKit
 
 class CachePoolTest: XCTestCase {
 //
@@ -68,7 +68,7 @@ class CachePoolTest: XCTestCase {
         // 一万=5
         // 一丈=9
         // 一下=1.0
-        CacheConfig.instance.supplyConfig(CacheNames.WEIGHT, reflectClassName: "ChineseSearch.WeightCacheImpl", isSingleton: true, initialCapacity: 16, resourceURLs: [ResourcePaths.URL_WEIGHT_WORDS], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.WEIGHT, reflectClassName: "SearchKit.WeightCacheImpl", isSingleton: true, initialCapacity: 16, resourceURLs: [ResourcePaths.URL_WEIGHT_WORDS], charsetName: "UTF-8", valueCodingClassName: nil)
         let test = ["一一", "一丁点", "一丁点儿", "一万", "一丈", "一下"]
         let result = [1.0, 1.0, 1.06, 5, 9, 1.0]
         let wc = CachePool.instance.getCache(CacheNames.WEIGHT) as? WeightCacheProtocol

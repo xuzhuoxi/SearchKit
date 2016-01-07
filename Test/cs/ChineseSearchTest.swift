@@ -1,13 +1,13 @@
 //
-//  ChineseSearchTest.swift
-//  ChineseSearch
+//  SearchKitTest.swift
+//  SearchKit
 //
 //  Created by 许灼溪 on 16/1/6.
 //
 //
 
 import XCTest
-import ChineseSearch
+import SearchKit
 
 class ChineseSearchTest: XCTestCase {
 
