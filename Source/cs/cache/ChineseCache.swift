@@ -1,6 +1,6 @@
 //
 //  ChineseCache.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/20.
 //
@@ -58,8 +58,8 @@ class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
     
     /**
      * 简化反向影射:<br>
-     * 1.简化输入。{@link IValueCodingStrategy#getSimplifyValue}<br>
-     * 2.计算多维缓存Key。{@link IValueCodingStrategy#getDimensionKeys} <br>
+     * 1.简化输入。{@link ValueCodingStrategyProtocol#getSimplifyValue}<br>
+     * 2.计算多维缓存Key。{@link ValueCodingStrategyProtocol#getDimensionKeys} <br>
      * 3.建立缓存key与汉字的影射。<br>
      *
      * @param singleValue

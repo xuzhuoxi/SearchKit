@@ -1,6 +1,6 @@
 //
 //  SearchTypeInfo.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/21.
 //
@@ -38,15 +38,6 @@ public struct SearchTypeInfo : Equatable {
         self.valueCodingStrategy = valueCodingStrategy
         self.weightCache = weightCache
     }
-    
-    /**
-     * 拼音字库
-     */
-    public static let WORD_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.PINYIN_WORD, CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.PINYIN_WORD), nil)
-    /**
-     * 五笔字库
-     */
-    public static let WORD_WUBI_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.WUBI_WORD, CachePool.instance.getCache(CacheNames.WUBI_WORD) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.WUBI_WORD), nil)
 }
 
 public func ==(l:SearchTypeInfo, r:SearchTypeInfo) ->Bool {

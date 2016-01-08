@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  ChineseSearchTest
+//  SearchKitTest
 //
 //  Created by 许灼溪 on 16/1/2.
 //
 //
 
 import UIKit
-import ChineseSearch
+import SearchKit
 
 class ViewController: UIViewController, UISearchBarDelegate {
     var searchConfig = SearchConfig()

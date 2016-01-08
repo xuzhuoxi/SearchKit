@@ -1,6 +1,6 @@
 //
 //  FixedDimensionMapImpl.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/7.
 //
@@ -13,10 +13,10 @@
 * @author xuzhuoxi
 */
 class FixedDimensionMapImpl: DimensionMapBase, DimensionMapProtocol {
-    private final let _dimension : Int;
-    private final let charList : Array<Character>;
+    private final let _dimension : Int
+    private final let charList : [Character]
     
-    init?(charList : Array<Character> , dimension : Int) {
+    init?(charList: [Character] , dimension : Int) {
         self.charList = charList
         self._dimension = dimension
         super.init()
@@ -27,7 +27,7 @@ class FixedDimensionMapImpl: DimensionMapBase, DimensionMapProtocol {
     }
     
     private func initData() {
-        var dimensionKeylist : Array<String>?
+        var dimensionKeylist : [String]?
         for index in 0 ..< _dimension {
             dimensionKeylist = addDimmension(dimensionKeylist)
             valueList.append(Dictionary<String,Set<String>>(minimumCapacity: 8192))
@@ -56,15 +56,15 @@ class FixedDimensionMapImpl: DimensionMapBase, DimensionMapProtocol {
         return getKeyList(dimensionKey)
     }
     
-    private func addDimmension(dimesionKeylist : Array<String>?) -> Array<String> {
-        let dl: Array<String> = nil == dimesionKeylist ? Array<String>() : dimesionKeylist!
-        var rs : Array<String> = []
+    private func addDimmension(dimesionKeylist : [String]?) -> [String] {
+        let dl = nil == dimesionKeylist ? [String]() : dimesionKeylist!
+        var rs = [String]()
         for c in charList {
             if dl.isEmpty {
-                rs.append(String(c))
+                rs.append("\(c)")
             }else{
                 for str in dl {
-                    rs.append(str + String(c))
+                    rs.append("\(str)\(c)")
                 }
             }
         }

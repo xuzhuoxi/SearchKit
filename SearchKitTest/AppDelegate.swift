@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ChineseSearchMemoryTest
+//  SearchKitTest
 //
-//  Created by 许灼溪 on 16/1/6.
+//  Created by 许灼溪 on 16/1/2.
 //
 //
 

@@ -1,14 +1,14 @@
 //
 //  DimensionMapBase.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/7.
 //
 //
 
 /**
-* 接口IDimensionMap对应的抽象类，存放共用或相似的行为方法<br>
-* 每个IDimensionMap的实现类建议继承这个类<br>
+* 协议DimensionMapProtocol对应的抽象类，存放共用或相似的行为方法<br>
+* 每个DimensionMapProtocol的实现类建议继承这个类<br>
 *
 * @author xuzhuoxi
 *
@@ -19,7 +19,7 @@ class DimensionMapBase {
      * 列表，内部存放的是Map的实例<br>
      * 规律：<br>
      * 1.每个Map实例中，全部Key的字符长度相同。<br>
-     * 2.List中第一个Map实例中Key的长度为1，第二个Map实例中Key的长度为2，如此类推<br>
+     * 2.Array中第一个Dictionary实例中Key的长度为1，第二个Dictionary实例中Key的长度为2，如此类推<br>
      */
     var valueList : Array<Dictionary<String,Set<String>>> = []
     

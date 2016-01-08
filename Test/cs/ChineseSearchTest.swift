@@ -1,13 +1,13 @@
 //
-//  ChineseSearchTest.swift
-//  ChineseSearch
+//  SearchKitTest.swift
+//  SearchKit
 //
 //  Created by 许灼溪 on 16/1/6.
 //
 //
 
 import XCTest
-import ChineseSearch
+import SearchKit
 
 class ChineseSearchTest: XCTestCase {
 
@@ -34,9 +34,19 @@ class ChineseSearchTest: XCTestCase {
 //    }
     
     func testSearch() {
+        CacheConfig.instance.supplyWubiWordsConfig()
+        CacheConfig.instance.supplyWeightWordsConfig()
         var searchConfig = SearchConfig()
-        searchConfig.addSearchType(SearchTypeInfo.WORD_PINYIN_SEARCH)
+        searchConfig.addSearchType(SearchTypeInfo.WUBI_WORDS_SEARCH)
         let searcher = ChineseSearcherFactory.getChineseSearcher()
-        XCTAssertNil(searcher.search("Q", searchConfig: searchConfig))
+        let resultKeys = ["您们","你们","低倍","低位","爷们"]
+        let result = searcher.search("wqwu", searchConfig: searchConfig)
+        XCTAssertNotNil(result)
+        XCTAssertEqual(resultKeys.count, result!.resultsSize)
+        var rks = [String]()
+        for r in result!.sortedResults {
+            rks.append(r.key)
+        }
+        XCTAssertEqual(rks, resultKeys)
     }
 }

@@ -1,6 +1,6 @@
 //
 //  WubiCodingImpl.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/22.
 //
@@ -29,13 +29,13 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
         let len = words.length
         switch (len) {
         case 1:
-            codingResult.append(getMaxValue(wordCache, words))
+            codingResult.append(getMaxValue(wordCache, words.characters.first!))
         case 2:
             codingResult.append(getCode(wordCache, words, [(0,2),(1,2)]))
         case 3:
             codingResult.append(getCode(wordCache, words, [(0,1),(1,1),(2,2)]))
         default:
-            codingResult.append(getCode(wordCache, words, [(0,1),(1,1),(2,0),(len-1,1)]))
+            codingResult.append(getCode(wordCache, words, [(0,1),(1,1),(2,1),(len-1,1)]))
         }
         return codingResult
     }
@@ -43,7 +43,8 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
     private func getCode(wordCache: CharacterLibraryProtocol, _ words: String, _ needs: [(Int, Int)]) ->String{
         var rs = ""
         for (index, len) in needs {
-            let maxCode = getMaxValue(wordCache, words[index]!)
+            let word = words[words.startIndex.advancedBy(index)]
+            let maxCode = getMaxValue(wordCache, word)
             rs.appendContentsOf(maxCode.substringToIndex(maxCode.startIndex.advancedBy(len)))
         }
         return rs
@@ -53,12 +54,12 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
     /**
      * 取汉字的最长五笔编码<br>
      *
-     * @param wordCache
+     * @param wordCache 五笔字库
      * @param word
      * @return
      */
-    private func getMaxValue(wordCache: CharacterLibraryProtocol, _ word:String) ->String {
-        if let values = wordCache.getValues(word.characters.first!) {
+    private func getMaxValue(wordCache: CharacterLibraryProtocol, _ word: Character) ->String {
+        if let values = wordCache.getValues(word) {
             if values.count == 1 {
                 return values[0]
             }else {

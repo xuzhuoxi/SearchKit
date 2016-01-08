@@ -1,6 +1,6 @@
 //
 //  WubiWordsStrategyImpl.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/19.
 //
@@ -24,7 +24,7 @@ class WubiWordsStrategyImpl : AbstractWubiStrategy, ValueCodingStrategyProtocol,
     }
     
     final func filter(input: String) -> String {
-        return wubiFilter(input);
+        return wubiFilter(input)
     }
     
     /**

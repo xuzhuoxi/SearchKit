@@ -1,6 +1,6 @@
 //
 //  ValueCodingType.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/16.
 //
@@ -26,13 +26,13 @@ extension ValueCodingType {
     public var associatedClassName : String {
         switch self {
         case .PINYIN_WORD:
-            return "ChineseSearch.PinyinWordStrategyImpl"
+            return "SearchKit.PinyinWordStrategyImpl"
         case .PINYIN_WORDS:
-            return "ChineseSearch.PinyinWordsStrategyImpl"
+            return "SearchKit.PinyinWordsStrategyImpl"
         case .WUBI_WORD:
-            return "ChineseSearch.WubiWordStrategyImpl"
+            return "SearchKit.WubiWordStrategyImpl"
         case .WUBI_WORDS:
-            return "ChineseSearch.WubiWordsStrategyImpl"
+            return "SearchKit.WubiWordsStrategyImpl"
         }
     }
 }

@@ -1,6 +1,6 @@
 //
 //  SearchKeyResult.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/21.
 //
@@ -15,7 +15,7 @@ import Foundation
  *
  */
 public struct SearchKeyResult: Comparable {
-//    private var resultMap = Dictionary<SearchType, SearchTypeResult>()
+
     private var resultArr = [SearchTypeResult]()
     
     public let key: String

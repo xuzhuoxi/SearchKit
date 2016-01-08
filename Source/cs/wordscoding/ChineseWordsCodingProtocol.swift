@@ -1,6 +1,6 @@
 //
 //  ChineseWordsCodingProtocol.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/22.
 //
@@ -19,7 +19,7 @@ public protocol ChineseWordsCodingProtocol {
      * 要求实现对象先验证有效性。<br>
      *
      * @param wordCache
-     *            中文缓存实例{@link IChineseCache}
+     *            中文缓存实例{@link CharacterLibraryProtocol}
      * @param words
      *            词
      * @return 编码数组

@@ -1,6 +1,6 @@
 //
 //  ValueCodingStrategyFactory.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/16.
 //
@@ -32,7 +32,7 @@ public struct ValueCodingStrategyFactory {
         case .WUBI_WORD:
             return WubiWordStrategyImpl()
         case .WUBI_WORDS:
-            return WubiWordsStrategyImpl();
+            return WubiWordsStrategyImpl()
         }
     }
 }

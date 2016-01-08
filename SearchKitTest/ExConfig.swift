@@ -1,13 +1,13 @@
 //
 //  Ex.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 16/1/5.
 //
 //
 
 import Foundation
-import ChineseSearch
+import SearchKit
 
 private class RC {}
 
@@ -77,22 +77,22 @@ extension ResourcePaths {
 
 extension CacheConfig {
     func supplyAolaConfig(){
-        CacheConfig.instance.supplyConfig(CacheNames.AOLA_PINYIN, reflectClassName: "ChineseSearch.ChineseCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_PINYIN], charsetName: "UTF-8", valueCodingClassName: "ChineseSearch.PinyinWordsStrategyImpl")
-        CacheConfig.instance.supplyConfig(CacheNames.AOLA_WUBI, reflectClassName: "ChineseSearch.ChineseCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_WUBI], charsetName: "UTF-8", valueCodingClassName: "ChineseSearch.WubiWordStrategyImpl")
-        CacheConfig.instance.supplyConfig(CacheNames.AOLA_WEIGHT, reflectClassName: "ChineseSearch.WeightCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_WEIGHT], charsetName: "UTF-8", valueCodingClassName: nil)
-        CacheConfig.instance.supplyConfig(CacheNames.AOLA_ID, reflectClassName: "ChineseSearch.IDCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_ID], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.AOLA_PINYIN, reflectClassName: "SearchKit.ChineseCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_PINYIN], charsetName: "UTF-8", valueCodingClassName: "SearchKit.PinyinWordsStrategyImpl")
+        CacheConfig.instance.supplyConfig(CacheNames.AOLA_WUBI, reflectClassName: "SearchKit.ChineseCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_WUBI], charsetName: "UTF-8", valueCodingClassName: "SearchKit.WubiWordStrategyImpl")
+        CacheConfig.instance.supplyConfig(CacheNames.AOLA_WEIGHT, reflectClassName: "SearchKit.WeightCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_WEIGHT], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.AOLA_ID, reflectClassName: "SearchKit.IDCacheImpl", isSingleton: true, initialCapacity: 2048, resourceURLs: [ResourcePaths.URL_AOLA_ID], charsetName: "UTF-8", valueCodingClassName: nil)
     }
     
     func supplyDotaConfig(){
-        CacheConfig.instance.supplyConfig(CacheNames.DOTA_PINYIN, reflectClassName: "ChineseSearch.ChineseCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_DOTA_PINYIN], charsetName: "UTF-8", valueCodingClassName: "ChineseSearch.PinyinWordsStrategyImpl")
-        CacheConfig.instance.supplyConfig(CacheNames.DOTA_WEIGHT, reflectClassName: "ChineseSearch.WeightCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_DOTA_WEIGHT], charsetName: "UTF-8", valueCodingClassName: nil)
-        CacheConfig.instance.supplyConfig(CacheNames.DOTA_ID, reflectClassName: "ChineseSearch.IDCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_DOTA_ID], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.DOTA_PINYIN, reflectClassName: "SearchKit.ChineseCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_DOTA_PINYIN], charsetName: "UTF-8", valueCodingClassName: "SearchKit.PinyinWordsStrategyImpl")
+        CacheConfig.instance.supplyConfig(CacheNames.DOTA_WEIGHT, reflectClassName: "SearchKit.WeightCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_DOTA_WEIGHT], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.DOTA_ID, reflectClassName: "SearchKit.IDCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_DOTA_ID], charsetName: "UTF-8", valueCodingClassName: nil)
     }
     
     func supplyMinecraftConfig(){
-        CacheConfig.instance.supplyConfig(CacheNames.MINECRAFT_PINYIN, reflectClassName: "ChineseSearch.ChineseCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_MINECRAFT_PINYIN], charsetName: "UTF-8", valueCodingClassName: "ChineseSearch.PinyinWordsStrategyImpl")
-        CacheConfig.instance.supplyConfig(CacheNames.MINECRAFT_WEIGHT, reflectClassName: "ChineseSearch.WeightCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_MINECRAFT_WEIGHT], charsetName: "UTF-8", valueCodingClassName: nil)
-        CacheConfig.instance.supplyConfig(CacheNames.MINECRAFT_ID, reflectClassName: "ChineseSearch.IDCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_MINECRAFT_ID], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.MINECRAFT_PINYIN, reflectClassName: "SearchKit.ChineseCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_MINECRAFT_PINYIN], charsetName: "UTF-8", valueCodingClassName: "SearchKit.PinyinWordsStrategyImpl")
+        CacheConfig.instance.supplyConfig(CacheNames.MINECRAFT_WEIGHT, reflectClassName: "SearchKit.WeightCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_MINECRAFT_WEIGHT], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyConfig(CacheNames.MINECRAFT_ID, reflectClassName: "SearchKit.IDCacheImpl", isSingleton: true, initialCapacity: 256, resourceURLs: [ResourcePaths.URL_MINECRAFT_ID], charsetName: "UTF-8", valueCodingClassName: nil)
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  StringUtils.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/18.
 //
@@ -72,7 +72,7 @@ public struct StringUtils {
     * @param source
     *            StringBuilder实例
     * @param excludeIndex
-    *            下标数组，要求不重复
+    *            下标数组，自动去掉重复
     */
     public static func removeChars(var source : String, excludeIndex : [Int]) ->String {
         var indexs = excludeIndex.sort(>)

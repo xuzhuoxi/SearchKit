@@ -1,13 +1,13 @@
 //
 //  ValueCodingStrategyFactoryTest.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/27.
 //
 //
 
 import XCTest
-@testable import ChineseSearch
+@testable import SearchKit
 
 class ValueCodingStrategyFactoryTest: XCTestCase {
     //

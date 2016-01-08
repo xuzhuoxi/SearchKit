@@ -1,13 +1,13 @@
 //
 //  PinyinWordsSimplifyImplTest.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 15/12/27.
 //
 //
 
 import XCTest
-@testable import ChineseSearch
+@testable import SearchKit
 
 class PinyinWordsSimplifyImplTest: XCTestCase {
     private let strategy : ValueCodingStrategyProtocol = PinyinWordsStrategyImpl()
@@ -67,7 +67,7 @@ class PinyinWordsSimplifyImplTest: XCTestCase {
 //            self.timeGetDimensionKeys(resource, count: 500) //4.879s, 4.852s, 4.803s, 5.009s (优化全开0.022s)
 //            self.timeGetDimensionKeys(resource, count: 1000) //6.066s, 5.795s, 5.846s, 5.782s (优化全开0.043s)
 //            self.timeGetDimensionKeys(resource, count: 10000) //13.703s, 13.713s, 13.986s, 13.601s (优化全开0.457s)
-            self.timeGetDimensionKeys(resource, count: Int.max) //编译优化全开后7.5s左右(现在4.204s, 4.197s, 5.238)
+            self.timeGetDimensionKeys(resource, count: Int.max) //编译优化全开后7.5s左右(现在4.204s, 4.197s, 5.238, 4.229s)
         }
     }
     

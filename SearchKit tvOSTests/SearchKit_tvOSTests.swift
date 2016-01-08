@@ -1,15 +1,15 @@
 //
-//  ChineseSearch_OSXTests.swift
-//  ChineseSearch OSXTests
+//  SearchKit_tvOSTests.swift
+//  SearchKit tvOSTests
 //
 //  Created by 许灼溪 on 15/12/24.
 //
 //
 
 import XCTest
-@testable import ChineseSearch
+@testable import SearchKit
 
-class ChineseSearch_OSXTests: XCTestCase {
+class SearchKit_tvOSTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

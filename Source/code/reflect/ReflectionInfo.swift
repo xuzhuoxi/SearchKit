@@ -1,6 +1,6 @@
 //
 //  ReflectionInfo.swift
-//  ChineseSearch
+//  SearchKit
 //
 //  Created by 许灼溪 on 16/1/1.
 //
@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ * 由 类名->ReflectionProtocol实例 的一个数据结构
+ *
+ * @author xuzhuoxi
+ *
+ */
 public struct ReflectionInfo {
     public let className: String
     
