@@ -15,7 +15,7 @@ import Foundation
  *
  */
 public struct SearchKeyResult: Comparable {
-//    private var resultMap = Dictionary<SearchType, SearchTypeResult>()
+
     private var resultArr = [SearchTypeResult]()
     
     public let key: String

@@ -38,7 +38,7 @@ public struct SearchResult {
     
     /**
      * 取得当前全部键结果数组<br>
-     * 已排序，匹配度大在前{@link SearchKeyResult#compareTo(SearchKeyResult)}
+     * 已排序，匹配度大在前
      *
      * @return 按匹配度从大到小的数组
      */

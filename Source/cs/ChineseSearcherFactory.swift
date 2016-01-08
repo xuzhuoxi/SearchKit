@@ -16,10 +16,10 @@ import Foundation
 public struct ChineseSearcherFactory {
     private init(){}
     
-    private static let instance:ChineseSearcherProtocol = ChineseSearcherImpl()
+    private static let instance: ChineseSearcherProtocol = ChineseSearcherImpl()
     
     /**
-    * 取得一个IChineseSearcher实例<br>
+    * 取得一个ChineseSearcherProtocol实例<br>
     *
     * @param newInstance
     *            是否创建新实例
@@ -28,7 +28,7 @@ public struct ChineseSearcherFactory {
     */
     public static func getChineseSearcher(newInstance: Bool = false) ->ChineseSearcherProtocol {
         if newInstance {
-            return ChineseSearcherImpl();
+            return ChineseSearcherImpl()
         }
         return instance
     }

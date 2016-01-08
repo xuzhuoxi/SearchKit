@@ -107,8 +107,9 @@ public class Resource {
      *
      * @param absoluteFilePath
      *            文件路径
-     * @param succCall
-     *            下载成功后回调，格式:function(rs:Resource):void;
+     * @return 
+     *  路径有效且格式正确: Resource实例
+     *  否则:nil
      */
     public static func getResource(absoluteFilePath: String) ->Resource? {
         return loadFile(absoluteFilePath)

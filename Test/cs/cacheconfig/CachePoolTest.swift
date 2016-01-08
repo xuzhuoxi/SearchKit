@@ -33,15 +33,25 @@ class CachePoolTest: XCTestCase {
 //        }
 //    }
     
-    func testInitSingletonCaches() {//283.472s, 267.734s 307.606s
-        CachePool.instance.initSingletonCaches()
-        let cacheNames = [CacheNames.PINYIN_WORD, CacheNames.PINYIN_WORDS, CacheNames.WUBI_WORD, CacheNames.WUBI_WORDS]
-        let dkArr = ["sg", "sg", "sg", "sg"]
+    func testKeywordsCaches(){//257.390s
+        CacheConfig.instance.supplyPinyinWordsConfig()
+        CacheConfig.instance.supplyWubiWordsConfig()
+        let cacheNames = [CacheNames.PINYIN_WORDS, CacheNames.WUBI_WORDS]
+        let dkArr = ["sg", "sg"]
         for (index, cacheName) in cacheNames.enumerate() {
             XCTAssertNotNil(CachePool.instance.getCache(cacheName))
             printInfo(CachePool.instance.getCache(cacheName) as! ChineseCacheProtocol, dimensionKey: dkArr[index])
         }
-        XCTAssertNotNil(CachePool.instance.getCache(CacheNames.WEIGHT))
+    }
+    
+    func testCharacterLibraryCaches() {//1.345s
+        let cacheNames = [CacheNames.PINYIN_WORD, CacheNames.WUBI_WORD]
+        let size = [20807, 6791]
+        for (index, cacheName) in cacheNames.enumerate() {
+            XCTAssertNotNil(CachePool.instance.getCache(cacheName))
+            let clp = CachePool.instance.getCache(cacheName) as! CharacterLibraryProtocol
+            XCTAssertEqual(size[index], clp.keysSize)
+        }
     }
     
     func printInfo(cc: ChineseCacheProtocol, dimensionKey: String) {
@@ -61,14 +71,14 @@ class CachePoolTest: XCTestCase {
         print(sb)
     }
     
-    func testWordsWeight() {//3.892s
+    func testWordsWeight() {//3.892s, 3.160s
         // 一一=1
         // 一丁点=0.1
         // 一丁点儿=1.06
         // 一万=5
         // 一丈=9
         // 一下=1.0
-        CacheConfig.instance.supplyConfig(CacheNames.WEIGHT, reflectClassName: "SearchKit.WeightCacheImpl", isSingleton: true, initialCapacity: 16, resourceURLs: [ResourcePaths.URL_WEIGHT_WORDS], charsetName: "UTF-8", valueCodingClassName: nil)
+        CacheConfig.instance.supplyWeightWordsConfig()
         let test = ["一一", "一丁点", "一丁点儿", "一万", "一丈", "一下"]
         let result = [1.0, 1.0, 1.06, 5, 9, 1.0]
         let wc = CachePool.instance.getCache(CacheNames.WEIGHT) as? WeightCacheProtocol
@@ -80,8 +90,8 @@ class CachePoolTest: XCTestCase {
     
     func testIntegrity() {
         var sb = "CachePoolTest.testIntegrity() " + "测试汉字完成性，共\(0x9fa5 - 0x4e00 + 1)个汉字！\n"
-        let cc0 = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! ChineseCacheProtocol
-        let cc1 = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! ChineseCacheProtocol
+        let cc0 = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
+        let cc1 = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! CharacterLibraryProtocol
         let ccArr = [cc0, cc1]
         for cc in ccArr {
             var i = 0

@@ -73,7 +73,7 @@ public struct ChineseUtils {
     }
     
     /**
-     * 获得字符串中的中文索引号
+     * 获得字符串中的中文字符索引号
      *
      * @param words
      *            待计算字符串
@@ -130,6 +130,7 @@ public struct ChineseUtils {
     
     /**
      * 判断字符是否为拼音所用到的字符(不区分大小写)
+     * 拼音编码范围：[a-z],[A-Z]
      *
      * @param c
      *            待判断的字符
@@ -142,6 +143,7 @@ public struct ChineseUtils {
     
     /**
      * 判断字符是否为五笔所用到的字符(不区分大小写，忽略z)
+     * 五笔编码范围：[a-z),[A-Z)
      *
      * @param c
      *            待判断的字符

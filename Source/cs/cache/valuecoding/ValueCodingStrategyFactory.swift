@@ -32,7 +32,7 @@ public struct ValueCodingStrategyFactory {
         case .WUBI_WORD:
             return WubiWordStrategyImpl()
         case .WUBI_WORDS:
-            return WubiWordsStrategyImpl();
+            return WubiWordsStrategyImpl()
         }
     }
 }

@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ * 通用无参数反射接口
+ *
+ * @author xuzhuoxi
+ *
+ */
 public protocol ReflectionProtocol {
     /**
      * 创建新实例

@@ -9,6 +9,7 @@
 import Foundation
 
 /**
+ * 用于关联检索结果与其它数据
  *
  * @author xuzhuoxi
  *

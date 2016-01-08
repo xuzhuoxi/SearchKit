@@ -38,7 +38,7 @@ class AbstractWubiStrategy : AbstractValueCoding {
      * 通过word在wordMap中查找全部值，返回编码长度最长的一个
      *
      * @param wordMap
-     *            字(词)库，IChineseCache实例{@link IChineseCache}
+     *            字(词)库，CharacterLibraryProtocol实例{@link CharacterLibraryProtocol}
      * @param word
      *            字(词)
      * @return 最长的编码

@@ -17,12 +17,13 @@ public struct ArrayUtils {
     private init(){}
     
     /**
-     * 不支持二维以上数组
+     * 清除数组中重复项（去除尾部的重复项）
+     * 修改原数组
      *
      * @param ary
      *            输入数组
      */
-    public static func cleanRepeat<T : Equatable>(inout arr : Array<T>) {
+    public static func cleanRepeat<T : Equatable>(inout arr : [T]) {
         for var i:Int = arr.count-1; i >= 0; --i {
             if arr.indexOf(arr[i])! != i {
                 arr.removeAtIndex(i)
@@ -37,7 +38,7 @@ public struct ArrayUtils {
      *            源二维数组
      * @return 新的一维数组
      */
-    public static func dimensionalityReduction<T>(arrTwo : Array<Array<T>>) ->Array<T> {
+    public static func dimensionalityReduction<T>(arrTwo : [[T]]) ->[T] {
         return mergeArray(arrTwo)
     }
     
@@ -48,7 +49,7 @@ public struct ArrayUtils {
      *            源二维数组
      * @return 新的一维数组
      */
-    public static func mergeArray<T>(arrTwo : Array<Array<T>>) ->Array<T> {
+    public static func mergeArray<T>(arrTwo : [[T]]) ->[T] {
         return arrTwo.reduce([], combine: (+) )
     }
 }

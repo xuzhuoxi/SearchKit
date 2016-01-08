@@ -6,8 +6,6 @@
 //
 //
 
-//import Foundation
-
 /**
 * 一些常用的数学方法
 *
@@ -68,19 +66,19 @@ public struct MathUtils {
      *            最多可选择个数
      * @return 全部组合的索引情况
      */
-    public static func getDimensionCombinationIndex(sourceLen:Int, dimension:Int) ->Array<Array<Array<Int>>>? {
+    public static func getDimensionCombinationIndex(sourceLen:Int, dimension:Int) ->[[[Int]]]? {
         let newDimension = sourceLen<dimension ? sourceLen : dimension
         if newDimension<1 {
             return nil
         }
         if 1==newDimension {
-            var rs:Array<Array<Array<Int>>> =  Array<Array<Array<Int>>>(count: 1, repeatedValue: Array<Array<Int>>())
+            var result = [[[Int]]](count: 1, repeatedValue: [[Int]]())
             for i in 0..<sourceLen {
-                rs[0].append([i])
+                result[0].append([i])
             }
-            return rs
+            return result
         }
-        var rs:Array<Array<Array<Int>>> = Array<Array<Array<Int>>>(count: newDimension, repeatedValue: Array<Array<Int>>())
+        var rs = [[[Int]]](count: newDimension, repeatedValue: [[Int]]())
         for i in 0..<sourceLen {
             for (var j = newDimension-2; j>=0; j--){
                 if rs[j].count > 0 {
@@ -101,23 +99,13 @@ public struct MathUtils {
         return rs;
     }
     
-    /**
-     * 比较两个数字大小
-     * @param x
-     * @param y
-     * @return x < y
-     */
-    public static func compareNumber(x:Double, _ y:Double) ->Bool {
-        return x < y
-    }
-    
-    private static func intArrayComparable(o1:Array<Int>, o2:Array<Int>) ->Bool {
+    private static func intArrayComparable(o1:[Int], o2:[Int]) ->Bool {
         if o1.count != o2.count {
-            return compareNumber(Double(o1.count), Double(o2.count))
+            return o1.count < o2.count
         }else{
             for i in 0..<o1.count {
                 if o1[i] != o2[i] {
-                    return compareNumber(Double(o1[i]), Double(o2[i]))
+                    return o1[i] < o2[i]
                 }
             }
             return false

@@ -33,12 +33,29 @@ class CharacterLibraryTest: XCTestCase {
 //        }
 //    }
     
-    func testCharacterLibrary(){
+    func testCharacterLibrary(){//1.361s
         let wo = Character("我")
         let no = Character("丗")
         let cachePinyin = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! CharacterLibraryProtocol
         XCTAssertTrue(cachePinyin.isKey(wo))
         let cacheWubi = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
         XCTAssertFalse(cacheWubi.isKey(no))
+    }
+    
+    func testWordWubi() {//4.470s, 1.440s, 1.455s, 1.517s, 1.218s
+        let path:String=ResourcePaths.PATH_WUBI_WORD
+        self.measureBlock{
+            let resource = Resource.getResource(path)!
+            let _ = ChineseCache.createChineseCache(CacheNames.WUBI_WORD, resource: resource, valueCodingType: ValueCodingType.WUBI_WORD)
+        }
+    }
+    
+    
+    func testWordPinyin() {//39.519s, 6.001s, 6.402s, 6.004s, 5.785s
+        let path:String=ResourcePaths.PATH_PINYIN_WORD
+        self.measureBlock{
+            let resource = Resource.getResource(path)!
+            let _ = ChineseCache.createChineseCache(CacheNames.PINYIN_WORD, resource: resource, valueCodingType: ValueCodingType.PINYIN_WORD)
+        }
     }
 }

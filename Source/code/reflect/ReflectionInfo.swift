@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ * 由 类名->ReflectionProtocol实例 的一个数据结构
+ *
+ * @author xuzhuoxi
+ *
+ */
 public struct ReflectionInfo {
     public let className: String
     

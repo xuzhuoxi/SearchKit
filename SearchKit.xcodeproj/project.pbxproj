@@ -292,6 +292,9 @@
 		AABB63D31C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */; };
 		AABB63D41C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */; };
 		AABB63D51C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */; };
+		AACD02F41C3F99D300C35BD9 /* ExSearchTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACD02F31C3F99D300C35BD9 /* ExSearchTypeInfo.swift */; };
+		AACD02F51C3F99D300C35BD9 /* ExSearchTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACD02F31C3F99D300C35BD9 /* ExSearchTypeInfo.swift */; };
+		AACD02F61C3F99D300C35BD9 /* ExSearchTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACD02F31C3F99D300C35BD9 /* ExSearchTypeInfo.swift */; };
 		AACDEB7C1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */; };
 		AACDEB7D1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */; };
 		AACDEB7E1C3A43C700C640A3 /* IDCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */; };
@@ -514,6 +517,7 @@
 		AABB63C51C2D42CF007CF14B /* ExStringTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExStringTest.swift; path = ex/ExStringTest.swift; sourceTree = "<group>"; };
 		AABB63CE1C2D597E007CF14B /* StringMatchingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMatchingTest.swift; sourceTree = "<group>"; };
 		AABB63D21C2D5A8E007CF14B /* StringUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtilsTest.swift; sourceTree = "<group>"; };
+		AACD02F31C3F99D300C35BD9 /* ExSearchTypeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSearchTypeInfo.swift; sourceTree = "<group>"; };
 		AACDEB7B1C3A43C700C640A3 /* IDCacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCacheProtocol.swift; sourceTree = "<group>"; };
 		AACDEB7F1C3A45A600C640A3 /* IDCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCache.swift; sourceTree = "<group>"; };
 		AACDEB831C3A4C2800C640A3 /* IDCacheImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCacheImpl.swift; sourceTree = "<group>"; };
@@ -818,6 +822,7 @@
 			isa = PBXGroup;
 			children = (
 				AAB7B3AA1C390E09007EB735 /* ExSearchType.swift */,
+				AACD02F31C3F99D300C35BD9 /* ExSearchTypeInfo.swift */,
 			);
 			name = search;
 			sourceTree = "<group>";
@@ -1806,6 +1811,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACD02F41C3F99D300C35BD9 /* ExSearchTypeInfo.swift in Sources */,
 				AAE310BD1C2FAB750016F7C7 /* ResourceTest.swift in Sources */,
 				AABB63D31C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */,
 				AA590F621C34FDCA00B39270 /* CacheConfigTest.swift in Sources */,
@@ -1919,6 +1925,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACD02F51C3F99D300C35BD9 /* ExSearchTypeInfo.swift in Sources */,
 				AAE310BE1C2FAB750016F7C7 /* ResourceTest.swift in Sources */,
 				AABB63D41C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */,
 				AA590F631C34FDCA00B39270 /* CacheConfigTest.swift in Sources */,
@@ -2032,6 +2039,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACD02F61C3F99D300C35BD9 /* ExSearchTypeInfo.swift in Sources */,
 				AAE310BF1C2FAB750016F7C7 /* ResourceTest.swift in Sources */,
 				AABB63D51C2D5A8E007CF14B /* StringUtilsTest.swift in Sources */,
 				AA590F641C34FDCA00B39270 /* CacheConfigTest.swift in Sources */,
