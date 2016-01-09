@@ -111,7 +111,7 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
                     sb.removeAtIndex(index)
                     sb.insertContentsOf((" " + values[j][valueIndex] + " ").characters, at: index)
                 }
-                rs[i] = sb.trimmed()
+                rs[i] = sb.trim()
             }
         }else{
             rs = [filteredInput]

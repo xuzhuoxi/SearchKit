@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA0A7C141C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
-		AA0A7C151C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
-		AA0A7C161C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
-		AA0A7C171C329D5300485B60 /* TextFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0A7C131C329D5300485B60 /* TextFileReader.swift */; };
 		AA0AF8251C3D82C2007E27F7 /* CharacterLibraryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D44D1C3D42810097511C /* CharacterLibraryProtocol.swift */; };
 		AA0AF8261C3D82C5007E27F7 /* CharacterLibraryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D4511C3D48970097511C /* CharacterLibraryImpl.swift */; };
 		AA0AF8281C3E3545007E27F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF8271C3E3545007E27F7 /* main.swift */; };
@@ -20,6 +16,11 @@
 		AA29AFEA1C2EAA27003F362F /* SimplePatternTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */; };
 		AA29AFEB1C2EAA27003F362F /* SimplePatternTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */; };
 		AA29AFEC1C2EAA27003F362F /* SimplePatternTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA29AFE91C2EAA27003F362F /* SimplePatternTest.swift */; };
+		AA2F6B4B1C4130C30028DFD6 /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5691C293C3600454BCA /* ExString.swift */; };
+		AA2F6B4C1C4130FC0028DFD6 /* ExCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069901C40E00000EB5E5D /* ExCharacter.swift */; };
+		AA2F6B4D1C4130FD0028DFD6 /* ExCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069901C40E00000EB5E5D /* ExCharacter.swift */; };
+		AA2F6B4E1C4130FE0028DFD6 /* ExCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069901C40E00000EB5E5D /* ExCharacter.swift */; };
+		AA2F6B4F1C4130FF0028DFD6 /* ExCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069901C40E00000EB5E5D /* ExCharacter.swift */; };
 		AA46D43C1C3D36550097511C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D43B1C3D36550097511C /* AppDelegate.swift */; };
 		AA46D43E1C3D36550097511C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D43D1C3D36550097511C /* ViewController.swift */; };
 		AA46D4411C3D36550097511C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA46D43F1C3D36550097511C /* Main.storyboard */; };
@@ -345,6 +346,9 @@
 		AAE68CFE1C37B48F006E680D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFD1C37B48F006E680D /* Assets.xcassets */; };
 		AAE68D011C37B48F006E680D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE68CFF1C37B48F006E680D /* LaunchScreen.storyboard */; };
 		AAE68D091C37B948006E680D /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* SearchKit.framework */; };
+		AAF069951C41064B00EB5E5D /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069941C41064B00EB5E5D /* StringReader.swift */; };
+		AAF069961C41064B00EB5E5D /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069941C41064B00EB5E5D /* StringReader.swift */; };
+		AAF069971C41064B00EB5E5D /* StringReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF069941C41064B00EB5E5D /* StringReader.swift */; };
 		AAF8133D1C3B87EB00AECEDE /* Aola_ID.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF8132F1C3B87EB00AECEDE /* Aola_ID.properites */; };
 		AAF8133E1C3B87EB00AECEDE /* Aola_wubi.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813301C3B87EB00AECEDE /* Aola_wubi.properites */; };
 		AAF8133F1C3B87EB00AECEDE /* Aola_pinyin.properites in Resources */ = {isa = PBXBuildFile; fileRef = AAF813311C3B87EB00AECEDE /* Aola_pinyin.properites */; };
@@ -360,7 +364,6 @@
 		AAF8134E1C3B8B0F00AECEDE /* ExConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF8134D1C3B8B0F00AECEDE /* ExConfig.swift */; };
 		AAFED5BB1C293C3600454BCA /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
 		AAFED5BC1C293C3600454BCA /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5671C293C3600454BCA /* ArrayUtils.swift */; };
-		AAFED5BD1C293C3600454BCA /* ExString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5691C293C3600454BCA /* ExString.swift */; };
 		AAFED5BE1C293C3600454BCA /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED56C1C293C3600454BCA /* MathUtils.swift */; };
 		AAFED5C11C293C3600454BCA /* StringCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5731C293C3600454BCA /* StringCombination.swift */; };
 		AAFED5C21C293C3600454BCA /* StringMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5741C293C3600454BCA /* StringMatching.swift */; };
@@ -540,6 +543,8 @@
 		AAE68CFD1C37B48F006E680D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAE68D001C37B48F006E680D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAE68D021C37B48F006E680D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAF069901C40E00000EB5E5D /* ExCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExCharacter.swift; sourceTree = "<group>"; };
+		AAF069941C41064B00EB5E5D /* StringReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReader.swift; sourceTree = "<group>"; };
 		AAF8132F1C3B87EB00AECEDE /* Aola_ID.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_ID.properites; sourceTree = "<group>"; };
 		AAF813301C3B87EB00AECEDE /* Aola_wubi.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_wubi.properites; sourceTree = "<group>"; };
 		AAF813311C3B87EB00AECEDE /* Aola_pinyin.properites */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Aola_pinyin.properites; sourceTree = "<group>"; };
@@ -1129,6 +1134,7 @@
 			isa = PBXGroup;
 			children = (
 				AAFED5691C293C3600454BCA /* ExString.swift */,
+				AAF069901C40E00000EB5E5D /* ExCharacter.swift */,
 			);
 			path = ex;
 			sourceTree = "<group>";
@@ -1155,6 +1161,7 @@
 				AAFED5731C293C3600454BCA /* StringCombination.swift */,
 				AAFED5741C293C3600454BCA /* StringMatching.swift */,
 				AAFED5751C293C3600454BCA /* StringUtils.swift */,
+				AAF069941C41064B00EB5E5D /* StringReader.swift */,
 			);
 			path = string;
 			sourceTree = "<group>";
@@ -1654,6 +1661,7 @@
 			files = (
 				AAFED5D31C293C3600454BCA /* ValueCodingStrategyProtocol.swift in Sources */,
 				AAFED5C51C293C3600454BCA /* CacheProtocol.swift in Sources */,
+				AA2F6B4B1C4130C30028DFD6 /* ExString.swift in Sources */,
 				AAFED5E71C293C3600454BCA /* SearchKeyResult.swift in Sources */,
 				AAFED5E91C293C3600454BCA /* SearchTypeInfo.swift in Sources */,
 				AAFED5D91C293C3600454BCA /* WeightCacheProtocol.swift in Sources */,
@@ -1676,7 +1684,6 @@
 				AAFED5FC1C293C3600454BCA /* Sequence.swift in Sources */,
 				AAE68C9C1C36AD69006E680D /* ReflectionProtocol.swift in Sources */,
 				AAFED5CD1C293C3600454BCA /* UnfixedDimensionMapImpl.swift in Sources */,
-				AA0A7C141C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AA0AF8281C3E3545007E27F7 /* main.swift in Sources */,
 				AAFED5E21C293C3600454BCA /* KeyWeight.swift in Sources */,
 				AAFED5DE1C293C3600454BCA /* ChineseSearcherFactory.swift in Sources */,
@@ -1686,7 +1693,6 @@
 				AAFED5DF1C293C3600454BCA /* ChineseSearcherImpl.swift in Sources */,
 				AAFED5E51C293C3600454BCA /* SearchConfig.swift in Sources */,
 				AAFED5E01C293C3600454BCA /* ChineseSearcherProtocol.swift in Sources */,
-				AAFED5BD1C293C3600454BCA /* ExString.swift in Sources */,
 				AAFED5BC1C293C3600454BCA /* ArrayUtils.swift in Sources */,
 				AAFED5F01C293C3600454BCA /* WubiCodingImpl.swift in Sources */,
 				AAFED5CC1C293C3600454BCA /* FixedDimensionMapImpl.swift in Sources */,
@@ -1714,6 +1720,7 @@
 				AAFED5EC1C293C3600454BCA /* ChineseWordsCoding.swift in Sources */,
 				AA5ACC051C2A9E3900DD012A /* SimplePattern.swift in Sources */,
 				AAFED5D41C293C3600454BCA /* ValueCodingType.swift in Sources */,
+				AA2F6B4F1C4130FF0028DFD6 /* ExCharacter.swift in Sources */,
 				AAFED5D61C293C3600454BCA /* WubiWordStrategyImpl.swift in Sources */,
 				AAFED5DA1C293C3600454BCA /* CacheConfig.swift in Sources */,
 				AAFED5BB1C293C3600454BCA /* ChineseUtils.swift in Sources */,
@@ -1731,6 +1738,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB45C401C2C204F006051B6 /* SearchResult.swift in Sources */,
+				AAF069951C41064B00EB5E5D /* StringReader.swift in Sources */,
 				AAE68CA21C36B6BD006E680D /* ReflectionInfo.swift in Sources */,
 				AAB45BDC1C2C2023006051B6 /* StringUtils.swift in Sources */,
 				AAB45BE71C2C202E006051B6 /* UnfixedDimensionMapImpl.swift in Sources */,
@@ -1747,7 +1755,6 @@
 				AAB45BE31C2C202E006051B6 /* CharacterSet.swift in Sources */,
 				AAB45BE41C2C202E006051B6 /* DimensionMapBase.swift in Sources */,
 				AAB45C251C2C2042006051B6 /* CacheConfig.swift in Sources */,
-				AA0A7C151C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AAB45C761C2C2072006051B6 /* Range.swift in Sources */,
 				AACDEB801C3A45A600C640A3 /* IDCache.swift in Sources */,
 				AAB45C621C2C206B006051B6 /* ChineseSearcherImpl.swift in Sources */,
@@ -1801,6 +1808,7 @@
 				AAB45BF91C2C2034006051B6 /* WubiWordsStrategyImpl.swift in Sources */,
 				AAB45BD51C2C201B006051B6 /* SimplePattern.swift in Sources */,
 				AAB45C3E1C2C204F006051B6 /* SearchInfo.swift in Sources */,
+				AA2F6B4C1C4130FC0028DFD6 /* ExCharacter.swift in Sources */,
 				AAB45BF81C2C2034006051B6 /* ValueCodingType.swift in Sources */,
 				AAB45C311C2C2048006051B6 /* KeyValues.swift in Sources */,
 				AAE68C9D1C36AD69006E680D /* ReflectionProtocol.swift in Sources */,
@@ -1845,6 +1853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB45C471C2C2050006051B6 /* SearchResult.swift in Sources */,
+				AAF069961C41064B00EB5E5D /* StringReader.swift in Sources */,
 				AAE68CA31C36B6BD006E680D /* ReflectionInfo.swift in Sources */,
 				AAB45BDF1C2C2023006051B6 /* StringUtils.swift in Sources */,
 				AAB45BEC1C2C202E006051B6 /* UnfixedDimensionMapImpl.swift in Sources */,
@@ -1861,7 +1870,6 @@
 				AAB45BE81C2C202E006051B6 /* CharacterSet.swift in Sources */,
 				AAB45BE91C2C202E006051B6 /* DimensionMapBase.swift in Sources */,
 				AAB45C291C2C2042006051B6 /* CacheConfig.swift in Sources */,
-				AA0A7C161C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AAB45C851C2C2073006051B6 /* Range.swift in Sources */,
 				AACDEB811C3A45A600C640A3 /* IDCache.swift in Sources */,
 				AAB45C651C2C206C006051B6 /* ChineseSearcherImpl.swift in Sources */,
@@ -1915,6 +1923,7 @@
 				AAB45C021C2C2035006051B6 /* WubiWordsStrategyImpl.swift in Sources */,
 				AAB45BD71C2C201C006051B6 /* SimplePattern.swift in Sources */,
 				AAB45C451C2C2050006051B6 /* SearchInfo.swift in Sources */,
+				AA2F6B4D1C4130FD0028DFD6 /* ExCharacter.swift in Sources */,
 				AAB45C011C2C2035006051B6 /* ValueCodingType.swift in Sources */,
 				AAB45C351C2C2049006051B6 /* KeyValues.swift in Sources */,
 				AAE68C9E1C36AD69006E680D /* ReflectionProtocol.swift in Sources */,
@@ -1959,6 +1968,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB45C4E1C2C2050006051B6 /* SearchResult.swift in Sources */,
+				AAF069971C41064B00EB5E5D /* StringReader.swift in Sources */,
 				AAE68CA41C36B6BD006E680D /* ReflectionInfo.swift in Sources */,
 				AAB45BE21C2C2024006051B6 /* StringUtils.swift in Sources */,
 				AAB45BF11C2C202F006051B6 /* UnfixedDimensionMapImpl.swift in Sources */,
@@ -1975,7 +1985,6 @@
 				AAB45BED1C2C202F006051B6 /* CharacterSet.swift in Sources */,
 				AAB45BEE1C2C202F006051B6 /* DimensionMapBase.swift in Sources */,
 				AAB45C2D1C2C2043006051B6 /* CacheConfig.swift in Sources */,
-				AA0A7C171C329D5300485B60 /* TextFileReader.swift in Sources */,
 				AAB45C941C2C2074006051B6 /* Range.swift in Sources */,
 				AACDEB821C3A45A600C640A3 /* IDCache.swift in Sources */,
 				AAB45C681C2C206D006051B6 /* ChineseSearcherImpl.swift in Sources */,
@@ -2029,6 +2038,7 @@
 				AAB45C0B1C2C2035006051B6 /* WubiWordsStrategyImpl.swift in Sources */,
 				AAB45BD91C2C201D006051B6 /* SimplePattern.swift in Sources */,
 				AAB45C4C1C2C2050006051B6 /* SearchInfo.swift in Sources */,
+				AA2F6B4E1C4130FE0028DFD6 /* ExCharacter.swift in Sources */,
 				AAB45C0A1C2C2035006051B6 /* ValueCodingType.swift in Sources */,
 				AAB45C391C2C204A006051B6 /* KeyValues.swift in Sources */,
 				AAE68C9F1C36AD69006E680D /* ReflectionProtocol.swift in Sources */,

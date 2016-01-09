@@ -21,4 +21,46 @@ extension String {
         }
         return rs
     }
+    
+    /**
+     * 去除空字符串
+     * 空字符串: 小于“ ”的字符
+     * @return 字符串
+     */
+    public func trim() ->String {
+        let ws: Character = " "
+        let chars = self.characters
+        var len = chars.endIndex
+        var st = chars.startIndex
+        while st < len && chars[st] <= ws {
+            st = st.advancedBy(1)
+        }
+        while st < len && chars[len.advancedBy(-1)] <= ws {
+            len = len.advancedBy(-1)
+        }
+        return (st > chars.startIndex || len < chars.endIndex) ? self[st..<len] : self
+    }
+    
+    public func trimLeft() ->String {
+        let ws: Character = " "
+        let chars = self.characters
+        let len = chars.endIndex
+        var st = chars.startIndex
+        while st < len && chars[st] <= ws {
+            st = st.advancedBy(1)
+        }
+        return (st > chars.startIndex || len < chars.endIndex) ? self[st..<len] : self
+    }
+    
+    public func trimRight() ->String {
+        let ws: Character = " "
+        let chars = self.characters
+        var len = chars.endIndex
+        let st = chars.startIndex
+        while st < len && chars[len.advancedBy(-1)] <= ws {
+            len = len.advancedBy(-1)
+        }
+        return (st > chars.startIndex || len < chars.endIndex) ? self[st..<len] : self
+
+    }
 }

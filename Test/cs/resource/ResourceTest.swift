@@ -39,7 +39,14 @@ class ResourceTest: XCTestCase {
         }
     }
     
-    func testGetResourceByAbsolutePath() {//平均：11.336s默认 8.419s-O-whole (Java平均时间：0.16s)
+    /**
+     * 平均：11.336s默认
+     * Java: 0.16s
+     * 去掉trimmed: 3.541s 3.783s
+     * 使用trim:  8.101s, 7.3s
+     * 使用trimmed:  8.4s
+     **/
+    func testGetResourceByAbsolutePath() {
         var paths: [String] = []
         paths.append(ResourcePaths.PATH_PINYIN_WORD)//绝对路径
         paths.append(ResourcePaths.PATH_PINYIN_WORDS)//绝对路径
