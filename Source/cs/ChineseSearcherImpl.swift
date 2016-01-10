@@ -46,7 +46,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
         if input.isEmpty || searchTypes.isEmpty || max <= 0 {
             return nil
         }
-        let newInput = input.trimmed().lowercaseString
+        let newInput = input.trim().lowercaseString
         if newInput.isEmpty {
             return nil
         }

@@ -14,7 +14,7 @@ import Foundation
  *
  */
 public class Resource {
-    private let path : String
+    private let name : String
     private var keyList : [String]
     private var valueList : [String]
     
@@ -27,10 +27,10 @@ public class Resource {
         return keyList.count
     }
     
-    private init(path: String) {
-        self.path = path;
-        self.keyList=[]
-        self.valueList=[]
+    private init(name: String) {
+        self.name = name
+        self.keyList = []
+        self.valueList = []
     }
     
     /**
@@ -87,6 +87,71 @@ public class Resource {
     }
     
     /**
+     * 追加一个资源文件
+     */
+    public final func appendFile(absoluteFilePath: String) {
+        let nPath = absoluteFilePath
+        let fileManager = NSFileManager.defaultManager()
+        if fileManager.fileExistsAtPath(nPath) {
+            do {
+                let content = try NSString(contentsOfFile: nPath, encoding: NSUTF8StringEncoding)
+                self.appendDataString(content as String)
+            } catch {
+            }
+        }
+//        let tfr = TextFileReader(path: absoluteFilePath)
+//        while let line = tfr.nextLine() {
+//            self.appendLine(line)
+//        }
+    }
+    
+    /**
+     * 追加字符串数据
+     */
+    public final func appendDataString(dataString: String) {
+        let dataArray =  dataString.componentsSeparatedByString("\n")
+        for str in dataArray {
+            self.appendLine(str)
+        }
+    }
+    
+    /**
+     * 追加一行数据
+     */
+    public final func appendLine(lineString: String) {
+        if lineString.isEmpty{
+            return
+        }
+        let trimLine = lineString.trim()
+        if trimLine.isEmpty {
+            return
+        }
+        if let index = trimLine.characters.indexOf("=") {
+            let key = trimLine.substringToIndex(index).trimRight()
+            if  key.isEmpty {
+                return
+            }
+            let value = trimLine.substringFromIndex(index.advancedBy(1)).trimLeft()
+            if value.isEmpty {
+                return
+            }
+            self.keyList.append(key)
+            self.valueList.append(value)
+        }
+    }
+    
+    /**
+     * 追加一对数据
+     */
+    public final func appendData(key: String, value: String) {
+        if key.isEmpty || value.isEmpty {
+            return
+        }
+        self.keyList.append(key)
+        self.valueList.append(value)
+    }
+    
+    /**
      * 通过字符串数据创建实例<br>
      *
      * @param data
@@ -97,8 +162,8 @@ public class Resource {
         if data.isEmpty {
             return nil
         }
-        let rs = Resource(path : "\(data.hashValue)")
-        saveData(rs, dataString: data)
+        let rs = Resource(name : "\(data.hashValue)")
+        rs.appendDataString(data)
         return rs
     }
     
@@ -112,48 +177,11 @@ public class Resource {
      *  否则:nil
      */
     public static func getResource(absoluteFilePath: String) ->Resource? {
-        return loadFile(absoluteFilePath)
-    }
-    
-    private static func loadFile(absoluteFilePath: String) ->Resource? {
-        let nPath = absoluteFilePath
-        let fileManager = NSFileManager.defaultManager()
-        if fileManager.fileExistsAtPath(nPath) {
-            do {
-                let content = try NSString(contentsOfFile: nPath, encoding: NSUTF8StringEncoding)
-                let rs = Resource(path: nPath)
-                saveData(rs, dataString: content as String)
-                return rs
-            } catch {
-                return nil
-            }
-        }else{
+        let rs = Resource(name: "\(absoluteFilePath.hashValue)")
+        rs.appendFile(absoluteFilePath)
+        if rs.size <= 0 {
             return nil
         }
-    }
-    
-    private static func saveData(rs:Resource, dataString:String) {
-        let dataArray =  dataString.componentsSeparatedByString("\n")
-        for var str in dataArray {
-            saveLine(rs, lineString: &str)
-        }
-    }
-    
-    private static func saveLine(rs: Resource, inout lineString: String) {
-        if lineString.isEmpty || lineString.trimmed().isEmpty {
-            return
-        }
-        if let index = lineString.characters.indexOf("=") {
-            let key = lineString.substringToIndex(index).trimmed()
-            if  key.isEmpty {
-                return
-            }
-            let value = lineString.substringFromIndex(index.advancedBy(1)).trimmed()
-            if value.isEmpty {
-                return
-            }
-            rs.keyList.append(key)
-            rs.valueList.append(value)
-        }
+        return rs
     }
 }

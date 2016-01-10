@@ -128,7 +128,7 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         let values = resourceValue.componentsSeparatedByString("#")
         var codeArr: [String] = []
         for value in values {
-            let tValue = value.trimmed()
+            let tValue = value.trim()
             if !tValue.isEmpty {
                 codeArr.append(tValue)
             }
