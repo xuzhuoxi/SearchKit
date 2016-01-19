@@ -533,7 +533,6 @@
 		AAE311101C310B450016F7C7 /* ExResourcePaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExResourcePaths.swift; sourceTree = "<group>"; };
 		AAE311141C3115FB0016F7C7 /* ChineseCacheTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseCacheTest.swift; sourceTree = "<group>"; };
 		AAE311181C312D4B0016F7C7 /* CachePoolTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachePoolTest.swift; sourceTree = "<group>"; };
-		AAE68C931C36640B006E680D /* Resource.bak */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Resource.bak; sourceTree = "<group>"; };
 		AAE68C9B1C36AD69006E680D /* ReflectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReflectionProtocol.swift; path = reflect/ReflectionProtocol.swift; sourceTree = "<group>"; };
 		AAE68CA01C36B6BD006E680D /* ReflectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReflectionInfo.swift; path = reflect/ReflectionInfo.swift; sourceTree = "<group>"; };
 		AAE68CF41C37B48F006E680D /* SearchKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1246,7 +1245,6 @@
 		AAFED5981C293C3600454BCA /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				AAE68C931C36640B006E680D /* Resource.bak */,
 				AAFED5991C293C3600454BCA /* KeyValues.swift */,
 				AAFED59A1C293C3600454BCA /* KeyWeight.swift */,
 				AAFED59B1C293C3600454BCA /* Resource.swift */,
@@ -2370,7 +2368,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SearchKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
@@ -2421,7 +2419,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SearchKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
@@ -2569,7 +2567,7 @@
 				INFOPLIST_FILE = "SearchKit OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
 				PRODUCT_NAME = SearchKit;
@@ -2621,7 +2619,7 @@
 				INFOPLIST_FILE = "SearchKit OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = xuzhuoxi.SearchKit;
 				PRODUCT_NAME = SearchKit;
