@@ -16,11 +16,11 @@ import Foundation
 class ChineseWordsCoding {
     init(){}
     
-    static func generateCodingImpl(wordsCodingType: ChineseWordsCodingTypes) ->ChineseWordsCodingProtocol {
+    static func generateCodingImpl(_ wordsCodingType: ChineseWordsCodingTypes) ->ChineseWordsCodingProtocol {
         switch (wordsCodingType) {
-        case ChineseWordsCodingTypes.PINYIN:
+        case ChineseWordsCodingTypes.pinyin:
             return PinyinCodingImpl()
-        case ChineseWordsCodingTypes.WUBI:
+        case ChineseWordsCodingTypes.wubi:
             return WubiCodingImpl()
         }
     }
@@ -36,7 +36,7 @@ class ChineseWordsCoding {
      *            词
      * @return 输入中有一个字符不符合则返回false
      */
-    final func canCoding(wordCache: CharacterLibraryProtocol, _ words:String) ->Bool {
+    final func canCoding(_ wordCache: CharacterLibraryProtocol, _ words:String) ->Bool {
         for word in words.characters {
             if ChineseUtils.isChinese(word) && !wordCache.isKey(word) {
                 return false

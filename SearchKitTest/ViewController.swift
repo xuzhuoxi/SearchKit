@@ -22,9 +22,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var switch3: UISwitch!
     @IBOutlet weak var txtOutput: UITextView!
     
-    @IBAction func onSwitch(sender: UISwitch) {
-        let index = switchs.indexOf(sender)!
-        if sender.on {
+    @IBAction func onSwitch(_ sender: UISwitch) {
+        let index = switchs.index(of: sender)!
+        if sender.isOn {
             searchConfig.addSearchType(getSearchTypeInfo(switch2SearchTypes[index])!)
         }else{
             searchConfig.removeSearchType(switch2SearchTypes[index])
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         doSearch()
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         doSearch()
     }
     
@@ -46,16 +46,16 @@ class ViewController: UIViewController, UISearchBarDelegate {
                 var sb = ""
                 var idCache: IDCacheProtocol
                 for r in result {
-                    sb.appendContentsOf("\(r.key)\t\t{匹配值:\(r.totalValue),关联名称:\(r.associatedNames),关联信息:")
+                    sb.append("\(r.key)\t\t{匹配值:\(r.totalValue),关联名称:\(r.associatedNames),关联信息:")
                     for name in r.associatedNames {
                         idCache = CachePool.instance.getCache(name) as! IDCacheProtocol
                         if let ids = idCache.getIDs(r.key) {
-                            sb.appendContentsOf("\(ids)")
+                            sb.append("\(ids)")
                         }else{
-                            sb.appendContentsOf("nil")
+                            sb.append("nil")
                         }
                     }
-                    sb.appendContentsOf("}\n")
+                    sb.append("}\n")
                 }
                 txtOutput.text = sb
             }else{
@@ -80,15 +80,15 @@ class ViewController: UIViewController, UISearchBarDelegate {
         switchs.append(switch1)
         switchs.append(switch2)
         switchs.append(switch3)
-        for (index, sw) in switchs.enumerate() {
-            if sw.on {
+        for (index, sw) in switchs.enumerated() {
+            if sw.isOn {
                 searchConfig.addSearchType(getSearchTypeInfo(switch2SearchTypes[index])!)
             }
         }
         searcher = ChineseSearcherFactory.getChineseSearcher()
     }
     
-    final func getSearchTypeInfo(searchType: SearchType) ->SearchTypeInfo? {
+    final func getSearchTypeInfo(_ searchType: SearchType) ->SearchTypeInfo? {
         switch searchType {
         case SearchType.AOLA_PINYIN:
             return SearchTypeInfo.AOLA_PINYIN_SEARCH

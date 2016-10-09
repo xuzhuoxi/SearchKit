@@ -12,8 +12,10 @@
 * @author xuzhuoxi
 *
 */
-public struct CharacterSet {
-    private init(){}
+
+import Foundation
+
+public extension CharacterSet {
     
     /**
      * 拼音用到的字符

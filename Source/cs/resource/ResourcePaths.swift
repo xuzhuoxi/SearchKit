@@ -9,7 +9,7 @@
 import Foundation
 
 public struct ResourcePaths {
-    private init(){}
+    fileprivate init(){}
     
     /**
      * 拼音字库资源 URL
@@ -19,7 +19,7 @@ public struct ResourcePaths {
     /**
      * 拼音字库资源 路径
      */
-    public static let PATH_PINYIN_WORD = ResourcePaths.URL_PINYIN_WORD.path!
+    public static let PATH_PINYIN_WORD = ResourcePaths.URL_PINYIN_WORD.path
     
     /**
      * 五笔字库资源 URL
@@ -29,9 +29,9 @@ public struct ResourcePaths {
     /**
      * 五笔字库资源 路径
      */
-    public static let PATH_WUBI_WORD = ResourcePaths.URL_WUBI_WORD.path!
+    public static let PATH_WUBI_WORD = ResourcePaths.URL_WUBI_WORD.path
     
-    public static func getProperitesURL(anyClass: AnyClass, name: String) ->NSURL?{
-        return NSBundle(forClass: anyClass).URLForResource(name, withExtension: "properites")
+    public static func getProperitesURL(_ anyClass: AnyClass, name: String) ->URL?{
+        return Bundle(for: anyClass).url(forResource: name, withExtension: "properites")
     }
 }

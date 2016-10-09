@@ -24,7 +24,7 @@ public protocol ChineseSearcherProtocol {
     *            自定义检索类型
     * @return SearchResult实例{@link SearchResult}
     */
-    func search(input: String, searchConfig: SearchConfig) ->SearchResult?
+    func search(_ input: String, searchConfig: SearchConfig) ->SearchResult?
     
     /**
      * 检索
@@ -37,5 +37,5 @@ public protocol ChineseSearcherProtocol {
      *            最大结果量
      * @return SearchKeyResult实例{@link SearchKeyResult}
      */
-    func search(input: String, searchConfig: SearchConfig, max: Int) ->[SearchKeyResult]?
+    func search(_ input: String, searchConfig: SearchConfig, max: Int) ->[SearchKeyResult]?
 }

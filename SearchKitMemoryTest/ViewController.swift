@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        CachePool.instance.getCache(CacheNames.PINYIN_WORD)
-//        CachePool.instance.getCache(CacheNames.WUBI_WORD)
+        let _ = CachePool.instance.getCache(CacheNames.PINYIN_WORD)
+//        let _ = CachePool.instance.getCache(CacheNames.WUBI_WORD)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

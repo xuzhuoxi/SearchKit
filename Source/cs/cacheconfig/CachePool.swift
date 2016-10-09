@@ -13,10 +13,10 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class CachePool {
-    public static let instance  = CachePool()
+open class CachePool {
+    open static let instance  = CachePool()
     
-    private var cachePool = Dictionary<String, CacheProtocol>()
+    fileprivate var cachePool = Dictionary<String, CacheProtocol>()
     
     /**
     * 初始化全部单例Cache
@@ -25,7 +25,7 @@ public class CachePool {
         let c = CacheConfig.instance.getCacheInfos()
         for ci in c {
             if ci.isSingleton {
-                getCache(ci.cacheName)
+                let _ = getCache(ci.cacheName)
             }
         }
     }
@@ -37,7 +37,7 @@ public class CachePool {
      *            Cache名称{@link CacheNames}
      * @return CharacterLibraryProtocol实例
      */
-    public final func getCharacterLibrary(cacheName: String) ->CharacterLibraryProtocol? {
+    public final func getCharacterLibrary(_ cacheName: String) ->CharacterLibraryProtocol? {
         return getCache(cacheName) as? CharacterLibraryProtocol
     }
     
@@ -48,7 +48,7 @@ public class CachePool {
     *            Cache名称{@link CacheNames}
     * @return CacheProtocol实例
     */
-    public final func getCache(cacheName: String) ->CacheProtocol? {
+    public final func getCache(_ cacheName: String) ->CacheProtocol? {
         if let ci = CacheConfig.instance.getCacheInfo(cacheName) {
             if ci.isSingleton {
                 let rs: CacheProtocol
@@ -67,7 +67,7 @@ public class CachePool {
         }
     }
     
-    private final func createInstance(ci: CacheInfo) ->CacheProtocol {
+    fileprivate final func createInstance(_ ci: CacheInfo) ->CacheProtocol {
         let rs: CacheProtocol = ci.cacheReflectionInfo.newInstance() as! CacheProtocol
         if ci.isNeedResource && rs is CacheInitProtocol {
             let initProtocol = rs as! CacheInitProtocol

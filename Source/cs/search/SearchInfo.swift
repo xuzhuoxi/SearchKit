@@ -56,7 +56,7 @@ public struct SearchInfo {
      *            最大返回量<br>
      */
     public init(_ inputStr:String, _ searchConfig:SearchConfig, _ maxResultCount:Int) {
-        self.inputStr = inputStr.trim().lowercaseString
+        self.inputStr = inputStr.trim().lowercased()
         self.searchConfig = searchConfig
         self.maxResultCount = maxResultCount
         self.isChineseInput = ChineseUtils.hasChinese(self.inputStr)

@@ -14,7 +14,7 @@ import Foundation
  *
  */
 public struct ArrayUtils {
-    private init(){}
+    fileprivate init(){}
     
     /**
      * 清除数组中重复项（去除尾部的重复项）
@@ -23,10 +23,10 @@ public struct ArrayUtils {
      * @param ary
      *            输入数组
      */
-    public static func cleanRepeat<T : Equatable>(inout arr : [T]) {
-        for var i:Int = arr.count-1; i >= 0; --i {
-            if arr.indexOf(arr[i])! != i {
-                arr.removeAtIndex(i)
+    public static func cleanRepeat<T : Equatable>(_ arr : inout [T]) {
+        for i in (0..<arr.count).reversed() {
+            if arr.index(of: arr[i])! != i {
+                arr.remove(at: i)
             }
         }
     }
@@ -38,7 +38,7 @@ public struct ArrayUtils {
      *            源二维数组
      * @return 新的一维数组
      */
-    public static func dimensionalityReduction<T>(arrTwo : [[T]]) ->[T] {
+    public static func dimensionalityReduction<T>(_ arrTwo : [[T]]) ->[T] {
         return mergeArray(arrTwo)
     }
     
@@ -49,7 +49,7 @@ public struct ArrayUtils {
      *            源二维数组
      * @return 新的一维数组
      */
-    public static func mergeArray<T>(arrTwo : [[T]]) ->[T] {
-        return arrTwo.reduce([], combine: (+) )
+    public static func mergeArray<T>(_ arrTwo : [[T]]) ->[T] {
+        return arrTwo.reduce([], (+) )
     }
 }

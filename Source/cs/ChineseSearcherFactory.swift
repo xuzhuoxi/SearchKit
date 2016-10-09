@@ -14,9 +14,9 @@ import Foundation
  *
  */
 public struct ChineseSearcherFactory {
-    private init(){}
+    fileprivate init(){}
     
-    private static let instance: ChineseSearcherProtocol = ChineseSearcherImpl()
+    fileprivate static let instance: ChineseSearcherProtocol = ChineseSearcherImpl()
     
     /**
     * 取得一个ChineseSearcherProtocol实例<br>
@@ -26,7 +26,7 @@ public struct ChineseSearcherFactory {
     * @return 当newInstance为true时，创建新实例<br>
     *         当newInstance为false时，返回单例<br>
     */
-    public static func getChineseSearcher(newInstance: Bool = false) ->ChineseSearcherProtocol {
+    public static func getChineseSearcher(_ newInstance: Bool = false) ->ChineseSearcherProtocol {
         if newInstance {
             return ChineseSearcherImpl()
         }

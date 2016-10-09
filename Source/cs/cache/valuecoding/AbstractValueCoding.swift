@@ -24,7 +24,7 @@ class AbstractValueCoding {
      *            简化输入
      * @return 计算得到的dimensionKey列表
      */
-    final func abstractGetDimensionKeys(simplifyValue: String) ->[String] {
+    final func abstractGetDimensionKeys(_ simplifyValue: String) ->[String] {
         if simplifyValueKeysMap.has(simplifyValue) {
             return simplifyValueKeysMap[simplifyValue]!
         }else{
@@ -41,7 +41,7 @@ class AbstractValueCoding {
      *            简化输入
      * @return 计算得到的dimensionKey列表
      */
-    func computeDimensionKeys(simplifyValue: String) ->[String]? {
+    func computeDimensionKeys(_ simplifyValue: String) ->[String]? {
         return nil
     }
 }

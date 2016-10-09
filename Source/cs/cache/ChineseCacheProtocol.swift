@@ -22,7 +22,7 @@ public protocol ChineseCacheProtocol : CacheProtocol {
      *            中文字(词)
      * @return 编码数组
      */
-    func getValues(key:String) ->[String]
+    func getValues(_ key:String) ->[String]
     
     /**
      * 通过简化编码取得一部分key列表
@@ -31,6 +31,6 @@ public protocol ChineseCacheProtocol : CacheProtocol {
      *            简化编码
      * @return 中文字(词)列表
      */
-    func getKeys(valuePrex:String) ->[String]
+    func getKeys(_ valuePrex:String) ->[String]
 }
 

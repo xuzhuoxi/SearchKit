@@ -10,11 +10,11 @@ import XCTest
 @testable import SearchKit
 
 class StringMatchingTest: XCTestCase {
-    private var source:String="adfeff";
-    private var expression:String="aff";
-    private var resultMatching=[true, false, true, false, true, false];
-    private var resultCompute=[true, false, true, false, true];
-    private var delta:Double=0.000000000001;
+    fileprivate var source:String="adfeff";
+    fileprivate var expression:String="aff";
+    fileprivate var resultMatching=[true, false, true, false, true, false];
+    fileprivate var resultCompute=[true, false, true, false, true];
+    fileprivate var delta:Double=0.000000000001;
 //    override func setUp() {
 //        super.setUp()
 //        // Put setup code here. This method is called before the invocation of each test method in the class.

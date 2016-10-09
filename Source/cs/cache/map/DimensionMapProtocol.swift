@@ -37,7 +37,7 @@ public protocol DimensionMapProtocol: class{
      * @param dimensionValue
      *            值
      */
-    func add(dimensionKey : String, dimensionValue : String)
+    func add(_ dimensionKey : String, dimensionValue : String)
     
     /**
      * 通过键，取得值列表<br>
@@ -46,5 +46,5 @@ public protocol DimensionMapProtocol: class{
      *            键
      * @return 返回的是原始列表，若要修改请注意。
      */
-    func get(dimensionKey : String) ->Set<String>?
+    func get(_ dimensionKey : String) ->Set<String>?
 }

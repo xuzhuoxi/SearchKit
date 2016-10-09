@@ -20,7 +20,7 @@ class ChineseCacheImpl : ChineseCache, ReflectionProtocol {
      * 2.检查键是否存，进行补充或新增。<br>
      * 3.缓存每个值时，同进行简化反向影射。<br>
      */
-    override final func tryCacheKeyValue(resourceKey: String, _ resourceValue: String) -> Bool {
+    override final func tryCacheKeyValue(_ resourceKey: String, _ resourceValue: String) -> Bool {
         if resourceKey.isEmpty || resourceValue.isEmpty {
             return false
         }
@@ -29,7 +29,7 @@ class ChineseCacheImpl : ChineseCache, ReflectionProtocol {
         }
         let values = resourceValue.explode(Character("#"))
         for value in values {
-            key2values[resourceKey]!.addValue(value)
+            let _ = key2values[resourceKey]!.addValue(value)
             cache2DimensionMap(value, key: resourceKey) // 简化反向影射
         }
         return true

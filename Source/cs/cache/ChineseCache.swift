@@ -14,10 +14,10 @@ import Foundation
  *
  */
 class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
-    private(set) var _cacheName: String!
+    fileprivate(set) var _cacheName: String!
     var key2values: Dictionary<String, KeyValues>!
-    private(set) var chineseMap: DimensionMapProtocol!
-    private(set) var strategy: ValueCodingStrategyProtocol?
+    fileprivate(set) var chineseMap: DimensionMapProtocol!
+    fileprivate(set) var strategy: ValueCodingStrategyProtocol?
     
     var cacheName: String {
         return _cacheName
@@ -27,32 +27,32 @@ class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
         return nil == key2values ? 0 : key2values!.count
     }
     
-    final func initCache(cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
+    final func initCache(_ cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
         self._cacheName = cacheName
         self.key2values = Dictionary<String, KeyValues>(minimumCapacity: Int(initialCapacity))
         self.strategy = valueCodingInstance
         self.chineseMap = DimensionMapBase.createDimensionMap()
     }
     
-    final func supplyData(data: String) {
+    final func supplyData(_ data: String) {
         if let resource = Resource.getResourceByData(data) {
             supplyResource(resource)
         }
     }
     
-    final func supplyData(key: String, value: String) {
-        tryCacheKeyValue(key, value)
+    final func supplyData(_ key: String, value: String) {
+        let _ = tryCacheKeyValue(key, value)
     }
     
-    final func supplyResource(url: NSURL) {
-        if let resource = Resource.getResource(url.path!) {
+    final func supplyResource(_ url: URL) {
+        if let resource = Resource.getResource(url.path) {
             supplyResource(resource)
         }
     }
     
-    final func supplyResource(resource: Resource) {
+    final func supplyResource(_ resource: Resource) {
         for i in 0 ..< resource.size {
-            tryCacheKeyValue(resource.getKey(i), resource.getValue(i))
+            let _ = tryCacheKeyValue(resource.getKey(i), resource.getValue(i))
         }
     }
     
@@ -67,25 +67,25 @@ class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
      * @param key
      *            键
      */
-    final func cache2DimensionMap(singleValue: String, key: String) {
+    final func cache2DimensionMap(_ singleValue: String, key: String) {
         let dimensionKeys = strategy!.getDimensionKeys(strategy!.getSimplifyValue(singleValue))// 35%性能占用
         for dimensionKey in dimensionKeys {// 65%性能占用
             chineseMap.add(dimensionKey, dimensionValue: key)
         }
     }
     
-    final func isKey(key: String) ->Bool{
+    final func isKey(_ key: String) ->Bool{
         return key2values.has(key)
     }
     
-    final func getValues(key: String) ->[String] {
+    final func getValues(_ key: String) ->[String] {
         if key2values.has(key) {
             return [String](key2values[key]!.values)
         }
         return []
     }
     
-    final func getKeys(valuePrex: String) ->[String] {
+    final func getKeys(_ valuePrex: String) ->[String] {
         if let rs = chineseMap.get(valuePrex) {
             return [String](rs)
         }
@@ -106,12 +106,12 @@ class ChineseCache : ChineseCacheProtocol, CacheInitProtocol {
      *            值
      * @return 缓存成功true，否则false.
      */
-    func tryCacheKeyValue(resourceKey: String, _ resourceValue: String) ->Bool {
+    func tryCacheKeyValue(_ resourceKey: String, _ resourceValue: String) ->Bool {
         //子类实现
         return false
     }
     
-    static func createChineseCache(cacheName: String, resource: Resource, valueCodingType: ValueCodingType) ->ChineseCacheProtocol {
+    static func createChineseCache(_ cacheName: String, resource: Resource, valueCodingType: ValueCodingType) ->ChineseCacheProtocol {
         let rs = ChineseCacheImpl()
         rs.initCache(cacheName, ValueCodingStrategyFactory.getValueCodingStrategy(valueCodingType), UInt(resource.size))
         rs.supplyResource(resource)

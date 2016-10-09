@@ -9,7 +9,7 @@
 import Foundation
 
 public struct StringUtils {
-    private init(){}
+    fileprivate init(){}
     /**
     * 如果源字符串中有相同的字符，则去掉后面的<br>
     *
@@ -17,7 +17,7 @@ public struct StringUtils {
     *            源字符串
     * @return 新的字符串
     */
-    public static func toNonRepeatString(str:String) ->String{
+    public static func toNonRepeatString(_ str:String) ->String{
         if str.isEmpty {
             return str
         }
@@ -40,10 +40,10 @@ public struct StringUtils {
     *            源字符串的下标数组，新字符串由源字符串对应下标字符组成
     * @return 新的字符串
     */
-    public static func structString(source : String, includeIndex:[Int]) ->String {
+    public static func structString(_ source : String, includeIndex:[Int]) ->String {
         var rs = ""
         for index in includeIndex {
-            rs.append(source[source.startIndex.advancedBy(index)])
+            rs.append(source[source.characters.index(source.startIndex, offsetBy: index)])
         }
         return rs
     }
@@ -58,12 +58,12 @@ public struct StringUtils {
     *            忽略的源字符下标
     * @return 新的字符串
     */
-    public static func structString(source :String, ignoreIndex:Int) ->String {
+    public static func structString(_ source :String, ignoreIndex:Int) ->String {
         if source.isEmpty || ignoreIndex < 0 || ignoreIndex >= source.length {
             return source
         }
-        let index = source.startIndex.advancedBy(ignoreIndex)
-        return source.substringToIndex(index) + source.substringFromIndex(index.advancedBy(1))
+        let index = source.index(source.startIndex, offsetBy: ignoreIndex)
+        return source.substring(to: index) + source.substring(from: source.index(index, offsetBy: 1))
     }
     
     /**
@@ -74,12 +74,13 @@ public struct StringUtils {
     * @param excludeIndex
     *            下标数组，自动去掉重复
     */
-    public static func removeChars(var source : String, excludeIndex : [Int]) ->String {
-        var indexs = excludeIndex.sort(>)
+    public static func removeChars(_ source : String, excludeIndex : [Int]) ->String {
+        var source = source
+        var indexs = excludeIndex.sorted(by: >)
         ArrayUtils.cleanRepeat(&indexs)
         for index in indexs {
             if index.isIn(0..<source.characters.count) {
-                source.removeAtIndex(source.startIndex.advancedBy(index))
+                source.remove(at: source.characters.index(source.startIndex, offsetBy: index))
             }
         }
         return source
@@ -96,7 +97,7 @@ public struct StringUtils {
     *            组合维度，最多使用多少个字符进行组合
     * @return 组合字符串数组
     */
-    public static func nonRepeatFactorial(source : String, factorialLevel : Int) ->[String]? {
+    public static func nonRepeatFactorial(_ source : String, factorialLevel : Int) ->[String]? {
         if factorialLevel <= 0 {
             return nil
         }

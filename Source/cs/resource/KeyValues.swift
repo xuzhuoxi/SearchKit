@@ -20,7 +20,7 @@ public struct KeyValues {
     /**
      * 全部编码信息
      */
-    private(set) public var values : Set<String>
+    fileprivate(set) public var values : Set<String>
     
     public init(_ key : String) {
         self.key = key
@@ -34,7 +34,7 @@ public struct KeyValues {
      *            编码
      * @return 缓存成功true，否则返回false
      */
-    mutating public func addValue(value : String) ->Bool{
+    mutating public func addValue(_ value : String) ->Bool{
         if values.contains(value) {
             return false
         } else {

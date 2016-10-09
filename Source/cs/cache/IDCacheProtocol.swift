@@ -22,5 +22,5 @@ public protocol IDCacheProtocol: CacheProtocol {
      *            键
      * @return ID列表
      */
-    func getIDs(key: String) ->[String]?
+    func getIDs(_ key: String) ->[String]?
 }

@@ -15,7 +15,7 @@ import Foundation
  *
  */
 public struct CacheNames {
-    private init(){}
+    fileprivate init(){}
     
     /**
      * 拼音 字库 内存占用:43.2M(ChineseCacheImpl) 14.4(CharacterLibraryImpl)

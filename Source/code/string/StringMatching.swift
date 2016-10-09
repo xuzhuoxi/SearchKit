@@ -9,7 +9,7 @@
 import Foundation
 
 public struct StringMatching {
-    private init(){}
+    fileprivate init(){}
     
     /**
     * 把expression按字母分布到source中，返回分布后命中的索引 当source用完时expression还有剩余则返回null<br>
@@ -29,24 +29,24 @@ public struct StringMatching {
     *            匹配输入
     * @return 布尔数组
     */
-    public static func matching(source : String, _ expression : String) -> [Bool]? {
+    public static func matching(_ source : String, _ expression : String) -> [Bool]? {
         if expression.length > source.length {
             return nil
         }
         var ei=0;
         var si=0;
-        var result = [Bool](count: source.length, repeatedValue: false)
+        var result = [Bool](repeating: false, count: source.length)
         let emptyChar : String = " "
         var eChar:String;
         var sChar:String;
         var tempSi:Int;
-        for (; ei < expression.length; ei++) {
+        while ei < expression.length {
             eChar=expression[ei]!;
             if (emptyChar != eChar) {
-                for (; si < source.length; ) {
+                while si < source.length {
                     sChar=source[si]!;
                     tempSi=si;
-                    si++;
+                    si += 1;
                     if (eChar == sChar) {
                         result[tempSi]=true;
                         if (ei == expression.length - 1) {
@@ -59,6 +59,7 @@ public struct StringMatching {
             if (si == source.length) {
                 return nil
             }
+            ei += 1
         }
         return result;
     }
@@ -70,7 +71,7 @@ public struct StringMatching {
     *            布尔数组
     * @return 返回一个整数值，范围为[0,2]
     */
-    public static func computeMatchintResult(matchResult : [Bool]?) ->Double {
+    public static func computeMatchintResult(_ matchResult : [Bool]?) ->Double {
         if nil == matchResult || matchResult!.isEmpty {
             return 0
         }
@@ -78,7 +79,7 @@ public struct StringMatching {
         var isFullMatching = true
         var index = -1
         rs = matchResult!.reduce(rs) { (rs : Double, value : Bool) -> Double in
-            ++index
+            index += 1
             if value {
                 return rs + (1.0 / Double(1 << index))
             }else{

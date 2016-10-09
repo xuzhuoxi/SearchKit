@@ -14,6 +14,6 @@ import Foundation
  *
  */
 public enum ChineseWordsCodingTypes {
-    case PINYIN // 拼音
-    case WUBI// 五笔
+    case pinyin // 拼音
+    case wubi// 五笔
 }

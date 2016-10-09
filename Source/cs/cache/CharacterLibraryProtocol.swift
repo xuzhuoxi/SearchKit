@@ -19,13 +19,13 @@ public protocol CharacterLibraryProtocol: CacheProtocol {
      * @param char 字符实例
      * @return 是true否false
      */
-    func isKey(char: Character) -> Bool
+    func isKey(_ char: Character) -> Bool
     /**
      * 是否为字库中包含的字符<br>
      * @param uScalar Unicode值
      * @return 是true否false
      */
-    func isKey(uScalar: UnicodeScalar) -> Bool
+    func isKey(_ uScalar: UnicodeScalar) -> Bool
     
     /**
      * 取字符在字库中的编码<br>
@@ -34,7 +34,7 @@ public protocol CharacterLibraryProtocol: CacheProtocol {
      *  没包含:nil
      *  包含:编码数组
      */
-    func getValues(char: Character) ->[String]?
+    func getValues(_ char: Character) ->[String]?
     /**
      * 取字符在字库中的编码<br>
      * @param uScalar Unicode值
@@ -42,5 +42,5 @@ public protocol CharacterLibraryProtocol: CacheProtocol {
      *  没包含:nil
      *  包含:编码数组
      */
-    func getValues(uScalar: UnicodeScalar) ->[String]?
+    func getValues(_ uScalar: UnicodeScalar) ->[String]?
 }

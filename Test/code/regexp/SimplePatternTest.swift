@@ -37,7 +37,7 @@ class SimplePatternTest: XCTestCase {
         let source = "abcd"
         let patternArr = ["[a-z]", "^[a-z]*$"]
         let result = [4, 1]
-        for (index, pattern) in patternArr.enumerate() {
+        for (index, pattern) in patternArr.enumerated() {
             let p = SimplePattern(pattern)
             XCTAssertEqual(p.getMatchCount(source), result[index])
         }
@@ -48,7 +48,7 @@ class SimplePatternTest: XCTestCase {
         let source = ["465","0","-246","1.245"]
         let result = [true, true, true, false]
         let p = SimplePattern(REGEX_INTEGER)
-        for (index, str) in source.enumerate() {
+        for (index, str) in source.enumerated() {
             XCTAssertEqual(p.isMatch(str), result[index])
         }
     }
@@ -58,7 +58,7 @@ class SimplePatternTest: XCTestCase {
         let source = ["1.23","-246","0","adh"]
         let result = [true, false, false, false]
         let p = SimplePattern(REGEX_FLOAT_1MORE)
-        for (index, str) in source.enumerate() {
+        for (index, str) in source.enumerated() {
             XCTAssertEqual(p.isMatch(str), result[index])
         }
     }

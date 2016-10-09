@@ -12,13 +12,13 @@ class IDCacheImpl: IDCache, ReflectionProtocol {
     /**
      * 已有缓存、格式不对、小于等于默认权值的忽略，不加入缓存
      */
-    override func tryCacheKeyValue(key: String, _ value: String) {
+    override func tryCacheKeyValue(_ key: String, _ value: String) {
         if key.isEmpty ||  value.isEmpty {
             return
         }
         var valueArr: [String]
         if value.characters.contains("#") {
-            valueArr = value.componentsSeparatedByString("#")
+            valueArr = value.components(separatedBy: "#")
         }else{
             valueArr = [value]
         }

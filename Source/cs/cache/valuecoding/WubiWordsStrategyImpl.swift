@@ -15,15 +15,15 @@ import Foundation
  */
 class WubiWordsStrategyImpl : AbstractWubiStrategy, ValueCodingStrategyProtocol, ReflectionProtocol {
     
-    final func getSimplifyValue(value: String) -> String {
+    final func getSimplifyValue(_ value: String) -> String {
         return value;
     }
     
-    final func getDimensionKeys(simplifyValue: String) ->[String] {
+    final func getDimensionKeys(_ simplifyValue: String) ->[String] {
         return abstractGetDimensionKeys(simplifyValue);
     }
     
-    final func filter(input: String) -> String {
+    final func filter(_ input: String) -> String {
         return wubiFilter(input)
     }
     
@@ -39,21 +39,23 @@ class WubiWordsStrategyImpl : AbstractWubiStrategy, ValueCodingStrategyProtocol,
      *            过滤后的字符串
      * @return 把要翻译的字符进行翻译后得到的字符串数组。
      */
-    final func translate(filteredInput: String) ->[String] {
-        sb.removeAll(keepCapacity: true)
+    final func translate(_ filteredInput: String) ->[String] {
+        sb.removeAll(keepingCapacity: true)
         let wordWubiMap = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
         var len = 0
-        for var i=0; i < filteredInput.length && len < 4; ++i {
+        var i = 0
+        while i < filteredInput.length && len < 4 {
             let keyStr : String = filteredInput[i]!
             let keyChar : Character = Character(keyStr)
             if ChineseUtils.isChinese(keyChar) {
                 if wordWubiMap.isKey(keyStr) {
-                    sb.appendContentsOf(getWubiMaxlenValue(wordWubiMap, word: keyStr))
+                    sb.append(getWubiMaxlenValue(wordWubiMap, word: keyStr))
                 }
             }else{
                 sb.append(keyChar)
-                ++len
+                len += 1
             }
+            i += 1
         }
         return [sb]
     }
@@ -68,10 +70,10 @@ class WubiWordsStrategyImpl : AbstractWubiStrategy, ValueCodingStrategyProtocol,
      *            简化输入
      * @return 计算得到的dimensionKey列表
      */
-    override final func computeDimensionKeys(simplifyValue: String) ->[String] {
+    override final func computeDimensionKeys(_ simplifyValue: String) ->[String] {
         var rs = [String]()
         for i in 0 ..< simplifyValue.length {
-            rs.append(simplifyValue.substringToIndex(simplifyValue.startIndex.advancedBy(i+1)))
+            rs.append(simplifyValue.substring(to: simplifyValue.characters.index(simplifyValue.startIndex, offsetBy: i+1)))
         }
         return rs
     }

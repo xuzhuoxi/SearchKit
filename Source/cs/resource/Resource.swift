@@ -13,21 +13,21 @@ import Foundation
  * @author xuzhuoxi
  *
  */
-public class Resource {
-    private let name : String
-    private var keyList : [String]
-    private var valueList : [String]
+open class Resource {
+    fileprivate let name : String
+    fileprivate var keyList : [String]
+    fileprivate var valueList : [String]
     
     /**
      * 键值对数量
      *
      * @return 键值对数量
      */
-    public var size: Int {
+    open var size: Int {
         return keyList.count
     }
     
-    private init(name: String) {
+    fileprivate init(name: String) {
         self.name = name
         self.keyList = []
         self.valueList = []
@@ -40,7 +40,7 @@ public class Resource {
      *            待判断的键
      * @return 是true否false
      */
-    public final func isKey(key : String) ->Bool {
+    public final func isKey(_ key : String) ->Bool {
         return keyList.contains(key)
     }
     
@@ -51,7 +51,7 @@ public class Resource {
      *            索引
      * @return 键
      */
-    public final func getKey(index : Int) ->String {
+    public final func getKey(_ index : Int) ->String {
         return keyList[index]
     }
     
@@ -72,7 +72,7 @@ public class Resource {
      *            索引
      * @return 值
      */
-    public final func getValue(index : Int) ->String {
+    public final func getValue(_ index : Int) ->String {
         return valueList[index];
     }
     
@@ -89,12 +89,12 @@ public class Resource {
     /**
      * 追加一个资源文件
      */
-    public final func appendFile(absoluteFilePath: String) {
+    public final func appendFile(_ absoluteFilePath: String) {
         let nPath = absoluteFilePath
-        let fileManager = NSFileManager.defaultManager()
-        if fileManager.fileExistsAtPath(nPath) {
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: nPath) {
             do {
-                let content = try NSString(contentsOfFile: nPath, encoding: NSUTF8StringEncoding)
+                let content = try NSString(contentsOfFile: nPath, encoding: String.Encoding.utf8.rawValue)
                 self.appendDataString(content as String)
             } catch {
             }
@@ -108,8 +108,8 @@ public class Resource {
     /**
      * 追加字符串数据
      */
-    public final func appendDataString(dataString: String) {
-        let dataArray =  dataString.componentsSeparatedByString("\n")
+    public final func appendDataString(_ dataString: String) {
+        let dataArray =  dataString.components(separatedBy: "\n")
         for str in dataArray {
             self.appendLine(str)
         }
@@ -118,7 +118,7 @@ public class Resource {
     /**
      * 追加一行数据
      */
-    public final func appendLine(lineString: String) {
+    public final func appendLine(_ lineString: String) {
         if lineString.isEmpty{
             return
         }
@@ -126,12 +126,12 @@ public class Resource {
         if trimLine.isEmpty {
             return
         }
-        if let index = trimLine.characters.indexOf("=") {
-            let key = trimLine.substringToIndex(index).trimRight()
+        if let index = trimLine.characters.index(of: "=") {
+            let key = trimLine.substring(to: index).trimRight()
             if  key.isEmpty {
                 return
             }
-            let value = trimLine.substringFromIndex(index.advancedBy(1)).trimLeft()
+            let value = trimLine.substring(from: trimLine.index(index, offsetBy: 1)).trimLeft()
             if value.isEmpty {
                 return
             }
@@ -143,7 +143,7 @@ public class Resource {
     /**
      * 追加一对数据
      */
-    public final func appendData(key: String, value: String) {
+    public final func appendData(_ key: String, value: String) {
         if key.isEmpty || value.isEmpty {
             return
         }
@@ -158,7 +158,7 @@ public class Resource {
      *            字符串数据
      * @return Resource实例
      */
-    public static func getResourceByData(data:String) -> Resource? {
+    open static func getResourceByData(_ data:String) -> Resource? {
         if data.isEmpty {
             return nil
         }
@@ -176,7 +176,7 @@ public class Resource {
      *  路径有效且格式正确: Resource实例
      *  否则:nil
      */
-    public static func getResource(absoluteFilePath: String) ->Resource? {
+    open static func getResource(_ absoluteFilePath: String) ->Resource? {
         let rs = Resource(name: "\(absoluteFilePath.hashValue)")
         rs.appendFile(absoluteFilePath)
         if rs.size <= 0 {

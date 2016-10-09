@@ -35,7 +35,7 @@ class ExStringTest: XCTestCase {
     func testExplode() {
         let sources = ["","abcd","\u{4e00}\u{4e00}\u{4e00}"]
         let results = [[],["a","b","c","d"],["\u{4e00}","\u{4e00}","\u{4e00}"]]
-        for (index, str) in sources.enumerate() {
+        for (index, str) in sources.enumerated() {
             XCTAssertEqual(results[index], str.explode())
         }
     }

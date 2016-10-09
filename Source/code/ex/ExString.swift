@@ -33,10 +33,10 @@ public extension String {
         var len = chars.endIndex
         var st = chars.startIndex
         while st < len && chars[st] <= ws {
-            st = st.advancedBy(1)
+            st = chars.index(st, offsetBy: 1)
         }
-        while st < len && chars[len.advancedBy(-1)] <= ws {
-            len = len.advancedBy(-1)
+        while st < len && chars[chars.index(len, offsetBy: -1)] <= ws {
+            len = chars.index(len, offsetBy: -1)
         }
         return (st > chars.startIndex || len < chars.endIndex) ? self[st..<len] : self
     }
@@ -47,7 +47,7 @@ public extension String {
         let len = chars.endIndex
         var st = chars.startIndex
         while st < len && chars[st] <= ws {
-            st = st.advancedBy(1)
+            st = chars.index(st, offsetBy: 1)
         }
         return (st > chars.startIndex || len < chars.endIndex) ? self[st..<len] : self
     }
@@ -57,8 +57,8 @@ public extension String {
         let chars = self.characters
         var len = chars.endIndex
         let st = chars.startIndex
-        while st < len && chars[len.advancedBy(-1)] <= ws {
-            len = len.advancedBy(-1)
+        while st < len && chars[chars.index(len, offsetBy: -1)] <= ws {
+            len = chars.index(len, offsetBy: -1)
         }
         return (st > chars.startIndex || len < chars.endIndex) ? self[st..<len] : self
 

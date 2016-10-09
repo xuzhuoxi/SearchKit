@@ -16,7 +16,7 @@ import Foundation
  */
 public struct SearchKeyResult: Comparable {
 
-    private var resultArr = [SearchTypeResult]()
+    fileprivate var resultArr = [SearchTypeResult]()
     
     public let key: String
     
@@ -102,7 +102,7 @@ public struct SearchKeyResult: Comparable {
      * @param value
      *            匹配值
      */
-    mutating public func updateBiggerValue(searchType: SearchType, _ value:Double) {
+    mutating public func updateBiggerValue(_ searchType: SearchType, _ value:Double) {
         if let index = getIndex(searchType) {
             resultArr[index].updateBiggerValue(value)
         }else{
@@ -119,8 +119,8 @@ public struct SearchKeyResult: Comparable {
      * @param str
      *            单个字(词)的单个检索类型结果
      */
-    mutating public func updateTypeValue(str:SearchTypeResult) {
-        if let index = resultArr.indexOf(str) {
+    mutating public func updateTypeValue(_ str:SearchTypeResult) {
+        if let index = resultArr.index(of: str) {
             if str > resultArr[index] {
                 resultArr[index] = str
             }
@@ -137,7 +137,7 @@ public struct SearchKeyResult: Comparable {
      *            检索类别
      * @return 匹配度
      */
-    public func getValue(searchType: SearchType) ->Double {
+    public func getValue(_ searchType: SearchType) ->Double {
         if let index = getIndex(searchType) {
             return resultArr[index].value
         }else{
@@ -153,15 +153,15 @@ public struct SearchKeyResult: Comparable {
      *            单个字(词)的检索结果
      * @return 键相同true否false
      */
-    mutating public func addSearchKeyResult(skr:SearchKeyResult) {
+    mutating public func addSearchKeyResult(_ skr:SearchKeyResult) {
         for result in skr.searchTypeResults {
             updateTypeValue(result)
         }
         sort()
     }
     
-    private func getIndex(searchType: SearchType) ->Int? {
-        for (index, st) in resultArr.enumerate() {
+    fileprivate func getIndex(_ searchType: SearchType) ->Int? {
+        for (index, st) in resultArr.enumerated() {
             if st.searchType == searchType {
                 return index
             }
@@ -169,8 +169,8 @@ public struct SearchKeyResult: Comparable {
         return nil
     }
     
-    mutating private func sort() {
-        resultArr.sortInPlace(>)
+    mutating fileprivate func sort() {
+        resultArr.sort(by: >)
     }
 }
 
