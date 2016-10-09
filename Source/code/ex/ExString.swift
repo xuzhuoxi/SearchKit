@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     /**
      * 分裂字符串
      *
