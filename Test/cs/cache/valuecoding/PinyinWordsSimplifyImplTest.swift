@@ -74,7 +74,7 @@ class PinyinWordsSimplifyImplTest: XCTestCase {
     func timeGetDimensionKeys(_ resource: Resource, count: Int) {
         let size = min(resource.size, count)
         for index in 0 ..< size {
-            self.strategy.getDimensionKeys(self.strategy.getSimplifyValue(resource.getValue(index)))
+            let _ = self.strategy.getDimensionKeys(self.strategy.getSimplifyValue(resource.getValue(index)))
         }
     }
 }

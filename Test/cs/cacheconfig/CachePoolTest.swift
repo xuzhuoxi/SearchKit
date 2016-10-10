@@ -101,8 +101,8 @@ class CachePoolTest: XCTestCase {
             for c in 0x4e00 ... 0x9fa5 {
                 let key: String = String(stringInterpolationSegment : UnicodeScalar(c))
                 if !cc.isKey(key) {
-                    ++i
-                    newSB.append("[\(key),\(cString.stringByAppendingFormat("%x", c))]")
+                    i += 1
+                    newSB.append("[\(key),\(cString.appendingFormat("%x", c))]")
                 }
             }
             sb.append("\(i)个。如下:\n")

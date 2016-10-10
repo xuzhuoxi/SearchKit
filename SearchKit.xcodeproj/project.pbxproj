@@ -47,11 +47,12 @@
 		AA6AD23B1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
 		AA6AD23C1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
 		AA6AD23D1C393E6500DED132 /* ExCacheConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6AD23A1C393E6500DED132 /* ExCacheConfig.swift */; };
+		AA821A3C1DABBBD9003B2075 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* SearchKit.framework */; };
+		AA821A3D1DABBD18003B2075 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* SearchKit.framework */; };
 		AA86E19D1C3D7406008C8B07 /* CharacterLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */; };
 		AA86E19E1C3D7406008C8B07 /* CharacterLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */; };
 		AA86E19F1C3D7406008C8B07 /* CharacterLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86E19C1C3D7406008C8B07 /* CharacterLibraryTest.swift */; };
 		AAB45B711C2C1F7C006051B6 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B671C2C1F7B006051B6 /* SearchKit.framework */; };
-		AAB45B8D1C2C1FB1006051B6 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B831C2C1FB1006051B6 /* SearchKit.framework */; };
 		AAB45BA91C2C1FCD006051B6 /* SearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB45B9F1C2C1FCD006051B6 /* SearchKit.framework */; };
 		AAB45BC51C2C1FFE006051B6 /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
 		AAB45BC61C2C1FFF006051B6 /* ChineseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5651C293C3600454BCA /* ChineseUtils.swift */; };
@@ -426,30 +427,6 @@
 		AAFED5FD1C293C3600454BCA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFED5BA1C293C3600454BCA /* String.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		AAB45B721C2C1F7C006051B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAE4F74B1C0C13EA00716182 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AAB45B661C2C1F7B006051B6;
-			remoteInfo = "ChineseSearch iOS";
-		};
-		AAB45B8E1C2C1FB1006051B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAE4F74B1C0C13EA00716182 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AAB45B821C2C1FB1006051B6;
-			remoteInfo = "ChineseSearch OSX";
-		};
-		AAB45BAA1C2C1FCD006051B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAE4F74B1C0C13EA00716182 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AAB45B9E1C2C1FCD006051B6;
-			remoteInfo = "ChineseSearch tvOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		AA50C8311C0ED29900F2D917 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -638,6 +615,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA821A3C1DABBBD9003B2075 /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,7 +645,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB45B8D1C2C1FB1006051B6 /* SearchKit.framework in Frameworks */,
+				AA821A3D1DABBD18003B2075 /* SearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1392,7 +1370,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AAB45B731C2C1F7C006051B6 /* PBXTargetDependency */,
 			);
 			name = "SearchKit iOSTests";
 			productName = "ChineseSearch iOSTests";
@@ -1428,7 +1405,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AAB45B8F1C2C1FB1006051B6 /* PBXTargetDependency */,
 			);
 			name = "SearchKit OSXTests";
 			productName = "ChineseSearch OSXTests";
@@ -1464,7 +1440,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AAB45BAB1C2C1FCD006051B6 /* PBXTargetDependency */,
 			);
 			name = "SearchKit tvOSTests";
 			productName = "ChineseSearch tvOSTests";
@@ -1509,6 +1484,7 @@
 					};
 					AAB45B6F1C2C1F7C006051B6 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = WDM8GYU622;
 					};
 					AAB45B821C2C1FB1006051B6 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -1516,13 +1492,16 @@
 					};
 					AAB45B8B1C2C1FB1006051B6 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = WDM8GYU622;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					AAB45B9E1C2C1FCD006051B6 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 					AAB45BA71C2C1FCD006051B6 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = WDM8GYU622;
 					};
 					AAE68CF31C37B48F006E680D = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -2092,24 +2071,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		AAB45B731C2C1F7C006051B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AAB45B661C2C1F7B006051B6 /* SearchKit iOS */;
-			targetProxy = AAB45B721C2C1F7C006051B6 /* PBXContainerItemProxy */;
-		};
-		AAB45B8F1C2C1FB1006051B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AAB45B821C2C1FB1006051B6 /* SearchKit OSX */;
-			targetProxy = AAB45B8E1C2C1FB1006051B6 /* PBXContainerItemProxy */;
-		};
-		AAB45BAB1C2C1FCD006051B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AAB45B9E1C2C1FCD006051B6 /* SearchKit tvOS */;
-			targetProxy = AAB45BAA1C2C1FCD006051B6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		AA46D43F1C3D36550097511C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -2460,6 +2421,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WDM8GYU622;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2506,6 +2468,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WDM8GYU622;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2656,10 +2619,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WDM8GYU622;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2676,7 +2640,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SearchKit OSXTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-OSXTests";
@@ -2704,10 +2668,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WDM8GYU622;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2719,7 +2684,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SearchKit OSXTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "xuzhuoxi.SearchKit-OSXTests";
@@ -2857,6 +2822,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WDM8GYU622;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2902,6 +2868,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WDM8GYU622;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

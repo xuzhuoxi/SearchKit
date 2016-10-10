@@ -4,7 +4,7 @@ Swift Search framework for keywords. Keywords support for custom encoding.
 
 ## 兼容性
 - OS X 10.9+ / iOS 8.0+ / tvOS 9.0
-- Xcode 7.1+, Swift 2.1+
+- Xcode 8.0+, Swift 3.0+
 
 ## 主要功能
 - 输入关键字的一部分，检索出包含这一部分的全部关键字。
@@ -325,10 +325,10 @@ func doSearch(input: String) {
   这个项目已经很久没更新了，更新xcode后可能编译报错。<br>
   可以到以下地址clone下来：<br>
   https://github.com/ayn/ExSwift<br>
-  https://github.com/xuzhuoxi/ExSwift<br>
   
 ## 其它
-- Swift中的String处理速度相当慢，只有Java中的StringBuilder或ActionScript中的String性能的1/10左右。😂😅😑😖😱
+- Swift中的String处理速度相当慢，只有Java中的StringBuilder或ActionScript中的String性能的1/10左右。😂😅😑😖😱（这个在swift3中已经有不少的改善，具体的性能比暂时不作验证）
+- 测试用例在iOS、tvOS中已经通过，但在OSX中无法启动(dyld: Library not loaded: @rpath/libswiftCore.dylib)，具体原因未查明。
 
 
 ## License
