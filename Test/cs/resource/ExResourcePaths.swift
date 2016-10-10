@@ -20,7 +20,7 @@ extension ResourcePaths {
     /**
      * 测试输入法 拼音词库 路径
      */
-    public static let PATH_PINYIN_WORDS = ResourcePaths.URL_PINYIN_WORDS.path!
+    public static let PATH_PINYIN_WORDS = ResourcePaths.URL_PINYIN_WORDS.path
     
     /**
      * 测试输入法 五笔词库 URL
@@ -29,7 +29,7 @@ extension ResourcePaths {
     /**
      * 测试输入法 五笔词库 路径
      */
-    public static let PATH_WUBI_WORDS = ResourcePaths.URL_WUBI_WORDS.path!
+    public static let PATH_WUBI_WORDS = ResourcePaths.URL_WUBI_WORDS.path
     
     /**
      * 测试输入法 词库权值 URL
@@ -38,5 +38,5 @@ extension ResourcePaths {
     /**
      * 测试输入法 词库权值 路径
      */
-    public static let PATH_WEIGHT_WORDS = ResourcePaths.URL_WEIGHT_WORDS.path!
+    public static let PATH_WEIGHT_WORDS = ResourcePaths.URL_WEIGHT_WORDS.path
 }

@@ -21,11 +21,11 @@ class AbstractWubiStrategy : AbstractValueCoding {
      *            输入字符串
      * @return 过滤处理后的字符串
      */
-    final func wubiFilter(input: String) ->String {
+    final func wubiFilter(_ input: String) ->String {
         if input.isEmpty {
             return input
         }
-        sb.removeAll(keepCapacity: true)
+        sb.removeAll(keepingCapacity: true)
         for char in input.characters {
             if ChineseUtils.isChinese(char) || ChineseUtils.isWubiChar(char) {
                 sb.append(char)
@@ -43,7 +43,7 @@ class AbstractWubiStrategy : AbstractValueCoding {
      *            字(词)
      * @return 最长的编码
      */
-    final func getWubiMaxlenValue(wordMap : CharacterLibraryProtocol, word: String) ->String {
+    final func getWubiMaxlenValue(_ wordMap : CharacterLibraryProtocol, word: String) ->String {
         if let values = wordMap.getValues(word.characters.first!) {
             if values.count == 1 {
                 return values[0]

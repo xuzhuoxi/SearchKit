@@ -15,7 +15,7 @@ import Foundation
  *
  */
 public struct SearchResult {
-    private var keyResultMap = Dictionary<String, SearchKeyResult>()
+    fileprivate var keyResultMap = Dictionary<String, SearchKeyResult>()
     
     /**
      * 取得当前键结果数量<br>
@@ -43,7 +43,7 @@ public struct SearchResult {
      * @return 按匹配度从大到小的数组
      */
     public var sortedResults: [SearchKeyResult] {
-        return [SearchKeyResult](keyResultMap.values).sort(>)
+        return [SearchKeyResult](keyResultMap.values).sorted(by: >)
     }
     
     /**
@@ -55,7 +55,7 @@ public struct SearchResult {
      * @param searchResult
      *            另一个检索结果
      */
-    mutating public func addResult(searchResult:SearchResult) {
+    mutating public func addResult(_ searchResult:SearchResult) {
         for result in searchResult.results {
             tryAddKeyResult(result)
         }
@@ -69,7 +69,7 @@ public struct SearchResult {
      * @param keyResult
      *            键结果
      */
-    mutating public func addKeyResult(keyResult:SearchKeyResult) {
+    mutating public func addKeyResult(_ keyResult:SearchKeyResult) {
         tryAddKeyResult(keyResult);
     }
     
@@ -81,7 +81,7 @@ public struct SearchResult {
      * @param regexp
      *            正则表达式
      */
-    mutating public func chineseRegexpMatchingClear(regexp:String) {
+    mutating public func chineseRegexpMatchingClear(_ regexp:String) {
         var remove: [String] = []
         let sPattern: SimplePattern = SimplePattern(regexp)
         for key in keyResultMap.keys {
@@ -90,7 +90,7 @@ public struct SearchResult {
             }
         }
         for removeKey in remove {
-            keyResultMap.removeValueForKey(removeKey)
+            keyResultMap.removeValue(forKey: removeKey)
         }
     }
     
@@ -100,7 +100,7 @@ public struct SearchResult {
      * @param keyResult
      *            键结果{@link SearchKeyResult}
      */
-    mutating private func tryAddKeyResult(keyResult:SearchKeyResult) {
+    mutating fileprivate func tryAddKeyResult(_ keyResult:SearchKeyResult) {
         if keyResultMap.has(keyResult.key) {
             keyResultMap[keyResult.key]!.addSearchKeyResult(keyResult)
         }else{

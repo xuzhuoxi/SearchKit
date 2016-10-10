@@ -37,18 +37,18 @@ class ChineseCacheTest: XCTestCase {
     func testWordsWubi() {//245.866s, 33.214s, 36.857s, 32.807s
         let path:String=ResourcePaths.PATH_WUBI_WORDS
         let resource = Resource.getResource(path)!
-        let cc = ChineseCache.createChineseCache(CacheNames.WUBI_WORDS, resource: resource, valueCodingType: ValueCodingType.WUBI_WORDS)
+        let cc = ChineseCache.createChineseCache(CacheNames.WUBI_WORDS, resource: resource, valueCodingType: ValueCodingType.wubi_WORDS)
         traceInfo(cc, key: "sg", desc: "ChineseCacheTest.testWordsWubi()")
     }
     
     func testWordsPinyin() {//1864.972s, 230.804s, 255.562s, 227.777s
         let path:String=ResourcePaths.PATH_PINYIN_WORDS
         let resource = Resource.getResource(path)!
-        let cc = ChineseCache.createChineseCache(CacheNames.PINYIN_WORDS, resource: resource, valueCodingType: ValueCodingType.PINYIN_WORDS)
+        let cc = ChineseCache.createChineseCache(CacheNames.PINYIN_WORDS, resource: resource, valueCodingType: ValueCodingType.pinyin_WORDS)
         traceInfo(cc, key: "sg", desc: "ChineseCacheTest.testWordsPinyin()")
     }
     
-    private func traceInfo(cc : ChineseCacheProtocol, key : String, desc : String) {
+    fileprivate func traceInfo(_ cc : ChineseCacheProtocol, key : String, desc : String) {
         let result = cc.getKeys(key)
         print(desc + ":[keysSize:\(cc.keysSize),resultCount:\(result.count)]")
         print("\(result)\n")

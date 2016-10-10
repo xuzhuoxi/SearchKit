@@ -45,10 +45,10 @@ extension ResourcePaths {
     public static let URL_AOLA_PINYIN = ResourcePaths.getProperitesURL(RC.self, name: "Aola_pinyin")!
     public static let URL_AOLA_WUBI = ResourcePaths.getProperitesURL(RC.self, name: "Aola_wubi")!
     public static let URL_AOLA_WEIGHT = ResourcePaths.getProperitesURL(RC.self, name: "Aola_weight")!
-    public static let PATH_AOLA_ID = ResourcePaths.URL_AOLA_ID.path!
-    public static let PATH_AOLA_PINYIN = ResourcePaths.URL_AOLA_PINYIN.path!
-    public static let PATH_AOLA_WUBI = ResourcePaths.URL_AOLA_WUBI.path!
-    public static let PATH_AOLA_WEIGHT = ResourcePaths.URL_AOLA_WEIGHT.path!
+    public static let PATH_AOLA_ID = ResourcePaths.URL_AOLA_ID.path
+    public static let PATH_AOLA_PINYIN = ResourcePaths.URL_AOLA_PINYIN.path
+    public static let PATH_AOLA_WUBI = ResourcePaths.URL_AOLA_WUBI.path
+    public static let PATH_AOLA_WEIGHT = ResourcePaths.URL_AOLA_WEIGHT.path
     
     /**
      * Dota
@@ -57,10 +57,10 @@ extension ResourcePaths {
     public static let URL_DOTA_PINYIN = ResourcePaths.getProperitesURL(RC.self, name: "Dota_pinyin")!
     public static let URL_DOTA_WUBI = ResourcePaths.getProperitesURL(RC.self, name: "Dota_wubi")!
     public static let URL_DOTA_WEIGHT = ResourcePaths.getProperitesURL(RC.self, name: "Dota_weight")!
-    public static let PATH_DOTA_ID = ResourcePaths.URL_DOTA_ID.path!
-    public static let PATH_DOTA_PINYIN = ResourcePaths.URL_DOTA_PINYIN.path!
-    public static let PATH_DOTA_WUBI = ResourcePaths.URL_DOTA_WUBI.path!
-    public static let PATH_DOTA_WEIGHT = ResourcePaths.URL_DOTA_WEIGHT.path!
+    public static let PATH_DOTA_ID = ResourcePaths.URL_DOTA_ID.path
+    public static let PATH_DOTA_PINYIN = ResourcePaths.URL_DOTA_PINYIN.path
+    public static let PATH_DOTA_WUBI = ResourcePaths.URL_DOTA_WUBI.path
+    public static let PATH_DOTA_WEIGHT = ResourcePaths.URL_DOTA_WEIGHT.path
     
     /**
      * 我的世界
@@ -69,10 +69,10 @@ extension ResourcePaths {
     public static let URL_MINECRAFT_PINYIN = ResourcePaths.getProperitesURL(RC.self, name: "Minecraft_pinyin")!
     public static let URL_MINECRAFT_WUBI = ResourcePaths.getProperitesURL(RC.self, name: "Minecraft_wubi")!
     public static let URL_MINECRAFT_WEIGHT = ResourcePaths.getProperitesURL(RC.self, name: "Minecraft_weight")!
-    public static let PATH_MINECRAFT_ID = ResourcePaths.URL_MINECRAFT_ID.path!
-    public static let PATH_MINECRAFT_PINYIN = ResourcePaths.URL_MINECRAFT_PINYIN.path!
-    public static let PATH_MINECRAFT_WUBI = ResourcePaths.URL_MINECRAFT_WUBI.path!
-    public static let PATH_MINECRAFT_WEIGHT = ResourcePaths.URL_MINECRAFT_WEIGHT.path!
+    public static let PATH_MINECRAFT_ID = ResourcePaths.URL_MINECRAFT_ID.path
+    public static let PATH_MINECRAFT_PINYIN = ResourcePaths.URL_MINECRAFT_PINYIN.path
+    public static let PATH_MINECRAFT_WUBI = ResourcePaths.URL_MINECRAFT_WUBI.path
+    public static let PATH_MINECRAFT_WEIGHT = ResourcePaths.URL_MINECRAFT_WEIGHT.path
 }
 
 extension CacheConfig {
@@ -119,19 +119,19 @@ extension SearchTypeInfo {
     /**
      * 某个游戏物品 拼音检索
      */
-    public static let AOLA_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.AOLA_PINYIN, CachePool.instance.getCache(CacheNames.AOLA_PINYIN) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.PINYIN_WORDS), CachePool.instance.getCache(CacheNames.AOLA_WEIGHT) as? WeightCacheProtocol)
+    public static let AOLA_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.AOLA_PINYIN, CachePool.instance.getCache(CacheNames.AOLA_PINYIN) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.pinyin_WORDS), CachePool.instance.getCache(CacheNames.AOLA_WEIGHT) as? WeightCacheProtocol)
     /**
      * 某个游戏物品 五笔检索
      */
-    public static let AOLA_WUBI_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.AOLA_WUBI, CachePool.instance.getCache(CacheNames.AOLA_WUBI) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.WUBI_WORDS), CachePool.instance.getCache(CacheNames.AOLA_WEIGHT) as? WeightCacheProtocol)
+    public static let AOLA_WUBI_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.AOLA_WUBI, CachePool.instance.getCache(CacheNames.AOLA_WUBI) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.wubi_WORDS), CachePool.instance.getCache(CacheNames.AOLA_WEIGHT) as? WeightCacheProtocol)
     
     /**
      * Dota 拼音检索
      */
-    public static let DOTA_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.DOTA_PINYIN, CachePool.instance.getCache(CacheNames.DOTA_PINYIN) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.PINYIN_WORDS), CachePool.instance.getCache(CacheNames.DOTA_WEIGHT) as? WeightCacheProtocol)
+    public static let DOTA_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.DOTA_PINYIN, CachePool.instance.getCache(CacheNames.DOTA_PINYIN) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.pinyin_WORDS), CachePool.instance.getCache(CacheNames.DOTA_WEIGHT) as? WeightCacheProtocol)
     
     /**
      * 我的世界 拼音检索
      */
-    public static let MINECRAFT_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.MINECRAFT_PINYIN, CachePool.instance.getCache(CacheNames.MINECRAFT_PINYIN) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.PINYIN_WORDS), CachePool.instance.getCache(CacheNames.MINECRAFT_WEIGHT) as? WeightCacheProtocol)
+    public static let MINECRAFT_PINYIN_SEARCH: SearchTypeInfo = SearchTypeInfo(SearchType.MINECRAFT_PINYIN, CachePool.instance.getCache(CacheNames.MINECRAFT_PINYIN) as! ChineseCacheProtocol, ValueCodingStrategyFactory.getValueCodingStrategy(ValueCodingType.pinyin_WORDS), CachePool.instance.getCache(CacheNames.MINECRAFT_WEIGHT) as? WeightCacheProtocol)
 }

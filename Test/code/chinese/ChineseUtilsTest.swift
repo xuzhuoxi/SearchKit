@@ -36,7 +36,7 @@ class ChineseUtilsTest: XCTestCase {
         let chs:[Character]=["a", "你", "，"]
         let rs=[false, true, false]
         XCTAssertEqual(chs.count, rs.count)
-        for (i, str) in chs.enumerate() {
+        for (i, str) in chs.enumerated() {
             XCTAssertEqual(ChineseUtils.isChinese(str), rs[i])
         }
     }
@@ -45,7 +45,7 @@ class ChineseUtilsTest: XCTestCase {
         let testStr=["你", "a你", "你a", "a你a", "你你", "a你你", "你你a", "a你你a", "你a你", "", "b"]
         let rs=[true, true, true, true, true, true, true, true, true, false, false]
         XCTAssertEqual(testStr.count, rs.count)
-        for (i, str) in testStr.enumerate() {
+        for (i, str) in testStr.enumerated() {
             XCTAssertEqual(ChineseUtils.hasChinese(str), rs[i])
         }
     }
@@ -54,7 +54,7 @@ class ChineseUtilsTest: XCTestCase {
         let testStr = ["你", "a你", "你a", "a你a", "你你", "a你你", "你你a", "a你你a", "你a你", "", "b"]
         let rs:[[Int]] = [[0], [1], [0], [1], [0, 1], [1, 2], [0, 1], [1, 2], [0, 2], [], []]
         XCTAssertEqual(testStr.count, rs.count)
-        for (i, str) in testStr.enumerate() {
+        for (i, str) in testStr.enumerated() {
             let result = ChineseUtils.getChineseIndexs(str)
             XCTAssertEqual(result, rs[i])
         }
@@ -64,7 +64,7 @@ class ChineseUtilsTest: XCTestCase {
         let chs:[Character]=["a", "你", "，"]
         let rs=[true, false, false]
         XCTAssertEqual(chs.count, rs.count)
-        for (i, str) in chs.enumerate() {
+        for (i, str) in chs.enumerated() {
             XCTAssertEqual(ChineseUtils.isPinyinChar(str), rs[i])
         }
     }
@@ -73,7 +73,7 @@ class ChineseUtilsTest: XCTestCase {
         let chs:[Character]=["a", "你", "，", "z"]
         let rs=[true, false, false, false]
         XCTAssertEqual(chs.count, rs.count)
-        for (i, str) in chs.enumerate() {
+        for (i, str) in chs.enumerated() {
             XCTAssertEqual(ChineseUtils.isWubiChar(str), rs[i])
         }
     }
@@ -82,7 +82,7 @@ class ChineseUtilsTest: XCTestCase {
         let testStr=["你", "a你", "你a", "a你a", "你你", "a你你", "你你a", "a你你a", "你ab你"]
         let rs=["^你[\u{4e00}-\u{9fa5}]*$", "^[\u{4e00}-\u{9fa5}]*你[\u{4e00}-\u{9fa5}]*$", "^你[\u{4e00}-\u{9fa5}]*$", "^[\u{4e00}-\u{9fa5}]*你[\u{4e00}-\u{9fa5}]*$", "^你你[\u{4e00}-\u{9fa5}]*$", "^[\u{4e00}-\u{9fa5}]*你你[\u{4e00}-\u{9fa5}]*$", "^你你[\u{4e00}-\u{9fa5}]*$", "^[\u{4e00}-\u{9fa5}]*你你[\u{4e00}-\u{9fa5}]*$", "^你[\u{4e00}-\u{9fa5}]*你[\u{4e00}-\u{9fa5}]*$"]
         XCTAssertEqual(testStr.count, rs.count)
-        for (i, str) in testStr.enumerate() {
+        for (i, str) in testStr.enumerated() {
             XCTAssertEqual(ChineseUtils.toChineseWordsRegexp(str), rs[i])
         }
     }

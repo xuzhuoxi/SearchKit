@@ -9,7 +9,7 @@
 import Foundation
 
 public struct StringCombination {
-    private init(){}
+    fileprivate init(){}
     
     /**
     * 使用字符串数组进行组合<br>
@@ -23,7 +23,7 @@ public struct StringCombination {
     *            是否允许重复
     * @return 二维数组，第一个数组为只有1个source元素的字符串数组，第二个为2个source元素，如止类推<br>
     */
-    public static func getTwoDimensionArray(source : [String], dimensionValue : Int, isRepeat : Bool = false) ->[[String]]? {
+    public static func getTwoDimensionArray(_ source : [String], dimensionValue : Int, isRepeat : Bool = false) ->[[String]]? {
         return dimension(source, dimensionValue, isRepeat);
     }
     
@@ -39,7 +39,7 @@ public struct StringCombination {
     *            是否允许重复
     * @return 一维数组<br>
     */
-    public static func getDimensionCombinationArray(source : [String], dimensionValue : Int, isRepeat : Bool = false) ->[String]? {
+    public static func getDimensionCombinationArray(_ source : [String], dimensionValue : Int, isRepeat : Bool = false) ->[String]? {
         if let temp = dimension(source, dimensionValue, isRepeat) {
             return dimensionalityReduction(temp, isRepeat)
         }else{
@@ -57,7 +57,7 @@ public struct StringCombination {
     *            是否允许重复
     * @return 一维字符串数组
     */
-    public static func dimensionalityReduction(arrTwo : [[String]], _ isRepeat : Bool = true) ->[String] {
+    public static func dimensionalityReduction(_ arrTwo : [[String]], _ isRepeat : Bool = true) ->[String] {
         var rs = ArrayUtils.dimensionalityReduction(arrTwo)
         if !isRepeat {
             ArrayUtils.cleanRepeat(&rs)
@@ -78,7 +78,7 @@ public struct StringCombination {
     *            是否允许重复
     * @return 二维数组，第一个数组为只有1个source元素的字符串数组，第二个为2个source元素，如止类推<br>
     */
-    private static func dimension(source : [String], _ dimensionValue : Int, _ isRepeat : Bool = false) ->[[String]]? {
+    fileprivate static func dimension(_ source : [String], _ dimensionValue : Int, _ isRepeat : Bool = false) ->[[String]]? {
         let newDimension = min(source.count, dimensionValue)
         if newDimension < 1 {
             return nil
@@ -90,11 +90,11 @@ public struct StringCombination {
             var sb:String = "";
             var rs = [[String]]()
             for i in 0..<indexs.count {
-                rs.append([String](count: indexs[i].count, repeatedValue: ""))
+                rs.append([String](repeating: "", count: indexs[i].count))
                 for j in 0..<rs[i].count {
-                    sb.removeAll(keepCapacity: true)
+                    sb.removeAll(keepingCapacity: true)
                     for index in indexs[i][j] {
-                        sb.appendContentsOf(source[index])
+                        sb.append(source[index])
                     }
                     rs[i][j] = sb
                 }
@@ -108,7 +108,8 @@ public struct StringCombination {
         }
     }
     
-    private static func dimensionOne(var source : [String], isRepeat : Bool) ->[[String]] {
+    private static func dimensionOne(_ source : [String], isRepeat : Bool) ->[[String]] {
+        var source = source
         if !isRepeat {
             ArrayUtils.cleanRepeat(&source)
         }

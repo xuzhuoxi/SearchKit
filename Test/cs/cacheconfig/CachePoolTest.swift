@@ -38,7 +38,7 @@ class CachePoolTest: XCTestCase {
         CacheConfig.instance.supplyWubiWordsConfig()
         let cacheNames = [CacheNames.PINYIN_WORDS, CacheNames.WUBI_WORDS]
         let dkArr = ["sg", "sg"]
-        for (index, cacheName) in cacheNames.enumerate() {
+        for (index, cacheName) in cacheNames.enumerated() {
             XCTAssertNotNil(CachePool.instance.getCache(cacheName))
             printInfo(CachePool.instance.getCache(cacheName) as! ChineseCacheProtocol, dimensionKey: dkArr[index])
         }
@@ -47,27 +47,27 @@ class CachePoolTest: XCTestCase {
     func testCharacterLibraryCaches() {//1.345s
         let cacheNames = [CacheNames.PINYIN_WORD, CacheNames.WUBI_WORD]
         let size = [20807, 6791]
-        for (index, cacheName) in cacheNames.enumerate() {
+        for (index, cacheName) in cacheNames.enumerated() {
             XCTAssertNotNil(CachePool.instance.getCache(cacheName))
             let clp = CachePool.instance.getCache(cacheName) as! CharacterLibraryProtocol
             XCTAssertEqual(size[index], clp.keysSize)
         }
     }
     
-    func printInfo(cc: ChineseCacheProtocol, dimensionKey: String) {
+    func printInfo(_ cc: ChineseCacheProtocol, dimensionKey: String) {
         printCache(cc)
         printSomeFromCache(cc, dimensionKey)
     }
     
-    func printCache(cc: ChineseCacheProtocol) {
+    func printCache(_ cc: ChineseCacheProtocol) {
         print(cc)
     }
     
-    func printSomeFromCache(cc: ChineseCacheProtocol, _ dimensionKey: String) {
+    func printSomeFromCache(_ cc: ChineseCacheProtocol, _ dimensionKey: String) {
         let keyList = cc.getKeys(dimensionKey)
         var sb = ""
-        sb.appendContentsOf("\(cc.cacheName): \(keyList.count)\n")
-        sb.appendContentsOf("\(keyList)\n")
+        sb.append("\(cc.cacheName): \(keyList.count)\n")
+        sb.append("\(keyList)\n")
         print(sb)
     }
     
@@ -83,7 +83,7 @@ class CachePoolTest: XCTestCase {
         let result = [1.0, 1.0, 1.06, 5, 9, 1.0]
         let wc = CachePool.instance.getCache(CacheNames.WEIGHT) as? WeightCacheProtocol
         XCTAssertNotNil(wc)
-        for (index, key) in test.enumerate() {
+        for (index, key) in test.enumerated() {
             XCTAssertEqual(wc!.getValues(key), result[index])
         }
     }
@@ -95,19 +95,19 @@ class CachePoolTest: XCTestCase {
         let ccArr = [cc0, cc1]
         for cc in ccArr {
             var i = 0
-            sb.appendContentsOf("\t\(cc.cacheName)中无编码总数:")
+            sb.append("\t\(cc.cacheName)中无编码总数:")
             var newSB = ""
             let cString = ""
             for c in 0x4e00 ... 0x9fa5 {
                 let key: String = String(stringInterpolationSegment : UnicodeScalar(c))
                 if !cc.isKey(key) {
-                    ++i
-                    newSB.appendContentsOf("[\(key),\(cString.stringByAppendingFormat("%x", c))]")
+                    i += 1
+                    newSB.append("[\(key),\(cString.appendingFormat("%x", c))]")
                 }
             }
-            sb.appendContentsOf("\(i)个。如下:\n")
-            sb.appendContentsOf("\t" + newSB)
-            sb.appendContentsOf("\n————————————end\n")
+            sb.append("\(i)个。如下:\n")
+            sb.append("\t" + newSB)
+            sb.append("\n————————————end\n")
         }
         print(sb)
     }

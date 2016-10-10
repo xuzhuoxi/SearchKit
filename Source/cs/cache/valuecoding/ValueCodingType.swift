@@ -15,23 +15,23 @@ import Foundation
  *
  */
 public enum ValueCodingType {
-    case PINYIN_WORD, PINYIN_WORDS, WUBI_WORD, WUBI_WORDS
+    case pinyin_WORD, pinyin_WORDS, wubi_WORD, wubi_WORDS
 }
 
 extension ValueCodingType {
     public static func values() ->[ValueCodingType] {
-        return [PINYIN_WORD, PINYIN_WORDS, WUBI_WORD, WUBI_WORDS]
+        return [pinyin_WORD, pinyin_WORDS, wubi_WORD, wubi_WORDS]
     }
     
     public var associatedClassName : String {
         switch self {
-        case .PINYIN_WORD:
+        case .pinyin_WORD:
             return "SearchKit.PinyinWordStrategyImpl"
-        case .PINYIN_WORDS:
+        case .pinyin_WORDS:
             return "SearchKit.PinyinWordsStrategyImpl"
-        case .WUBI_WORD:
+        case .wubi_WORD:
             return "SearchKit.WubiWordStrategyImpl"
-        case .WUBI_WORDS:
+        case .wubi_WORDS:
             return "SearchKit.WubiWordsStrategyImpl"
         }
     }

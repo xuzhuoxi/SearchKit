@@ -24,7 +24,7 @@ public protocol CacheInitProtocol : class {
      * @param initialCapacity
      *            初始化容器{@link CacheInfo#getInitialCapacity()}
      */
-    func initCache(cacheName:String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt)
+    func initCache(_ cacheName:String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt)
     
     /**
      * 缓存数据<br>
@@ -32,7 +32,7 @@ public protocol CacheInitProtocol : class {
      * @param resource
      *            数据资源，详细请看Resource类{@link Resource}
      */
-    func supplyResource(resource: Resource)
+    func supplyResource(_ resource: Resource)
     
     /**
      * 缓存数据<br>
@@ -40,7 +40,7 @@ public protocol CacheInitProtocol : class {
      * @param path
      *            文件路径
      */
-    func supplyResource(url: NSURL)
+    func supplyResource(_ url: URL)
     
     /**
      * 缓存数据<br>
@@ -48,7 +48,7 @@ public protocol CacheInitProtocol : class {
      * @param data
      *            数据字符串，以换行符区分单个数据
      */
-    func supplyData(data: String)
+    func supplyData(_ data: String)
     
     /**
      * 缓存数据<br>
@@ -58,5 +58,5 @@ public protocol CacheInitProtocol : class {
      * @param value
      *            数据字符串-键
      */
-    func supplyData(key : String, value: String)
+    func supplyData(_ key : String, value: String)
 }

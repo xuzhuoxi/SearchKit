@@ -9,12 +9,12 @@
 import Foundation
 
 public struct ValueCodingStrategyFactory {
-    private init(){}
+    fileprivate init(){}
     
-    private static var map = Dictionary<ValueCodingType, ValueCodingStrategyProtocol>()
+    fileprivate static var map = Dictionary<ValueCodingType, ValueCodingStrategyProtocol>()
     
-    public static func getValueCodingStrategy(type:ValueCodingType) ->ValueCodingStrategyProtocol{
-        if let _ = map.indexForKey(type) {
+    public static func getValueCodingStrategy(_ type:ValueCodingType) ->ValueCodingStrategyProtocol{
+        if let _ = map.index(forKey: type) {
             return map[type]!
         }else{
             let rs = createValueCodingStrategy(type)
@@ -23,15 +23,15 @@ public struct ValueCodingStrategyFactory {
         }
     }
     
-    public static func createValueCodingStrategy(type:ValueCodingType) ->ValueCodingStrategyProtocol{
+    public static func createValueCodingStrategy(_ type:ValueCodingType) ->ValueCodingStrategyProtocol{
         switch type {
-        case .PINYIN_WORD:
+        case .pinyin_WORD:
             return PinyinWordStrategyImpl()
-        case .PINYIN_WORDS:
+        case .pinyin_WORDS:
             return PinyinWordsStrategyImpl()
-        case .WUBI_WORD:
+        case .wubi_WORD:
             return WubiWordStrategyImpl()
-        case .WUBI_WORDS:
+        case .wubi_WORDS:
             return WubiWordsStrategyImpl()
         }
     }

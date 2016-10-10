@@ -13,7 +13,7 @@
 *
 */
 public struct MathUtils {
-    private init(){}
+    fileprivate init(){}
     /**
      * 计算从个数为m的有序数组中取得n个元素所构成的组合的个数<br>
      * 组合行为基于数组顺序
@@ -24,7 +24,7 @@ public struct MathUtils {
      *            选择个数
      * @return 组合个数
      */
-    public static func getCombinationCount(m:Int, _ n:Int) ->Int{
+    public static func getCombinationCount(_ m:Int, _ n:Int) ->Int{
         var getLen: Int = 0
         var fenzi: Int = m
         var fenmu: Int = 1
@@ -47,8 +47,8 @@ public struct MathUtils {
      *            不确定进制数组
      * @return 由十进制数据组成的数组
      */
-    public static func tenToCustomSystem(value:Int, _ system:[Int]) ->[Int] {
-        var rs = Array<Int>(count : system.count, repeatedValue : 0)
+    public static func tenToCustomSystem(_ value:Int, _ system:[Int]) ->[Int] {
+        var rs = Array<Int>(repeating: 0, count: system.count)
         var temp = value
         for i in 0..<system.count {
             rs[i] = temp%system[i]
@@ -66,21 +66,21 @@ public struct MathUtils {
      *            最多可选择个数
      * @return 全部组合的索引情况
      */
-    public static func getDimensionCombinationIndex(sourceLen:Int, dimension:Int) ->[[[Int]]]? {
+    public static func getDimensionCombinationIndex(_ sourceLen:Int, dimension:Int) ->[[[Int]]]? {
         let newDimension = sourceLen<dimension ? sourceLen : dimension
         if newDimension<1 {
             return nil
         }
         if 1==newDimension {
-            var result = [[[Int]]](count: 1, repeatedValue: [[Int]]())
+            var result = [[[Int]]](repeating: [[Int]](), count: 1)
             for i in 0..<sourceLen {
                 result[0].append([i])
             }
             return result
         }
-        var rs = [[[Int]]](count: newDimension, repeatedValue: [[Int]]())
+        var rs = [[[Int]]](repeating: [[Int]](), count: newDimension)
         for i in 0..<sourceLen {
-            for (var j = newDimension-2; j>=0; j--){
+            for j in (0...(newDimension-2)).reversed() {
                 if rs[j].count > 0 {
                     for indexs in rs[j] {
                         var add = indexs
@@ -88,18 +88,18 @@ public struct MathUtils {
                         rs[j+1].append(add)
                     }
                 }
-                if 0==j {
+                if 0 == j {
                     rs[0].append([i])
                 }
             }
         }
         for i in 0..<rs.count {
-            rs[i].sortInPlace(intArrayComparable)
+            rs[i].sort(by: intArrayComparable)
         }
         return rs;
     }
     
-    private static func intArrayComparable(o1:[Int], o2:[Int]) ->Bool {
+    fileprivate static func intArrayComparable(_ o1:[Int], o2:[Int]) ->Bool {
         if o1.count != o2.count {
             return o1.count < o2.count
         }else{

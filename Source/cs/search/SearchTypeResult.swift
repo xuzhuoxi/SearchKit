@@ -15,7 +15,7 @@ import Foundation
  *
  */
 public struct SearchTypeResult: Comparable {
-    private static let fullMatchingValue: Double = 2.0
+    fileprivate static let fullMatchingValue: Double = 2.0
     
     /**
      * 检索类型
@@ -29,7 +29,7 @@ public struct SearchTypeResult: Comparable {
      *
      * @return 检索结果(匹配度)
      */
-    private(set) public var value: Double = 0
+    fileprivate(set) public var value: Double = 0
     
     /**
      * 是否为全匹配
@@ -53,7 +53,7 @@ public struct SearchTypeResult: Comparable {
      *
      * @see #fullMatchingValue
      */
-    mutating public func updateBiggerValue(value: Double) {
+    mutating public func updateBiggerValue(_ value: Double) {
         if (value <= SearchTypeResult.fullMatchingValue && self.value < value) {
             self.value = value
         }

@@ -31,7 +31,7 @@ class DimensionMapBase {
      *            如果长度大于valueList的size，取前部分允许长度的字符串作为键值进行获取<br>
      * @return 值列表
      */
-    final func getKeyList(dimensionKey:String) -> Set<String>?{
+    final func getKeyList(_ dimensionKey:String) -> Set<String>?{
         let dKeyLen = dimensionKey.characters.count
         if dKeyLen > valueList.count {
             return nil
@@ -51,7 +51,7 @@ class DimensionMapBase {
         return (valueList.count, kc,vc)
     }
     
-    static func createDimensionMap(charSet : [Character], dimension : Int) -> DimensionMapProtocol? {
+    static func createDimensionMap(_ charSet : [Character], dimension : Int) -> DimensionMapProtocol? {
         return FixedDimensionMapImpl(charList : charSet, dimension: dimension)
     }
     

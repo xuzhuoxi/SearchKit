@@ -10,8 +10,8 @@ import Foundation
 
 class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, ReflectionProtocol {
     
-    private(set) var _cacheName: String!
-    private var codeInfo: [[String]] = [[String]](count: ChineseUtils.chineseSize, repeatedValue: [])
+    fileprivate(set) var _cacheName: String!
+    fileprivate var codeInfo: [[String]] = [[String]](repeating: [], count: ChineseUtils.chineseSize)
     
     var cacheName: String {
         return _cacheName
@@ -21,13 +21,13 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         var size: Int = 0
         codeInfo.each { (arr: [String]) -> () in
             if !arr.isEmpty {
-                ++size
+                size += 1
             }
         }
         return size
     }
     
-    final func isKey(key: String) -> Bool {
+    final func isKey(_ key: String) -> Bool {
         if key.length == 1 {
             if let index = getIndex(key.characters.first!) {
                 return !codeInfo[index].isEmpty
@@ -36,21 +36,21 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         return false
     }
     
-    final func isKey(char: Character) -> Bool {
+    final func isKey(_ char: Character) -> Bool {
         if let index = getIndex(char) {
             return !codeInfo[index].isEmpty
         }
         return false
     }
     
-    final func isKey(uScalar: UnicodeScalar) -> Bool {
+    final func isKey(_ uScalar: UnicodeScalar) -> Bool {
         if let index = getIndex(uScalar) {
             return !codeInfo[index].isEmpty
         }
         return false
     }
     
-    final func getValues(key: Character) -> [String]? {
+    final func getValues(_ key: Character) -> [String]? {
         if let index = getIndex(key) {
             if codeInfo[index].isEmpty {
                 return nil
@@ -62,7 +62,7 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         }
     }
     
-    final func getValues(uScalar: UnicodeScalar) -> [String]? {
+    final func getValues(_ uScalar: UnicodeScalar) -> [String]? {
         if let index = getIndex(uScalar) {
             if codeInfo[index].isEmpty {
                 return nil
@@ -74,33 +74,33 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         }
     }
     
-    final func initCache(cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
+    final func initCache(_ cacheName: String, _ valueCodingInstance: ValueCodingStrategyProtocol?, _ initialCapacity: UInt) {
         self._cacheName = cacheName
     }
     
-    final func supplyResource(url: NSURL) {
-        if let resource = Resource.getResource(url.path!) {
+    final func supplyResource(_ url: URL) {
+        if let resource = Resource.getResource(url.path) {
             supplyResource(resource)
         }
     }
     
-    final func supplyResource(resource: Resource) {
+    final func supplyResource(_ resource: Resource) {
         for i in 0 ..< resource.size {
-            tryCacheKeyValue(resource.getKey(i), resource.getValue(i))
+           let _ = tryCacheKeyValue(resource.getKey(i), resource.getValue(i))
         }
     }
     
-    final func supplyData(data: String) {
+    final func supplyData(_ data: String) {
         if let resource = Resource.getResourceByData(data) {
             supplyResource(resource)
         }
     }
     
-    final func supplyData(key: String, value: String) {
-        tryCacheKeyValue(key, value)
+    final func supplyData(_ key: String, value: String) {
+        let _ = tryCacheKeyValue(key, value)
     }
     
-    private func getIndex(char: Character) ->Int? {
+    fileprivate func getIndex(_ char: Character) ->Int? {
         if ChineseUtils.isChinese(char) {
             for u in String(char).unicodeScalars {
                 return Int(u.value - ChineseUtils.chineseStartUnicode)
@@ -109,7 +109,7 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         return nil
     }
     
-    private func getIndex(uScalar: UnicodeScalar) ->Int? {
+    fileprivate func getIndex(_ uScalar: UnicodeScalar) ->Int? {
         if ChineseUtils.inChineseUnicodeArea(uScalar.value) {
             return Int(uScalar.value - ChineseUtils.chineseStartUnicode)
         }else{
@@ -117,7 +117,7 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         }
     }
     
-    final func tryCacheKeyValue(resourceKey: String, _ resourceValue: String) -> Bool {
+    final func tryCacheKeyValue(_ resourceKey: String, _ resourceValue: String) -> Bool {
         if resourceKey.isEmpty || resourceValue.isEmpty {
             return false
         }
@@ -125,7 +125,7 @@ class CharacterLibraryImpl: CharacterLibraryProtocol, CacheInitProtocol, Reflect
         if !ChineseUtils.isChinese(char) {
             return false
         }
-        let values = resourceValue.componentsSeparatedByString("#")
+        let values = resourceValue.components(separatedBy: "#")
         var codeArr: [String] = []
         for value in values {
             let tValue = value.trim()

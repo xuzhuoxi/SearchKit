@@ -34,7 +34,7 @@ class ResourceTest: XCTestCase {
     //    }
     
     func testPerformance() {
-        self.measureBlock{
+        self.measure{
             self.testGetResourceByAbsolutePath()
         }
     }
@@ -54,7 +54,7 @@ class ResourceTest: XCTestCase {
         paths.append(ResourcePaths.PATH_WUBI_WORDS)//绝对路径
         paths.append(ResourcePaths.PATH_WEIGHT_WORDS)//绝对路径
         let result = [20808, 90679, 6791, 90674, 90680]
-        for (index, path) in paths.enumerate() {
+        for (index, path) in paths.enumerated() {
             let resource = Resource.getResource(path)
             XCTAssertNotNil(resource)
             XCTAssertEqual(resource?.size, result[index])

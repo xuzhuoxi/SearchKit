@@ -9,7 +9,7 @@
 import Foundation
 @testable import SearchKit
 
-extension CacheNames {
+public extension CacheNames {
     /**
      * 拼音 词库
      */

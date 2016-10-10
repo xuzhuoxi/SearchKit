@@ -17,11 +17,11 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
     /**
      * 单声母
      */
-    private let danshengmu:[Character]  = ["b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "r", "z", "c", "s", "w", "y" ]
+    fileprivate let danshengmu:[Character]  = ["b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "r", "z", "c", "s", "w", "y" ]
     /**
      * 空格
      */
-    private let space : Character = " "
+    fileprivate let space : Character = " "
     
     /**
      * 从头开始遍历<br>
@@ -31,11 +31,11 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
      * 3.声母字符<br>
      * 把以上得到的字符按遍历顺序组成字符串返回<br>
      */
-    final func getSimplifyValue(value: String) -> String {
+    final func getSimplifyValue(_ value: String) -> String {
         if value.isEmpty {
             return ""
         }
-        sb.removeAll(keepCapacity: true)
+        sb.removeAll(keepingCapacity: true)
         var add : Bool = false
         var first = true
         for c in value.characters {
@@ -52,18 +52,18 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
         return sb
     }
     
-    final func getDimensionKeys(simplifyValue: String) ->[String] {
+    final func getDimensionKeys(_ simplifyValue: String) ->[String] {
         return abstractGetDimensionKeys(simplifyValue)
     }
     
     /**
      * 过滤输入字符串，保留中文字符、拼音字符及空格<br>
      */
-    final func filter(input: String) -> String {
+    final func filter(_ input: String) -> String {
         if input.isEmpty {
             return input
         }
-        sb.removeAll(keepCapacity: true)
+        sb.removeAll(keepingCapacity: true)
         for c in input.characters {
             if ChineseUtils.isChinese(c) || ChineseUtils.isPinyinChar(c) {
                 sb.append(c)
@@ -80,13 +80,13 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
      *
      * @see #getSimplifyValue(String)
      */
-    final func translate(filteredInput : String) ->[String] {
+    final func translate(_ filteredInput : String) ->[String] {
         var rs : [String]
         if ChineseUtils.hasChinese(filteredInput) {
             let wordPinyinMap = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! CharacterLibraryProtocol
             let indexs = ChineseUtils.getChineseIndexs(filteredInput)
             var values = [[String]]()
-            var system = [Int](count: indexs.count, repeatedValue: 0)
+            var system = [Int](repeating: 0, count: indexs.count)
             var maxValue = 1
             for i in 0..<indexs.count {
                 let key: String = filteredInput[indexs[i]]!
@@ -101,15 +101,15 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
             }
             rs = [String]()
             for i in 0 ..< maxValue {
-                sb.removeAll(keepCapacity: true)
-                sb.appendContentsOf(filteredInput)
+                sb.removeAll(keepingCapacity: true)
+                sb.append(filteredInput)
                 let temp = MathUtils.tenToCustomSystem(i, system)
-                for var j = indexs.count - 1; j>=0; --j {
+                for j in (0..<(indexs.count-1)).reversed() {
                     let sourceIndex = indexs[j]
                     let valueIndex = temp[j]
-                    let index = sb.startIndex.advancedBy(sourceIndex)
-                    sb.removeAtIndex(index)
-                    sb.insertContentsOf((" " + values[j][valueIndex] + " ").characters, at: index)
+                    let index = sb.characters.index(sb.startIndex, offsetBy: sourceIndex)
+                    sb.remove(at: index)
+                    sb.insert(contentsOf: (" " + values[j][valueIndex] + " ").characters, at: index)
                 }
                 rs[i] = sb.trim()
             }
@@ -133,7 +133,7 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
      *
      * @see StringCombination
      */
-    override final func computeDimensionKeys(simplifyValue : String) ->[String] {
+    override final func computeDimensionKeys(_ simplifyValue : String) ->[String] {
         if simplifyValue.isEmpty {
             return []
         }
@@ -143,9 +143,9 @@ class PinyinWordsStrategyImpl : AbstractValueCoding , ValueCodingStrategyProtoco
         let maxDimension = 2
         
         let source = simplifyValue.explode()
-        let subSource : [String] = source[1..<source.count]
+        let subSource = [String](source[1..<source.count])
         let subRs = StringCombination.getDimensionCombinationArray(subSource, dimensionValue: maxDimension - 1, isRepeat: false)!
-        var rs : [String] = [String](count: subRs.count+1, repeatedValue: "")
+        var rs : [String] = [String](repeating: "", count: subRs.count+1)
         rs[0] = source[0]
         for i in 1 ..< rs.count {
             rs[i] = rs[0] + subRs[i-1]

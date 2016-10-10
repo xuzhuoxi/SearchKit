@@ -13,8 +13,8 @@
 * @author xuzhuoxi
 */
 class FixedDimensionMapImpl: DimensionMapBase, DimensionMapProtocol {
-    private final let _dimension : Int
-    private final let charList : [Character]
+    fileprivate final let _dimension : Int
+    fileprivate final let charList : [Character]
     
     init?(charList: [Character] , dimension : Int) {
         self.charList = charList
@@ -26,7 +26,7 @@ class FixedDimensionMapImpl: DimensionMapBase, DimensionMapProtocol {
         initData()
     }
     
-    private func initData() {
+    fileprivate func initData() {
         var dimensionKeylist : [String]?
         for index in 0 ..< _dimension {
             dimensionKeylist = addDimmension(dimensionKeylist)
@@ -45,18 +45,18 @@ class FixedDimensionMapImpl: DimensionMapBase, DimensionMapProtocol {
         return computeDimensionInfo()
     }
     
-    final func add(dimensionKey: String, dimensionValue: String) {
+    final func add(_ dimensionKey: String, dimensionValue: String) {
         if dimensionKey.isEmpty || dimensionKey.length > valueList.count {
             return
         }
         valueList[dimensionKey.length-1][dimensionKey]?.insert(dimensionValue)
     }
     
-    final func get(dimensionKey: String) -> Set<String>? {
+    final func get(_ dimensionKey: String) -> Set<String>? {
         return getKeyList(dimensionKey)
     }
     
-    private func addDimmension(dimesionKeylist : [String]?) -> [String] {
+    fileprivate func addDimmension(_ dimesionKeylist : [String]?) -> [String] {
         let dl = nil == dimesionKeylist ? [String]() : dimesionKeylist!
         var rs = [String]()
         for c in charList {

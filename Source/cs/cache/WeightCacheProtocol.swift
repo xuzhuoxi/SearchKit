@@ -26,5 +26,5 @@ public protocol WeightCacheProtocol: CacheProtocol {
      *            键
      * @return 权重值
      */
-    func getValues(key:String) ->Double
+    func getValues(_ key:String) ->Double
 }

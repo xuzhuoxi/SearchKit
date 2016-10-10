@@ -19,7 +19,7 @@ class PinyinCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
      * 1.不可编码部分作为编码保留，可编码则求取编码。
      * 2.编码数组作自由组合，中间补充空格。<br>
      */
-    final func coding(wordCache: CharacterLibraryProtocol, words: String) -> [String]? {
+    final func coding(_ wordCache: CharacterLibraryProtocol, words: String) -> [String]? {
         if words.isEmpty {
             return nil
         }
@@ -35,25 +35,25 @@ class PinyinCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
                 size *= values[values.count-1].count
             }
         }
-        var rs = [String](count: size, repeatedValue: "")
-        for (i, var sb) in rs.enumerate() {
+        var rs = [String](repeating: "", count: size)
+        for (i, var sb) in rs.enumerated() {
             for strAry in values {
                 let index = i % strAry.count
-                sb.appendContentsOf(strAry[index] + " ")
+                sb.append(strAry[index] + " ")
             }
-            rs[i] = sb.substringToIndex(sb.endIndex.advancedBy(-1))
+            rs[i] = sb.substring(to: sb.characters.index(sb.endIndex, offsetBy: -1))
         }
         return rs
     }
     
-    final private func participles(wordCache: CharacterLibraryProtocol, words: String) ->[String] {
+    final fileprivate func participles(_ wordCache: CharacterLibraryProtocol, words: String) ->[String] {
         var temp = [String]()
         var sb = ""
         for word in words.characters {
             if (wordCache.isKey(word)) {
                 if (sb.length > 0) {
                     temp.append(sb)
-                    sb.removeAll(keepCapacity: true)
+                    sb.removeAll(keepingCapacity: true)
                 }
                 temp.append(String(word))
             } else {

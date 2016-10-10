@@ -20,12 +20,12 @@ public struct ChineseUtils {
     public static let chineseStartUnicode : UInt32 = 0x4e00
     public static let chineseEndUnicode : UInt32 = 0x9fa5
     
-    private static var sb:String = ""
+    fileprivate static var sb:String = ""
     
-    private static let someChinese = "[\u{4e00}-\u{9fa5}]*"
-    private static let endStr = "$"
+    fileprivate static let someChinese = "[\u{4e00}-\u{9fa5}]*"
+    fileprivate static let endStr = "$"
     
-    private init(){}
+    fileprivate init(){}
     
     public static let chineseSize: Int = Int(ChineseUtils.chineseEndUnicode - ChineseUtils.chineseStartUnicode + 1)
     
@@ -37,7 +37,7 @@ public struct ChineseUtils {
      *            待判断的字符
      * @return 是中文字符返回true,否则返回false。
      */
-    public static func isChinese(word : Character) ->Bool {
+    public static func isChinese(_ word : Character) ->Bool {
         return word >= chineseStartChar && word <= chineseEndChar;
     }
     
@@ -49,7 +49,7 @@ public struct ChineseUtils {
      *            待判断的字符
      * @return 是中文字符返回true,否则返回false。
      */
-    public static func inChineseUnicodeArea(value: UInt32) ->Bool {
+    public static func inChineseUnicodeArea(_ value: UInt32) ->Bool {
         return value >= chineseStartUnicode && value <= chineseEndUnicode
     }
     
@@ -61,7 +61,7 @@ public struct ChineseUtils {
      *            待判断的字符串
      * @return 字符串包含中文字符返回true,否则返回false。
      */
-    public static func hasChinese(words : String) ->Bool {
+    public static func hasChinese(_ words : String) ->Bool {
         var b = false
         for char in words.unicodeScalars {
             b = inChineseUnicodeArea(char.value)
@@ -79,7 +79,7 @@ public struct ChineseUtils {
      *            待计算字符串
      * @return 返回每个中文字符返回字符串中的索引组成的数组。
      */
-    public static func getChineseIndexs(words : String) -> [Int] {
+    public static func getChineseIndexs(_ words : String) -> [Int] {
         if words.isEmpty || !hasChinese(words) {
             return []
         }
@@ -90,7 +90,7 @@ public struct ChineseUtils {
             if inChineseUnicodeArea(char.value) {
                 temp.append(index)
             }
-            ++index
+            index += 1
         }
         return temp
     }
@@ -102,29 +102,29 @@ public struct ChineseUtils {
      *            包含中文字符的字符串
      * @return 字符串形式的正则表达式
      */
-    public static func toChineseWordsRegexp(chineseInput : String) ->String? {
+    public static func toChineseWordsRegexp(_ chineseInput : String) ->String? {
         if chineseInput.isEmpty || !hasChinese(chineseInput) {
             return nil
         }
-        sb.removeAll(keepCapacity: true)
-        sb.appendContentsOf("^")
+        sb.removeAll(keepingCapacity: true)
+        sb.append("^")
         var isPC = true
         var isC = false
         var first = true
         for char in chineseInput.unicodeScalars {
             isC = inChineseUnicodeArea(char.value)
             if isC {
-                sb.append(char)
+                sb.append(String(char))
             }else if first || isPC {
-                sb.appendContentsOf(someChinese)
+                sb.append(someChinese)
             }
             isPC = isC
             first = false
         }
         if isPC {
-            sb.appendContentsOf(someChinese)
+            sb.append(someChinese)
         }
-        sb.appendContentsOf(endStr)
+        sb.append(endStr)
         return sb
     }
     
@@ -137,7 +137,7 @@ public struct ChineseUtils {
      * @return 如果是中文拼音所使用到的字符，则返回true，否则返回false。<br>
      *
      */
-    public static func isPinyinChar(c : Character) ->Bool {
+    public static func isPinyinChar(_ c : Character) ->Bool {
         return (c >= "\u{0041}" && c <= "\u{005A}") || (c >= "\u{0061}" && c <= "\u{007A}")
     }
     
@@ -149,7 +149,7 @@ public struct ChineseUtils {
      *            待判断的字符
      * @return 如果是中文五笔所使用到的字符，则返回true，否则返回false。<br>
      */
-    public static func isWubiChar(c : Character) ->Bool {
+    public static func isWubiChar(_ c : Character) ->Bool {
         return (c >= "\u{0041}" && c < "\u{005A}") || (c >= "\u{0061}" && c < "\u{007A}")
     }
 }

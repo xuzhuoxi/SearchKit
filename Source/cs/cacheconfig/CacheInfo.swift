@@ -40,7 +40,7 @@ public struct CacheInfo {
     /**
      * 缓存初始化时使用资源的路径 多个资源可使用""相隔
      */
-    public let resourceURLs : [NSURL]?
+    public let resourceURLs : [URL]?
     /**
      * 字符文件编码类型，如UTF-8等
      */
@@ -55,7 +55,7 @@ public struct CacheInfo {
      */
     public let isNeedResource : Bool
     
-    public init(_ cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [NSURL]?, _ charsetName: String?,  valueCodingType: ValueCodingType?) {
+    public init(_ cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [URL]?, _ charsetName: String?,  valueCodingType: ValueCodingType?) {
         self.cacheName = cacheName
         self.cacheReflectionInfo = ReflectionInfo(className: cacheClassName)
         self.isSingleton = isSingleton
@@ -67,7 +67,7 @@ public struct CacheInfo {
         self.isNeedResource = nil != resourceURLs && !resourceURLs!.isEmpty
     }
     
-    public init(_ cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [NSURL]?, _ charsetName: String?,  valueCodingClassName: String?) {
+    public init(_ cacheName: String, _ cacheClassName: String, _ isSingleton: Bool, _ initialCapacity: UInt, _ resourceURLs: [URL]?, _ charsetName: String?,  valueCodingClassName: String?) {
         self.cacheName = cacheName
         self.cacheReflectionInfo = ReflectionInfo(className: cacheClassName)
         self.isSingleton = isSingleton
@@ -79,11 +79,11 @@ public struct CacheInfo {
         self.isNeedResource = nil != resourceURLs && !resourceURLs!.isEmpty
     }
 
-    public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [NSURL]?, valueCodingType: ValueCodingType?) {
+    public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [URL]?, valueCodingType: ValueCodingType?) {
         self.init(cacheName, reflectClassName, isSingleton, initialCapacity, resourceURLs, "UTF-8", valueCodingType: valueCodingType)
     }
     
-    public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [NSURL]?, valueCodingClassName: String?) {
+    public init(cacheName: String, reflectClassName: String, isSingleton: Bool, initialCapacity: UInt, resourceURLs: [URL]?, valueCodingClassName: String?) {
         self.init(cacheName, reflectClassName, isSingleton, initialCapacity, resourceURLs, "UTF-8", valueCodingClassName: valueCodingClassName)
     }
 }

@@ -15,7 +15,7 @@ import Foundation
  *
  */
 public struct SearchConfig {
-    private(set) public var searchTypeInfos: [SearchTypeInfo]
+    fileprivate(set) public var searchTypeInfos: [SearchTypeInfo]
     
     public init() {
         self.searchTypeInfos = []
@@ -25,22 +25,22 @@ public struct SearchConfig {
         self.searchTypeInfos = searchTypeInfos
     }
     
-    mutating public func addSearchType(searchTypeInfo: SearchTypeInfo){
+    mutating public func addSearchType(_ searchTypeInfo: SearchTypeInfo){
         guard let _ = getIndex(searchTypeInfo) else {
             searchTypeInfos.append(searchTypeInfo)
             return
         }
     }
     
-    mutating public func removeSearchType(searchType: SearchType){
+    mutating public func removeSearchType(_ searchType: SearchType){
         if let index = getIndex(searchType) {
-            searchTypeInfos.removeAtIndex(index)
+            searchTypeInfos.remove(at: index)
         }
     }
     
-    mutating public func removeSearchType(searchTypeInfo: SearchTypeInfo){
+    mutating public func removeSearchType(_ searchTypeInfo: SearchTypeInfo){
         if let index = getIndex(searchTypeInfo) {
-            searchTypeInfos.removeAtIndex(index)
+            searchTypeInfos.remove(at: index)
         }
     }
     
@@ -48,12 +48,12 @@ public struct SearchConfig {
         searchTypeInfos.removeAll()
     }
     
-    private func getIndex(searchTypeInfo: SearchTypeInfo) ->Int? {
-        return searchTypeInfos.indexOf(searchTypeInfo)
+    fileprivate func getIndex(_ searchTypeInfo: SearchTypeInfo) ->Int? {
+        return searchTypeInfos.index(of: searchTypeInfo)
     }
     
-    private func getIndex(searchType: SearchType) ->Int? {
-        for (index, ele) in searchTypeInfos.enumerate() {
+    fileprivate func getIndex(_ searchType: SearchType) ->Int? {
+        for (index, ele) in searchTypeInfos.enumerated() {
             if ele.searchType == searchType {
                 return index
             }

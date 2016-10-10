@@ -10,7 +10,7 @@ import XCTest
 @testable import SearchKit
 
 class PinyinWordsSimplifyImplTest: XCTestCase {
-    private let strategy : ValueCodingStrategyProtocol = PinyinWordsStrategyImpl()
+    fileprivate let strategy : ValueCodingStrategyProtocol = PinyinWordsStrategyImpl()
     
 //    override func setUp() {
 //        super.setUp()
@@ -63,7 +63,7 @@ class PinyinWordsSimplifyImplTest: XCTestCase {
         let path = ResourcePaths.PATH_PINYIN_WORDS
         let resource = Resource.getResource(path)!
 //        self.timeGetDimensionKeys(resource, count: Int.max)
-        self.measureBlock{
+        self.measure{
 //            self.timeGetDimensionKeys(resource, count: 500) //4.879s, 4.852s, 4.803s, 5.009s (优化全开0.022s)
 //            self.timeGetDimensionKeys(resource, count: 1000) //6.066s, 5.795s, 5.846s, 5.782s (优化全开0.043s)
 //            self.timeGetDimensionKeys(resource, count: 10000) //13.703s, 13.713s, 13.986s, 13.601s (优化全开0.457s)
@@ -71,10 +71,10 @@ class PinyinWordsSimplifyImplTest: XCTestCase {
         }
     }
     
-    func timeGetDimensionKeys(resource: Resource, count: Int) {
+    func timeGetDimensionKeys(_ resource: Resource, count: Int) {
         let size = min(resource.size, count)
         for index in 0 ..< size {
-            self.strategy.getDimensionKeys(self.strategy.getSimplifyValue(resource.getValue(index)))
+            let _ = self.strategy.getDimensionKeys(self.strategy.getSimplifyValue(resource.getValue(index)))
         }
     }
 }

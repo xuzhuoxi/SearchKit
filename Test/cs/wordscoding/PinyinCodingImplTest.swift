@@ -38,7 +38,7 @@ class PinyinCodingImplTest: XCTestCase {
         let testAry = ["一", "丘", "之", "貉", "一丘之貉", "AA制"]
         let result = [["yi"],["qiu"],["zhi"],["hao","he","ma","mo"],["yi qiu zhi hao", "yi qiu zhi he", "yi qiu zhi ma", "yi qiu zhi mo"],["AA zhi"]]
         let cc = CachePool.instance.getCache(CacheNames.PINYIN_WORD) as! CharacterLibraryProtocol
-        for (index, str) in testAry.enumerate() {
+        for (index, str) in testAry.enumerated() {
             let coded = impl.coding(cc, words: str)
             XCTAssertNotNil(coded)
             XCTAssertEqual(result[index], coded!)

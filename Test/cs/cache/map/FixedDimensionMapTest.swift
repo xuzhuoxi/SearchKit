@@ -34,7 +34,7 @@ class FixedDimensionMapTest: XCTestCase {
 //        }
 //    }
     
-    func assertTuplesEqual(tuples0: (Int, Int, Int), _ tuples1: (Int, Int, Int)) {
+    func assertTuplesEqual(_ tuples0: (Int, Int, Int), _ tuples1: (Int, Int, Int)) {
         XCTAssertEqual(tuples0.0, tuples1.0)
         XCTAssertEqual(tuples0.1, tuples1.1)
         XCTAssertEqual(tuples0.2, tuples1.2)
@@ -43,7 +43,7 @@ class FixedDimensionMapTest: XCTestCase {
     func testInfo() {
         let dimension = [1, 2]
         let result = [(1,26,0), (2,702,0)]
-        for (index, d) in dimension.enumerate() {
+        for (index, d) in dimension.enumerated() {
             assertTuplesEqual(FixedDimensionMapImpl(charList: keyCode, dimension: d)!.dimensionInfo, result[index])
         }
     }

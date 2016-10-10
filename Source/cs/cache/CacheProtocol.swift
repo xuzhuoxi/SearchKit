@@ -36,6 +36,6 @@ public protocol CacheProtocol : class {
      *            键
      * @return 有true无false
      */
-    func isKey(key:String) ->Bool
+    func isKey(_ key:String) ->Bool
 }
 

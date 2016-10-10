@@ -14,7 +14,7 @@ import Foundation
  *
  */
 public struct SearchType : Hashable {
-    private static var index: Int = 1000
+    fileprivate static var index: Int = 1000
     public let rawValue: Int
     /**
      * 关联名称 用于最终结果后其它信息的连结
@@ -24,12 +24,14 @@ public struct SearchType : Hashable {
     public let associatedName: String?
     
     public init(){
-        self.rawValue = SearchType.index++
+        SearchType.index += 1
+        self.rawValue = SearchType.index
         self.associatedName = nil
     }
     
     public init(associatedName: String) {
-        self.rawValue = SearchType.index++
+        SearchType.index += 1
+        self.rawValue = SearchType.index
         self.associatedName = associatedName
     }
     

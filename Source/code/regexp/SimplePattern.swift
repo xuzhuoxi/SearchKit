@@ -19,27 +19,27 @@ public struct SimplePattern {
     
     public init(_ pattern : String) {
         do{
-            let rawValue = NSRegularExpressionOptions.AnchorsMatchLines.rawValue | NSRegularExpressionOptions.DotMatchesLineSeparators.rawValue
-            regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions(rawValue: rawValue))
+            let rawValue = NSRegularExpression.Options.anchorsMatchLines.rawValue | NSRegularExpression.Options.dotMatchesLineSeparators.rawValue
+            regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options(rawValue: rawValue))
         }catch{
             regex = nil
         }
     }
     
-    public func isMatch(input: String) -> Bool {
+    public func isMatch(_ input: String) -> Bool {
         return match(input).count > 0
     }
     
-    public func getMatchCount(input: String) ->Int {
+    public func getMatchCount(_ input: String) ->Int {
         return match(input).count
     }
     
-    public func match(input: String) ->[NSTextCheckingResult] {
+    public func match(_ input: String) ->[NSTextCheckingResult] {
         if nil == regex {
             return []
         }else{
             let range = NSMakeRange(0, input.characters.count)
-            let rs: [NSTextCheckingResult] = regex!.matchesInString(input, options: .ReportProgress, range: range)
+            let rs: [NSTextCheckingResult] = regex!.matches(in: input, options: .reportProgress, range: range)
             return rs
         }
     }

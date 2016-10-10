@@ -18,15 +18,15 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
 //        CachePool.instance.initSingletonCaches()
     }
     
-    final func search(input: String, searchConfig: SearchConfig) -> SearchResult? {
+    final func search(_ input: String, searchConfig: SearchConfig) -> SearchResult? {
         return tryAdvancedSearch(input, searchConfig, Int.max)
     }
     
-    final func search(input: String, searchConfig: SearchConfig, max: Int) -> [SearchKeyResult]? {
+    final func search(_ input: String, searchConfig: SearchConfig, max: Int) -> [SearchKeyResult]? {
         return trySearch(input, searchConfig, max)
     }
     
-    private func tryAdvancedSearch(input:String, _ searchConfig: SearchConfig, _ max:Int) ->SearchResult? {
+    fileprivate func tryAdvancedSearch(_ input:String, _ searchConfig: SearchConfig, _ max:Int) ->SearchResult? {
         if let newInput = validityInput(input, searchConfig.searchTypeInfos, max) {
             return searchMutliType(SearchInfo(newInput, searchConfig, max))
         }else{
@@ -34,7 +34,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
         }
     }
     
-    private func trySearch(input:String, _ searchConfig: SearchConfig, _ max:Int) ->[SearchKeyResult]? {
+    fileprivate func trySearch(_ input:String, _ searchConfig: SearchConfig, _ max:Int) ->[SearchKeyResult]? {
         if let newInput = validityInput(input,searchConfig.searchTypeInfos, max) {
             return doSearch(SearchInfo(newInput, searchConfig, max))
         }else{
@@ -42,24 +42,24 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
         }
     }
     
-    private func validityInput(input: String, _ searchTypes:[SearchTypeInfo], _ max:Int) ->String? {
+    fileprivate func validityInput(_ input: String, _ searchTypes:[SearchTypeInfo], _ max:Int) ->String? {
         if input.isEmpty || searchTypes.isEmpty || max <= 0 {
             return nil
         }
-        let newInput = input.trim().lowercaseString
+        let newInput = input.trim().lowercased()
         if newInput.isEmpty {
             return nil
         }
         return newInput
     }
     
-    private func doSearch(si:SearchInfo) ->[SearchKeyResult] {
-        let sr:SearchResult = searchMutliType(si)
-        let rs:[SearchKeyResult]=sr.sortedResults
+    fileprivate func doSearch(_ si:SearchInfo) ->[SearchKeyResult] {
+        let sr: SearchResult = searchMutliType(si)
+        let rs: [SearchKeyResult] = sr.sortedResults
         if (rs.count < si.maxResultCount) {
             return rs
         } else {
-            return rs[0 ..< si.maxResultCount]
+            return [SearchKeyResult](rs[0..<si.maxResultCount])
         }
     }
     
@@ -70,7 +70,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
     *            已经通过验证的检索信息
     * @return
     */
-    private func searchMutliType(searchInfo:SearchInfo!) ->SearchResult {
+    fileprivate func searchMutliType(_ searchInfo:SearchInfo!) ->SearchResult {
         var sr: SearchResult = SearchResult()
         var filteredInput:String
         if (searchInfo.isChineseInput) {
@@ -110,7 +110,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
     *            经过编码的输入信息数组
     * @return
     */
-    private func searchOneSearchType(sti:SearchTypeInfo, _ codedInputStrs:[String]) ->SearchResult {
+    fileprivate func searchOneSearchType(_ sti:SearchTypeInfo, _ codedInputStrs:[String]) ->SearchResult {
         var sr:SearchResult = SearchResult()
         for codedInputStr in codedInputStrs {
             if codedInputStr.isEmpty {
@@ -133,7 +133,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
     *            经过编码的输入信息
     * @return
     */
-    private func searchOneCoded(sti:SearchTypeInfo, _ codedInputStr:String) ->[SearchKeyResult] {
+    fileprivate func searchOneCoded(_ sti:SearchTypeInfo, _ codedInputStr:String) ->[SearchKeyResult] {
         let strategy = sti.valueCodingStrategy
         let str:String = strategy.getSimplifyValue(strategy.filter(codedInputStr))
         let dimensionKeys:[String] = handleSimplifyValue(str) // 低精度检索，快速
@@ -165,9 +165,9 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
     * @param simplifyValue
     * @return
     */
-    private func handleSimplifyValue(simplifyValue:String) ->[String] {
+    fileprivate func handleSimplifyValue(_ simplifyValue:String) ->[String] {
         if simplifyValue.length > 2 { // 截取前两位作为检索，这里可以
-            return [simplifyValue.substringToIndex(simplifyValue.startIndex.advancedBy(2))]
+            return [simplifyValue.substring(to: simplifyValue.characters.index(simplifyValue.startIndex, offsetBy: 2))]
         }
         return [simplifyValue]
     }
@@ -180,7 +180,7 @@ class ChineseSearcherImpl : ChineseSearcherProtocol {
     * @param simplifyValue
     * @return
     */
-    private func advancedHandleSimplifyValue(strategy:ValueCodingStrategyProtocol, simplifyValue:String) ->[String] {
+    fileprivate func advancedHandleSimplifyValue(_ strategy:ValueCodingStrategyProtocol, simplifyValue:String) ->[String] {
         return strategy.getDimensionKeys(simplifyValue)
     }
 }

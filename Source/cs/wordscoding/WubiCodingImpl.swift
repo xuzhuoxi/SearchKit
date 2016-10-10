@@ -21,7 +21,7 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
      * 3.三个字的，返回前三个字的最长编码第一个字符加上第三个字的最长编码第二个字符的合并字符串。<br>
      * 4.四个字或以上的，返回前三个字的的最长编码的第一个字符加最后一个字的最长编码的第一个字符。<br>
      */
-    final func coding(wordCache: CharacterLibraryProtocol, words: String) -> [String]? {
+    final func coding(_ wordCache: CharacterLibraryProtocol, words: String) -> [String]? {
         if words.isEmpty || !canCoding(wordCache, words) {
             return nil
         }
@@ -40,12 +40,12 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
         return codingResult
     }
     
-    private func getCode(wordCache: CharacterLibraryProtocol, _ words: String, _ needs: [(Int, Int)]) ->String{
+    fileprivate func getCode(_ wordCache: CharacterLibraryProtocol, _ words: String, _ needs: [(Int, Int)]) ->String{
         var rs = ""
         for (index, len) in needs {
-            let word = words[words.startIndex.advancedBy(index)]
+            let word = words[words.characters.index(words.startIndex, offsetBy: index)]
             let maxCode = getMaxValue(wordCache, word)
-            rs.appendContentsOf(maxCode.substringToIndex(maxCode.startIndex.advancedBy(len)))
+            rs.append(maxCode.substring(to: maxCode.characters.index(maxCode.startIndex, offsetBy: len)))
         }
         return rs
         
@@ -58,7 +58,7 @@ class WubiCodingImpl : ChineseWordsCoding , ChineseWordsCodingProtocol {
      * @param word
      * @return
      */
-    private func getMaxValue(wordCache: CharacterLibraryProtocol, _ word: Character) ->String {
+    fileprivate func getMaxValue(_ wordCache: CharacterLibraryProtocol, _ word: Character) ->String {
         if let values = wordCache.getValues(word) {
             if values.count == 1 {
                 return values[0]

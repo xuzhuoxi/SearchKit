@@ -38,7 +38,7 @@ class WubiCodingImplTest: XCTestCase {
         let testAry = ["一", "丁", "点", "一丁点"]
         let result = [["ggll"],["sgh"],["hkou"],["gshk"]]
         let cc = CachePool.instance.getCache(CacheNames.WUBI_WORD) as! CharacterLibraryProtocol
-        for (index, str) in testAry.enumerate() {
+        for (index, str) in testAry.enumerated() {
             let coded = impl.coding(cc, words: str)
             XCTAssertNotNil(coded)
             XCTAssertEqual(result[index], coded!)

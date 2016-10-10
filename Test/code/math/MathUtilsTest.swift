@@ -42,7 +42,7 @@ class MathUtilsTest: XCTestCase {
             for v in d {
                 let rs:Int = MathUtils.getCombinationCount(l, v)
                 XCTAssertEqual(rs, r[i])
-                ++i
+                i += 1
             }
         }
     }
@@ -52,8 +52,8 @@ class MathUtilsTest: XCTestCase {
             [[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]],
             [[0,1,2],[0,1,3],[0,1,4],[0,2,3],[0,2,4],[0,3,4],[1,2,3],[1,2,4],[1,3,4],[2,3,4]]]
         let rs = MathUtils.getDimensionCombinationIndex(5, dimension: 3)!
-        for (index0, arrs) in rs.enumerate() {
-            for (index1, arr) in arrs.enumerate() {
+        for (index0, arrs) in rs.enumerated() {
+            for (index1, arr) in arrs.enumerated() {
                 XCTAssertEqual(arr, result[index0][index1])
             }
         }
